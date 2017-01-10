@@ -1,12 +1,16 @@
 /**
- * Title: Customer.java 
+ * Title: C_Customer.java 
  * Type: Class
  * Author: Gabriel Mellides
- * Description: This class describes a customer
+ * Description: This class describes a Customer.
  */
 package erpsystem.base;
 
 public class C_Customer {
+    
+    
+    
+    
     // -- Set Methods
         public void setFirstName(String FirstName) {
             this.FirstName = FirstName;
