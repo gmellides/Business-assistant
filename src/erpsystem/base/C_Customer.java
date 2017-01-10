@@ -10,7 +10,6 @@ public class C_Customer {
     
     
     
-    
     // -- Set Methods
         public void setFirstName(String FirstName) {
             this.FirstName = FirstName;
