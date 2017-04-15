@@ -3,9 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package erpsystem.basic;
+package erpsystem.util.datetime;
 
-
-public class c_Customer extends c_Person{
+/**
+ *
+ * @author gabri
+ */
+public class c_DateTimeProvider {
     
 }

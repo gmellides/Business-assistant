@@ -4,7 +4,7 @@
  * Author: Gabriel Mellides
  * Description: This class Exports a PDF File.
  */
-package erpsystem.export;
+package erpsystem.util.export;
 
 public class c_exportPDF {
     

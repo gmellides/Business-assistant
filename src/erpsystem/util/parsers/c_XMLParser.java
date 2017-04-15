@@ -3,12 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package erpsystem.basic;
+package erpsystem.util.parsers;
 
-/**
- *
- * @author gabri
- */
-public class c_Supplier extends c_Person{
+public class c_XMLParser {
     
 }
+ 

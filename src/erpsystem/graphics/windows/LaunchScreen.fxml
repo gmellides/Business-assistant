@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="473.0" prefWidth="754.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="erpsystem.graphics.controllers.LaunchScreenController">
+    <stylesheets>
+        <URL value="@/erpsystem/graphics/CSS/launchscreen.css" />
+    </stylesheets>
+   <children>
+      <Pane prefHeight="473.0" prefWidth="754.0">
+         <children>
+            <Button layoutX="625.0" layoutY="434.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="%lnc_btnExit" />
+            <Button layoutX="31.0" layoutY="260.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="138.0" text="%lnc_btnEmployeeManager" />
+            <Button layoutX="586.0" layoutY="313.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="138.0" text="%lnc_btnContactManager" />
+            <Button layoutX="586.0" layoutY="149.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="138.0" text="%lnc_btnStorageManager" />
+            <Label layoutX="299.0" layoutY="37.0" text="%lnc_lblAppTitle">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
+            <Line endX="200.0" layoutX="517.0" layoutY="245.0" rotate="90.0" startX="-100.0" />
+            <Line endX="200.0" layoutX="134.0" layoutY="245.0" rotate="90.0" startX="-100.0" />
+            <Button layoutX="31.0" layoutY="149.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="138.0" text="%lnc_btnCostumers" />
+            <Button layoutX="31.0" layoutY="201.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="138.0" text="%lnc_btnSuppliers" />
+            <Button layoutX="31.0" layoutY="313.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="138.0" text="%lnc_btnFinance" />
+            <PieChart layoutX="200.0" layoutY="139.0" prefHeight="257.0" prefWidth="353.0" />
+            <Label layoutX="213.0" layoutY="113.0" text="Label" />
+            <Button layoutX="586.0" layoutY="201.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="138.0" text="%lnc_btnSalesManager" />
+            <Button layoutX="586.0" layoutY="260.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="138.0" text="%lnc_btnPurchaseManager" />
+            <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="754.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

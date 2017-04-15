@@ -6,39 +6,33 @@
 package erpsystem;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
-/**
- *
- * @author gabri
- */
 public class ERPSystem extends Application {
     
     @Override
-    public void start(Stage primaryStage) {
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
+    public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("/erpsystem/windows/LaunchScreen.fxml"));
+        
+        Scene scene = new Scene(root);
+     
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+          @Override
+          public void handle(WindowEvent we) {
+             System.exit(0);
+          }
         });
-        
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        
-        Scene scene = new Scene(root, 300, 250);
-        
-        primaryStage.setTitle("Hello World!");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        stage.setTitle("ERP SYSTEM");
+        stage.setScene(scene);
+        stage.setResizable(false);
+       // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
+     //   stage.getIcons().add(icon);
+        stage.show();
     }
 
     /**
@@ -47,5 +41,4 @@ public class ERPSystem extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
 }

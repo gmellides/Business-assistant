@@ -4,7 +4,7 @@
  * Author: Gabriel Mellides
  * Description: This is a Sub Class and describes an Employee.
  */
-package erpsystem.basic;
+package erpsystem.people;
 
 import java.util.Date;
 

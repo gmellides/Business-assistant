@@ -4,7 +4,7 @@
  * Author: Gabriel Mellides
  * Description: This class operates about exporting something on a CSV File.
  */
-package erpsystem.export;
+package erpsystem.util.export;
 
 
 public class c_exportCSV {

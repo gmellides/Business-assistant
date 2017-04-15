@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package erpsystem.basic;
+package erpsystem.people;
 
 import java.util.Date;
-
 
 public class c_Contact extends c_Person {
     // ---- Set Methods

@@ -4,7 +4,7 @@
  * Author: Gabriel Mellides
  * Description: This is a Super Class and describes a Person.
  */
-package erpsystem.basic;
+package erpsystem.people;
 
 public class c_Person {
     
