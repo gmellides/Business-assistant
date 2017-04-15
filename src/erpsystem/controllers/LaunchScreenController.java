@@ -7,7 +7,10 @@ package erpsystem.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 
 /**
  * FXML Controller class
@@ -16,6 +19,11 @@ import javafx.fxml.Initializable;
  */
 public class LaunchScreenController implements Initializable {
 
+    @FXML
+    private Button StartButton;
+    @FXML
+    private Button btn_ContactsManager;
+
     /**
      * Initializes the controller class.
      */
@@ -23,5 +31,10 @@ public class LaunchScreenController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void btn_ContactsManager(ActionEvent event) {
+        
+    }
     
 }
