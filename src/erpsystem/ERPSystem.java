@@ -5,6 +5,7 @@
  */
 package erpsystem;
 
+import java.util.ResourceBundle;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +18,11 @@ public class ERPSystem extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/erpsystem/windows/LaunchScreen.fxml"));
+        FXMLLoader f = new FXMLLoader();
+        
+        f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
+        
+        Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/LaunchScreen.fxml").openStream());
         
         Scene scene = new Scene(root);
      

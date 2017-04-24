@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.contacts.ContactManagerScreenController">
+    <stylesheets>
+        <URL value="@/erpsystem/graphics/CSS/contactmanagerscreen.css" />
+    </stylesheets>
+   <children>
+      <Pane fx:id="background_pane" layoutY="1.0" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Button layoutX="444.0" layoutY="350.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" text="%cmgr_btnExit" />
+            <Button layoutX="410.0" layoutY="243.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" text="Button" />
+            <Button layoutX="410.0" layoutY="167.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" text="%cmgr_btnViewContacts" />
+            <Button fx:id="btnNewContact" layoutX="410.0" layoutY="101.0" mnemonicParsing="false" onAction="#btnNewContactsAction" text="%cmgr_btnNewContact" />
+            <Line endX="150.0" layoutX="178.0" layoutY="192.0" rotate="90.0" startX="-100.0" />
+            <Label layoutX="167.0" layoutY="14.0" prefHeight="35.0" prefWidth="267.0" text="%cmgr_lbltitle" wrapText="true">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="213.0" layoutY="113.0" text="%cmgr_lblinfo" />
+            <Label layoutX="218.0" layoutY="144.0" text="cmgr_lblinfo" />
+            <Label layoutX="223.0" layoutY="171.0" text="Label" />
+            <Label layoutX="223.0" layoutY="200.0" text="Label" />
+            <Pane fx:id="contact_mgrPane" layoutX="14.0" layoutY="123.0" prefHeight="154.0" prefWidth="177.0" styleClass=".ko" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

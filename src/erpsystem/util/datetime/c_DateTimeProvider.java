@@ -1,14 +1,50 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Title: DateTimeProvider
+ * Author: Gabriel Mellides
+ * Type: Java Class
+ * Description: This class provides date and time from system.
  */
 package erpsystem.util.datetime;
 
-/**
- *
- * @author gabri
- */
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+
 public class c_DateTimeProvider {
     
+    /**
+     * Name: GetTime
+     * Type: Method
+     * Description: Returns a String with current time (based on System)
+     * @return 
+     */
+    public String GetTime(){
+        DateFormat TimeFormat = new SimpleDateFormat("HH:mm:ss");
+        Date date = new Date();
+        return TimeFormat.format(date);
+    } // GetTime()
+    /**
+     * Name: GetTime
+     * Type: Method
+     * Description: Returns a String with current date (based on System)
+     * @return 
+     */
+    public String GetDate(){
+        DateFormat DateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = new Date();
+        return DateFormat.format(date);
+    } // GetDate()
+    /**
+     * Name: GetTime
+     * Type: Method
+     * Description: Returns a String with current date & time (based on System time)
+     * @return 
+     */
+    public String GetDateTime(){
+        DateFormat DateTimeFormat = new SimpleDateFormat("EEEE, dd MMMM yyyy  HH:mm:ss");
+        Date date = new Date();
+        return DateTimeFormat.format(date);
+    } // GetDateTime()
+   
 }
