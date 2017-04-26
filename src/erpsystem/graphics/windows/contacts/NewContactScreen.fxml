@@ -37,8 +37,8 @@
             </Label>
             <ComboBox fx:id="countries_cmb" layoutX="262.0" layoutY="166.0" prefHeight="25.0" prefWidth="137.0" promptText="Επιλεξτε" />
             <TextField layoutX="263.0" layoutY="209.0" prefHeight="25.0" prefWidth="137.0" />
-            <ComboBox layoutX="260.0" layoutY="247.0" prefHeight="25.0" prefWidth="143.0" />
-            <ComboBox layoutX="259.0" layoutY="287.0" prefHeight="25.0" prefWidth="143.0" />
+            <ComboBox fx:id="state_cmb" layoutX="260.0" layoutY="247.0" prefHeight="25.0" prefWidth="143.0" />
+            <ComboBox fx:id="city_cmb" layoutX="259.0" layoutY="287.0" prefHeight="25.0" prefWidth="143.0" />
             <TextField layoutX="258.0" layoutY="321.0" prefHeight="25.0" prefWidth="143.0" />
             <Label layoutX="414.0" layoutY="58.0" text="%lbl_phone1" />
             <Label layoutX="416.0" layoutY="128.0" text="%lbl_mail" />

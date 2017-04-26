@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Title: 
+    Type: XML file
+    Description: 
+    Source: https://el.wikipedia.org/wiki/Νομοί_της_Ελλάδας 
+-->
+
+<greece_data>
+    <states>
+        <state state="atiki">Νομός Αττικής</state>
+        <state state="evoia">Νομός Εύβοιας</state>
+        <state state="evritania">Νομός Ευρυτανίας</state>
+        <state state="fokida">Νομός Φωκίδας</state>
+        <state state="fthiotida">Νομός Φθιώτιδας</state>
+        <state state="viotia">Νομός Βοιωτίας</state>
+        <state state="xalkidiki">Νομός Χαλκιδικής</state>
+        <state state="hmathia">Νομός Ημαθίας</state>
+        <state state="kilkis">Νομός Κιλκίς</state>
+        <state state="pella">Νομός Πέλλας</state>
+        <state state="pieria">Νομός Πιερίας</state>
+        <state state="serres">Νομός Σερρών</state>
+        <state state="thessaloniki">Νομός Θεσσαλονίκης</state>
+        <state state="xania">Νομός Χανίων</state>
+        <state state="hrakleio">Νομός Ηρακλείου</state>
+        <state state="lasithi">Νομός Λασιθίου</state>
+        <state state="rethimno">Νομός Ρεθύμνης</state>
+        <state state="drama">Νομός Δράμας</state>
+        <state state="evros">Νομός Έβρου</state>
+        <state state="kavala">Νομός Καβάλας</state>
+        <state state="rodopi">Νομός Ροδόπης</state>
+        <state state="xanthi">Νομός Ξάνθης</state>
+        <state state="arta">Νομός Άρτας</state>
+        <state state="ioannina">Νομός Ιωαννίνων</state>
+        <state state="preveza">Νομός Πρέβεζας</state>
+        <state state="thesprotia">Νομός Θεσπρωτίας</state>
+        <state state="kerkura">Νομός Κέρκυρας</state>
+        <state state="kefalonia">Νομός Κεφαλληνίας</state>
+        <state state="leukada">Νομός Λευκάδας</state>
+        <state state="zakunthos">Νομός Ζακύνθου</state>
+        <state state="xios">Νομός Χίου</state>
+        <state state="lesvos">Νομός Λέσβου</state>
+        <state state="samos">Νομός Σάμου</state>
+        <state state="arkadia">Νομός Αρκαδίας</state>
+        <state state="argolida">Νομός Αργολίδας</state>
+        <state state="korinthia">Νομός Κορινθίας</state>
+        <state state="lakonia">Νομός Λακωνίας</state>
+        <state state="messhnia">Νομός Μεσσηνίας</state>
+        <state state="kuklades">Νομός Κυκλάδων</state>
+        <state state="dodekanisa">Νομός Δωδεκανήσου</state>
+        <state state="karditsa">Νομός Καρδίτσας</state>
+        <state state="larisa">Νομός Λάρισας</state>
+        <state state="magnisia">Νομός Μαγνησίας</state>
+        <state state="trikala">Νομός Τρικάλων</state>
+        <state state="axaia">Νομός Αχαΐας</state>
+        <state state="aitolokarnania">Νομός Αιτωλοακαρνανίας</state>
+        <state state="hlia">Νομός Ηλείας</state>
+        <state state="florina">Νομός Φλώρινας</state>
+        <state state="grevena">Νομός Γρεβενών</state>
+        <state state="kastoria">Νομός Καστοριάς</state>
+        <state state="kozani">Νομός Κοζάνης</state>
+    </states>	
+    <big_cities>
+        <value state="atiki">Αθήνα</value>
+        <value state="evoia">Χαλκίδα</value>	
+        <value state="evritania">Καρπενήσι</value>
+        <value state="fokida">Άμφισσα</value>
+        <value state="fthiotida">Λαμία</value>
+        <value state="viotia">Λιβαδειά</value>
+        <value state="xalkidiki">Πολύγυρος</value>
+        <value state="hmathia">Βέροια</value>
+        <value state="kilkis">Κιλκίς</value>
+        <value state="pella">Έδεσσα</value>
+        <value state="pieria">Κατερίνη</value>
+        <value state="serres">Σέρρες</value>
+        <value state="thessaloniki">Θεσσαλονίκη</value>
+        <value state="xania">Χανιά</value>
+        <value state="hrakleio">Ηράκλειο</value>
+        <value state="lasithi">Άγιος Νικόλαος</value>
+        <value state="rethimno">Ρέθυμνο</value>
+        <value state="drama">Δράμα</value>
+        <value state="evros">Αλεξανδρούπολη</value>
+        <value state="kavala">Καβάλα</value>
+        <value state="rodopi">Κομοτηνή</value>
+        <value state="xanthi">Ξάνθη</value>
+        <value state="arta">Άρτα</value>
+        <value state="ioannina">Ιωαννίνα</value>
+        <value state="preveza">Πρέβεζα</value>
+        <value state="thesprotia">Ηγουμενίτσα</value>
+        <value state="kerkura">Κέρκυρα</value>
+        <value state="kefalonia">Αργοστόλι</value>
+        <value state="leukada">Λευκάδα</value>
+        <value state="zakunthos">Ζακύνθος</value>
+        <value state="xios">Χίος</value>
+        <value state="Atica">Μυτιλήνη</value>
+        <value state="Atica">Σάμος</value>
+        <value state="arkadia">Τρίπολη</value>
+        <value state="argolida">Ναύπλιο</value>
+        <value state="korinthia">Κόρινθος</value>
+        <value state="lakonia">Σπάρτη</value>
+        <value state="messhnia">Καλαμάτα</value>
+        <value state="kuklades">Ερμούπολη</value>
+        <value state="dodekanisa">Ρόδος</value>
+         <value state="karditsa">Καρδίτσα</value>
+        <value state="larisa">Λάρισα</value>
+        <value state="magnisia">Βόλος</value>
+        <value state="trikala">Τρίκαλα</value>
+        <value state="axaia">Πάτρα</value>
+        <value state="aitolokarnania">Μεσολόγγι</value>
+        <value state="hlia">Πύργος</value>
+        <value state="florina">Φλώρινα</value>
+        <value state="grevena">Γρεβενά</value>
+        <value state="kastoria">Καστοριά</value>
+        <value state="kozani">Κοζάνη</value>
+    </big_cities>
+</greece_data>

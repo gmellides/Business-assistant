@@ -28,6 +28,10 @@ public class NewContactScreenController implements Initializable {
     private ComboBox<String> phone2_type_ComboBox;
     @FXML
     private ComboBox<String> countries_cmb;
+    @FXML
+    private ComboBox<String> state_cmb;
+    @FXML
+    private ComboBox<?> city_cmb;
 
     /**
      * Initializes the controller class.
@@ -50,6 +54,7 @@ public class NewContactScreenController implements Initializable {
             ObservableList<String> temp_list = d.get_phonetype();
             phone1_type_ComboBox.setItems(temp_list);
             phone2_type_ComboBox.setItems(temp_list);
+            state_cmb.setItems(d.get_states_greece());
         } catch (Exception ex) {
            ex.printStackTrace();
         }
