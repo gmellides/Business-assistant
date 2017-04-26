@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<contacts_menu_data>
+    <sex>
+        <sex_value>Άντρας</sex_value>
+        <sex_value>Γυνάικα</sex_value>
+    </sex>
+    
+    <phone_type>
+        <type_value value="personal_phone">Προσωπικό Σταθερό</type_value>
+        <type_value value="personal_cell">Προσωπικό Κινητό</type_value>
+        <type_value value="work">Εργασία</type_value>
+        <type_value value="work_cell">Εταιρικό Κινητό</type_value>
+    </phone_type>
+</contacts_menu_data>

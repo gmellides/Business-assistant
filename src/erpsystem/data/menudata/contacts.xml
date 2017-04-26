@@ -7,9 +7,9 @@
     </sex>
     
     <phone_type>
-        <personal_phone>Προσωπικό Σταθερό</personal_phone>
-        <personal_mobile>Προσωπικό Κινητό</personal_mobile>
-        <work>Εργασία</work>
-        <work_mobile>Εταιρικό Κινητό</work_mobile>
+        <personal_phone value="personal_phone">Προσωπικό Σταθερό</personal_phone>
+        <personal_mobile value="personal_cell">Προσωπικό Κινητό</personal_mobile>
+        <work value="work">Εργασία</work>
+        <work_mobile value="work_cell">Εταιρικό Κινητό</work_mobile>
     </phone_type>
 </contacts_menu_data>

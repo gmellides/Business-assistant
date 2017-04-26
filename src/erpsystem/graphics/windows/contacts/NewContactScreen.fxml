@@ -22,7 +22,7 @@
             <Label layoutX="197.0" layoutY="58.0" text="%lbl_firstname" />
             <Label layoutX="197.0" layoutY="93.0" text="%lbl_lastname" />
             <Label layoutX="197.0" layoutY="128.0" prefHeight="17.0" prefWidth="49.0" text="%lbl_sex" />
-            <ComboBox fx:id="sex_ComboBox" layoutX="262.0" layoutY="124.0" prefHeight="25.0" prefWidth="137.0" />
+            <ComboBox fx:id="sex_ComboBox" layoutX="262.0" layoutY="124.0" prefHeight="25.0" prefWidth="137.0" promptText="Επιλεξτε" />
             <TextField layoutX="262.0" layoutY="54.0" prefHeight="25.0" prefWidth="137.0" />
             <TextField layoutX="262.0" layoutY="89.0" prefHeight="25.0" prefWidth="137.0" />
             <Label layoutX="199.0" layoutY="212.0" text="%lbl_address" />
@@ -35,7 +35,7 @@
                   <Font size="21.0" />
                </font>
             </Label>
-            <ComboBox layoutX="262.0" layoutY="166.0" prefHeight="25.0" prefWidth="137.0" />
+            <ComboBox fx:id="countries_cmb" layoutX="262.0" layoutY="166.0" prefHeight="25.0" prefWidth="137.0" promptText="Επιλεξτε" />
             <TextField layoutX="263.0" layoutY="209.0" prefHeight="25.0" prefWidth="137.0" />
             <ComboBox layoutX="260.0" layoutY="247.0" prefHeight="25.0" prefWidth="143.0" />
             <ComboBox layoutX="259.0" layoutY="287.0" prefHeight="25.0" prefWidth="143.0" />
