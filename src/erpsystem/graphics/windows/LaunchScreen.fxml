@@ -37,24 +37,24 @@
             <Button layoutX="586.0" layoutY="260.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="138.0" text="%lnc_btnPurchaseManager" />
             <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="767.0">
               <menus>
-                <Menu mnemonicParsing="false" text="File">
+                <Menu mnemonicParsing="false" text="%lnc_MenuFile">
                   <items>
-                        <MenuItem mnemonicParsing="false" text="Unspecified Action" />
-                        <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                        <MenuItem mnemonicParsing="false" text="%lnc_MenuFileBusinessInfo" />
+                        <MenuItem mnemonicParsing="false" text="%lnc_MenuFileBusinessAdmin" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                    <MenuItem mnemonicParsing="false" text="Close" />
+                    <MenuItem mnemonicParsing="false" onAction="#mnuExit_Action" text="%lnc_MenuFileExit" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
+                <Menu mnemonicParsing="false" text="%lnc_MenuEdit">
                   <items>
-                        <MenuItem mnemonicParsing="false" text="Unspecified Action" />
-                    <MenuItem mnemonicParsing="false" text="busines" />
+                        <MenuItem mnemonicParsing="false" onAction="#mnu_edit_BusinessInfo_Action" text="%lnc_MenuEditBusiness" />
+                    <MenuItem mnemonicParsing="false" text="%lnc_MenuEditBusinessAdmin" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Help">
+                <Menu mnemonicParsing="false" text="%lnc_MenuHelp">
                   <items>
                         <MenuItem mnemonicParsing="false" text="Unspecified Action" />
-                    <MenuItem mnemonicParsing="false" text="About" />
+                    <MenuItem mnemonicParsing="false" text="%lnc_MenuHelpAbout" />
                   </items>
                 </Menu>
               </menus>

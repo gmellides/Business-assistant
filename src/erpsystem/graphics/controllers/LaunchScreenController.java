@@ -71,6 +71,10 @@ public class LaunchScreenController implements Initializable {
                 // stage.getIcons().add(icon);
             stage.show();
         }
+        @FXML
+        private void mnuExit_Action(ActionEvent event) {
+            System.exit(1);
+        }
     // ==== ENF OF COMPONENTS ACTION ======
     
     
@@ -95,4 +99,29 @@ public class LaunchScreenController implements Initializable {
     // ==== END OF MY METHODS ===
     
     private Timer DateTimeUpdater; 
+
+    @FXML
+    private void mnu_edit_BusinessInfo_Action(ActionEvent event) throws IOException {
+            FXMLLoader f = new FXMLLoader();
+            f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
+            Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/EditBusinessInfoScreen.fxml").openStream());
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            stage.setHeight(495);
+            stage.setWidth(694);
+            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent we) {
+                    stage.hide();
+                }
+            });
+            stage.setTitle("Επαφές");
+            stage.setScene(scene);
+            stage.setResizable(false);
+                // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
+                // stage.getIcons().add(icon);
+            stage.show();
+    }
+
+    
 }

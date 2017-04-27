@@ -6,6 +6,7 @@
 package erpsystem.util.parsers;
 
 import java.io.File;
+import java.util.HashMap;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javax.xml.parsers.DocumentBuilder;
@@ -70,8 +71,7 @@ public class c_ContactsComboBox {
        return data;      
    }
     public ObservableList<String> get_states_greece() throws Exception{
-        ObservableList<String> data = FXCollections.observableArrayList();
-        xmlFile = new File("resources/xml/contacts/greece_data.xml");
+            xmlFile = new File("resources/xml/contacts/greece_data.xml");
             builder_factory = DocumentBuilderFactory.newInstance();
             document_builder = builder_factory.newDocumentBuilder();
             xml_doc = document_builder.parse(xmlFile);
@@ -80,9 +80,43 @@ public class c_ContactsComboBox {
                 Node current_node = list.item(i);
                 if (current_node.getNodeType() == Node.ELEMENT_NODE){
                     Element current_element = (Element) current_node;
-                    data.add(current_element.getTextContent());
+                    States.put(current_element.getAttribute("state_id"),current_element.getTextContent());
                 }
             }
+        return hash_to_observable(States);
+    }
+    public ObservableList<String> get_big_cities_greece(String Selected) throws Exception{
+        ObservableList<String> data = FXCollections.observableArrayList();
+        HashMap<String,String> d = new HashMap<String,String>();
+            xmlFile = new File("resources/xml/contacts/greece_data.xml");
+            builder_factory = DocumentBuilderFactory.newInstance();
+            document_builder = builder_factory.newDocumentBuilder();
+            xml_doc = document_builder.parse(xmlFile);
+            NodeList list = xml_doc.getElementsByTagName("value");  
+                for (int i=0; i<list.getLength(); i++){
+                      Node current_node = list.item(i);
+                      if (current_node.getNodeType() == Node.ELEMENT_NODE){
+                          Element current_element = (Element) current_node;
+                          d.put(current_element.getAttribute("state"),current_element.getTextContent());
+                      }
+                }
         return data;
     }
+    public ObservableList<String> hash_to_observable(HashMap input){
+        ObservableList<String> d = FXCollections.observableArrayList();
+            for (int i=0; i<input.size(); i++){
+                d.add(input.get(1).toString());
+            }
+        return d;
+    }
+    
+    public String Selevegsrth(String Input){
+        String ew = null;
+        
+        return ew;
+    }
+    
+    
+    
+    private HashMap<String,String> States;
 }

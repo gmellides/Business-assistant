@@ -47,7 +47,7 @@ public class ContactManagerScreenController implements Initializable {
             Stage stage = new Stage();
             Scene scene = new Scene(root);
             stage.setHeight(420);
-            stage.setWidth(731);
+            stage.setWidth(766);
             stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                 @Override
                 public void handle(WindowEvent we) {
