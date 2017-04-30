@@ -22,7 +22,7 @@ public class ERPSystem extends Application {
         
         f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
         
-        Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/LaunchScreen.fxml").openStream());
+        Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/Launcher.fxml").openStream());
         
         Scene scene = new Scene(root);
      
