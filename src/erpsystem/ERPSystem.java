@@ -5,6 +5,7 @@
  */
 package erpsystem;
 
+import erpsystem.util.system.FileManager;
 import java.util.ResourceBundle;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -18,6 +19,7 @@ public class ERPSystem extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
+        if (manager.Create_output_Folder()){
         FXMLLoader f = new FXMLLoader();
         
         f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
@@ -38,12 +40,14 @@ public class ERPSystem extends Application {
        // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
      //   stage.getIcons().add(icon);
         stage.show();
+        }
     }
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        launch(args);
+        launch(args);   
     }
+    FileManager manager = new FileManager();
 }

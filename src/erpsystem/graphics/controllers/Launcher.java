@@ -48,7 +48,7 @@ public class Launcher implements Initializable {
         private void mnu_edit_BusinessInfo_Action(ActionEvent event) throws IOException {
                 FXMLLoader f = new FXMLLoader();
                 f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
-                Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/menubar/EditBusinessInfo.fxml").openStream());
+                Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/menubar/Edit_Business.fxml").openStream());
                 Stage stage = new Stage();
                 Scene scene = new Scene(root);
                 stage.setHeight(495);

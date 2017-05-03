@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package erpsystem.data.contacts;
+package erpsystem.database.contacts;
 
 import com.healthmarketscience.jackcess.Column;
 import com.healthmarketscience.jackcess.CryptCodecProvider;

@@ -7,8 +7,10 @@ package erpsystem.graphics.controllers.contacts;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 
 public class SearchView implements Initializable {
@@ -17,6 +19,8 @@ public class SearchView implements Initializable {
     private Pane background_panel;
     @FXML
     private Pane image_panel;
+    @FXML
+    private Button btnClose;
 
     /**
      * Initializes the controller class.
@@ -25,8 +29,12 @@ public class SearchView implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         set_style();
         
-    }    
+    }  
     
+    @FXML
+    private void btnClose_Action(ActionEvent event) {
+        
+    }
     
     public void set_style(){
         image_panel.setStyle("-fx-background-image: url('file://../resources/images/contacts/contact_manager.png\');");

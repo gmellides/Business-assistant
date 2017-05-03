@@ -84,6 +84,10 @@ public class ContactManager implements Initializable {
                 // stage.getIcons().add(icon);
             stage.show();
     }
+    
+    
+    
+    
     public void set_style(){
         contact_mgrPane.setStyle("-fx-background-image: url('file://../resources/images/contacts/contact_manager.png\');");
         background_pane.setStyle("-fx-background-color: #FFFFFF;");

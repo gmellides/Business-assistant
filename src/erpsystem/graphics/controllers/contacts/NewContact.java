@@ -5,10 +5,10 @@
  */
 package erpsystem.graphics.controllers.contacts;
 
-import erpsystem.data.contacts.c_ContactsConnection;
+import erpsystem.database.contacts.c_ContactsConnection;
 import erpsystem.entities.people.Contact_c;
 import erpsystem.util.datetime.c_DateTimeProvider;
-import erpsystem.util.xml.c_ContactsComboBox;
+import erpsystem.util.xml.read.c_ContactsComboBox;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;

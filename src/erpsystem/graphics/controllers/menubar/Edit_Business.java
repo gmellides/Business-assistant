@@ -9,12 +9,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 
-/**
- * FXML Controller class
- *
- * @author gabri
- */
-public class EditOwnerInfo implements Initializable {
+public class Edit_Business implements Initializable {
 
     /**
      * Initializes the controller class.

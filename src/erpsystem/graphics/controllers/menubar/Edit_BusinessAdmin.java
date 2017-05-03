@@ -9,7 +9,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 
-public class EditBusinessInfo implements Initializable {
+
+public class Edit_BusinessAdmin implements Initializable {
 
     /**
      * Initializes the controller class.
