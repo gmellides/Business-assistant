@@ -9,13 +9,14 @@ import java.time.LocalDate;
 
 public class Business {
 
-    public Business(String Business_Name, 
-                    String Business_Description, 
-                    String Business_Address, 
+    public Business(String Business_Name,
+                    String Business_Description,
+                    String Business_Address,
                     String Business_City, 
-                    String Business_Phone, 
-                    String Business_Fax, 
-                    String Business_TaxReg, 
+                    String Business_Phone,
+                    String Business_Fax,
+                    String Business_TaxReg,
+                    String Business_Mail, 
                     LocalDate Business_Date) {
         this.Business_Name = Business_Name;
         this.Business_Description = Business_Description;
@@ -24,9 +25,11 @@ public class Business {
         this.Business_Phone = Business_Phone;
         this.Business_Fax = Business_Fax;
         this.Business_TaxReg = Business_TaxReg;
+        this.Business_Mail = Business_Mail;
         this.Business_Date = Business_Date;
     }
 
+   
     public void setBusiness_Name(String Business_Name) {
         this.Business_Name = Business_Name;
     }
@@ -53,6 +56,10 @@ public class Business {
 
     public void setBusiness_TaxReg(String Business_TaxReg) {
         this.Business_TaxReg = Business_TaxReg;
+    }
+
+    public void setBusiness_Mail(String Business_Mail) {
+        this.Business_Mail = Business_Mail;
     }
 
     public void setBusiness_Date(LocalDate Business_Date) {
@@ -87,6 +94,10 @@ public class Business {
         return Business_TaxReg;
     }
 
+    public String getBusiness_Mail() {
+        return Business_Mail;
+    }
+
     public LocalDate getBusiness_Date() {
         return Business_Date;
     }
@@ -98,5 +109,7 @@ public class Business {
     private String Business_Phone;
     private String Business_Fax;
     private String Business_TaxReg;
+    private String Business_Mail;
     private LocalDate Business_Date;
+    
 }

@@ -120,4 +120,27 @@ public class Launcher implements Initializable {
     // ==== END OF MY METHODS ===
     
     private Timer DateTimeUpdater; 
+
+    @FXML
+    private void mnu_edtBusinessAdmin_Action(ActionEvent event) throws IOException {
+         FXMLLoader f = new FXMLLoader();
+                f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
+                Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/menubar/Edit_BusinessAdmin.fxml").openStream());
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                stage.setHeight(495);
+                stage.setWidth(694);
+                stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                    @Override
+                    public void handle(WindowEvent we) {
+                        stage.hide();
+                    }
+                });
+                stage.setTitle("Επεξεργασία Πληροφωριών επιχείρησης");
+                stage.setScene(scene);
+                stage.setResizable(false);
+                    // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
+                    // stage.getIcons().add(icon);
+                stage.show();
+    }
 }

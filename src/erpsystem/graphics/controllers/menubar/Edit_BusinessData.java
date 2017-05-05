@@ -41,6 +41,8 @@ public class Edit_BusinessData implements Initializable {
     private TextField txt_TaxReg;
     @FXML
     private TextField txt_Description;
+    @FXML
+    private TextField txt_Mail;
 
     /**
      * Initializes the controller class.
@@ -60,9 +62,10 @@ public class Edit_BusinessData implements Initializable {
                                        txt_Phone.getText(),
                                        txt_Fax.getText(),
                                        txt_TaxReg.getText(),
+                                       txt_Mail.getText(),
                                        dtp_establishDate.getValue());
-        BusinessXML SaveData = new BusinessXML();
-        SaveData.create_xml(b_data);
+        BusinessXML data_to_XML = new BusinessXML();
+        data_to_XML.create_xml_stracture(b_data);
     }
 
     @FXML
@@ -74,5 +77,5 @@ public class Edit_BusinessData implements Initializable {
     @FXML
     private void btnSearch_Action(ActionEvent event) {
     }
-    
+
 }
