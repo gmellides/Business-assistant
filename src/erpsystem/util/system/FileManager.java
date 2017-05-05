@@ -29,6 +29,17 @@ public class FileManager {
             }
         return flag;
     }
+    public boolean create_card_folder(){
+        boolean flag = false;
+            File output_dir = new File(MyDocuments_path+"/Κάρτες");
+            if (!output_dir.exists()){
+                output_dir.mkdir();
+                flag = true;
+            }else{
+                flag = true;
+            }
+        return flag;
+    }
 
     public String getPath(){
         return MyDocuments_path;

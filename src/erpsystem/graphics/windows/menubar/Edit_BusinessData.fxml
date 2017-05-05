@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="429.0" prefWidth="694.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.menubar.Edit_BusinessData">
+    <stylesheets>
+        <URL value="@/erpsystem/graphics/CSS/editbusinessinfoscreen.css" />
+    </stylesheets>
+   <children>
+      <Pane prefHeight="433.0" prefWidth="694.0">
+         <children>
+            <Label layoutX="169.0" layoutY="27.0" prefHeight="30.0" prefWidth="382.0" text="%edt_bus_windowname">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="36.0" layoutY="102.0" text="%edt_bus_businessname" />
+            <Label layoutX="37.0" layoutY="174.0" prefHeight="17.0" prefWidth="75.0" text="%edt_bus_address" />
+            <Label layoutX="37.0" layoutY="211.0" prefHeight="17.0" prefWidth="75.0" text="%edt_bus_phone" />
+            <Label layoutX="37.0" layoutY="289.0" prefHeight="17.0" prefWidth="34.0" text="%edt_bus_city" />
+            <Label layoutX="35.0" layoutY="326.0" text="%edt_bus_taxreg" />
+            <TextField fx:id="txt_Name" layoutX="168.0" layoutY="98.0" prefHeight="25.0" prefWidth="207.0" />
+            <TextField fx:id="txt_Address" layoutX="167.0" layoutY="170.0" prefHeight="25.0" prefWidth="207.0" />
+            <TextField fx:id="txt_Phone" layoutX="167.0" layoutY="207.0" prefHeight="25.0" prefWidth="207.0" />
+            <TextField fx:id="txt_City" layoutX="167.0" layoutY="285.0" prefHeight="25.0" prefWidth="207.0" />
+            <TextField fx:id="txt_Fax" layoutX="168.0" layoutY="247.0" prefHeight="25.0" prefWidth="207.0" />
+            <Button fx:id="btnSave" layoutX="538.0" layoutY="397.0" mnemonicParsing="false" onAction="#btnSave_Action" prefHeight="25.0" prefWidth="131.0" text="%edt_bus_btnSave" />
+            <Button fx:id="btnClose" layoutX="25.0" layoutY="397.0" mnemonicParsing="false" onAction="#btnClose_Action" prefHeight="25.0" prefWidth="116.0" text="%edt_bus_btnClose" />
+            <Label layoutX="400.0" layoutY="104.0" text="%edt_bus_date" />
+            <DatePicker fx:id="dtp_establishDate" layoutX="502.0" layoutY="100.0" prefHeight="25.0" prefWidth="154.0" />
+            <Label layoutX="400.0" layoutY="166.0" text="%edt_bus_logo" />
+            <Button fx:id="btn_Search" layoutX="475.0" layoutY="161.0" mnemonicParsing="false" onAction="#btnSearch_Action" prefHeight="25.0" prefWidth="181.0" text="%edt_bus_btnSearch" />
+            <Pane layoutX="447.0" layoutY="219.0" prefHeight="156.0" prefWidth="181.0" />
+            <Label layoutX="39.0" layoutY="136.0" prefHeight="17.0" prefWidth="123.0" text="%edt_bus_description" />
+            <TextField fx:id="txt_TaxReg" layoutX="169.0" layoutY="322.0" prefHeight="25.0" prefWidth="204.0" />
+            <Label layoutX="35.0" layoutY="251.0" text="%edt_bus_fax" />
+            <TextField fx:id="txt_Description" layoutX="169.0" layoutY="132.0" prefHeight="25.0" prefWidth="204.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

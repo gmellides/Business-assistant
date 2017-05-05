@@ -48,7 +48,7 @@
                 <Menu mnemonicParsing="false" text="%lnc_MenuEdit">
                   <items>
                         <MenuItem mnemonicParsing="false" onAction="#mnu_edit_BusinessInfo_Action" text="%lnc_MenuEditBusiness" />
-                    <MenuItem mnemonicParsing="false" text="%lnc_MenuEditBusinessAdmin" />
+                    <MenuItem mnemonicParsing="false" onAction="#mnu_edtBusinessAdmin_Action" text="%lnc_MenuEditBusinessAdmin" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="%lnc_MenuHelp">

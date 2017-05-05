@@ -94,6 +94,5 @@ public class BusinessAdminXML_c {
         }catch(Exception e){
             e.printStackTrace();
         }
-        
     }
 }
