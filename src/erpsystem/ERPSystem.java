@@ -19,7 +19,7 @@ public class ERPSystem extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        if (manager.Create_output_Folder()){
+        if (manager.Create_output_Folder() && manager.Create_Data_Folder()){
             FXMLLoader f = new FXMLLoader();
 
             f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));

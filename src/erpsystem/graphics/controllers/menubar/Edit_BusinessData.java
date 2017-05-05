@@ -15,6 +15,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import erpsystem.entities.business.Business;
+import erpsystem.util.system.FileManager;
 import erpsystem.util.xml.write.BusinessXML;
 
 public class Edit_BusinessData implements Initializable {
@@ -49,8 +50,9 @@ public class Edit_BusinessData implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // check if data is available if yes display data
-        // if not remains null 
+        if(manager.businessData_exist()){
+            // parse it and take data
+        }
     }    
 
     @FXML
@@ -76,6 +78,6 @@ public class Edit_BusinessData implements Initializable {
 
     @FXML
     private void btnSearch_Action(ActionEvent event) {
-    }
-
+    } 
+    private FileManager manager;
 }
