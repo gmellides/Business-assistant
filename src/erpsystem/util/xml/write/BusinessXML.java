@@ -6,10 +6,10 @@
 package erpsystem.util.xml.write;
 
 import erpsystem.entities.business.Business;
-import erpsystem.util.safety.Encryption;
+import erpsystem.util.safety.EncryptionUtil;
 
 public class BusinessXML {
-    private Encryption encrypt;
+    private EncryptionUtil encrypt;
         public void create_xml(Business data){
            
         }

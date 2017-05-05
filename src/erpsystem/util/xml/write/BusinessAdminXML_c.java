@@ -6,7 +6,7 @@
 package erpsystem.util.xml.write;
 
 import erpsystem.entities.business.BusinessAdmin_c;
-import erpsystem.util.safety.Encryption;
+import erpsystem.util.safety.EncryptionUtil;
 import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -18,7 +18,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 public class BusinessAdminXML_c {
-    Encryption encrypt;
+    EncryptionUtil encrypt;
     
     public boolean file_exist(){
         File admin_data = new File(System.getProperty("user.dir")+"/user_data/admin_data.xml");
@@ -38,7 +38,7 @@ public class BusinessAdminXML_c {
        Dom xml parser 
     */
     public void create_xml_stracture(BusinessAdmin_c data){
-        encrypt = new Encryption();
+        encrypt = new EncryptionUtil();
         try{
             DocumentBuilderFactory doc_fact = DocumentBuilderFactory.newInstance();
             DocumentBuilder doc_builder = doc_fact.newDocumentBuilder();
