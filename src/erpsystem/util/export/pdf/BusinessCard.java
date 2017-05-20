@@ -63,5 +63,5 @@ public class BusinessCard {
         }
     }
     
-    private String CardPath = location.getPath()+"/Κάρτες/Κάρτα Επιχείρησεις.pdf";
+    private String CardPath = location.getMyDocumentsPath()+"/Κάρτες/Κάρτα Επιχείρησεις.pdf";
 }

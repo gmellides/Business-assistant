@@ -18,7 +18,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class c_ContactsComboBox {
+public class Contacts_ComboBox_Parser {
     File xmlFile;
     DocumentBuilderFactory builder_factory;
     DocumentBuilder document_builder;

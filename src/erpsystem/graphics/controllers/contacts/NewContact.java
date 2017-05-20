@@ -8,7 +8,7 @@ package erpsystem.graphics.controllers.contacts;
 import erpsystem.database.contacts.c_ContactsConnection;
 import erpsystem.entities.people.Contact_c;
 import erpsystem.util.datetime.c_DateTimeProvider;
-import erpsystem.util.xml.read.c_ContactsComboBox;
+import erpsystem.util.xml.read.Contacts_ComboBox_Parser;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
@@ -118,7 +118,7 @@ public class NewContact implements Initializable {
          * Retrieve data from XML Files and place it into combo boxes
          */
         public void init_comboboxes(){
-            combodata_xml = new c_ContactsComboBox();
+            combodata_xml = new Contacts_ComboBox_Parser();
             try {
                 countries_cmb.setItems(combodata_xml.get_countries());
                 sex_ComboBox.setItems(combodata_xml.get_sex());
@@ -133,6 +133,6 @@ public class NewContact implements Initializable {
         }// init_comboboxes()
     // -- END of Methods
     
-    private c_ContactsComboBox combodata_xml;
+    private Contacts_ComboBox_Parser combodata_xml;
     private c_ContactsConnection Contacts_db;
 }

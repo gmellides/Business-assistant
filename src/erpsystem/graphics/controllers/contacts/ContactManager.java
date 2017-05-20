@@ -80,8 +80,8 @@ public class ContactManager implements Initializable {
             stage.setTitle("Νέα Επαφή");
             stage.setScene(scene);
             stage.setResizable(false);
-                // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
-                // stage.getIcons().add(icon);
+            // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
+            // stage.getIcons().add(icon);
             stage.show();
     }
     
@@ -98,6 +98,4 @@ public class ContactManager implements Initializable {
     public void NewContactPrepare(){
         // this will be used for new contacts 
     }
-
-    
 }

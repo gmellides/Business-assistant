@@ -51,7 +51,7 @@ public class Launcher implements Initializable {
                 Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/menubar/Edit_BusinessData.fxml").openStream());
                 Stage stage = new Stage();
                 Scene scene = new Scene(root);
-                stage.setHeight(495);
+                stage.setHeight(515);
                 stage.setWidth(694);
                 stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                     @Override
@@ -128,7 +128,7 @@ public class Launcher implements Initializable {
                 Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/menubar/Edit_BusinessAdmin.fxml").openStream());
                 Stage stage = new Stage();
                 Scene scene = new Scene(root);
-                stage.setHeight(495);
+                stage.setHeight(525);
                 stage.setWidth(694);
                 stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                     @Override
@@ -142,5 +142,28 @@ public class Launcher implements Initializable {
                     // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
                     // stage.getIcons().add(icon);
                 stage.show();
+    }
+
+    @FXML
+    private void mnu_view_BusinessData(ActionEvent event) throws IOException {
+        FXMLLoader f = new FXMLLoader();
+            f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
+            Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/menubar/View_BusinessData.fxml").openStream());
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            stage.setHeight(470);
+            stage.setWidth(747);
+            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent we) {
+                    stage.hide();
+                }
+            });
+            stage.setTitle("Επεξεργασία Πληροφωριών επιχείρησης");
+            stage.setScene(scene);
+            stage.setResizable(false);
+            // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
+            // stage.getIcons().add(icon);
+            stage.show();
     }
 }

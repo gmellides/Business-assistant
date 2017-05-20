@@ -18,7 +18,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 public class BusinessXML {
- EncryptionUtil encrypt;
+    private EncryptionUtil encrypt;
     
     public boolean file_exist(){
         File admin_data = new File(System.getProperty("user.dir")+"/user_data/business_data.xml");
@@ -30,7 +30,9 @@ public class BusinessXML {
             if (!file_exist()){
                 create_xml_stracture(input);
             }else{
-                //create new file
+                File admin_data = new File(System.getProperty("user.dir")+"/user_data/business_data.xml");
+                admin_data.delete();
+                create_xml_stracture(input);
             }
         return flag;
     }
@@ -86,7 +88,7 @@ public class BusinessXML {
             TransformerFactory pretty_format_factory = TransformerFactory.newInstance();
             Transformer pretty_format = pretty_format_factory.newTransformer();
             DOMSource xml_doc_source = new DOMSource(xml_doc);
-            StreamResult save = new StreamResult(new File(System.getProperty("user.dir")+"/user_data/admin_data.xml"));
+            StreamResult save = new StreamResult(new File(System.getProperty("user.dir")+"/user_data/business_data.xml"));
             
             pretty_format.transform(xml_doc_source,save);
         }catch(Exception e){

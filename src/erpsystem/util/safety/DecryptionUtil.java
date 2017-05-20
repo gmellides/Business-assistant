@@ -9,22 +9,20 @@ import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
 
-/**
- *
- * @author gabri
- */
 public class DecryptionUtil {
      private String Passphrase = "koue25nfier356n4"; //16bit Password
     private Key decryption_key;
     private Cipher decrypt_engine;
     
-    public String decrypt_string(String encrypted) throws NoSuchAlgorithmException{
+    public String decrypt_string(String encrypted){
         String Decrypted_Data = "";
             try{
             decryption_key = new SecretKeySpec(Passphrase.getBytes(),"AES");
@@ -35,7 +33,9 @@ public class DecryptionUtil {
             Decrypted_Data = new String(decrypt_engine.doFinal(d));
             }catch(InvalidKeyException|IllegalBlockSizeException|BadPaddingException|NoSuchPaddingException e){
                 e.printStackTrace();
-            }
+            } catch (NoSuchAlgorithmException ex) {
+             Logger.getLogger(DecryptionUtil.class.getName()).log(Level.SEVERE, null, ex);
+         }
         return Decrypted_Data;
     }
 }

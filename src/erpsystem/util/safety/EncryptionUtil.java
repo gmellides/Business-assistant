@@ -15,10 +15,6 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
 
-/**
- *
- * @author gabri
- */
 public class EncryptionUtil {
     private String Passphrase = "koue25nfier356n4";
     private Key encryption_key;
