@@ -6,6 +6,7 @@
 package erpsystem;
 
 import erpsystem.util.system.FileManager;
+import java.io.IOException;
 import java.util.ResourceBundle;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -16,11 +17,20 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 public class ERPSystem extends Application {
+    private final FileManager manager = new FileManager();
     
     @Override
     public void start(Stage stage) throws Exception {
-        if (manager.Create_output_Folder() && manager.Create_Data_Folder()){
-            FXMLLoader f = new FXMLLoader();
+        if (manager.check_folders()){
+           start_graphics(stage);
+        }else{
+            if(manager.create_all_folders())
+                start_graphics(stage);
+        }
+    }
+
+    public void start_graphics(Stage stage) throws IOException{
+         FXMLLoader f = new FXMLLoader();
 
             f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
 
@@ -40,7 +50,6 @@ public class ERPSystem extends Application {
             //Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
             //stage.getIcons().add(icon);
             stage.show();
-        }
     }
 
     /**
@@ -49,5 +58,5 @@ public class ERPSystem extends Application {
     public static void main(String[] args) {
         launch(args);   
     }
-    FileManager manager = new FileManager();
+
 }

@@ -5,7 +5,7 @@
  */
 package erpsystem.util.xml.write;
 
-import erpsystem.entities.business.BusinessAdmin_c;
+import erpsystem.entities.business.BusinessAdmin;
 import erpsystem.util.safety.EncryptionUtil;
 import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
@@ -20,24 +20,22 @@ import org.w3c.dom.Element;
 public class BusinessAdminXML_c {
     EncryptionUtil encrypt;
     
-    public boolean file_exist(){
-        File admin_data = new File(System.getProperty("user.dir")+"/user_data/admin_data.xml");
-        return admin_data.exists();
-    }
-    
-    public boolean save_data(BusinessAdmin_c input){
+   
+    public boolean save_data(BusinessAdmin input){
         boolean flag = false;
             if (!file_exist()){
-                create_xml_stracture(input);
+                create_xml_structure(input);
             }else{
-                //create new file
+                File admin_data = new File(System.getProperty("user.dir")+"/user_data/admin_data.xml");
+                admin_data.delete();
+                create_xml_structure(input);
             }
         return flag;
     }
     /*
        Dom xml parser 
     */
-    public void create_xml_stracture(BusinessAdmin_c data){
+    public void create_xml_structure(BusinessAdmin data){
         encrypt = new EncryptionUtil();
         try{
             DocumentBuilderFactory doc_fact = DocumentBuilderFactory.newInstance();
@@ -54,7 +52,7 @@ public class BusinessAdminXML_c {
             Element e_sex = xml_doc.createElement("sex");
             e_sex.appendChild(xml_doc.createTextNode(encrypt.encrypt_string(data.getSex())));
             r_admin_elem.appendChild(e_sex);
-           // specify
+          
             Element e_address = xml_doc.createElement("address");
             e_address.appendChild(xml_doc.createTextNode(encrypt.encrypt_string(data.getAddress())));
             r_admin_elem.appendChild(e_address);
@@ -89,10 +87,13 @@ public class BusinessAdminXML_c {
             StreamResult save = new StreamResult(new File(System.getProperty("user.dir")+"/user_data/admin_data.xml"));
             
             pretty_format.transform(xml_doc_source,save);
-            
-            
         }catch(Exception e){
             e.printStackTrace();
         }
+    }
+    
+    public boolean file_exist(){
+        File admin_data = new File(System.getProperty("user.dir")+"/user_data/admin_data.xml");
+        return admin_data.exists();
     }
 }

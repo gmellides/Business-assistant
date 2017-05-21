@@ -7,7 +7,15 @@ package erpsystem.entities.business;
 
 import erpsystem.entities.people.Person_s_c;
 
-public class BusinessAdmin_c extends Person_s_c{
+public class BusinessAdmin extends Person_s_c{
+
+    public BusinessAdmin(String TaxReg, String Phone1, String Phone2, String Mail) {
+        super();
+        this.TaxReg = TaxReg;
+        this.Phone1 = Phone1;
+        this.Phone2 = Phone2;
+        this.Mail = Mail;
+    }
 
     public void setTaxReg(String TaxReg) {
         this.TaxReg = TaxReg;

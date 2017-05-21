@@ -134,7 +134,7 @@ public class Edit_BusinessData implements Initializable {
             }else{
                 String extension =  logo_file_chooser.getName().substring(logo_file_chooser.getName().indexOf(".")+1,logo_file_chooser.getName().length());
                 new FileManager().save_logo_img(logo_file_chooser,extension);
-                Image this_logo = new Image(new File(new FileManager().getUserDataPath()+"/logo."+extension).toURI().toString());
+                Image this_logo = new Image(new File(new FileManager().getApp_data_business()+"/logo."+extension).toURI().toString());
                 business_logo_view.setImage(this_logo);
             }
         } 
@@ -160,9 +160,9 @@ public class Edit_BusinessData implements Initializable {
             FileManager path = new FileManager();
             String[] logo_name = new String[]{"/logo.png","/logo.bmp","/logo.jpg"};
             for (String name : logo_name){
-                File logo = new File(path.getUserDataPath()+name);
+                File logo = new File(path.getApp_data_business()+name);
                 if (logo.exists()){
-                    Image logo_img= new Image(new File(new FileManager().getUserDataPath()+name).toURI().toString());
+                    Image logo_img= new Image(new File(new FileManager().getApp_data_business()+name).toURI().toString());
                     business_logo_view.setImage(logo_img);
                     break;
                 }

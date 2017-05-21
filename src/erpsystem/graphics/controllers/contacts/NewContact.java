@@ -7,7 +7,7 @@ package erpsystem.graphics.controllers.contacts;
 
 import erpsystem.database.contacts.c_ContactsConnection;
 import erpsystem.entities.people.Contact_c;
-import erpsystem.util.datetime.c_DateTimeProvider;
+import erpsystem.util.datetime.DateTimeProvider;
 import erpsystem.util.xml.read.Contacts_ComboBox_Parser;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -88,7 +88,7 @@ public class NewContact implements Initializable {
                  obj.setPhone_2(txt_phone2.getText());
                  obj.setPhone_2_type(phone2_type_ComboBox.getSelectionModel().getSelectedItem());
                  obj.setZipCode(Integer.parseInt(txt_zipcode.getText()));
-                 obj.setImport_date(new c_DateTimeProvider().GetDateTime());
+                 obj.setImport_date(new DateTimeProvider().GetDateTime());
             Contacts_db.insert(obj);
         }
         @FXML

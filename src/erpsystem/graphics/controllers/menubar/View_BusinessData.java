@@ -23,7 +23,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
-public class View_BusinessDataController implements Initializable {
+public class View_BusinessData implements Initializable {
 
     @FXML
     private Button btn_ExportCard;
@@ -62,7 +62,7 @@ public class View_BusinessDataController implements Initializable {
         // ean uparxei xml tote emfanizei allios vgazei label pou leei oti den exei tipote kai na valei 
         set_background();
         workplace = new FileManager();
-        File xml_file = new File(workplace.getUserDataPath()+"/business_data.xml");
+        File xml_file = new File(workplace.getApp_data_business()+"/business_data.xml");
         if(xml_file.exists()){
             set_logo();
             set_data(rb,xml_file);
@@ -74,6 +74,15 @@ public class View_BusinessDataController implements Initializable {
     }
     
     // ===== FXML Buttons Action =====
+    @FXML
+    private void btnExportCard_Action(ActionEvent event) {
+        
+    }
+
+    @FXML
+    private void btnExportPDF_Action(ActionEvent event) {
+        
+    }
     @FXML
     private void btn_Close_Action(ActionEvent event) {
         Stage window = (Stage)  btn_ExportCard.getScene().getWindow();
@@ -109,9 +118,9 @@ public class View_BusinessDataController implements Initializable {
        FileManager path = new FileManager();
             String[] logo_name = new String[]{"/logo.png","/logo.bmp","/logo.jpg"};
             for (String name : logo_name){
-                File logo = new File(path.getUserDataPath()+name);
+                File logo = new File(path.getApp_data_business()+name);
                 if (logo.exists()){
-                    Image logo_img= new Image(new File(new FileManager().getUserDataPath()+name).toURI().toString());
+                    Image logo_img= new Image(new File(new FileManager().getApp_data_business()+name).toURI().toString());
                     b_logo.setImage(logo_img);
                     break;
                 }
@@ -127,19 +136,20 @@ public class View_BusinessDataController implements Initializable {
     }
     public void set_data(ResourceBundle bundle,File xml_input){
         BusinessXML_Parser file_reader = new BusinessXML_Parser();
-        Business data = file_reader.getData();
-          lbl_bName.setText(bundle.getString("view_bus_businessname")+"   "+data.getBusiness_Name());
-          lbl_bDescription.setText(bundle.getString("view_bus_description")+"   "+data.getBusiness_Description());
-          lbl_lblPhone.setText(bundle.getString("view_bus_phone")+"  "+data.getBusiness_Phone());
-          lbl_Fax.setText(bundle.getString("view_bus_fax")+"  "+data.getBusiness_Fax());
-          lbl_Address.setText(bundle.getString("view_bus_address")+"  "+data.getBusiness_Address());
-          lbl_City.setText(bundle.getString("view_bus_city")+"  "+data.getBusiness_City());
-          lbl_TaxReg.setText(bundle.getString("view_bus_taxreg")+"  "+data.getBusiness_TaxReg());
-          lbl_EstablishData.setText(bundle.getString("view_bus_date")+"  "+data.getBusiness_Date());
+        b_data = file_reader.getData();
+          lbl_bName.setText(bundle.getString("view_bus_businessname")+"   "+b_data.getBusiness_Name());
+          lbl_bDescription.setText(bundle.getString("view_bus_description")+"   "+b_data.getBusiness_Description());
+          lbl_lblPhone.setText(bundle.getString("view_bus_phone")+"  "+b_data.getBusiness_Phone());
+          lbl_Fax.setText(bundle.getString("view_bus_fax")+"  "+b_data.getBusiness_Fax());
+          lbl_Address.setText(bundle.getString("view_bus_address")+"  "+b_data.getBusiness_Address());
+          lbl_City.setText(bundle.getString("view_bus_city")+"  "+b_data.getBusiness_City());
+          lbl_TaxReg.setText(bundle.getString("view_bus_taxreg")+"  "+b_data.getBusiness_TaxReg());
+          lbl_EstablishData.setText(bundle.getString("view_bus_date")+"  "+b_data.getBusiness_Date());
           SimpleDateFormat date_format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
           lbl_LastEdit.setText(bundle.getString("view_bus_LastEdit")+"  "+date_format.format(xml_input.lastModified()));
     }
     // ===============================
     
     private FileManager workplace;
+    private Business b_data;
 }

@@ -10,7 +10,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class c_DateTimeProvider {
+public class DateTimeProvider {
     /**
      * Name: GetTime
      * Type: Method
@@ -45,4 +45,9 @@ public class c_DateTimeProvider {
         return DateTimeFormat.format(date);
     } // GetDateTime()  
     
+    public String GetDateTime_file(){
+        DateFormat DateTimeFormat = new SimpleDateFormat("dd-MM-yyyy HH.mm.ss");
+        Date date = new Date();
+        return DateTimeFormat.format(date);
+    } // GetDateTime() 
 }

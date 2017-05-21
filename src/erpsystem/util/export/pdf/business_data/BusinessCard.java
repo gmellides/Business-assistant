@@ -1,4 +1,4 @@
-package erpsystem.util.export.pdf;
+package erpsystem.util.export.pdf.business_data;
 
 import erpsystem.entities.business.Business;
 import erpsystem.util.system.FileManager;
@@ -63,5 +63,5 @@ public class BusinessCard {
         }
     }
     
-    private String CardPath = location.getMyDocumentsPath()+"/Κάρτες/Κάρτα Επιχείρησεις.pdf";
+    private String CardPath = location.getDocuments_business_data()+"/Κάρτα Επιχείρησεις.pdf";
 }

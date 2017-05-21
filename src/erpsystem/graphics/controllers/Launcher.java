@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import javafx.event.EventHandler;
 import javafx.stage.WindowEvent;
 import javafx.fxml.Initializable;
-import erpsystem.util.datetime.c_DateTimeProvider;
+import erpsystem.util.datetime.DateTimeProvider;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -108,7 +108,7 @@ public class Launcher implements Initializable {
                     Platform.runLater(new Runnable(){
                         @Override
                         public void run(){
-                            lcn_lblDateTime.setText(new c_DateTimeProvider().GetDateTime());
+                            lcn_lblDateTime.setText(new DateTimeProvider().GetDateTime());
                         }
                     });
                 }

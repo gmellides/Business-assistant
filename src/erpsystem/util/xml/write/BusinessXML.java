@@ -7,6 +7,7 @@ package erpsystem.util.xml.write;
 
 import erpsystem.entities.business.Business;
 import erpsystem.util.safety.EncryptionUtil;
+import erpsystem.util.system.FileManager;
 import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -19,27 +20,30 @@ import org.w3c.dom.Element;
 
 public class BusinessXML {
     private EncryptionUtil encrypt;
-    
-    public boolean file_exist(){
-        File admin_data = new File(System.getProperty("user.dir")+"/user_data/business_data.xml");
-        return admin_data.exists();
-    }
-    
+    private FileManager workspace;
+    /**
+     * Method that is used from other classes  
+    * @param input
+     * @return 
+     */
     public boolean save_data(Business input){
         boolean flag = false;
             if (!file_exist()){
-                create_xml_stracture(input);
+                create_xml_structure(input);
             }else{
-                File admin_data = new File(System.getProperty("user.dir")+"/user_data/business_data.xml");
+                File admin_data = new File(workspace.getApp_data_business()+"/business_data.xml");
                 admin_data.delete();
-                create_xml_stracture(input);
+                create_xml_structure(input);
             }
         return flag;
     }
-    /*
-       Dom xml parser 
-    */
-    public void create_xml_stracture(Business data){
+    /**
+     * Creates the XML file Structure and place data inside the tags
+     * this method gets an object as an input, decrypts data and save it 
+     * into the XML Document.
+     * @param data 
+     */
+    public void create_xml_structure(Business data){
         encrypt = new EncryptionUtil();
         try{
             DocumentBuilderFactory doc_fact = DocumentBuilderFactory.newInstance();
@@ -88,11 +92,19 @@ public class BusinessXML {
             TransformerFactory pretty_format_factory = TransformerFactory.newInstance();
             Transformer pretty_format = pretty_format_factory.newTransformer();
             DOMSource xml_doc_source = new DOMSource(xml_doc);
-            StreamResult save = new StreamResult(new File(System.getProperty("user.dir")+"/user_data/business_data.xml"));
+            StreamResult save = new StreamResult(new File(workspace.getApp_data_business()+"/business_data.xml"));
             
             pretty_format.transform(xml_doc_source,save);
         }catch(Exception e){
             e.printStackTrace();
         }
+    }
+    /**
+     * Returns true or false if the xml file Exist or not.
+     * @return 
+     */
+    public boolean file_exist(){
+        File admin_data = new File(System.getProperty("user.dir")+"/user_data/business_data.xml");
+        return admin_data.exists();
     }
 }
