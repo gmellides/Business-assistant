@@ -16,7 +16,7 @@
    <children>
       <Pane fx:id="background_pane" layoutY="1.0" prefHeight="400.0" prefWidth="600.0">
          <children>
-            <Button layoutX="444.0" layoutY="350.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" text="%cmgr_btnExit" />
+            <Button layoutX="444.0" layoutY="350.0" mnemonicParsing="false" onAction="#btnExit_Action" prefHeight="25.0" prefWidth="141.0" text="%cmgr_btnExit" />
             <Button layoutX="410.0" layoutY="243.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" text="Button" />
             <Button fx:id="btnSearchView" layoutX="410.0" layoutY="167.0" mnemonicParsing="false" onAction="#btnSearchView_Action" prefHeight="25.0" prefWidth="141.0" text="%cmgr_btnViewContacts" />
             <Button fx:id="btnNewContact" layoutX="392.0" layoutY="101.0" mnemonicParsing="false" onAction="#btnNewContactsAction" prefHeight="25.0" prefWidth="177.0" text="%cmgr_btnNewContact" />

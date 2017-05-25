@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
@@ -7,17 +9,44 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="481.0" prefWidth="763.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="erpsystem.graphics.controllers.menubar.Edit_BusinessAdmin">
+<AnchorPane id="AnchorPane" prefHeight="402.0" prefWidth="750.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.menubar.Edit_BusinessAdmin">
     <stylesheets>
         <URL value="@/erpsystem/graphics/CSS/editownerinfo.css" />
     </stylesheets>
    <children>
-      <Pane prefHeight="481.0" prefWidth="763.0">
+      <Pane fx:id="background_pane" prefHeight="402.0" prefWidth="763.0">
          <children>
-            <Pane layoutX="14.0" layoutY="41.0" prefHeight="200.0" prefWidth="200.0" />
-            <Button layoutX="31.0" layoutY="431.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="682.0" layoutY="431.0" mnemonicParsing="false" text="Button" />
-            <Label layoutX="31.0" layoutY="283.0" text="Label" />
+            <Button layoutX="22.0" layoutY="356.0" mnemonicParsing="false" text="Button" />
+            <Button layoutX="681.0" layoutY="356.0" mnemonicParsing="false" text="Button" />
+            <Label layoutX="295.0" layoutY="47.0" text="admin data">
+               <font>
+                  <Font size="29.0" />
+               </font></Label>
+            <ImageView fx:id="icon_imageview" fitHeight="139.0" fitWidth="144.0" layoutX="22.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="34.0" layoutY="181.0" text="name" />
+            <Label layoutX="34.0" layoutY="224.0" text="lname" />
+            <Label layoutX="34.0" layoutY="261.0" text="bdate" />
+            <Label layoutX="34.0" layoutY="306.0" text="sex" />
+            <Label layoutX="256.0" layoutY="134.0" text="Address" />
+            <Label layoutX="256.0" layoutY="224.0" text="City" />
+            <Label layoutX="256.0" layoutY="261.0" text="Phone1" />
+            <TextField layoutX="83.0" layoutY="178.0" />
+            <TextField layoutX="83.0" layoutY="220.0" />
+            <DatePicker layoutX="83.0" layoutY="257.0" prefHeight="25.0" prefWidth="149.0" />
+            <ComboBox layoutX="83.0" layoutY="302.0" prefWidth="150.0" />
+            <Label layoutX="255.0" layoutY="306.0" text="Phone 2" />
+            <Label layoutX="482.0" layoutY="261.0" text="mail" />
+            <Label layoutX="482.0" layoutY="134.0" text="description" />
+            <Label layoutX="482.0" layoutY="224.0" text="Taxreg" />
+            <TextField layoutX="314.0" layoutY="220.0" />
+            <TextField layoutX="314.0" layoutY="130.0" />
+            <TextField layoutX="314.0" layoutY="257.0" />
+            <TextField layoutX="314.0" layoutY="302.0" />
+            <TextField layoutX="551.0" layoutY="257.0" prefHeight="25.0" prefWidth="198.0" />
+            <TextArea layoutX="552.0" layoutY="131.0" prefHeight="80.0" prefWidth="198.0" />
+            <TextField layoutX="551.0" layoutY="220.0" prefHeight="25.0" prefWidth="198.0" />
+            <Label layoutX="256.0" layoutY="182.0" text="zipcode" />
+            <TextField layoutX="314.0" layoutY="177.0" />
          </children>
       </Pane>
    </children>

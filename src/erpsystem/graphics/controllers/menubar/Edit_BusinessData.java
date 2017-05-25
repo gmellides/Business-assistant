@@ -57,6 +57,8 @@ public class Edit_BusinessData implements Initializable {
     private ImageView business_logo_view;
     @FXML
     private Pane background_pane;
+    @FXML
+    private ImageView icon_imageview;
 
     /**
      * Controller class init. 
@@ -65,7 +67,7 @@ public class Edit_BusinessData implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        set_background();
+        set_background_and_icon();
         if(new BusinessXML().file_exist()){
             set_businesslogo();
             BusinessXML_Parser xmlParser = new BusinessXML_Parser();
@@ -173,7 +175,9 @@ public class Edit_BusinessData implements Initializable {
                 business_logo_view.setImage(logo_img);
             }    
         }
-        public void set_background(){
+        public void set_background_and_icon(){
+           Image this_logo = new Image(new File("resources/images/menubar/edit_businessData.png").toURI().toString());
+           icon_imageview.setImage(this_logo);
            background_pane.setStyle("-fx-background-color: #FFFFFF;");
         }
     // ===============================

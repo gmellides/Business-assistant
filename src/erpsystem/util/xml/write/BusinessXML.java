@@ -44,6 +44,7 @@ public class BusinessXML {
      * @param data 
      */
     public void create_xml_structure(Business data){
+        workspace = new FileManager();
         encrypt = new EncryptionUtil();
         try{
             DocumentBuilderFactory doc_fact = DocumentBuilderFactory.newInstance();
@@ -104,7 +105,7 @@ public class BusinessXML {
      * @return 
      */
     public boolean file_exist(){
-        File admin_data = new File(System.getProperty("user.dir")+"/user_data/business_data.xml");
-        return admin_data.exists();
+        File business_data = new File(new FileManager().getApp_data_business()+"/business_data.xml");
+        return business_data.exists();
     }
 }

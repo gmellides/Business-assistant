@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 public class SearchView implements Initializable {
 
@@ -33,7 +34,8 @@ public class SearchView implements Initializable {
     
     @FXML
     private void btnClose_Action(ActionEvent event) {
-        
+        Stage this_window = (Stage)  btnClose.getScene().getWindow();
+        this_window.close();
     }
     
     public void set_style(){

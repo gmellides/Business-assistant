@@ -84,7 +84,7 @@ public class FileManager {
     public boolean save_logo_img(File source,String Extension){
         boolean flag = false;
             try{
-                File destination = new File(getApp_data_root()+"/logo."+Extension);
+                File destination = new File(getApp_data_business()+"/logo."+Extension);
                 FileChannel source_Channel = new FileInputStream(source).getChannel();
                 FileChannel distination_Channel = new FileOutputStream(destination).getChannel();
                 distination_Channel.transferFrom(source_Channel, 0, source_Channel.size());

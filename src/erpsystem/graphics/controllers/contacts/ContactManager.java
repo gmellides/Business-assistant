@@ -69,8 +69,8 @@ public class ContactManager implements Initializable {
             Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/contacts/SearchView.fxml").openStream());
             Stage stage = new Stage();
             Scene scene = new Scene(root);
-            stage.setHeight(420);
-            stage.setWidth(766);
+            stage.setHeight(600);
+            stage.setWidth(850);
             stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                 @Override
                 public void handle(WindowEvent we) {
@@ -84,7 +84,11 @@ public class ContactManager implements Initializable {
             // stage.getIcons().add(icon);
             stage.show();
     }
-    
+    @FXML
+    private void btnExit_Action(ActionEvent event) {
+        Stage this_window = (Stage) btnNewContact.getScene().getWindow();
+        this_window.close();
+    }
     
     
     
@@ -98,4 +102,6 @@ public class ContactManager implements Initializable {
     public void NewContactPrepare(){
         // this will be used for new contacts 
     }
+
+    
 }

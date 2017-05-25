@@ -53,14 +53,18 @@ public class View_BusinessData implements Initializable {
     private Label lbl_LastEdit;
     @FXML
     private Pane background_pane;
+    @FXML
+    private ImageView icon_imageview;
+    @FXML
+    private Label lbl_nodata;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // ean uparxei xml tote emfanizei allios vgazei label pou leei oti den exei tipote kai na valei 
-        set_background();
+        lbl_nodata.setVisible(false);
+        set_background_and_icon();
         workplace = new FileManager();
         File xml_file = new File(workplace.getApp_data_business()+"/business_data.xml");
         if(xml_file.exists()){
@@ -68,7 +72,8 @@ public class View_BusinessData implements Initializable {
             set_data(rb,xml_file);
           //  enable_components();
         }else{
-            clear_window();   
+            clear_window();  
+            no_data(rb);
             set_logo();
         }   
     }
@@ -110,6 +115,10 @@ public class View_BusinessData implements Initializable {
         btn_ExportPDF.setVisible(false);
         btn_ExportCard.setVisible(false);
     }
+    public void no_data(ResourceBundle bundle){
+        lbl_nodata.setVisible(true);
+        lbl_nodata.setText(bundle.getString("view_no_data"));
+    }
     public void enable_components(){
         btn_ExportPDF.setVisible(true);
         btn_ExportCard.setVisible(true);
@@ -130,8 +139,12 @@ public class View_BusinessData implements Initializable {
                 Image logo_img= new Image(default_logo.toURI().toString());
                 b_logo.setImage(logo_img);
             }    
+            
+            
         }
-    public void set_background(){
+    public void set_background_and_icon(){
+        Image icon = new Image(new File("resources/images/menubar/view_businessData.png").toURI().toString());
+        icon_imageview.setImage(icon); 
         background_pane.setStyle("-fx-background-color: #FFFFFF;");
     }
     public void set_data(ResourceBundle bundle,File xml_input){

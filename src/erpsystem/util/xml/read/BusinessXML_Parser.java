@@ -19,16 +19,18 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class BusinessXML_Parser {
+    private FileManager workspace;
     private File xml_file;
     private DocumentBuilderFactory doc_builder_fact;
     private DocumentBuilder doc_builder;
     private Document xml_document; 
     
     public Business getData(){
+            workspace = new FileManager();
             String[] xml_elements = {"business_name","business_address","business_description",
                                      "business_phone","business_fax","business_taxreg","business_city",
                                      "business_date","business_mail"};
-            String file_location = new FileManager().getApp_data_business()+"/business_data.xml";
+            String file_location = workspace.getApp_data_business()+"/business_data.xml";
             try{
             // Init
             xml_file = new File(file_location);
@@ -57,15 +59,14 @@ public class BusinessXML_Parser {
         decrypt =  new DecryptionUtil();
         LocalDate establish_date = LocalDate.parse(decrypt.decrypt_string(xml_data.get("business_date")));
         b_data = new Business(decrypt.decrypt_string(xml_data.get("business_name")),
-                              decrypt.decrypt_string(xml_data.get("business_address")),
                               decrypt.decrypt_string(xml_data.get("business_description")),
+                              decrypt.decrypt_string(xml_data.get("business_address")),
+                              decrypt.decrypt_string(xml_data.get("business_city")),
                               decrypt.decrypt_string(xml_data.get("business_phone")),
                               decrypt.decrypt_string(xml_data.get("business_fax")),
                               decrypt.decrypt_string(xml_data.get("business_taxreg")),
-                              decrypt.decrypt_string(xml_data.get("business_city")),
                               decrypt.decrypt_string(xml_data.get("business_mail")),
                               establish_date);
-        
         return b_data;
     }
     

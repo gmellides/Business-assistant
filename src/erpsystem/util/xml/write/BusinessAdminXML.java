@@ -7,6 +7,7 @@ package erpsystem.util.xml.write;
 
 import erpsystem.entities.business.BusinessAdmin;
 import erpsystem.util.safety.EncryptionUtil;
+import erpsystem.util.system.FileManager;
 import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -17,16 +18,18 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-public class BusinessAdminXML_c {
-    EncryptionUtil encrypt;
+public class BusinessAdminXML {
+    private FileManager workspace;
+    private EncryptionUtil encrypt;
     
    
     public boolean save_data(BusinessAdmin input){
         boolean flag = false;
+            workspace = new FileManager();
             if (!file_exist()){
                 create_xml_structure(input);
             }else{
-                File admin_data = new File(System.getProperty("user.dir")+"/user_data/admin_data.xml");
+                File admin_data = new File(workspace.getApp_data_admin()+"/admin_data.xml");
                 admin_data.delete();
                 create_xml_structure(input);
             }
@@ -84,7 +87,7 @@ public class BusinessAdminXML_c {
             TransformerFactory pretty_format_factory = TransformerFactory.newInstance();
             Transformer pretty_format = pretty_format_factory.newTransformer();
             DOMSource xml_doc_source = new DOMSource(xml_doc);
-            StreamResult save = new StreamResult(new File(System.getProperty("user.dir")+"/user_data/admin_data.xml"));
+            StreamResult save = new StreamResult(new File(workspace.getApp_data_admin()+"/admin_data.xml"));
             
             pretty_format.transform(xml_doc_source,save);
         }catch(Exception e){
@@ -93,7 +96,7 @@ public class BusinessAdminXML_c {
     }
     
     public boolean file_exist(){
-        File admin_data = new File(System.getProperty("user.dir")+"/user_data/admin_data.xml");
+        File admin_data = new File(workspace.getApp_data_admin()+"/admin_data.xml");
         return admin_data.exists();
     }
 }

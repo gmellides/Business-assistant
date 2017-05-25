@@ -9,8 +9,20 @@ import erpsystem.entities.people.Person_s_c;
 
 public class BusinessAdmin extends Person_s_c{
 
-    public BusinessAdmin(String TaxReg, String Phone1, String Phone2, String Mail) {
-        super();
+    public BusinessAdmin(String FirstName,
+                         String LastName,
+                         String Sex,
+                         String Address,
+                         int ZipCode,
+                         String TaxReg,
+                         String Phone1,
+                         String Phone2,
+                         String Mail) {
+        this.setFirstName(FirstName);
+        this.setLastName(LastName);
+        this.setAddress(Address);
+        this.setZipCode(ZipCode);
+        this.setSex(Sex); 
         this.TaxReg = TaxReg;
         this.Phone1 = Phone1;
         this.Phone2 = Phone2;

@@ -34,7 +34,7 @@ public class BusinessPDF {
             doc_info.setAuthor("ERP SYSTEM NAME");
             // add a new page
             doc.addPage(page);
-            //doc.save(workspace.getMyDocumentsPath()+"/");
+            doc.save(workspace.getDocuments_business_data()+"/"+Pdf_name());
             doc.close();
         }catch(IOException e){
             e.printStackTrace();
