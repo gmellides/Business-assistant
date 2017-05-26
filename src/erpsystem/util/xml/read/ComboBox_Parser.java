@@ -18,7 +18,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class Contacts_ComboBox_Parser {
+public class ComboBox_Parser {
     File xmlFile;
     DocumentBuilderFactory builder_factory;
     DocumentBuilder document_builder;
@@ -90,7 +90,6 @@ public class Contacts_ComboBox_Parser {
     }
     public ObservableList<String> get_big_cities_greece() throws Exception{
         ObservableList<String> data = FXCollections.observableArrayList();
-      //  HashMap<String,String> d = new HashMap<String,String>();
             xmlFile = new File("resources/xml/contacts/greece_data.xml");
             builder_factory = DocumentBuilderFactory.newInstance();
             document_builder = builder_factory.newDocumentBuilder();

@@ -37,6 +37,22 @@ public class Contact_c extends Person_s_c {
     public void setPhone_2_type(String Phone_2_type) {
         this.Phone_2_type = Phone_2_type;
     }
+
+    public void setAddress(String Address) {
+        this.Address = Address;
+    }
+
+    public void setZipCode(int ZipCode) {
+        this.ZipCode = ZipCode;
+    }
+
+    public void setState(String State) {
+        this.State = State;
+    }
+
+    public void setCountry(String Country) {
+        this.Country = Country;
+    }
     
     // ---- Get Methods
     public String getPhone_1() {
@@ -69,8 +85,28 @@ public class Contact_c extends Person_s_c {
     public String getPhone_2_type() {
         return Phone_2_type;
     }
+
+    public String getAddress() {
+        return Address;
+    }
+
+    public int getZipCode() {
+        return ZipCode;
+    }
+
+    public String getState() {
+        return State;
+    }
+
+    public String getCountry() {
+        return Country;
+    }
     
     // ---- Class Fields
+    private String Address;
+    private int ZipCode;
+    private String State;
+    private String Country; 
     private String Phone_1;
     private String Phone_1_type;
     private String Phone_2;

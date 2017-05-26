@@ -6,7 +6,7 @@
 package erpsystem.util.xml.write;
 
 import erpsystem.entities.business.BusinessAdmin;
-import erpsystem.util.safety.EncryptionUtil;
+import erpsystem.util.security.EncryptionUtil;
 import erpsystem.util.system.FileManager;
 import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
@@ -18,11 +18,10 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-public class BusinessAdminXML {
+public class BusinessAdminData {
     private FileManager workspace;
     private EncryptionUtil encrypt;
     
-   
     public boolean save_data(BusinessAdmin input){
         boolean flag = false;
             workspace = new FileManager();

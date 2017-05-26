@@ -112,4 +112,5 @@ public class Business {
     private String Business_Mail;
     private LocalDate Business_Date;
     
+    
 }

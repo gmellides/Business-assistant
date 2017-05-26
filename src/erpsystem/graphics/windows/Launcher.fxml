@@ -39,16 +39,16 @@
               <menus>
                 <Menu mnemonicParsing="false" text="%lnc_MenuFile">
                   <items>
-                        <MenuItem mnemonicParsing="false" onAction="#mnu_view_BusinessData" text="%lnc_MenuFileBusinessInfo" />
-                        <MenuItem mnemonicParsing="false" onAction="#mnu_ViewAdminData_Action" text="%lnc_MenuFileBusinessAdmin" />
+                        <MenuItem mnemonicParsing="false" onAction="#mnu_view_BusinessData" text="%lnc_MenuBusinessInfo" />
+                        <MenuItem mnemonicParsing="false" onAction="#mnu_ViewAdminData_Action" text="%lnc_MenuBusinessAdmin" />
                         <SeparatorMenuItem mnemonicParsing="false" />
                     <MenuItem mnemonicParsing="false" onAction="#mnuExit_Action" text="%lnc_MenuFileExit" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="%lnc_MenuEdit">
                   <items>
-                        <MenuItem mnemonicParsing="false" onAction="#mnu_edit_BusinessInfo_Action" text="%lnc_MenuEditBusiness" />
-                    <MenuItem mnemonicParsing="false" onAction="#mnu_edtBusinessAdmin_Action" text="%lnc_MenuEditBusinessAdmin" />
+                        <MenuItem mnemonicParsing="false" onAction="#mnu_edit_BusinessInfo_Action" text="%lnc_MenuBusinessInfo" />
+                    <MenuItem mnemonicParsing="false" onAction="#mnu_edtBusinessAdmin_Action" text="%lnc_MenuBusinessAdmin" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="%lnc_MenuHelp">

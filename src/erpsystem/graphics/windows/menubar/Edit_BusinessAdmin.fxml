@@ -14,39 +14,39 @@
         <URL value="@/erpsystem/graphics/CSS/editownerinfo.css" />
     </stylesheets>
    <children>
-      <Pane fx:id="background_pane" prefHeight="402.0" prefWidth="763.0">
+      <Pane fx:id="background_pane" prefHeight="402.0" prefWidth="793.0">
          <children>
-            <Button layoutX="22.0" layoutY="356.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="681.0" layoutY="356.0" mnemonicParsing="false" text="Button" />
+            <Button layoutX="22.0" layoutY="356.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="77.0" text="%btnClose" />
+            <Button layoutX="674.0" layoutY="356.0" mnemonicParsing="false" onAction="#btn_Save_Action" prefHeight="25.0" prefWidth="95.0" text="%btnSave" />
             <Label layoutX="295.0" layoutY="47.0" text="admin data">
                <font>
                   <Font size="29.0" />
                </font></Label>
             <ImageView fx:id="icon_imageview" fitHeight="139.0" fitWidth="144.0" layoutX="22.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="34.0" layoutY="181.0" text="name" />
-            <Label layoutX="34.0" layoutY="224.0" text="lname" />
+            <Label layoutX="34.0" layoutY="181.0" text="%lbl_firstname" />
+            <Label layoutX="34.0" layoutY="224.0" text="%lbl_lastname" />
             <Label layoutX="34.0" layoutY="261.0" text="bdate" />
-            <Label layoutX="34.0" layoutY="306.0" text="sex" />
-            <Label layoutX="256.0" layoutY="134.0" text="Address" />
-            <Label layoutX="256.0" layoutY="224.0" text="City" />
-            <Label layoutX="256.0" layoutY="261.0" text="Phone1" />
-            <TextField layoutX="83.0" layoutY="178.0" />
-            <TextField layoutX="83.0" layoutY="220.0" />
-            <DatePicker layoutX="83.0" layoutY="257.0" prefHeight="25.0" prefWidth="149.0" />
-            <ComboBox layoutX="83.0" layoutY="302.0" prefWidth="150.0" />
-            <Label layoutX="255.0" layoutY="306.0" text="Phone 2" />
-            <Label layoutX="482.0" layoutY="261.0" text="mail" />
-            <Label layoutX="482.0" layoutY="134.0" text="description" />
-            <Label layoutX="482.0" layoutY="224.0" text="Taxreg" />
-            <TextField layoutX="314.0" layoutY="220.0" />
-            <TextField layoutX="314.0" layoutY="130.0" />
-            <TextField layoutX="314.0" layoutY="257.0" />
-            <TextField layoutX="314.0" layoutY="302.0" />
-            <TextField layoutX="551.0" layoutY="257.0" prefHeight="25.0" prefWidth="198.0" />
-            <TextArea layoutX="552.0" layoutY="131.0" prefHeight="80.0" prefWidth="198.0" />
-            <TextField layoutX="551.0" layoutY="220.0" prefHeight="25.0" prefWidth="198.0" />
-            <Label layoutX="256.0" layoutY="182.0" text="zipcode" />
-            <TextField layoutX="314.0" layoutY="177.0" />
+            <Label layoutX="34.0" layoutY="306.0" text="%lbl_sex" />
+            <Label layoutX="269.0" layoutY="135.0" text="%lbl_address" />
+            <Label layoutX="269.0" layoutY="225.0" text="%lbl_city" />
+            <Label layoutX="269.0" layoutY="262.0" text="%lbl_phone1" />
+            <TextField fx:id="txt_FirstName" layoutX="111.0" layoutY="180.0" />
+            <TextField fx:id="txt_LastName" layoutX="111.0" layoutY="222.0" />
+            <DatePicker fx:id="dtp_Birthdate" layoutX="111.0" layoutY="259.0" prefHeight="25.0" prefWidth="149.0" />
+            <ComboBox fx:id="cmb_Sex" layoutX="111.0" layoutY="304.0" prefWidth="150.0" />
+            <Label layoutX="268.0" layoutY="307.0" text="%lbl_phone2" />
+            <Label layoutX="505.0" layoutY="263.0" text="%lbl_mail" />
+            <Label layoutX="505.0" layoutY="136.0" text="description" />
+            <Label layoutX="505.0" layoutY="224.0" text="Taxreg" />
+            <TextField fx:id="txt_Address" layoutX="349.0" layoutY="131.0" />
+            <TextField fx:id="txt_Phone1" layoutX="349.0" layoutY="258.0" />
+            <TextField fx:id="txt_Phone2" layoutX="349.0" layoutY="303.0" />
+            <TextField fx:id="txtMail" layoutX="572.0" layoutY="254.0" prefHeight="25.0" prefWidth="198.0" />
+            <TextArea fx:id="txt_Description" layoutX="573.0" layoutY="128.0" prefHeight="80.0" prefWidth="198.0" />
+            <TextField fx:id="txt_TaxReg" layoutX="572.0" layoutY="217.0" prefHeight="25.0" prefWidth="198.0" />
+            <Label layoutX="269.0" layoutY="183.0" text="%lbl_zipcode" />
+            <TextField fx:id="txt_ZipCode" layoutX="349.0" layoutY="178.0" />
+            <ComboBox fx:id="cmb_City" layoutX="348.0" layoutY="221.0" prefWidth="150.0" />
          </children>
       </Pane>
    </children>

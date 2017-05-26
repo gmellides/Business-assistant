@@ -6,12 +6,14 @@
 package erpsystem.entities.business;
 
 import erpsystem.entities.people.Person_s_c;
+import java.time.LocalDate;
 
 public class BusinessAdmin extends Person_s_c{
 
     public BusinessAdmin(String FirstName,
                          String LastName,
                          String Sex,
+                         LocalDate Birthday,
                          String Address,
                          int ZipCode,
                          String TaxReg,
@@ -20,8 +22,7 @@ public class BusinessAdmin extends Person_s_c{
                          String Mail) {
         this.setFirstName(FirstName);
         this.setLastName(LastName);
-        this.setAddress(Address);
-        this.setZipCode(ZipCode);
+        this.setBirthdate(Birthday);
         this.setSex(Sex); 
         this.TaxReg = TaxReg;
         this.Phone1 = Phone1;
@@ -45,6 +46,22 @@ public class BusinessAdmin extends Person_s_c{
         this.Mail = Mail;
     }
 
+    public void setAddress(String Address) {
+        this.Address = Address;
+    }
+
+    public void setZipCode(int ZipCode) {
+        this.ZipCode = ZipCode;
+    }
+
+    public void setState(String State) {
+        this.State = State;
+    }
+
+    public void setCountry(String Country) {
+        this.Country = Country;
+    }
+
     
     public String getTaxReg() {
         return TaxReg;
@@ -61,9 +78,29 @@ public class BusinessAdmin extends Person_s_c{
     public String getMail() {
         return Mail;
     }
+
+    public String getAddress() {
+        return Address;
+    }
+
+    public int getZipCode() {
+        return ZipCode;
+    }
+
+    public String getState() {
+        return State;
+    }
+
+    public String getCountry() {
+        return Country;
+    }
     
+    private String Address;
+    private int ZipCode;
+    private String State;
+    private String Country;
     private String TaxReg;
     private String Phone1;
     private String Phone2;
-    private String Mail;
+    private String Mail; 
 }

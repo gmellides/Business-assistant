@@ -36,10 +36,12 @@ public class View_BusinessAdmin implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         set_background_and_icon();
+        data = rb;
     }    
 
     @FXML
     private void btnExportPDF_Action(ActionEvent event) {
+        
     }
 
     @FXML
@@ -57,4 +59,6 @@ public class View_BusinessAdmin implements Initializable {
         icon_imageview.setImage(icon);
         background_pane.setStyle("-fx-background-color: #FFFFFF;"); 
     }
+    
+    private ResourceBundle data;
 }

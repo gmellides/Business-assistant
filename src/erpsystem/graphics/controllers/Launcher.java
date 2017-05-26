@@ -96,7 +96,7 @@ public class Launcher implements Initializable {
                 stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                     @Override
                     public void handle(WindowEvent we) {
-                        stage.hide();
+                        stage.close();
                     }
                 });
                 stage.setTitle("Επαφές");
@@ -122,7 +122,7 @@ public class Launcher implements Initializable {
                     stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                         @Override
                         public void handle(WindowEvent we) {
-                            stage.hide();
+                            stage.close();
                         }
                     });
                     stage.setTitle("Επεξεργασία Πληροφωριών επιχείρησης");
@@ -145,7 +145,7 @@ public class Launcher implements Initializable {
                     stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                         @Override
                         public void handle(WindowEvent we) {
-                            stage.hide();
+                            stage.close();
                         }
                     });
                     stage.setTitle("Επεξεργασία Πληροφωριών επιχείρησης");
@@ -173,7 +173,7 @@ public class Launcher implements Initializable {
                         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                             @Override
                             public void handle(WindowEvent we) {
-                                stage.hide();
+                                stage.close();
                             }
                         });
                         stage.setTitle("Επεξεργασία Πληροφωριών επιχείρησης");
@@ -192,11 +192,11 @@ public class Launcher implements Initializable {
                         Stage stage = new Stage();
                         Scene scene = new Scene(root);
                         stage.setHeight(430);
-                        stage.setWidth(770);
+                        stage.setWidth(800);
                         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                             @Override
                             public void handle(WindowEvent we) {
-                                stage.hide();
+                                stage.close();
                             }
                         });
                         stage.setTitle("Επεξεργασία Πληροφωριών επιχείρησης");

@@ -16,7 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import erpsystem.entities.business.Business;
 import erpsystem.util.xml.read.BusinessXML_Parser;
-import erpsystem.util.xml.write.BusinessXML;
+import erpsystem.util.xml.write.BusinessData;
 import erpsystem.util.system.FileManager;
 import java.io.File;
 import javafx.scene.control.Alert;
@@ -68,7 +68,7 @@ public class Edit_BusinessData implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         set_background_and_icon();
-        if(new BusinessXML().file_exist()){
+        if(new BusinessData().file_exist()){
             set_businesslogo();
             BusinessXML_Parser xmlParser = new BusinessXML_Parser();
             Business data = xmlParser.getData();
@@ -102,7 +102,7 @@ public class Edit_BusinessData implements Initializable {
                                            txt_TaxReg.getText(),
                                            txt_Mail.getText(),
                                            dtp_establishDate.getValue());
-            BusinessXML data_to_XML = new BusinessXML();
+            BusinessData data_to_XML = new BusinessData();
             data_to_XML.save_data(b_data);
 
             Alert succed_dialog = new Alert(AlertType.INFORMATION);

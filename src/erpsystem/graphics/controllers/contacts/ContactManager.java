@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -30,6 +31,10 @@ public class ContactManager implements Initializable {
     private Pane background_pane;
     @FXML
     private Button btnSearchView;
+    @FXML
+    private Label lbl_savedContacts;
+    @FXML
+    private Label lbl_lastInput;
 
     /**
      * Initializes the controller class.
@@ -38,70 +43,73 @@ public class ContactManager implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         ShowContactInfos();
         set_style();
+        lbl_savedContacts.setText(rb.getString("cmgr_lblsummary"));
+        lbl_lastInput.setText(rb.getString("cmgr_lblinput"));
     }    
 
-    @FXML
-    private void btnNewContactsAction(ActionEvent event) throws IOException {
-        FXMLLoader f = new FXMLLoader();
-            f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
-            Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/contacts/NewContact.fxml").openStream());
-            Stage stage = new Stage();
-            Scene scene = new Scene(root);
-            stage.setHeight(420);
-            stage.setWidth(766);
-            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-                @Override
-                public void handle(WindowEvent we) {
-                    stage.hide();
-                }
-            });
-            stage.setTitle("Νέα Επαφή");
-            stage.setScene(scene);
-            stage.setResizable(false);
+    // ===== FXML Buttons Action =====
+        @FXML
+        private void btnNewContactsAction(ActionEvent event) throws IOException {
+            FXMLLoader f = new FXMLLoader();
+                f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
+                Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/contacts/NewContact.fxml").openStream());
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                stage.setHeight(420);
+                stage.setWidth(766);
+                stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                    @Override
+                    public void handle(WindowEvent we) {
+                        stage.hide();
+                    }
+                });
+                stage.setTitle("Νέα Επαφή");
+                stage.setScene(scene);
+                stage.setResizable(false);
+             // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
+             // stage.getIcons().add(icon);
+                stage.show();
+        }
+        @FXML
+        private void btnSearchView_Action(ActionEvent event) throws IOException{
+            FXMLLoader f = new FXMLLoader();
+                f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
+                Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/contacts/SearchView.fxml").openStream());
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                stage.setHeight(600);
+                stage.setWidth(850);
+                stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                    @Override
+                    public void handle(WindowEvent we) {
+                        stage.hide();
+                    }
+                });
+                stage.setTitle("Νέα Επαφή");
+                stage.setScene(scene);
+                stage.setResizable(false);
                 // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
                 // stage.getIcons().add(icon);
-            stage.show();
-    }
-    @FXML
-    private void btnSearchView_Action(ActionEvent event) throws IOException{
-        FXMLLoader f = new FXMLLoader();
-            f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
-            Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/contacts/SearchView.fxml").openStream());
-            Stage stage = new Stage();
-            Scene scene = new Scene(root);
-            stage.setHeight(600);
-            stage.setWidth(850);
-            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-                @Override
-                public void handle(WindowEvent we) {
-                    stage.hide();
-                }
-            });
-            stage.setTitle("Νέα Επαφή");
-            stage.setScene(scene);
-            stage.setResizable(false);
-            // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
-            // stage.getIcons().add(icon);
-            stage.show();
-    }
-    @FXML
-    private void btnExit_Action(ActionEvent event) {
-        Stage this_window = (Stage) btnNewContact.getScene().getWindow();
-        this_window.close();
-    }
+                stage.show();
+        }
+        @FXML
+        private void btnExit_Action(ActionEvent event) {
+            Stage this_window = (Stage) btnNewContact.getScene().getWindow();
+            this_window.close();
+        }
+    // ===============================
     
-    
-    
-    public void set_style(){
-        contact_mgrPane.setStyle("-fx-background-image: url('file://../resources/images/contacts/contact_manager.png\');");
-        background_pane.setStyle("-fx-background-color: #FFFFFF;");
-    }
-    public void ShowContactInfos(){
-        // selevt count(*) from contacts
-    }
-    public void NewContactPrepare(){
-        // this will be used for new contacts 
-    }
-
+    // ========== Methods ============
+        public void set_style(){
+            contact_mgrPane.setStyle("-fx-background-image: url('file://../resources/images/contacts/contact_manager.png\');");
+            background_pane.setStyle("-fx-background-color: #FFFFFF;");
+        }
+        public void ShowContactInfos(){
+            // selevt count(*) from contacts
+        }
+        public void NewContactPrepare(){
+            // this will be used for new contacts 
+        }
+    // ===============================
     
 }

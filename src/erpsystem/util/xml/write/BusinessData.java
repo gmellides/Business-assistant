@@ -6,7 +6,7 @@
 package erpsystem.util.xml.write;
 
 import erpsystem.entities.business.Business;
-import erpsystem.util.safety.EncryptionUtil;
+import erpsystem.util.security.EncryptionUtil;
 import erpsystem.util.system.FileManager;
 import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
@@ -18,12 +18,12 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-public class BusinessXML {
+public class BusinessData {
     private EncryptionUtil encrypt;
     private FileManager workspace;
     /**
      * Method that is used from other classes  
-    * @param input
+     * @param input
      * @return 
      */
     public boolean save_data(Business input){
@@ -61,7 +61,7 @@ public class BusinessXML {
             Element e_businessAddress = xml_doc.createElement("business_address");
             e_businessAddress.appendChild(xml_doc.createTextNode(encrypt.encrypt_string(data.getBusiness_Address())));
             r_admin_elem.appendChild(e_businessAddress);
-           // specify
+           
             Element e_businessDescription = xml_doc.createElement("business_description");
             e_businessDescription.appendChild(xml_doc.createTextNode(encrypt.encrypt_string(data.getBusiness_Description())));
             r_admin_elem.appendChild(e_businessDescription);

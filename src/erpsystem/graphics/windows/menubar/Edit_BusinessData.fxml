@@ -27,23 +27,23 @@
             <DatePicker fx:id="dtp_establishDate" layoutX="502.0" layoutY="98.0" prefHeight="25.0" prefWidth="154.0" />
             <TextField fx:id="txt_Mail" layoutX="473.0" layoutY="145.0" prefHeight="25.0" prefWidth="181.0" />
             <Button fx:id="btn_Search" layoutX="473.0" layoutY="200.0" mnemonicParsing="false" onAction="#btnSearch_Action" prefHeight="25.0" prefWidth="181.0" text="%edt_bus_btnSearch" />
-            <Button fx:id="btnSave" layoutX="538.0" layoutY="437.0" mnemonicParsing="false" onAction="#btnSave_Action" prefHeight="25.0" prefWidth="131.0" text="%edt_bus_btnSave" />
-            <Button fx:id="btnClose" layoutX="17.0" layoutY="437.0" mnemonicParsing="false" onAction="#btnClose_Action" prefHeight="25.0" prefWidth="116.0" text="%edt_bus_btnClose" />
+            <Button fx:id="btnSave" layoutX="538.0" layoutY="437.0" mnemonicParsing="false" onAction="#btnSave_Action" prefHeight="25.0" prefWidth="131.0" text="%btnSave" />
+            <Button fx:id="btnClose" layoutX="17.0" layoutY="437.0" mnemonicParsing="false" onAction="#btnClose_Action" prefHeight="25.0" prefWidth="116.0" text="%btnClose" />
             <Label layoutX="121.0" layoutY="30.0" prefHeight="38.0" prefWidth="483.0" text="%edt_bus_windowname">
                <font>
                   <Font size="26.0" />
                </font>
             </Label>
             <Label layoutX="27.0" layoutY="102.0" text="%edt_bus_businessname" />
-            <Label layoutX="27.0" layoutY="226.0" prefHeight="17.0" prefWidth="75.0" text="%edt_bus_address" />
-            <Label layoutX="27.0" layoutY="265.0" prefHeight="17.0" prefWidth="75.0" text="%edt_bus_phone" />
-            <Label layoutX="27.0" layoutY="345.0" prefHeight="17.0" prefWidth="34.0" text="%edt_bus_city" />
+            <Label layoutX="27.0" layoutY="226.0" prefHeight="17.0" prefWidth="75.0" text="%lbl_address" />
+            <Label layoutX="27.0" layoutY="265.0" prefHeight="17.0" prefWidth="75.0" text="%lbl_phone" />
+            <Label layoutX="27.0" layoutY="345.0" prefHeight="17.0" prefWidth="34.0" text="%lbl_city" />
             <Label layoutX="27.0" layoutY="382.0" text="%edt_bus_taxreg" />
             <Label layoutX="400.0" layoutY="102.0" text="%edt_bus_date" />
             <Label layoutX="400.0" layoutY="204.0" text="%edt_bus_logo" />
             <Label layoutX="27.0" layoutY="136.0" prefHeight="17.0" prefWidth="123.0" text="%edt_bus_description" />
-            <Label layoutX="31.0" layoutY="307.0" text="%edt_bus_fax" />
-            <Label layoutX="400.0" layoutY="149.0" text="%edt_bus_mail" />
+            <Label layoutX="31.0" layoutY="307.0" text="%lbl_fax" />
+            <Label layoutX="400.0" layoutY="149.0" text="%lbl_mail" />
             <ImageView fx:id="business_logo_view" fitHeight="150.0" fitWidth="200.0" layoutX="438.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" />
             <Line endX="240.0" layoutX="320.0" layoutY="254.0" rotate="90.0" startX="-100.0" />
             <ImageView fx:id="icon_imageview" fitHeight="80.0" fitWidth="104.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
