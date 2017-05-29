@@ -40,6 +40,7 @@ public class Launcher implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        language_strings = rb;
        Start_DateTimeInfo();
     }
 
@@ -65,7 +66,7 @@ public class Launcher implements Initializable {
                         stage.close();
                     }
                 });
-                stage.setTitle("Διαχείρηση Πελατών");
+                stage.setTitle(language_strings.getString("customer_manager"));
                 stage.setScene(scene);
                 stage.setResizable(false);
                     // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
@@ -99,7 +100,7 @@ public class Launcher implements Initializable {
                         stage.close();
                     }
                 });
-                stage.setTitle("Επαφές");
+                stage.setTitle("contact_manager");
                 stage.setScene(scene);
                 stage.setResizable(false);
                     // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
@@ -125,7 +126,7 @@ public class Launcher implements Initializable {
                             stage.close();
                         }
                     });
-                    stage.setTitle("Επεξεργασία Πληροφωριών επιχείρησης");
+                    stage.setTitle(language_strings.getString("view_business_data"));
                     stage.setScene(scene);
                     stage.setResizable(false);
                     // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
@@ -140,7 +141,7 @@ public class Launcher implements Initializable {
                     Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/menubar/View_BusinessAdmin.fxml").openStream());
                     Stage stage = new Stage();
                     Scene scene = new Scene(root);
-                    stage.setHeight(515);
+                    stage.setHeight(470);
                     stage.setWidth(694);
                     stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                         @Override
@@ -148,7 +149,7 @@ public class Launcher implements Initializable {
                             stage.close();
                         }
                     });
-                    stage.setTitle("Επεξεργασία Πληροφωριών επιχείρησης");
+                    stage.setTitle(language_strings.getString("view_admin_data"));
                     stage.setScene(scene);
                     stage.setResizable(false);
                  // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
@@ -176,7 +177,7 @@ public class Launcher implements Initializable {
                                 stage.close();
                             }
                         });
-                        stage.setTitle("Επεξεργασία Πληροφωριών επιχείρησης");
+                        stage.setTitle(language_strings.getString("edit_business_data"));
                         stage.setScene(scene);
                         stage.setResizable(false);
                             // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
@@ -199,7 +200,7 @@ public class Launcher implements Initializable {
                                 stage.close();
                             }
                         });
-                        stage.setTitle("Επεξεργασία Πληροφωριών επιχείρησης");
+                        stage.setTitle(language_strings.getString("edit_admin_data"));
                         stage.setScene(scene);
                         stage.setResizable(false);
                             // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
@@ -230,6 +231,5 @@ public class Launcher implements Initializable {
     // ==== END OF MY METHODS ===
     
     private Timer DateTimeUpdater; 
-
-    
+    private ResourceBundle language_strings;
 }

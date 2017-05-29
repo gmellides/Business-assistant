@@ -9,6 +9,7 @@ import erpsystem.entities.business.Business;
 import erpsystem.util.export.pdf.business_data.BusinessPDF;
 import erpsystem.util.system.FileManager;
 import erpsystem.util.xml.read.BusinessXML_Parser;
+import erpsystem.util.xml.write.BusinessData;
 import java.io.File;
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -58,6 +59,8 @@ public class View_BusinessData implements Initializable {
     private ImageView icon_imageview;
     @FXML
     private Label lbl_nodata;
+    @FXML
+    private Label lbl_Mail;
 
     /**
      * Initializes the controller class.
@@ -68,108 +71,108 @@ public class View_BusinessData implements Initializable {
         lbl_nodata.setVisible(false);
         set_background_and_icon();
         workplace = new FileManager();
-        File xml_file = new File(workplace.getApp_data_business()+"/business_data.xml");
-        if(xml_file.exists()){
-            set_logo();
-            set_data(data,xml_file);
-          //  enable_components();
-        }else{
-            clear_window();  
-            no_data(rb);
-            set_logo();
-        }   
+        BusinessXML = new BusinessData();
+            if(BusinessXML.get_File().exists()){
+                set_logo();
+                set_data(data,BusinessXML.get_File());
+              //  enable_components();
+            }else{
+                clear_window();  
+                no_data(rb);
+                set_logo();
+            }   
     }
     
     // ===== FXML Buttons Action =====
-    @FXML
-    private void btnExportCard_Action(ActionEvent event) {
-        
-    }
+        @FXML
+        private void btnExportCard_Action(ActionEvent event) {
 
-    @FXML
-    private void btnExportPDF_Action(ActionEvent event) {
-        export_pdf = new BusinessPDF();
-        if(export_pdf.save_pdf(data, b_data)){
-            System.out.println("PDF DONE");
         }
-    }
-    @FXML
-    private void btn_Close_Action(ActionEvent event) {
-        Stage window = (Stage)  btn_ExportCard.getScene().getWindow();
-        window.close();
-    }
+        @FXML
+        private void btnExportPDF_Action(ActionEvent event) {
+            export_pdf = new BusinessPDF();
+            if(export_pdf.save_pdf(data,b_data)){
+                System.out.println("PDF DONE");
+            }
+            System.exit(0);
+        }
+        @FXML
+        private void btn_Close_Action(ActionEvent event) {
+            Stage window = (Stage)  btn_ExportCard.getScene().getWindow();
+            window.close();
+        }
    // ===============================
     
     // ========== Methods ============
-    /**
-     * This method will be called only when xml file
-     * doesn't exist 
-     */
-    public void clear_window(){
-        b_logo.setVisible(false);
-        graphic_line.setVisible(false);
-        lbl_bName.setVisible(false);
-          lbl_bDescription.setVisible(false);
-          lbl_lblPhone.setVisible(false);
-          lbl_Fax.setVisible(false);
-          lbl_Address.setVisible(false);
-          lbl_City.setVisible(false);
-          lbl_TaxReg.setVisible(false);
-          lbl_EstablishData.setVisible(false);
-          lbl_LastEdit.setVisible(false);
-        btn_ExportPDF.setVisible(false);
-        btn_ExportCard.setVisible(false);
-    }
-    public void no_data(ResourceBundle bundle){
-        lbl_nodata.setVisible(true);
-        lbl_nodata.setText(bundle.getString("view_no_data"));
-    }
-    public void enable_components(){
-        btn_ExportPDF.setVisible(true);
-        btn_ExportCard.setVisible(true);
-    }
-    public void set_logo(){
-       FileManager path = new FileManager();
-            String[] logo_name = new String[]{"/logo.png","/logo.bmp","/logo.jpg"};
-            for (String name : logo_name){
-                File logo = new File(path.getApp_data_business()+name);
-                if (logo.exists()){
-                    Image logo_img= new Image(new File(new FileManager().getApp_data_business()+name).toURI().toString());
-                    b_logo.setImage(logo_img);
-                    break;
-                }
-            }
-            if (b_logo.getImage() == null){
-                File default_logo = new File("resources/default_img/default.png");
-                Image logo_img= new Image(default_logo.toURI().toString());
-                b_logo.setImage(logo_img);
-            }    
-            
-            
+        /**
+         * This method will be called only when xml file
+         * doesn't exist 
+         */
+        private void clear_window(){
+            b_logo.setVisible(false);
+            graphic_line.setVisible(false);
+            lbl_bName.setVisible(false);
+              lbl_bDescription.setVisible(false);
+              lbl_lblPhone.setVisible(false);
+              lbl_Fax.setVisible(false);
+              lbl_Address.setVisible(false);
+              lbl_City.setVisible(false);
+              lbl_TaxReg.setVisible(false);
+              lbl_EstablishData.setVisible(false);
+              lbl_LastEdit.setVisible(false);
+            btn_ExportPDF.setVisible(false);
+            btn_ExportCard.setVisible(false);
         }
-    public void set_background_and_icon(){
-        Image icon = new Image(new File("resources/images/menubar/view_businessData.png").toURI().toString());
-        icon_imageview.setImage(icon); 
-        background_pane.setStyle("-fx-background-color: #FFFFFF;");
-    }
-    public void set_data(ResourceBundle bundle,File xml_input){
-        BusinessXML_Parser file_reader = new BusinessXML_Parser();
-        b_data = file_reader.getData();
-          lbl_bName.setText(bundle.getString("view_bus_businessname")+"   "+b_data.getBusiness_Name());
-          lbl_bDescription.setText(bundle.getString("view_bus_description")+"   "+b_data.getBusiness_Description());
-          lbl_lblPhone.setText(bundle.getString("lbl_phone")+"  "+b_data.getBusiness_Phone());
-          lbl_Fax.setText(bundle.getString("lbl_fax")+"  "+b_data.getBusiness_Fax());
-          lbl_Address.setText(bundle.getString("lbl_address")+"  "+b_data.getBusiness_Address());
-          lbl_City.setText(bundle.getString("lbl_city")+"  "+b_data.getBusiness_City());
-          lbl_TaxReg.setText(bundle.getString("view_bus_taxreg")+"  "+b_data.getBusiness_TaxReg());
-          lbl_EstablishData.setText(bundle.getString("view_bus_date")+"  "+b_data.getBusiness_Date());
-          SimpleDateFormat date_format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-          lbl_LastEdit.setText(bundle.getString("view_bus_LastEdit")+"  "+date_format.format(xml_input.lastModified()));
-    }
+        private void no_data(ResourceBundle bundle){
+            lbl_nodata.setVisible(true);
+            lbl_nodata.setText(bundle.getString("view_no_data"));
+        }
+        private void enable_components(){
+            btn_ExportPDF.setVisible(true);
+            btn_ExportCard.setVisible(true);
+        }
+        private void set_logo(){
+           FileManager path = new FileManager();
+                String[] logo_name = new String[]{"/logo.png","/logo.bmp","/logo.jpg"};
+                for (String name : logo_name){
+                    File logo = new File(path.getApp_data_business()+name);
+                    if (logo.exists()){
+                        Image logo_img= new Image(new File(new FileManager().getApp_data_business()+name).toURI().toString());
+                        b_logo.setImage(logo_img);
+                        break;
+                    }
+                }
+                if (b_logo.getImage() == null){
+                    File default_logo = new File("resources/default_img/default.png");
+                    Image logo_img= new Image(default_logo.toURI().toString());
+                    b_logo.setImage(logo_img);
+                }    
+            }
+        private void set_background_and_icon(){
+            Image icon = new Image(new File("resources/images/menubar/view_businessData.png").toURI().toString());
+            icon_imageview.setImage(icon); 
+            background_pane.setStyle("-fx-background-color: #FFFFFF;");
+        }
+        private void set_data(ResourceBundle bundle,File business_file){
+            BusinessXML_Parser file_reader = new BusinessXML_Parser(business_file);
+            b_data = file_reader.getData();
+              lbl_bName.setText(bundle.getString("view_bus_businessname")+"   "+b_data.getBusiness_Name());
+              lbl_bDescription.setText(bundle.getString("view_bus_description")+"   "+b_data.getBusiness_Description());
+              lbl_lblPhone.setText(bundle.getString("lbl_phone")+"  "+b_data.getBusiness_Phone());
+              lbl_Fax.setText(bundle.getString("lbl_fax")+"  "+b_data.getBusiness_Fax());
+              lbl_Address.setText(bundle.getString("lbl_address")+"  "+b_data.getBusiness_Address());
+              lbl_City.setText(bundle.getString("lbl_city")+"  "+b_data.getBusiness_City());
+              lbl_TaxReg.setText(bundle.getString("view_bus_taxreg")+"  "+b_data.getBusiness_TaxReg());
+              lbl_EstablishData.setText(bundle.getString("view_bus_date")+"  "+b_data.getBusiness_Date());
+              lbl_Mail.setText(bundle.getString("lbl_mail")+"  "+b_data.getBusiness_Mail());
+              SimpleDateFormat date_format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+              lbl_LastEdit.setText(bundle.getString("view_bus_LastEdit")+"  "+date_format.format(business_file.lastModified()));
+        }
     // ===============================
     
     private FileManager workplace;
     private Business b_data;
+    private BusinessData BusinessXML;
     private BusinessPDF export_pdf;
     private ResourceBundle data;
 }

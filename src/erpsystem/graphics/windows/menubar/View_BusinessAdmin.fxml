@@ -15,9 +15,9 @@
    <children>
       <Pane fx:id="background_pane" prefHeight="449.0" prefWidth="687.0">
          <children>
-            <Button fx:id="btn_ExportPDF" layoutX="159.0" layoutY="401.0" mnemonicParsing="false" onAction="#btnExportPDF_Action" text="Button" />
-            <Button fx:id="btn_ExportCard" layoutX="21.0" layoutY="401.0" mnemonicParsing="false" onAction="#btnExportCard_Action" text="Button" />
-            <Button fx:id="btn_Close" layoutX="615.0" layoutY="401.0" mnemonicParsing="false" onAction="#btnClose_Action" text="Button" />
+            <Button fx:id="btn_ExportPDF" layoutX="159.0" layoutY="401.0" mnemonicParsing="false" onAction="#btnExportPDF_Action" text="%btnExportPDF" />
+            <Button fx:id="btn_ExportCard" layoutX="21.0" layoutY="401.0" mnemonicParsing="false" onAction="#btnExportCard_Action" text="%btnExportCard" />
+            <Button fx:id="btn_Close" layoutX="579.0" layoutY="401.0" mnemonicParsing="false" onAction="#btnClose_Action" text="%btnClose" />
             <ImageView fx:id="icon_imageview" fitHeight="127.0" fitWidth="140.0" layoutX="11.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>

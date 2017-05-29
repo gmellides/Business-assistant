@@ -31,39 +31,40 @@
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_bDescription" layoutX="207.0" layoutY="143.0" prefHeight="79.0" prefWidth="508.0" text="b Description">
+            <Label fx:id="lbl_bDescription" layoutX="206.0" layoutY="143.0" prefHeight="123.0" prefWidth="508.0" text="b Description" wrapText="true">
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_lblPhone" layoutX="206.0" layoutY="250.0" text="b phone">
+            <Label fx:id="lbl_lblPhone" layoutX="206.0" layoutY="280.0" text="b phone">
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_Address" layoutX="200.0" layoutY="304.0" text="b Address">
+            <Label fx:id="lbl_Address" layoutX="205.0" layoutY="314.0" text="b Address">
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_Fax" layoutX="443.0" layoutY="250.0" text="b fax">
+            <Label fx:id="lbl_Fax" layoutX="380.0" layoutY="280.0" text="b fax">
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_City" layoutX="441.0" layoutY="304.0" text="b city">
+            <Label fx:id="lbl_City" layoutX="443.0" layoutY="314.0" text="b city">
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_TaxReg" layoutX="204.0" layoutY="348.0" text="b tax reg">
+            <Label fx:id="lbl_TaxReg" layoutX="206.0" layoutY="348.0" text="b tax reg">
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_EstablishData" layoutX="440.0" layoutY="348.0" text="b date">
+            <Label fx:id="lbl_EstablishData" layoutX="441.0" layoutY="348.0" text="b date">
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_LastEdit" layoutX="201.0" layoutY="377.0" text="b last edit">
+            <Label fx:id="lbl_LastEdit" layoutX="206.0" layoutY="377.0" text="b last edit">
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_nodata" layoutX="78.0" layoutY="201.0" prefHeight="17.0" prefWidth="634.0">
+            <Label fx:id="lbl_Mail" layoutX="550.0" layoutY="280.0" text="mail" />
+            <Label fx:id="lbl_nodata" layoutX="63.0" layoutY="206.0" prefHeight="17.0" prefWidth="634.0">
                <font>
                   <Font size="55.0" />
                </font>

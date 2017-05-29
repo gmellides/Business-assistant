@@ -21,91 +21,95 @@ import org.w3c.dom.Element;
 public class BusinessData {
     private EncryptionUtil encrypt;
     private FileManager workspace;
-    /**
-     * Method that is used from other classes  
-     * @param input
-     * @return 
-     */
-    public boolean save_data(Business input){
-        boolean flag = false;
-            if (!file_exist()){
-                create_xml_structure(input);
-            }else{
-                File admin_data = new File(workspace.getApp_data_business()+"/business_data.xml");
-                admin_data.delete();
-                create_xml_structure(input);
-            }
-        return flag;
-    }
-    /**
-     * Creates the XML file Structure and place data inside the tags
-     * this method gets an object as an input, decrypts data and save it 
-     * into the XML Document.
-     * @param data 
-     */
-    public void create_xml_structure(Business data){
-        workspace = new FileManager();
-        encrypt = new EncryptionUtil();
-        try{
-            DocumentBuilderFactory doc_fact = DocumentBuilderFactory.newInstance();
-            DocumentBuilder doc_builder = doc_fact.newDocumentBuilder();
-            Document xml_doc = doc_builder.newDocument();
-            
-            Element r_admin_elem = xml_doc.createElement("business_data");
-            xml_doc.appendChild(r_admin_elem);
-            
-            Element e_businessName = xml_doc.createElement("business_name");
-            e_businessName.appendChild(xml_doc.createTextNode(encrypt.encrypt_string(data.getBusiness_Name())));
-            r_admin_elem.appendChild(e_businessName);
-           
-            Element e_businessAddress = xml_doc.createElement("business_address");
-            e_businessAddress.appendChild(xml_doc.createTextNode(encrypt.encrypt_string(data.getBusiness_Address())));
-            r_admin_elem.appendChild(e_businessAddress);
-           
-            Element e_businessDescription = xml_doc.createElement("business_description");
-            e_businessDescription.appendChild(xml_doc.createTextNode(encrypt.encrypt_string(data.getBusiness_Description())));
-            r_admin_elem.appendChild(e_businessDescription);
-            
-            Element e_businessPhone = xml_doc.createElement("business_phone");
-            e_businessPhone.appendChild(xml_doc.createTextNode(encrypt.encrypt_string(String.valueOf(data.getBusiness_Phone()))));
-            r_admin_elem.appendChild(e_businessPhone);
-           
-            Element e_businessFax = xml_doc.createElement("business_fax");
-            e_businessFax.appendChild(xml_doc.createTextNode(encrypt.encrypt_string(data.getBusiness_Fax())));
-            r_admin_elem.appendChild(e_businessFax);
-            // specify
-            Element e_businessTaxreg = xml_doc.createElement("business_taxreg");
-            e_businessTaxreg.appendChild(xml_doc.createTextNode(encrypt.encrypt_string(data.getBusiness_TaxReg())));
-            r_admin_elem.appendChild(e_businessTaxreg);
-            
-            Element e_businessCity = xml_doc.createElement("business_city");
-            e_businessCity.appendChild(xml_doc.createTextNode(encrypt.encrypt_string(data.getBusiness_City())));
-            r_admin_elem.appendChild(e_businessCity);
-            
-            Element e_businessDate = xml_doc.createElement("business_date");
-            e_businessDate.appendChild(xml_doc.createTextNode(encrypt.encrypt_string(String.valueOf(data.getBusiness_Date()))));
-            r_admin_elem.appendChild(e_businessDate);
-          
-            Element e_businessMail = xml_doc.createElement("business_mail");
-            e_businessMail.appendChild(xml_doc.createTextNode(encrypt.encrypt_string(data.getBusiness_Mail())));
-            r_admin_elem.appendChild(e_businessMail);
-           
-            TransformerFactory pretty_format_factory = TransformerFactory.newInstance();
-            Transformer pretty_format = pretty_format_factory.newTransformer();
-            DOMSource xml_doc_source = new DOMSource(xml_doc);
-            StreamResult save = new StreamResult(new File(workspace.getApp_data_business()+"/business_data.xml"));
-            
-            pretty_format.transform(xml_doc_source,save);
-        }catch(Exception e){
-            e.printStackTrace();
+    private File BusinessXML;
+   
+    // ======== Public Methods
+        /**
+         * Method that is used from other classes  
+         * @param input
+         * @return 
+         */
+        public boolean save_data(Business input){
+            boolean flag = false;
+                workspace = new FileManager();
+                BusinessXML = new File(workspace.getApp_data_business()+"/business_data.xml");
+                if (!BusinessXML.exists()){
+                    create_xml_structure(input);
+                }else{
+                    BusinessXML.delete();
+                    create_xml_structure(input);
+                }
+            return flag;
         }
-    }
-    /**
-     * Returns true or false if the xml file Exist or not.
-     * @return 
-     */
-    public boolean file_exist(){
-        File business_data = new File(new FileManager().getApp_data_business()+"/business_data.xml");
-        return business_data.exists();
-    }
+        /**
+         * 
+         * @return 
+         */
+        public File get_File(){
+            if (BusinessXML != null){
+                return BusinessXML;
+            }else{
+                workspace = new FileManager();
+                BusinessXML = new File(workspace.getApp_data_business()+"/business_data.xml");
+                return BusinessXML;
+            }
+        }
+    // =========================
+        
+    // ======== Private Methods
+        /**
+         * Creates the XML file Structure and place data inside the tags
+         * this method gets an object as an input, decrypts data and save it 
+         * into the XML Document.
+         * @param data 
+         */
+        private void create_xml_structure(Business data){
+            workspace = new FileManager();
+            encrypt = new EncryptionUtil();
+
+            String[] tags = {"business_name",
+                             "business_address",
+                             "business_description",
+                             "business_phone",
+                             "business_fax",
+                             "business_taxreg",
+                             "business_city",
+                             "business_date",
+                             "business_mail"};
+            String[] values = {data.getBusiness_Name(),
+                               data.getBusiness_Address(),
+                               data.getBusiness_Description(),
+                               data.getBusiness_Phone(),
+                               data.getBusiness_Fax(),
+                               data.getBusiness_TaxReg(),
+                               data.getBusiness_City(),
+                               String.valueOf(data.getBusiness_Date()),
+                               data.getBusiness_Mail()};
+            try{
+                DocumentBuilderFactory doc_fact = DocumentBuilderFactory.newInstance();
+                DocumentBuilder doc_builder = doc_fact.newDocumentBuilder();
+                Document xml_doc = doc_builder.newDocument();
+
+                Element r_admin_elem = xml_doc.createElement("business_data");
+                xml_doc.appendChild(r_admin_elem);
+
+                int index = 0;
+                for (String item : tags){
+                    Element element = xml_doc.createElement(item);
+                    element.appendChild(xml_doc.createTextNode(encrypt.encrypt_string(values[index])));
+                    r_admin_elem.appendChild(element);
+                    index++;
+                }
+
+                TransformerFactory pretty_format_factory = TransformerFactory.newInstance();
+                Transformer pretty_format = pretty_format_factory.newTransformer();
+                DOMSource xml_doc_source = new DOMSource(xml_doc);
+                StreamResult save = new StreamResult(BusinessXML);
+
+                pretty_format.transform(xml_doc_source,save);
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+    // =========================
 }

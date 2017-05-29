@@ -19,21 +19,23 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class BusinessXML_Parser {
-    private FileManager workspace;
-    private File xml_file;
+    private final File xml_file;
     private DocumentBuilderFactory doc_builder_fact;
     private DocumentBuilder doc_builder;
     private Document xml_document; 
+    private Business b_data;
+    private DecryptionUtil decrypt;
+    private HashMap<String,String> xml_data;
+    
+    public BusinessXML_Parser(File xml_file){
+        this.xml_file = xml_file;
+    }
     
     public Business getData(){
-            workspace = new FileManager();
             String[] xml_elements = {"business_name","business_address","business_description",
                                      "business_phone","business_fax","business_taxreg","business_city",
                                      "business_date","business_mail"};
-            String file_location = workspace.getApp_data_business()+"/business_data.xml";
-            try{
-            // Init
-            xml_file = new File(file_location);
+            try{           
             doc_builder_fact = DocumentBuilderFactory.newInstance();
             doc_builder = doc_builder_fact.newDocumentBuilder();
             xml_document = doc_builder.parse(xml_file);
@@ -52,10 +54,10 @@ public class BusinessXML_Parser {
             }catch(Exception e){
                 e.printStackTrace();
             }
-        return data_to_obj();
+        return decrypt_data();
     }
     
-    public Business data_to_obj(){
+    private Business decrypt_data(){
         decrypt =  new DecryptionUtil();
         LocalDate establish_date = LocalDate.parse(decrypt.decrypt_string(xml_data.get("business_date")));
         b_data = new Business(decrypt.decrypt_string(xml_data.get("business_name")),
@@ -66,11 +68,9 @@ public class BusinessXML_Parser {
                               decrypt.decrypt_string(xml_data.get("business_fax")),
                               decrypt.decrypt_string(xml_data.get("business_taxreg")),
                               decrypt.decrypt_string(xml_data.get("business_mail")),
-                              establish_date);
+                              LocalDate.parse(decrypt.decrypt_string(xml_data.get("business_date"))));
         return b_data;
     }
     
-    private Business b_data;
-    private DecryptionUtil decrypt;
-    private HashMap<String,String> xml_data;
+    
 }

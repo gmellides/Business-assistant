@@ -6,7 +6,7 @@
 package erpsystem.graphics.controllers.menubar;
 
 import erpsystem.util.xml.read.ComboBox_Parser;
-import erpsystem.util.xml.write.BusinessAdminData;
+import erpsystem.util.xml.write.AdminData;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -63,16 +63,20 @@ public class Edit_BusinessAdmin implements Initializable {
       }    
     }   
     
-    @FXML
-    private void btn_Save_Action(ActionEvent event) {
-        admin_xml_creator = new BusinessAdminData();
-        
-    }
-    @FXML
-    private void btn_Close_Action(ActionEvent event) {
-        Stage this_stage = (Stage) background_pane.getScene().getWindow();
-        this_stage.close();
-    }
+    // ===== FXML Buttons Action =====
+        @FXML
+        private void btn_Save_Action(ActionEvent event) {
+            
+
+        }
+        @FXML
+        private void btn_Close_Action(ActionEvent event) {
+            Stage this_stage = (Stage) background_pane.getScene().getWindow();
+            this_stage.close();
+        }
+    // ===============================
+    
+    
     
     public void set_background_and_icon(){
         Image icon = new Image(new File("resources/images/menubar/edit_AdminData.png").toURI().toString());
@@ -94,5 +98,5 @@ public class Edit_BusinessAdmin implements Initializable {
     }
     
     private ComboBox_Parser comboData;
-    private BusinessAdminData admin_xml_creator;
+    private AdminData admin_xml_creator;
 }

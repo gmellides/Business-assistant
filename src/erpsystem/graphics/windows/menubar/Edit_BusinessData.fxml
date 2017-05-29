@@ -18,7 +18,7 @@
       <Pane fx:id="background_pane" prefHeight="485.0" prefWidth="694.0">
          <children>
             <TextField fx:id="txt_Name" layoutX="170.0" layoutY="98.0" prefHeight="25.0" prefWidth="204.0" />
-            <TextArea fx:id="txt_Description" layoutX="170.0" layoutY="133.0" prefHeight="74.0" prefWidth="204.0" />
+            <TextArea fx:id="txt_Description" layoutX="170.0" layoutY="133.0" prefHeight="74.0" prefWidth="204.0" wrapText="true" />
             <TextField fx:id="txt_Address" layoutX="170.0" layoutY="222.0" prefHeight="25.0" prefWidth="204.0" />
             <TextField fx:id="txt_Phone" layoutX="170.0" layoutY="261.0" prefHeight="25.0" prefWidth="204.0" />
             <TextField fx:id="txt_Fax" layoutX="170.0" layoutY="303.0" prefHeight="25.0" prefWidth="204.0" />

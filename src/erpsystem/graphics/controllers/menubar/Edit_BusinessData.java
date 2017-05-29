@@ -64,23 +64,18 @@ public class Edit_BusinessData implements Initializable {
      * Controller class init. 
      * Search if Business Data exists if yes the window
      * opens with old data if no the fields are blank.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         set_background_and_icon();
-        if(new BusinessData().file_exist()){
+        language_string = rb;
+        BusinessXML = new BusinessData();
+        if(BusinessXML.get_File().exists()){
             set_businesslogo();
-            BusinessXML_Parser xmlParser = new BusinessXML_Parser();
-            Business data = xmlParser.getData();
-                txt_Name.setText(data.getBusiness_Name());
-                txt_Description.setText(data.getBusiness_Description());
-                txt_Address.setText(data.getBusiness_Address());
-                txt_City.setText(data.getBusiness_City());
-                txt_Phone.setText(data.getBusiness_Phone());
-                txt_Fax.setText(data.getBusiness_Fax());
-                txt_TaxReg.setText(data.getBusiness_TaxReg());
-                txt_Mail.setText(data.getBusiness_Mail());
-                dtp_establishDate.setValue(data.getBusiness_Date());
+            BusinessXML_Parser xmlParser = new BusinessXML_Parser(BusinessXML.get_File());
+            set_data(xmlParser.getData());
         }
     }    
 
@@ -164,21 +159,45 @@ public class Edit_BusinessData implements Initializable {
             for (String name : logo_name){
                 File logo = new File(path.getApp_data_business()+name);
                 if (logo.exists()){
-                    Image logo_img= new Image(new File(new FileManager().getApp_data_business()+name).toURI().toString());
-                    business_logo_view.setImage(logo_img);
+                    business_logo_view.setImage(new Image(new File(new FileManager().getApp_data_business()+name).toURI().toString()));
                     break;
                 }
             }
             if (business_logo_view.getImage() == null){
-                File default_logo = new File("resources/default_img/default.png");
-                Image logo_img= new Image(default_logo.toURI().toString());
-                business_logo_view.setImage(logo_img);
+                business_logo_view.setImage(new Image(new File("resources/default_img/default.png").toURI().toString()));
             }    
         }
+        
+        public void set_data(Business data){
+            TextField[] textfields = {txt_Name,
+                                      txt_Address,
+                                      txt_Phone,
+                                      txt_City,
+                                      txt_Fax,
+                                      txt_TaxReg,
+                                      txt_Mail};
+            String[] string_data = {data.getBusiness_Name(),
+                                    data.getBusiness_Address(),
+                                    data.getBusiness_Phone(),
+                                    data.getBusiness_City(),
+                                    data.getBusiness_Fax(),
+                                    data.getBusiness_TaxReg(),
+                                    data.getBusiness_Mail()};
+            int index = 0;
+            for (TextField item : textfields){
+                item.setText(string_data[index]);
+                index++;
+            }
+            txt_Description.setText(data.getBusiness_Description());
+            dtp_establishDate.setValue(data.getBusiness_Date());
+        }
+        
         public void set_background_and_icon(){
-           Image this_logo = new Image(new File("resources/images/menubar/edit_businessData.png").toURI().toString());
-           icon_imageview.setImage(this_logo);
+           icon_imageview.setImage(new Image(new File("resources/images/menubar/edit_businessData.png").toURI().toString()));
            background_pane.setStyle("-fx-background-color: #FFFFFF;");
         }
     // ===============================
+        
+    private BusinessData BusinessXML;
+    private ResourceBundle language_string;
 }
