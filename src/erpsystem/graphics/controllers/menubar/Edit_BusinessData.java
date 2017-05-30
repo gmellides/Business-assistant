@@ -194,7 +194,6 @@ public class Edit_BusinessData implements Initializable {
         
         public void set_background_and_icon(){
            icon_imageview.setImage(new Image(new File("resources/images/menubar/edit_businessData.png").toURI().toString()));
-           background_pane.setStyle("-fx-background-color: #FFFFFF;");
         }
     // ===============================
         

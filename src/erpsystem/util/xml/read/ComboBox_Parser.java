@@ -6,6 +6,7 @@
 package erpsystem.util.xml.read;
 
 import java.io.File;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
@@ -26,7 +27,7 @@ public class ComboBox_Parser {
     
     public ObservableList<String> get_sex() throws Exception{
         ObservableList<String> data = FXCollections.observableArrayList();
-            xmlFile = new File("resources/xml/contacts/contacts.xml");
+            xmlFile = new File("resources/xml/combobox_data/basic_data.xml");
             builder_factory = DocumentBuilderFactory.newInstance();
             document_builder = builder_factory.newDocumentBuilder();
             xml_doc = document_builder.parse(xmlFile);
@@ -42,7 +43,7 @@ public class ComboBox_Parser {
     }
     public ObservableList<String> get_phonetype() throws Exception{
         ObservableList<String> data = FXCollections.observableArrayList();
-            xmlFile = new File("resources/xml/contacts/contacts.xml");
+            xmlFile = new File("resources/xml/combobox_data/basic_data.xml");
             builder_factory = DocumentBuilderFactory.newInstance();
             document_builder = builder_factory.newDocumentBuilder();
             xml_doc = document_builder.parse(xmlFile);
@@ -58,7 +59,7 @@ public class ComboBox_Parser {
     }
     public ObservableList<String> get_countries() throws Exception{
        ObservableList<String> data = FXCollections.observableArrayList();
-            xmlFile = new File("resources/xml/contacts/countries.xml");
+            xmlFile = new File("resources/xml/combobox_data/countries.xml");
             builder_factory = DocumentBuilderFactory.newInstance();
             document_builder = builder_factory.newDocumentBuilder();
             xml_doc = document_builder.parse(xmlFile);
@@ -70,11 +71,13 @@ public class ComboBox_Parser {
                     data.add(current_element.getTextContent());
                 }
             }
+          Comparator compare = Comparator.naturalOrder();
+          FXCollections.sort(data, compare);
        return data;      
    }
     public ObservableList<String> get_states_greece() throws Exception{
          ObservableList<String> data = FXCollections.observableArrayList();
-            xmlFile = new File("resources/xml/contacts/greece_data.xml");
+            xmlFile = new File("resources/xml/combobox_data/greece_data.xml");
             builder_factory = DocumentBuilderFactory.newInstance();
             document_builder = builder_factory.newDocumentBuilder();
             xml_doc = document_builder.parse(xmlFile);
@@ -86,11 +89,13 @@ public class ComboBox_Parser {
                     data.add(current_element.getTextContent());
                 }
             }
+          Comparator compare = Comparator.naturalOrder();
+          FXCollections.sort(data, compare);
         return data;
     }
     public ObservableList<String> get_big_cities_greece() throws Exception{
         ObservableList<String> data = FXCollections.observableArrayList();
-            xmlFile = new File("resources/xml/contacts/greece_data.xml");
+            xmlFile = new File("resources/xml/combobox_data/greece_data.xml");
             builder_factory = DocumentBuilderFactory.newInstance();
             document_builder = builder_factory.newDocumentBuilder();
             xml_doc = document_builder.parse(xmlFile);
@@ -102,23 +107,10 @@ public class ComboBox_Parser {
                           data.add(current_element.getTextContent());
                       }
                 }
+          Comparator compare = Comparator.naturalOrder();
+          FXCollections.sort(data, compare);
         return data;
     }
-    
-    public ObservableList<String> hash_to_observable(HashMap input){
-        ObservableList<String> d = FXCollections.observableArrayList();
-            Set set = States.entrySet();
-            Iterator it = set.iterator();
-            while (it.hasNext()){
-                d.add(input.get(1).toString());
-            }
-        return d;
-    }
-    public String Selevegsrth(String Input){
-        String ew = null;
-        
-        return ew;
-    }
-
-    private HashMap<String,String> States;
+   
 }
+ 

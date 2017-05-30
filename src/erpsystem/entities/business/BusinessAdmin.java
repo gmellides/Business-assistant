@@ -20,7 +20,6 @@ public class BusinessAdmin extends Person_s_c{
                          String Phone1,
                          String Phone2,
                          String Mail) {
-        
         this.setFirstName(FirstName);
         this.setLastName(LastName);
         this.setBirthdate(Birthday);

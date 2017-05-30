@@ -11,10 +11,10 @@
 
 <AnchorPane id="AnchorPane" prefHeight="389.0" prefWidth="731.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.contacts.NewContact">
     <stylesheets>
-        <URL value="@/erpsystem/graphics/CSS/newcontactscreen.css" />
+        <URL value="@/erpsystem/graphics/CSS/contacts/NewContact.css" />
     </stylesheets>
    <children>
-      <Pane fx:id="background_panel" prefHeight="389.0" prefWidth="766.0">
+      <Pane fx:id="background_panel" prefHeight="389.0" prefWidth="766.0" styleClass="background_panel">
          <children>
             <Button fx:id="btnSave" layoutX="654.0" layoutY="350.0" mnemonicParsing="false" onAction="#btnSave_Action" prefHeight="25.0" prefWidth="91.0" text="%btnSave" />
             <Button fx:id="btnClose" layoutX="21.0" layoutY="350.0" mnemonicParsing="false" onAction="#btnClose_Action" text="%btnClose" />
@@ -22,7 +22,7 @@
             <Label layoutX="197.0" layoutY="58.0" text="%lbl_firstname" />
             <Label layoutX="197.0" layoutY="93.0" text="%lbl_lastname" />
             <Label layoutX="197.0" layoutY="128.0" prefHeight="17.0" prefWidth="49.0" text="%lbl_sex" />
-            <ComboBox fx:id="sex_ComboBox" layoutX="262.0" layoutY="124.0" prefHeight="25.0" prefWidth="137.0" promptText="--" />
+            <ComboBox fx:id="sex_ComboBox" layoutX="262.0" layoutY="124.0" prefHeight="25.0" prefWidth="137.0" promptText="%cmb_select" />
             <TextField fx:id="txt_firstname" layoutX="262.0" layoutY="54.0" prefHeight="25.0" prefWidth="137.0" />
             <TextField fx:id="txt_lastname" layoutX="262.0" layoutY="89.0" prefHeight="25.0" prefWidth="137.0" />
             <Label layoutX="199.0" layoutY="212.0" text="%lbl_address" />
@@ -35,10 +35,10 @@
                   <Font size="21.0" />
                </font>
             </Label>
-            <ComboBox fx:id="countries_cmb" layoutX="262.0" layoutY="166.0" onAction="#cmbCountry_action" prefHeight="25.0" prefWidth="137.0" promptText="--" />
+            <ComboBox fx:id="countries_cmb" layoutX="262.0" layoutY="166.0" onAction="#cmbCountry_action" prefHeight="25.0" prefWidth="137.0" promptText="%cmb_select" />
             <TextField fx:id="txt_address" layoutX="263.0" layoutY="209.0" prefHeight="25.0" prefWidth="137.0" />
-            <ComboBox fx:id="state_cmb" disable="true" layoutX="260.0" layoutY="247.0" prefHeight="25.0" prefWidth="143.0" />
-            <ComboBox fx:id="city_cmb" disable="true" layoutX="259.0" layoutY="287.0" prefHeight="25.0" prefWidth="143.0" />
+            <ComboBox fx:id="state_cmb" layoutX="260.0" layoutY="247.0" prefHeight="25.0" prefWidth="143.0" promptText="%cmb_select" />
+            <ComboBox fx:id="city_cmb" layoutX="259.0" layoutY="287.0" prefHeight="25.0" prefWidth="143.0" promptText="%cmb_select" />
             <TextField fx:id="txt_zipcode" layoutX="258.0" layoutY="321.0" prefHeight="25.0" prefWidth="143.0" />
             <Label layoutX="414.0" layoutY="58.0" text="%lbl_phone1" />
             <Label layoutX="416.0" layoutY="128.0" text="%lbl_mail" />
@@ -47,8 +47,8 @@
             <TextField fx:id="txt_phone1" layoutX="488.0" layoutY="54.0" prefHeight="25.0" prefWidth="137.0" />
             <TextField fx:id="txt_phone2" layoutX="488.0" layoutY="89.0" prefHeight="25.0" prefWidth="137.0" />
             <TextArea fx:id="txt_comments" layoutX="416.0" layoutY="239.0" prefHeight="97.0" prefWidth="325.0" />
-            <ComboBox fx:id="phone1_type_ComboBox" layoutX="634.0" layoutY="54.0" prefHeight="25.0" prefWidth="118.0" promptText="--" />
-            <ComboBox fx:id="phone2_type_ComboBox" layoutX="634.0" layoutY="89.0" prefHeight="25.0" prefWidth="118.0" promptText="--" />
+            <ComboBox fx:id="phone1_type_ComboBox" layoutX="634.0" layoutY="54.0" prefHeight="25.0" prefWidth="118.0" promptText="%cmb_select" />
+            <ComboBox fx:id="phone2_type_ComboBox" layoutX="634.0" layoutY="89.0" prefHeight="25.0" prefWidth="118.0" promptText="%cmb_select" />
             <Label layoutX="416.0" layoutY="170.0" text="%lbl_website" />
             <TextField fx:id="txt_website" layoutX="488.0" layoutY="166.0" prefHeight="25.0" prefWidth="137.0" />
             <Label layoutX="417.0" layoutY="213.0" text="%lbl_comments" />

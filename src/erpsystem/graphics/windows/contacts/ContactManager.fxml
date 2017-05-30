@@ -11,10 +11,10 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.contacts.ContactManager">
     <stylesheets>
-        <URL value="@/erpsystem/graphics/CSS/contactmanagerscreen.css" />
+        <URL value="@/erpsystem/graphics/CSS/contacts/ContactManager.css" />
     </stylesheets>
    <children>
-      <Pane fx:id="background_pane" layoutY="1.0" prefHeight="400.0" prefWidth="600.0">
+      <Pane fx:id="background_pane" layoutY="1.0" prefHeight="400.0" prefWidth="600.0" styleClass="background_panel">
          <children>
             <Button layoutX="444.0" layoutY="350.0" mnemonicParsing="false" onAction="#btnExit_Action" prefHeight="25.0" prefWidth="141.0" text="%cmgr_btnExit" />
             <Button layoutX="434.0" layoutY="244.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" text="Button" />

@@ -60,7 +60,7 @@ public class ContactManager implements Initializable {
                 stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                     @Override
                     public void handle(WindowEvent we) {
-                        stage.hide();
+                        stage.close();
                     }
                 });
                 stage.setTitle("Νέα Επαφή");
@@ -102,7 +102,6 @@ public class ContactManager implements Initializable {
     // ========== Methods ============
         public void set_style(){
             contact_mgrPane.setStyle("-fx-background-image: url('file://../resources/images/contacts/contact_manager.png\');");
-            background_pane.setStyle("-fx-background-color: #FFFFFF;");
         }
         public void ShowContactInfos(){
             // selevt count(*) from contacts

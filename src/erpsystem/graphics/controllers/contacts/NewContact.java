@@ -5,8 +5,8 @@
  */
 package erpsystem.graphics.controllers.contacts;
 
-import erpsystem.database.contacts.c_ContactsConnection;
-import erpsystem.entities.people.Contact_c;
+import erpsystem.database.contacts.Contacts_Operation;
+import erpsystem.entities.people.Contact;
 import erpsystem.util.datetime.DateTimeProvider;
 import erpsystem.util.xml.read.ComboBox_Parser;
 import java.net.URL;
@@ -74,22 +74,35 @@ public class NewContact implements Initializable {
     // -- FXML Componenents Action
         @FXML
         private void btnSave_Action(ActionEvent event) {
-            Contact_c obj = new Contact_c();
-                // person data
+            
+            if (Check_fields()){
+                Contact obj = new Contact();
                  obj.setFirstName(txt_firstname.getText());
                  obj.setLastName(txt_lastname.getText());
                  obj.setAddress(txt_address.getText());
+                 obj.setSex(sex_ComboBox.getSelectionModel().getSelectedItem());
                  obj.setComments(txt_comments.getText());
                  obj.setWebsite(txt_website.getText());
+                 obj.setState(state_cmb.getSelectionModel().getSelectedItem());
                  obj.setMail(txt_mail.getText());
                  obj.setCity(city_cmb.getSelectionModel().getSelectedItem());
+                 obj.setCountry(city_cmb.getSelectionModel().getSelectedItem());
                  obj.setPhone_1(txt_phone1.getText());
                  obj.setPhone_1_type(phone1_type_ComboBox.getSelectionModel().getSelectedItem());
                  obj.setPhone_2(txt_phone2.getText());
                  obj.setPhone_2_type(phone2_type_ComboBox.getSelectionModel().getSelectedItem());
                  obj.setZipCode(Integer.parseInt(txt_zipcode.getText()));
                  obj.setImport_date(new DateTimeProvider().GetDateTime());
-            Contacts_db.insert(obj);
+                 
+                 database = new Contacts_Operation();
+                 if(database.insert_contact(obj)){
+                     // success
+                 }else{
+                     // error
+                 }
+            }else{
+               // error for fields 
+            }
         }
         @FXML
         private void btnClose_Action(ActionEvent event) {
@@ -102,17 +115,15 @@ public class NewContact implements Initializable {
            if (Selection.equals("Ελλάδα")){
                 state_cmb.setDisable(false);
            }else{
-               state_cmb.getSelectionModel().clearSelection();
-               state_cmb.setDisable(true);
+              // state_cmb.getSelectionModel().clearSelection();
+               state_cmb.setDisable(false);
            }
         }
     // -- END of FXML Components Action
     
-    // -- Methods
-        
+    // -- Methods   
         public void set_style(){
             newcontact_img.setStyle("-fx-background-image: url('file://../resources/images/contacts/new_contact.png\');");
-            background_panel.setStyle("-fx-background-color: #FFFFFF;");
         }// set_style()
         /**
          * Retrieve data from XML Files and place it into combo boxes
@@ -131,8 +142,23 @@ public class NewContact implements Initializable {
                ex.printStackTrace();
             }
         }// init_comboboxes()
+        
+        public boolean Check_fields(){
+            boolean flag = false;
+                TextField[] fields = {txt_firstname,txt_lastname,txt_address,txt_zipcode,
+                                      txt_mail,txt_phone1,txt_phone2,txt_website};
+                for(TextField item: fields){
+                    if (item.getText() != null){
+                        flag = true;
+                    }else{
+                        flag = false;
+                        break;
+                    }
+                }
+            return flag;
+        }
     // -- END of Methods
     
     private ComboBox_Parser combodata_xml;
-    private c_ContactsConnection Contacts_db;
+    private Contacts_Operation database;
 }

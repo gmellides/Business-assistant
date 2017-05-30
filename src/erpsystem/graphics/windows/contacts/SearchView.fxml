@@ -10,16 +10,25 @@
 
 <AnchorPane id="AnchorPane" prefHeight="425.0" prefWidth="734.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.contacts.SearchView">
     <stylesheets>
-        <URL value="@/erpsystem/graphics/CSS/searchviewscreen.css" />
+        <URL value="@/erpsystem/graphics/CSS/contacts/SearchView.css" />
     </stylesheets>
    <children>
-      <Pane fx:id="background_panel" prefHeight="570.0" prefWidth="850.0">
+      <Pane fx:id="background_panel" prefHeight="570.0" prefWidth="850.0" styleClass="background_panel">
          <children>
             <Button fx:id="btnClose" layoutX="719.0" layoutY="537.0" mnemonicParsing="false" onAction="#btnClose_Action" prefHeight="25.0" prefWidth="117.0" text="Button" />
-            <TableView layoutX="-1.0" layoutY="112.0" prefHeight="417.0" prefWidth="850.0">
+            <TableView fx:id="contacts_table" layoutX="-1.0" layoutY="112.0" prefHeight="417.0" prefWidth="850.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="col_firstname" prefWidth="75.0" text="%col_firstname" />
+                <TableColumn fx:id="col_lastname" prefWidth="75.0" text="%col_lastname" />
+                  <TableColumn fx:id="col_sex" prefWidth="75.0" text="%col_sex" />
+                  <TableColumn fx:id="col_address" prefWidth="75.0" text="%col_address" />
+                  <TableColumn fx:id="col_zipcode" prefWidth="75.0" text="%col_zipcode" />
+                  <TableColumn fx:id="col_country" prefWidth="75.0" text="%col_country" />
+                  <TableColumn fx:id="col_greek_state" prefWidth="75.0" text="%col_state" />
+                  <TableColumn fx:id="col_city" prefWidth="75.0" text="%col_city" />
+                  <TableColumn fx:id="col_mail" prefWidth="75.0" text="%col_mail" />
+                  <TableColumn fx:id="col_phone1" prefWidth="75.0" text="%col_phone1" />
+                  <TableColumn fx:id="col_phone2" prefWidth="75.0" text="%col_phone2" />
               </columns>
             </TableView>
             <Pane fx:id="image_panel" layoutX="14.0" layoutY="14.0" prefHeight="91.0" prefWidth="175.0" />
@@ -28,6 +37,7 @@
                   <Font size="43.0" />
                </font>
             </Label>
+            <TextField fx:id="txt_Instant_Search" layoutX="14.0" layoutY="537.0" onInputMethodTextChanged="#txt_InstantSearch_Action" prefHeight="25.0" prefWidth="193.0" promptText="Search Here..." />
          </children>
       </Pane>
    </children>

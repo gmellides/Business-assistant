@@ -57,7 +57,6 @@ public class View_BusinessAdmin implements Initializable {
     public void set_background_and_icon(){
         Image icon = new Image(new File("resources/images/menubar/view_adminData.png").toURI().toString());
         icon_imageview.setImage(icon);
-        background_pane.setStyle("-fx-background-color: #FFFFFF;"); 
     }
     
     private ResourceBundle data;

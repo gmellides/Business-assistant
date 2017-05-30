@@ -5,7 +5,7 @@
  */
 package erpsystem.entities.people;
 
-public class Contact_c extends Person_s_c {
+public class Contact extends Person_s_c {
     // ---- Set Methods
     public void setPhone_1(String Phone_1) {
         this.Phone_1 = Phone_1;

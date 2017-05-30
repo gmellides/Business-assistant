@@ -151,7 +151,6 @@ public class View_BusinessData implements Initializable {
         private void set_background_and_icon(){
             Image icon = new Image(new File("resources/images/menubar/view_businessData.png").toURI().toString());
             icon_imageview.setImage(icon); 
-            background_pane.setStyle("-fx-background-color: #FFFFFF;");
         }
         private void set_data(ResourceBundle bundle,File business_file){
             BusinessXML_Parser file_reader = new BusinessXML_Parser(business_file);

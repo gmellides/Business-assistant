@@ -12,10 +12,10 @@
 
 <AnchorPane id="AnchorPane" prefHeight="492.0" prefWidth="747.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.menubar.View_BusinessData">
     <stylesheets>
-        <URL value="@/erpsystem/graphics/CSS/view_businessdata.css" />
+        <URL value="@/erpsystem/graphics/CSS/menubar/View_BusinessData.css" />
     </stylesheets>
    <children>
-      <Pane fx:id="background_pane" prefHeight="492.0" prefWidth="747.0">
+      <Pane fx:id="background_pane" prefHeight="492.0" prefWidth="747.0" styleClass="background_panel">
          <children>
             <Button fx:id="btn_ExportCard" layoutX="14.0" layoutY="441.0" mnemonicParsing="false" onAction="#btnExportCard_Action" prefHeight="25.0" prefWidth="172.0" text="%btnExportCard" />
             <Button fx:id="btn_ExportPDF" layoutX="196.0" layoutY="441.0" mnemonicParsing="false" onAction="#btnExportPDF_Action" prefHeight="25.0" prefWidth="172.0" text="%btnExportPDF" />
@@ -63,7 +63,10 @@
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_Mail" layoutX="550.0" layoutY="280.0" text="mail" />
+            <Label fx:id="lbl_Mail" layoutX="530.0" layoutY="280.0" text="mail">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
             <Label fx:id="lbl_nodata" layoutX="63.0" layoutY="206.0" prefHeight="17.0" prefWidth="634.0">
                <font>
                   <Font size="55.0" />
