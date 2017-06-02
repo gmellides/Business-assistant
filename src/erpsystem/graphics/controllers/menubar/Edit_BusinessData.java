@@ -21,6 +21,7 @@ import erpsystem.util.system.FileManager;
 import java.io.File;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -42,7 +43,6 @@ public class Edit_BusinessData implements Initializable {
     private TextField txt_Address;
     @FXML
     private TextField txt_Phone;
-    @FXML
     private TextField txt_City;
     @FXML
     private TextField txt_Fax;
@@ -62,6 +62,8 @@ public class Edit_BusinessData implements Initializable {
     private ImageView icon_imageview;
     @FXML
     private TextField txt_Phone2;
+    @FXML
+    private ComboBox<?> cmb_City;
 
     /**
      * Controller class init. 

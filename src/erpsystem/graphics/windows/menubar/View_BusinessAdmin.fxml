@@ -21,9 +21,9 @@
             <Button fx:id="btn_ExportCard" layoutX="21.0" layoutY="401.0" mnemonicParsing="false" onAction="#btnExportCard_Action" text="%btnExportCard" />
             <Button fx:id="btn_Close" layoutX="579.0" layoutY="401.0" mnemonicParsing="false" onAction="#btnClose_Action" prefHeight="25.0" prefWidth="99.0" text="%btnClose" />
             <ImageView fx:id="icon_imageview" fitHeight="90.0" fitWidth="102.0" layoutX="33.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="142.0" layoutY="28.0" prefHeight="84.0" prefWidth="444.0" text="Label">
+            <Label layoutX="142.0" layoutY="28.0" prefHeight="84.0" prefWidth="444.0" text="%view_admin_data">
                <font>
-                  <Font size="41.0" />
+                  <Font size="33.0" />
                </font>
             </Label>
             <Label fx:id="lbl_fistname" layoutX="31.0" layoutY="163.0" text="firstname">
