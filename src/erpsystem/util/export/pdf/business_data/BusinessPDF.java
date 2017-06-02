@@ -73,15 +73,16 @@ public class BusinessPDF {
                                         "lbl_fax",
                                         "lbl_mail",
                                         "view_bus_date"};
-            String[] data_strings = {data.getBusiness_Name(),
-                                     data.getBusiness_Description(),
-                                     data.getBusiness_TaxReg(),
-                                     data.getBusiness_Address(),
-                                     data.getBusiness_City(),
-                                     data.getBusiness_Phone(),
-                                     data.getBusiness_Fax(),
-                                     data.getBusiness_Mail(),
-                                     String.valueOf(data.getBusiness_Date())};
+            String[] data_strings = {data.getName(),
+                                     data.getDescription(),
+                                     data.getTaxReg(),
+                                     data.getAddress(),
+                                     data.getCity(),
+                                     data.getPhone1(),
+                                     data.getPhone2(),
+                                     data.getFax(),
+                                     data.getMail(),
+                                     String.valueOf(data.getDate())};
             File pdf_file = new File(workspace.getDocuments_business_data()+"/"+file_name);
             try{
                 PDDocument pdf_doc = PDDocument.load(pdf_file);

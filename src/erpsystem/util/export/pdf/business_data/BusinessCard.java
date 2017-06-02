@@ -45,13 +45,14 @@ public class BusinessCard {
                                         "lbl_phone",
                                         "lbl_fax",
                                         "lbl_mail"};
-            String[] data_strings = {data.getBusiness_Name(),
-                                     data.getBusiness_Description(),
-                                     data.getBusiness_Address(),
-                                     data.getBusiness_City(),
-                                     data.getBusiness_Phone(),
-                                     data.getBusiness_Fax(),
-                                     data.getBusiness_Mail()};
+            String[] data_strings = {data.getName(),
+                                     data.getDescription(),
+                                     data.getAddress(),
+                                     data.getCity(),
+                                     data.getPhone1(),
+                                     data.getPhone2(),
+                                     data.getFax(),
+                                     data.getMail()};
             
             int index = 0;
             for (String item : default_strings){

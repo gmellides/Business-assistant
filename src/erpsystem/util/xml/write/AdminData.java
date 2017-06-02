@@ -24,6 +24,11 @@ public class AdminData {
     private File AdminXML;
     
     // ======== Public Methods
+        /**
+         * 
+         * @param input
+         * @return 
+         */
         public boolean save_data(BusinessAdmin input){
             boolean flag = false;
                 workspace = new FileManager();
@@ -56,24 +61,27 @@ public class AdminData {
             encrypt = new EncryptionUtil();
            String[] tags = {"admin_firstname",
                             "admin_lastname",
-                            "admin_sex",
                             "admin_birthday",
+                            "admin_sex",
                             "admin_address",
                             "admin_zipcode",
-                            "admin_country",
-                            "admin_tax_reg",
+                            "admin_city",
                             "admin_phone1",
                             "admin_phone2",
+                            "admin_description",
+                            "admin_tax_reg",
                             "admin_mail"};
             String[] values = {data.getFirstName(),
+                               data.getLastName(),
+                               String.valueOf(data.getBirthdate()),
                                data.getSex(),
                                data.getAddress(),
-                               String.valueOf(data.getBirthdate()),
                                String.valueOf(data.getZipCode()),
-                               data.getCountry(),
-                               data.getTaxReg(),
+                               data.getCity(),
                                data.getPhone1(),
                                data.getPhone2(),
+                               data.getDescription(),
+                               data.getTaxReg(),
                                data.getMail()};
             try{
                 DocumentBuilderFactory doc_fact = DocumentBuilderFactory.newInstance();

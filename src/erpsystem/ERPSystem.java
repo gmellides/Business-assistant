@@ -44,7 +44,8 @@ public class ERPSystem extends Application {
                  System.exit(0);
               }
             });
-            stage.setTitle("ERP SYSTEM");
+            
+            stage.setTitle(f.getResources().getString("AppName"));
             stage.setScene(scene);
             stage.setResizable(false);
             //Image icon = new Image(getClass().getResource("icon.png").toExternalForm());

@@ -2,10 +2,11 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
-
-}
-
 .background_panel{
     -fx-background-color: #FFFFFF;
+}
+
+.text_field_error{
+    -fx-border-width: 2px;
+    -fx-border-color: #ff796c;
 }

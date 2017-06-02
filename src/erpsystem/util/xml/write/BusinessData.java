@@ -70,21 +70,23 @@ public class BusinessData {
             String[] tags = {"business_name",
                              "business_address",
                              "business_description",
-                             "business_phone",
+                             "business_phone1",
+                             "business_phone2",
                              "business_fax",
                              "business_taxreg",
                              "business_city",
                              "business_date",
                              "business_mail"};
-            String[] values = {data.getBusiness_Name(),
-                               data.getBusiness_Address(),
-                               data.getBusiness_Description(),
-                               data.getBusiness_Phone(),
-                               data.getBusiness_Fax(),
-                               data.getBusiness_TaxReg(),
-                               data.getBusiness_City(),
-                               String.valueOf(data.getBusiness_Date()),
-                               data.getBusiness_Mail()};
+            String[] values = {data.getName(),
+                               data.getAddress(),
+                               data.getDescription(),
+                               data.getPhone1(),
+                               data.getPhone2(),
+                               data.getFax(),
+                               data.getTaxReg(),
+                               data.getCity(),
+                               String.valueOf(data.getDate()),
+                               data.getMail()};
             try{
                 DocumentBuilderFactory doc_fact = DocumentBuilderFactory.newInstance();
                 DocumentBuilder doc_builder = doc_fact.newDocumentBuilder();

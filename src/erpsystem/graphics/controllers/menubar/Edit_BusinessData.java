@@ -24,6 +24,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 
@@ -59,6 +60,8 @@ public class Edit_BusinessData implements Initializable {
     private Pane background_pane;
     @FXML
     private ImageView icon_imageview;
+    @FXML
+    private TextField txt_Phone2;
 
     /**
      * Controller class init. 
@@ -70,7 +73,7 @@ public class Edit_BusinessData implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         set_background_and_icon();
-        language_string = rb;
+        default_strings = rb;
         BusinessXML = new BusinessData();
         if(BusinessXML.get_File().exists()){
             set_businesslogo();
@@ -93,6 +96,7 @@ public class Edit_BusinessData implements Initializable {
                                            txt_Address.getText(),
                                            txt_City.getText(),
                                            txt_Phone.getText(),
+                                           txt_Phone2.getText(),
                                            txt_Fax.getText(),
                                            txt_TaxReg.getText(),
                                            txt_Mail.getText(),
@@ -101,8 +105,8 @@ public class Edit_BusinessData implements Initializable {
             data_to_XML.save_data(b_data);
 
             Alert succed_dialog = new Alert(AlertType.INFORMATION);
-            succed_dialog.setTitle("Επιτυχείς Αποθήκευση");
-            succed_dialog.setContentText("Τα στοιχεία της επιχείρησης σας έχουν αποθηκεύει επιτυχώς. Μπορείτε να τα επεξεργαστείτε ανά πάσα στιγμή και πάλι από αυτό το παράθυρο. ");
+            succed_dialog.setTitle(default_strings.getString("dialog_businessData_Title"));
+            succed_dialog.setContentText(default_strings.getString("dialog_businessData_Message"));
             succed_dialog.showAndWait();
         }
         /**
@@ -146,6 +150,33 @@ public class Edit_BusinessData implements Initializable {
         }
     // ===============================
         
+    // === Input Check with RegEx ===
+        @FXML
+        private void Phone_Validator(KeyEvent event) {
+            if(event.getText().matches("[0-9]")){
+                txt_Phone.getStyleClass().remove("text_field_error");
+            }else{
+                txt_Phone.getStyleClass().add("text_field_error");
+            }
+        }
+        @FXML
+        private void Fax_Validator(KeyEvent event) {
+            if(event.getText().matches("[0-9]")){
+                // ok continue
+            }else{
+                
+            }
+        }
+        @FXML
+        private void TaxReg_Validator(KeyEvent event) {
+            if(event.getText().matches("[0-9]")){
+                // ok continue
+            }else{
+                
+            }
+        }
+    // ===============================
+
     // ========== Methods ============
         /**
          * Search if user have already set his business logo 
@@ -168,28 +199,30 @@ public class Edit_BusinessData implements Initializable {
             }    
         }
         
-        public void set_data(Business data){
+        public void set_data(Business business){
             TextField[] textfields = {txt_Name,
                                       txt_Address,
                                       txt_Phone,
+                                      txt_Phone2,
                                       txt_City,
                                       txt_Fax,
                                       txt_TaxReg,
                                       txt_Mail};
-            String[] string_data = {data.getBusiness_Name(),
-                                    data.getBusiness_Address(),
-                                    data.getBusiness_Phone(),
-                                    data.getBusiness_City(),
-                                    data.getBusiness_Fax(),
-                                    data.getBusiness_TaxReg(),
-                                    data.getBusiness_Mail()};
+            String[] string_data = {business.getName(),
+                                    business.getAddress(),
+                                    business.getPhone1(),
+                                    business.getPhone2(),
+                                    business.getCity(),
+                                    business.getFax(),
+                                    business.getTaxReg(),
+                                    business.getMail()};
+            txt_Description.setText(business.getDescription());
+            dtp_establishDate.setValue(business.getDate());
             int index = 0;
             for (TextField item : textfields){
                 item.setText(string_data[index]);
                 index++;
             }
-            txt_Description.setText(data.getBusiness_Description());
-            dtp_establishDate.setValue(data.getBusiness_Date());
         }
         
         public void set_background_and_icon(){
@@ -198,5 +231,5 @@ public class Edit_BusinessData implements Initializable {
     // ===============================
         
     private BusinessData BusinessXML;
-    private ResourceBundle language_string;
+    private ResourceBundle default_strings;  
 }

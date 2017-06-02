@@ -9,108 +9,107 @@ import java.time.LocalDate;
 
 public class Business {
 
-    public Business(String Business_Name,
-                    String Business_Description,
-                    String Business_Address,
-                    String Business_City, 
-                    String Business_Phone,
-                    String Business_Fax,
-                    String Business_TaxReg,
-                    String Business_Mail, 
-                    LocalDate Business_Date) {
-        this.Business_Name = Business_Name;
-        this.Business_Description = Business_Description;
-        this.Business_Address = Business_Address;
-        this.Business_City = Business_City;
-        this.Business_Phone = Business_Phone;
-        this.Business_Fax = Business_Fax;
-        this.Business_TaxReg = Business_TaxReg;
-        this.Business_Mail = Business_Mail;
-        this.Business_Date = Business_Date;
+    public Business(String Name, String Description, String Address, String City, String Phone1, String Phone2, String Fax, String TaxReg, String Mail, LocalDate Date) {
+        this.Name = Name;
+        this.Description = Description;
+        this.Address = Address;
+        this.City = City;
+        this.Phone1 = Phone1;
+        this.Phone2 = Phone2;
+        this.Fax = Fax;
+        this.TaxReg = TaxReg;
+        this.Mail = Mail;
+        this.Date = Date;
     }
 
-   
-    public void setBusiness_Name(String Business_Name) {
-        this.Business_Name = Business_Name;
+    public void setName(String Name) {
+        this.Name = Name;
     }
 
-    public void setBusiness_Description(String Business_Description) {
-        this.Business_Description = Business_Description;
+    public void setDescription(String Description) {
+        this.Description = Description;
     }
 
-    public void setBusiness_Address(String Business_Address) {
-        this.Business_Address = Business_Address;
+    public void setAddress(String Address) {
+        this.Address = Address;
     }
 
-    public void setBusiness_City(String Business_City) {
-        this.Business_City = Business_City;
+    public void setCity(String City) {
+        this.City = City;
     }
 
-    public void setBusiness_Phone(String Business_Phone) {
-        this.Business_Phone = Business_Phone;
+    public void setPhone1(String Phone1) {
+        this.Phone1 = Phone1;
     }
 
-    public void setBusiness_Fax(String Business_Fax) {
-        this.Business_Fax = Business_Fax;
+    public void setPhone2(String Phone2) {
+        this.Phone2 = Phone2;
     }
 
-    public void setBusiness_TaxReg(String Business_TaxReg) {
-        this.Business_TaxReg = Business_TaxReg;
+    public void setFax(String Fax) {
+        this.Fax = Fax;
     }
 
-    public void setBusiness_Mail(String Business_Mail) {
-        this.Business_Mail = Business_Mail;
+    public void setTaxReg(String TaxReg) {
+        this.TaxReg = TaxReg;
     }
 
-    public void setBusiness_Date(LocalDate Business_Date) {
-        this.Business_Date = Business_Date;
+    public void setMail(String Mail) {
+        this.Mail = Mail;
     }
 
-    public String getBusiness_Name() {
-        return Business_Name;
+    public void setDate(LocalDate Date) {
+        this.Date = Date;
     }
 
-    public String getBusiness_Description() {
-        return Business_Description;
+    public String getName() {
+        return Name;
     }
 
-    public String getBusiness_Address() {
-        return Business_Address;
+    public String getDescription() {
+        return Description;
     }
 
-    public String getBusiness_City() {
-        return Business_City;
+    public String getAddress() {
+        return Address;
     }
 
-    public String getBusiness_Phone() {
-        return Business_Phone;
+    public String getCity() {
+        return City;
     }
 
-    public String getBusiness_Fax() {
-        return Business_Fax;
+    public String getPhone1() {
+        return Phone1;
     }
 
-    public String getBusiness_TaxReg() {
-        return Business_TaxReg;
+    public String getPhone2() {
+        return Phone2;
     }
 
-    public String getBusiness_Mail() {
-        return Business_Mail;
+    public String getFax() {
+        return Fax;
     }
 
-    public LocalDate getBusiness_Date() {
-        return Business_Date;
+    public String getTaxReg() {
+        return TaxReg;
     }
 
-    private String Business_Name;
-    private String Business_Description;
-    private String Business_Address;
-    private String Business_City; 
-    private String Business_Phone;
-    private String Business_Fax;
-    private String Business_TaxReg;
-    private String Business_Mail;
-    private LocalDate Business_Date;
-    
-    
+    public String getMail() {
+        return Mail;
+    }
+
+    public LocalDate getDate() {
+        return Date;
+    }
+
+    private String Name;
+    private String Description;
+    private String Address;
+    private String City; 
+    private String Phone1;
+    private String Phone2;
+    private String Fax;
+    private String TaxReg;
+    private String Mail;
+    private LocalDate Date;   
 }

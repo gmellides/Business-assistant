@@ -29,18 +29,19 @@ public class AdminXML_Parser {
         this.xml_file = xml_file;
     }
     
-    
     public BusinessAdmin getData(){
         HashMap<String,String> xml_data = null;
         String[] xml_elements = {"admin_firstname",
                                  "admin_lastname",
+                                 "admin_birthday",
                                  "admin_sex",
-                                 "admin_bithday",
                                  "admin_address",
                                  "admin_zipcode",
-                                 "admin_tax_reg",
+                                 "admin_city",
                                  "admin_phone1",
                                  "admin_phone2",
+                                 "admin_description",
+                                 "admin_tax_reg",
                                  "admin_mail"};
         try{           
             doc_builder_fact = DocumentBuilderFactory.newInstance();
@@ -63,23 +64,21 @@ public class AdminXML_Parser {
         }
         return decrypt_data(xml_data);
     }
-    
-    
+
     private BusinessAdmin decrypt_data(HashMap<String,String> input){
         decrypt =  new DecryptionUtil();
         BusinessAdminData = new BusinessAdmin(decrypt.decrypt_string(input.get("admin_firstname")),
                                               decrypt.decrypt_string(input.get("admin_lastname")),
-                                              decrypt.decrypt_string(input.get("admin_sex")),
                                               LocalDate.parse(decrypt.decrypt_string(input.get("admin_birthday"))),
+                                              decrypt.decrypt_string(input.get("admin_sex")),
                                               decrypt.decrypt_string(input.get("admin_address")),          
                                               Integer.parseInt(decrypt.decrypt_string(input.get("admin_zipcode"))),
-                                              decrypt.decrypt_string(input.get("admin_tax_reg")),
+                                              decrypt.decrypt_string(input.get("admin_city")),
                                               decrypt.decrypt_string(input.get("admin_phone1")),
                                               decrypt.decrypt_string(input.get("admin_phone2")),
+                                              decrypt.decrypt_string(input.get("admin_description")),
+                                              decrypt.decrypt_string(input.get("admin_tax_reg")),         
                                               decrypt.decrypt_string(input.get("admin_mail")));
-        
         return BusinessAdminData;
-    }
-   
-    
+    }    
 }

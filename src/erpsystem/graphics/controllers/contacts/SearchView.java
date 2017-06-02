@@ -9,6 +9,7 @@ import erpsystem.database.contacts.Contacts_Operation;
 import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,7 +18,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.MapValueFactory;
-import javafx.scene.input.InputMethodEvent;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -71,6 +72,14 @@ public class SearchView implements Initializable {
         this_window.close();
     }
     
+    
+    @FXML
+    private void Instant_Search(KeyEvent event) {
+        String search_value = txt_Instant_Search.getText();
+        ObservableList<Map> d = contacts_table.getItems();
+ 
+    }
+
     public void set_data(){
        Contacts_Operation contacts_data = new Contacts_Operation();
         contacts_table.setItems(contacts_data.retreive_data());
@@ -91,11 +100,5 @@ public class SearchView implements Initializable {
     }
     public void set_style(){
         image_panel.setStyle("-fx-background-image: url('file://../resources/images/contacts/contact_manager.png\');");
-    }
-
-    @FXML
-    private void txt_InstantSearch_Action(InputMethodEvent event) {
-        String value = txt_Instant_Search.getText();
-        
     }
 }

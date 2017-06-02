@@ -17,6 +17,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -61,25 +62,25 @@ public class View_BusinessData implements Initializable {
     private Label lbl_nodata;
     @FXML
     private Label lbl_Mail;
+    @FXML
+    private Label lbl_phone2;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        data = rb;
-        lbl_nodata.setVisible(false);
-        set_background_and_icon();
+        init_window(rb);
+        
         workplace = new FileManager();
         BusinessXML = new BusinessData();
             if(BusinessXML.get_File().exists()){
                 set_logo();
-                set_data(data,BusinessXML.get_File());
+                set_data(default_strings,BusinessXML.get_File());
               //  enable_components();
             }else{
                 clear_window();  
-                no_data(rb);
-                set_logo();
+                no_data_message(rb);
             }   
     }
     
@@ -91,10 +92,12 @@ public class View_BusinessData implements Initializable {
         @FXML
         private void btnExportPDF_Action(ActionEvent event) {
             export_pdf = new BusinessPDF();
-            if(export_pdf.save_pdf(data,b_data)){
-                System.out.println("PDF DONE");
+            if(export_pdf.save_pdf(default_strings,business)){
+                Alert succed_dialog = new Alert(Alert.AlertType.CONFIRMATION);
+            succed_dialog.setTitle(default_strings.getString("dialog_businessData_exportpdf_Title"));
+            succed_dialog.setContentText(default_strings.getString("dialog_businessData_exportpdf_Message"));
+            succed_dialog.showAndWait();
             }
-            System.exit(0);
         }
         @FXML
         private void btn_Close_Action(ActionEvent event) {
@@ -105,32 +108,48 @@ public class View_BusinessData implements Initializable {
     
     // ========== Methods ============
         /**
+         * Initialize the window 
+         * - Sets the icon 
+         * - Disables the label "No_data"
+         * - Puts resource bundle to an object.
+         * @param rb 
+         */
+        private void init_window(ResourceBundle bundle){
+            default_strings = bundle;
+            lbl_nodata.setVisible(false);
+            icon_imageview.setImage(new Image(new File("resources/images/menubar/view_businessData.png").toURI().toString())); 
+        }
+        /**
          * This method will be called only when xml file
-         * doesn't exist 
+         * doesn't exist Disables all the Lables.
          */
         private void clear_window(){
-            b_logo.setVisible(false);
-            graphic_line.setVisible(false);
-            lbl_bName.setVisible(false);
-              lbl_bDescription.setVisible(false);
-              lbl_lblPhone.setVisible(false);
-              lbl_Fax.setVisible(false);
-              lbl_Address.setVisible(false);
-              lbl_City.setVisible(false);
-              lbl_TaxReg.setVisible(false);
-              lbl_EstablishData.setVisible(false);
-              lbl_LastEdit.setVisible(false);
+            Label[] lables = {lbl_bName,lbl_bDescription,lbl_lblPhone,
+                              lbl_phone2,lbl_Fax,lbl_Address,lbl_City,
+                              lbl_TaxReg,lbl_EstablishData,lbl_LastEdit,
+                              lbl_Mail};
             btn_ExportPDF.setVisible(false);
             btn_ExportCard.setVisible(false);
+            b_logo.setVisible(false);         
+                for(Label item:lables){
+                    item.setVisible(false);
+                }  
         }
-        private void no_data(ResourceBundle bundle){
+        /**
+         * Displays a message to inform the user that there is no data 
+         * saved.
+         * @param bundle 
+         */
+        private void no_data_message(ResourceBundle bundle){
             lbl_nodata.setVisible(true);
             lbl_nodata.setText(bundle.getString("view_no_data"));
         }
+        
         private void enable_components(){
             btn_ExportPDF.setVisible(true);
             btn_ExportCard.setVisible(true);
         }
+        
         private void set_logo(){
            FileManager path = new FileManager();
                 String[] logo_name = new String[]{"/logo.png","/logo.bmp","/logo.jpg"};
@@ -147,31 +166,28 @@ public class View_BusinessData implements Initializable {
                     Image logo_img= new Image(default_logo.toURI().toString());
                     b_logo.setImage(logo_img);
                 }    
-            }
-        private void set_background_and_icon(){
-            Image icon = new Image(new File("resources/images/menubar/view_businessData.png").toURI().toString());
-            icon_imageview.setImage(icon); 
         }
+        
         private void set_data(ResourceBundle bundle,File business_file){
             BusinessXML_Parser file_reader = new BusinessXML_Parser(business_file);
-            b_data = file_reader.getData();
-              lbl_bName.setText(bundle.getString("view_bus_businessname")+"   "+b_data.getBusiness_Name());
-              lbl_bDescription.setText(bundle.getString("view_bus_description")+"   "+b_data.getBusiness_Description());
-              lbl_lblPhone.setText(bundle.getString("lbl_phone")+"  "+b_data.getBusiness_Phone());
-              lbl_Fax.setText(bundle.getString("lbl_fax")+"  "+b_data.getBusiness_Fax());
-              lbl_Address.setText(bundle.getString("lbl_address")+"  "+b_data.getBusiness_Address());
-              lbl_City.setText(bundle.getString("lbl_city")+"  "+b_data.getBusiness_City());
-              lbl_TaxReg.setText(bundle.getString("view_bus_taxreg")+"  "+b_data.getBusiness_TaxReg());
-              lbl_EstablishData.setText(bundle.getString("view_bus_date")+"  "+b_data.getBusiness_Date());
-              lbl_Mail.setText(bundle.getString("lbl_mail")+"  "+b_data.getBusiness_Mail());
+            business = file_reader.getData();
+              lbl_bName.setText(bundle.getString("view_bus_businessname")+"   "+business.getName());
+              lbl_bDescription.setText(bundle.getString("view_bus_description")+"   "+business.getDescription());
+              lbl_lblPhone.setText(bundle.getString("lbl_phone")+"  "+business.getPhone1());
+              lbl_Fax.setText(bundle.getString("lbl_fax")+"  "+business.getFax());
+              lbl_Address.setText(bundle.getString("lbl_address")+"  "+business.getAddress());
+              lbl_City.setText(bundle.getString("lbl_city")+"  "+business.getCity());
+              lbl_TaxReg.setText(bundle.getString("view_bus_taxreg")+"  "+business.getTaxReg());
+              lbl_EstablishData.setText(bundle.getString("view_bus_date")+"  "+business.getDate());
+              lbl_Mail.setText(bundle.getString("lbl_mail")+"  "+business.getMail());
               SimpleDateFormat date_format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
               lbl_LastEdit.setText(bundle.getString("view_bus_LastEdit")+"  "+date_format.format(business_file.lastModified()));
         }
     // ===============================
     
     private FileManager workplace;
-    private Business b_data;
+    private Business business;
     private BusinessData BusinessXML;
     private BusinessPDF export_pdf;
-    private ResourceBundle data;
+    private ResourceBundle default_strings;
 }
