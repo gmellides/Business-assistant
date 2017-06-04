@@ -43,11 +43,11 @@
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_phone1" layoutX="215.0" layoutY="275.0" text="Phone1">
+            <Label fx:id="lbl_phone1" layoutX="27.0" layoutY="275.0" text="Phone1">
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_phone2" layoutX="31.0" layoutY="275.0" text="Phone2">
+            <Label fx:id="lbl_phone2" layoutX="228.0" layoutY="275.0" text="Phone2">
                <font>
                   <Font size="14.0" />
                </font></Label>
@@ -59,7 +59,7 @@
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_zipcode" layoutX="302.0" layoutY="163.0" text="zipcode">
+            <Label fx:id="lbl_zipcode" layoutX="319.0" layoutY="163.0" text="zipcode">
                <font>
                   <Font size="14.0" />
                </font></Label>

@@ -8,7 +8,7 @@ package erpsystem.entities.people;
 
 import java.util.Date;
 
-public class Employee_c extends Person_s_c{
+public class Employee_c extends Person{
     
     // ---- Set Methods
     public void setSpooseName(String SpooseName) {

@@ -41,7 +41,7 @@ public class Launcher implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         language_strings = rb;
-       Start_DateTimeInfo();
+        Start_DateTimeInfo();
     }
 
     // ====== FXML Components Action ======
@@ -211,7 +211,7 @@ public class Launcher implements Initializable {
     // ==== ENF OF COMPONENTS ACTION ======  
             
     // ====== My Methods ========
-        public void Start_DateTimeInfo(){
+        private void Start_DateTimeInfo(){
             DateTimeUpdater = new Timer();
             DateTimeUpdater.schedule(new TimerTask(){
                 @Override
@@ -225,8 +225,10 @@ public class Launcher implements Initializable {
                 }
             },0,1000);
         }
-        public void SetStyle(){
-            
+        private boolean ad(){
+            boolean flag = false;
+                
+            return flag;
         }
     // ==== END OF MY METHODS ===
     

@@ -9,23 +9,25 @@ import erpsystem.database.contacts.Contacts_Operation;
 import erpsystem.entities.people.Contact;
 import erpsystem.util.datetime.DateTimeProvider;
 import erpsystem.util.xml.read.ComboBox_Parser;
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class NewContact implements Initializable {
     // -- FXML Components Declaration
-        @FXML
-        private Pane newcontact_img;
         @FXML
         private Pane background_panel;
         @FXML
@@ -62,43 +64,40 @@ public class NewContact implements Initializable {
         private TextArea txt_comments;
         @FXML
         private TextField txt_website;
+        @FXML
+        private ImageView icon_img;
     // -- End of FXML Components Declaration
+    
    
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        default_strings = rb;
         init_comboboxes();
         set_style();
     }
     
     // -- FXML Componenents Action
         @FXML
-        private void btnSave_Action(ActionEvent event) {
-            
+        private void btnSave_Action(ActionEvent event) {  
             if (Check_fields()){
                 Contact obj = new Contact();
-                 obj.setFirstName(txt_firstname.getText());
-                 obj.setLastName(txt_lastname.getText());
-                 obj.setAddress(txt_address.getText());
-                 obj.setSex(sex_ComboBox.getSelectionModel().getSelectedItem());
-                 obj.setComments(txt_comments.getText());
-                 obj.setWebsite(txt_website.getText());
-                 obj.setState(state_cmb.getSelectionModel().getSelectedItem());
-                 obj.setMail(txt_mail.getText());
-                 obj.setCity(city_cmb.getSelectionModel().getSelectedItem());
-                 obj.setCountry(city_cmb.getSelectionModel().getSelectedItem());
-                 obj.setPhone_1(txt_phone1.getText());
-                 obj.setPhone_1_type(phone1_type_ComboBox.getSelectionModel().getSelectedItem());
-                 obj.setPhone_2(txt_phone2.getText());
-                 obj.setPhone_2_type(phone2_type_ComboBox.getSelectionModel().getSelectedItem());
-                 obj.setZipCode(Integer.parseInt(txt_zipcode.getText()));
-                 obj.setImport_date(new DateTimeProvider().GetDateTime());
-                 
+                 data_to_obj(obj);                 
                  database = new Contacts_Operation();
                  if(database.insert_contact(obj)){
-                     // success
+                     Alert succed_dialog = new Alert(Alert.AlertType.INFORMATION);
+                     succed_dialog.setTitle(default_strings.getString("dialog_contactSaved_title"));
+                     succed_dialog.setContentText(default_strings.getString("dialog_contactSaved_message"));
+                     succed_dialog.showAndWait();
+                     Stage window = (Stage) btnSave.getScene().getWindow();
+                     window.close();
                  }else{
-                     // error
+                     Alert succed_dialog = new Alert(Alert.AlertType.ERROR);
+                     succed_dialog.setTitle(default_strings.getString("dialog_contactSaved_title"));
+                     succed_dialog.setContentText(default_strings.getString("dialog_contactSaved_message"));
+                     succed_dialog.showAndWait();
+                     Stage window = (Stage) btnSave.getScene().getWindow();
+                     window.close();
                  }
             }else{
                // error for fields 
@@ -123,7 +122,7 @@ public class NewContact implements Initializable {
     
     // -- Methods   
         public void set_style(){
-            newcontact_img.setStyle("-fx-background-image: url('file://../resources/images/contacts/new_contact.png\');");
+            icon_img.setImage(new Image(new File("resources/images/contacts/new_contact.png").toURI().toString()));
         }// set_style()
         /**
          * Retrieve data from XML Files and place it into combo boxes
@@ -157,8 +156,28 @@ public class NewContact implements Initializable {
                 }
             return flag;
         }
+        
+        private void data_to_obj(Contact obj){
+            obj.setFirstName(txt_firstname.getText());
+            obj.setLastName(txt_lastname.getText());
+            obj.setAddress(txt_address.getText());
+            obj.setSex(sex_ComboBox.getSelectionModel().getSelectedItem());
+            obj.setComments(txt_comments.getText());
+            obj.setWebsite(txt_website.getText());
+            obj.setState(state_cmb.getSelectionModel().getSelectedItem());
+            obj.setMail(txt_mail.getText());
+            obj.setCity(city_cmb.getSelectionModel().getSelectedItem());
+            obj.setCountry(city_cmb.getSelectionModel().getSelectedItem());
+            obj.setPhone_1(txt_phone1.getText());
+            obj.setPhone_1_type(phone1_type_ComboBox.getSelectionModel().getSelectedItem());
+            obj.setPhone_2(txt_phone2.getText());
+            obj.setPhone_2_type(phone2_type_ComboBox.getSelectionModel().getSelectedItem());
+            obj.setZipCode(Integer.parseInt(txt_zipcode.getText()));
+            obj.setImport_date(new DateTimeProvider().GetDate()+" "+new DateTimeProvider().GetTime());
+        }
     // -- END of Methods
     
     private ComboBox_Parser combodata_xml;
     private Contacts_Operation database;
+    private ResourceBundle default_strings;
 }

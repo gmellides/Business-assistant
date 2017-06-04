@@ -80,9 +80,9 @@ public class SearchView implements Initializable {
  
     }
 
-    public void set_data(){
+    private void set_data(){
        Contacts_Operation contacts_data = new Contacts_Operation();
-        contacts_table.setItems(contacts_data.retreive_data());
+        contacts_table.setItems(contacts_data.select_table_data());
         TableColumn[] columns = {col_firstname,col_lastname,col_sex,
                                  col_address,col_zipcode,col_country,
                                  col_greek_state,col_city,col_mail,

@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package erpsystem.entities.people;
+package erpsystem.util.export.pdf.contacts;
 
 
-public class Customer_c extends Person_s_c{
+public class ContactsPDF {
     
 }

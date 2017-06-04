@@ -9,8 +9,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 
-
-public class CustomerManager implements Initializable {
+/**
+ * FXML Controller class
+ *
+ * @author gabri
+ */
+public class NewCustomer implements Initializable {
 
     /**
      * Initializes the controller class.

@@ -18,6 +18,7 @@ import erpsystem.entities.business.Business;
 import erpsystem.util.xml.read.BusinessXML_Parser;
 import erpsystem.util.xml.write.BusinessData;
 import erpsystem.util.system.FileManager;
+import erpsystem.util.xml.read.ComboBox_Parser;
 import java.io.File;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -43,7 +44,6 @@ public class Edit_BusinessData implements Initializable {
     private TextField txt_Address;
     @FXML
     private TextField txt_Phone;
-    private TextField txt_City;
     @FXML
     private TextField txt_Fax;
     @FXML
@@ -63,7 +63,7 @@ public class Edit_BusinessData implements Initializable {
     @FXML
     private TextField txt_Phone2;
     @FXML
-    private ComboBox<?> cmb_City;
+    private ComboBox<String> cmb_City;
 
     /**
      * Controller class init. 
@@ -96,7 +96,7 @@ public class Edit_BusinessData implements Initializable {
             Business b_data = new Business(txt_Name.getText(),
                                            txt_Description.getText(),
                                            txt_Address.getText(),
-                                           txt_City.getText(),
+                                           cmb_City.getSelectionModel().getSelectedItem().toString(),
                                            txt_Phone.getText(),
                                            txt_Phone2.getText(),
                                            txt_Fax.getText(),
@@ -206,7 +206,6 @@ public class Edit_BusinessData implements Initializable {
                                       txt_Address,
                                       txt_Phone,
                                       txt_Phone2,
-                                      txt_City,
                                       txt_Fax,
                                       txt_TaxReg,
                                       txt_Mail};
@@ -214,10 +213,10 @@ public class Edit_BusinessData implements Initializable {
                                     business.getAddress(),
                                     business.getPhone1(),
                                     business.getPhone2(),
-                                    business.getCity(),
                                     business.getFax(),
                                     business.getTaxReg(),
                                     business.getMail()};
+            cmb_City.getSelectionModel().select(business.getCity());
             txt_Description.setText(business.getDescription());
             dtp_establishDate.setValue(business.getDate());
             int index = 0;
@@ -228,7 +227,12 @@ public class Edit_BusinessData implements Initializable {
         }
         
         public void set_background_and_icon(){
-           icon_imageview.setImage(new Image(new File("resources/images/menubar/edit_businessData.png").toURI().toString()));
+            try{
+                cmb_City.setItems(new ComboBox_Parser().get_big_cities_greece());
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+            icon_imageview.setImage(new Image(new File("resources/images/menubar/edit_businessData.png").toURI().toString()));
         }
     // ===============================
         

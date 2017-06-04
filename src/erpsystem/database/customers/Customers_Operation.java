@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package erpsystem.database.contacts;
+package erpsystem.database.customers;
 
 import com.healthmarketscience.jackcess.Column;
 import com.healthmarketscience.jackcess.Database;
@@ -19,12 +19,13 @@ import java.util.Map;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class Contacts_Operation {
+
+public class Customers_Operation {
     /**
      * Returns the number of saved contacts.
      * @return 
      */
-    public int count_contacts(){
+    public int count_customers(){
         int saved_contacts = 0;
             try{
                 Database contacts_database = new DatabaseBuilder(new File("db/Contacts-Test.accdb").getAbsoluteFile())
@@ -43,7 +44,7 @@ public class Contacts_Operation {
      * @param input
      * @return 
      */
-    public boolean insert_contact(Contact input){
+    public boolean insert_customer(Contact input){
         boolean flag = false;
             try{
                 Database contacts_database = new DatabaseBuilder(new File("db/Contacts-Test.accdb").getAbsoluteFile())
@@ -129,4 +130,5 @@ public class Contacts_Operation {
     }
     public void delete_contact(){
     }
+
 }

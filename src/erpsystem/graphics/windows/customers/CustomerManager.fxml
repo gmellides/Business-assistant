@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
@@ -7,8 +9,27 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.customers.CustomerManager">
+<AnchorPane id="AnchorPane" prefHeight="330.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="erpsystem.graphics.controllers.customers.CustomerManager">
     <stylesheets>
-        <URL value="@/erpsystem/graphics/CSS/customermanager.css"/>
+        <URL value="@/erpsystem/graphics/CSS/customers/customermanager.css" />
     </stylesheets>
+   <children>
+      <Pane prefHeight="343.0" prefWidth="600.0">
+         <children>
+            <Button layoutX="534.0" layoutY="304.0" mnemonicParsing="false" text="Button" />
+            <Button layoutX="239.0" layoutY="231.0" mnemonicParsing="false" text="Button" />
+            <Button layoutX="392.0" layoutY="231.0" mnemonicParsing="false" text="Button" />
+            <Button layoutX="239.0" layoutY="273.0" mnemonicParsing="false" text="Button" />
+            <Button layoutX="392.0" layoutY="273.0" mnemonicParsing="false" text="Button" />
+            <Label layoutX="277.0" layoutY="29.0" text="Label" />
+            <Label layoutX="225.0" layoutY="96.0" text="Label" />
+            <Label layoutX="225.0" layoutY="139.0" text="Label" />
+            <Label layoutX="358.0" layoutY="139.0" text="Label" />
+            <Label layoutX="225.0" layoutY="178.0" text="Label" />
+            <Label layoutX="358.0" layoutY="178.0" text="Label" />
+            <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="14.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true" />
+            <Line endX="100.0" layoutX="176.0" layoutY="172.0" rotate="90.0" startX="-100.0" />
+         </children>
+      </Pane>
+   </children>
 </AnchorPane>

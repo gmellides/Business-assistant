@@ -8,7 +8,7 @@ package erpsystem.entities.people;
 
 import java.time.LocalDate;
 
-public class Person_s_c {
+public class Person {
     
     // ----- Set Methods
     public void setFirstName(String FirstName) {

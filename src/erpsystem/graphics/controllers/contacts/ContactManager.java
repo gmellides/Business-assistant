@@ -35,6 +35,8 @@ public class ContactManager implements Initializable {
     private Label lbl_savedContacts;
     @FXML
     private Label lbl_lastInput;
+    @FXML
+    private Label Saved_contacts;
 
     /**
      * Initializes the controller class.
@@ -43,8 +45,7 @@ public class ContactManager implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         ShowContactInfos();
         set_style();
-        lbl_savedContacts.setText(rb.getString("cmgr_lblsummary"));
-        lbl_lastInput.setText(rb.getString("cmgr_lblinput"));
+           
     }    
 
     // ===== FXML Buttons Action =====
@@ -93,6 +94,28 @@ public class ContactManager implements Initializable {
                 stage.show();
         }
         @FXML
+        private void btn_BackUp_Action(ActionEvent event) throws IOException {
+            FXMLLoader f = new FXMLLoader();
+                f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
+                Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/contacts/BackUp.fxml").openStream());
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                stage.setHeight(252);
+                stage.setWidth(547);
+                stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                    @Override
+                    public void handle(WindowEvent we) {
+                        stage.hide();
+                    }
+                });
+                stage.setTitle("Νέα Επαφή");
+                stage.setScene(scene);
+                stage.setResizable(false);
+                // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
+                // stage.getIcons().add(icon);
+                stage.show();
+        }
+        @FXML
         private void btnExit_Action(ActionEvent event) {
             Stage this_window = (Stage) btnNewContact.getScene().getWindow();
             this_window.close();
@@ -110,5 +133,4 @@ public class ContactManager implements Initializable {
             // this will be used for new contacts 
         }
     // ===============================
-    
 }

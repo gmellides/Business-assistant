@@ -6,8 +6,8 @@
 package erpsystem.app_data;
 
 
-public class Contacts {
-    public Contacts(String Saved_contacts,
+public class Contacts_Info {
+    public Contacts_Info(String Saved_contacts,
                     String Last_input){
         this.Saved_contacts = Integer.parseInt(Saved_contacts);
         this.Last_input = Last_input;

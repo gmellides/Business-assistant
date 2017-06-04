@@ -5,10 +5,6 @@
  */
 package erpsystem.entities.people;
 
-/**
- *
- * @author gabri
- */
-public class Supplier_c extends Person{
+public class Customer extends Person{
     
 }

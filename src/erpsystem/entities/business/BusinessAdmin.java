@@ -5,10 +5,10 @@
  */
 package erpsystem.entities.business;
 
-import erpsystem.entities.people.Person_s_c;
+import erpsystem.entities.people.Person;
 import java.time.LocalDate;
 
-public class BusinessAdmin extends Person_s_c{
+public class BusinessAdmin extends Person{
 
     public BusinessAdmin(String FirstName,
                          String LastName,

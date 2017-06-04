@@ -5,8 +5,10 @@
  */
 package erpsystem.util.xml.write;
 
-public class TemporaryData {
+public class AppData {
     
+    String[] tags = {"contacts_count",
+                     ""};
     // contacts 
     
     // customers
@@ -16,4 +18,15 @@ public class TemporaryData {
     // suppliers 
     
     // emplyees
+    
+    public void save_data(String count_contacts,
+                          String date_contact){
+        
+    }
+    
 }
+
+/*
+<temp_data>
+</temp_data>
+*/
