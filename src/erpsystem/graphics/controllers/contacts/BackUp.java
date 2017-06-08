@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -42,9 +43,18 @@ public class BackUp implements Initializable {
     private void btn_ExportCSV_Action(ActionEvent event) {
         contacts_database = new Contacts_Operation();
         export_csv = new ContactsExport();
-        export_csv.export_file(default_strings, contacts_database.select_data_csv());
+        if (export_csv.export_file(default_strings, contacts_database.select_data_csv())){
+            Alert succed_dialog = new Alert(Alert.AlertType.INFORMATION);
+            succed_dialog.setTitle(default_strings.getString("dialog_contactsCSV_title"));
+        
+            succed_dialog.setContentText(default_strings.getString("dialog_contactsCSV_message"));
+            succed_dialog.showAndWait();         
+        }  
     }
-
+    @FXML
+    private void btn_SelectFile_Action(ActionEvent event) {
+    }
+    
     @FXML
     private void btn_Close_Action(ActionEvent event) {
         Stage window = (Stage) btnClose.getScene().getWindow();
@@ -55,7 +65,5 @@ public class BackUp implements Initializable {
     private Contacts_Operation contacts_database;
     private ContactsExport export_csv;
 
-    @FXML
-    private void btn_SelectFile_Action(ActionEvent event) {
-    }
+   
 }

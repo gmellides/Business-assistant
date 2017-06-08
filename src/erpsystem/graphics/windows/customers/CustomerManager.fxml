@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
@@ -9,26 +10,29 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="330.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="erpsystem.graphics.controllers.customers.CustomerManager">
+<AnchorPane id="AnchorPane" prefHeight="330.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.customers.CustomerManager">
     <stylesheets>
         <URL value="@/erpsystem/graphics/CSS/customers/customermanager.css" />
     </stylesheets>
    <children>
-      <Pane prefHeight="343.0" prefWidth="600.0">
+      <Pane prefHeight="356.0" prefWidth="600.0">
          <children>
-            <Button layoutX="534.0" layoutY="304.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="239.0" layoutY="231.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="392.0" layoutY="231.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="239.0" layoutY="273.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="392.0" layoutY="273.0" mnemonicParsing="false" text="Button" />
-            <Label layoutX="277.0" layoutY="29.0" text="Label" />
+            <Button fx:id="btnClose" layoutX="514.0" layoutY="321.0" mnemonicParsing="false" onAction="#btnClose_Action" text="%btnClose" />
+            <Button layoutX="204.0" layoutY="231.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="132.0" text="%new_customer" />
+            <Button layoutX="392.0" layoutY="231.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="132.0" text="%cmgr_btnBackUp" />
+            <Button layoutX="204.0" layoutY="273.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="132.0" text="%cmgr_btnViewContacts" />
+            <Button layoutX="392.0" layoutY="273.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="132.0" text="%cmgr_btnExportPDF" />
+            <Label layoutX="269.0" layoutY="14.0" text="Label">
+               <font>
+                  <Font size="27.0" />
+               </font></Label>
             <Label layoutX="225.0" layoutY="96.0" text="Label" />
             <Label layoutX="225.0" layoutY="139.0" text="Label" />
             <Label layoutX="358.0" layoutY="139.0" text="Label" />
             <Label layoutX="225.0" layoutY="178.0" text="Label" />
             <Label layoutX="358.0" layoutY="178.0" text="Label" />
             <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="14.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true" />
-            <Line endX="100.0" layoutX="176.0" layoutY="172.0" rotate="90.0" startX="-100.0" />
+            <Line endX="158.0" layoutX="155.0" layoutY="193.0" rotate="90.0" startX="-100.0" />
          </children>
       </Pane>
    </children>

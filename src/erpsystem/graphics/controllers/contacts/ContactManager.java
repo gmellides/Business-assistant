@@ -5,6 +5,8 @@
  */
 package erpsystem.graphics.controllers.contacts;
 
+import erpsystem.database.contacts.Contacts_Operation;
+import erpsystem.util.system.WindowsManager;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -45,7 +47,7 @@ public class ContactManager implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         ShowContactInfos();
         set_style();
-           
+        Saved_contacts.setText(String.valueOf(new Contacts_Operation().count_contacts()));
     }    
 
     // ===== FXML Buttons Action =====
@@ -117,6 +119,7 @@ public class ContactManager implements Initializable {
         }
         @FXML
         private void btnExit_Action(ActionEvent event) {
+            new WindowsManager().ContactManager_toogle(false);
             Stage this_window = (Stage) btnNewContact.getScene().getWindow();
             this_window.close();
         }

@@ -6,7 +6,6 @@
 package erpsystem.util.export.csv.contacts;
 
 import com.healthmarketscience.jackcess.Row;
-import erpsystem.util.datetime.DateTimeProvider;
 import erpsystem.util.system.FileManager;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -21,19 +20,20 @@ public class ContactsExport {
     private BufferedWriter buffer;
     private FileWriter writer;
     
-    public void export_file(ResourceBundle default_strings,ArrayList<Row> input){
+    public boolean export_file(ResourceBundle default_strings,ArrayList<Row> input){
         workspace = new FileManager();
         csv_file = new File(workspace.getDocuments_root()+"/"+default_strings.getString("backup_filename")+"*.csv");
         
-       // if (csv_file.exists()){
-         //   csv_file.delete();       
+        if (csv_file.exists()){
+            csv_file.delete();       
             create_file(csv_file,default_strings,input);
-        //}else{
-            
-        //}
+        }else{
+            create_file(csv_file,default_strings,input);
+        }
         // check if file exists
         // if yes delete and create new 
         // if no create new 
+        return true;
     }
     
     private void create_file(File csv_file,
@@ -76,10 +76,9 @@ public class ContactsExport {
                     e.printStackTrace();
             }
         }
-
     }
     
     private String FileName(ResourceBundle res){
-        return res.getString("backup_filename")+new DateTimeProvider().GetDateTime_file()+".csv";
+        return res.getString("backup_filename")+".csv";
     }
 }

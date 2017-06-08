@@ -6,6 +6,7 @@
 package erpsystem;
 
 import erpsystem.util.system.FileManager;
+import erpsystem.util.system.WindowsManager;
 import java.io.IOException;
 import java.util.ResourceBundle;
 import javafx.application.Application;
@@ -35,9 +36,12 @@ public class ERPSystem extends Application {
             f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
 
             Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/Launcher.fxml").openStream());
-
+            
             Scene scene = new Scene(root);
-
+            
+            stage.setWidth(760);
+            stage.setHeight(505);
+            
             stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
               @Override
               public void handle(WindowEvent we) {
@@ -57,6 +61,7 @@ public class ERPSystem extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        new WindowsManager().Init();
         launch(args);   
     }
 

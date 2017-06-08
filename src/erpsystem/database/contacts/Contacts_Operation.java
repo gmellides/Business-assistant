@@ -66,6 +66,7 @@ public class Contacts_Operation {
                                      input.getPhone_2_type(),
                                      input.getComments(),
                                      input.getWebsite(),
+                                     
                                      input.getImport_date()); 
                 contacts_database.close();   
                 flag = true;

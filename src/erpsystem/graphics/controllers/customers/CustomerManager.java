@@ -5,12 +5,20 @@
  */
 package erpsystem.graphics.controllers.customers;
 
+import erpsystem.util.system.WindowsManager;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 
 public class CustomerManager implements Initializable {
+
+    @FXML
+    private Button btnClose;
 
     /**
      * Initializes the controller class.
@@ -19,5 +27,12 @@ public class CustomerManager implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void btnClose_Action(ActionEvent event) {
+        new WindowsManager().CustomerManager_toogle(false);
+        Stage window = (Stage) btnClose.getScene().getWindow();
+        window.close();
+    }
     
 }
