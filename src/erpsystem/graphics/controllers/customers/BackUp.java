@@ -5,19 +5,27 @@
  */
 package erpsystem.graphics.controllers.customers;
 
-import erpsystem.util.system.WindowsManager;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
+import javafx.scene.control.TextField;
 
-public class CustomerManager implements Initializable {
+/**
+ * FXML Controller class
+ *
+ * @author Gabriel Mellides
+ */
+public class BackUp implements Initializable {
 
     @FXML
     private Button btnClose;
+    @FXML
+    private Button btn_SelectFile;
+    @FXML
+    private TextField txt_Path;
 
     /**
      * Initializes the controller class.
@@ -26,19 +34,17 @@ public class CustomerManager implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    
+
     @FXML
-    private void btnNewCustomer_Action(ActionEvent event) {
-    
-    }
-    
-    @FXML
-    private void btnClose_Action(ActionEvent event) {
-        new WindowsManager().CustomerManager_toogle(false);
-        Stage window = (Stage) btnClose.getScene().getWindow();
-        window.close();
+    private void btn_ExportCSV_Action(ActionEvent event) {
     }
 
-   
+    @FXML
+    private void btn_Close_Action(ActionEvent event) {
+    }
+
+    @FXML
+    private void btn_SelectFile_Action(ActionEvent event) {
+    }
     
 }

@@ -37,8 +37,8 @@ public class ContactsExport {
     }
     
     private void create_file(File csv_file,
-                                ResourceBundle default_strings,
-                                ArrayList<Row> input){
+                             ResourceBundle default_strings,
+                             ArrayList<Row> input){
         String[] csv_columns = {"firstname","lastname","sex","address",
                                 "zipcode","country","greek_state","city","mail",
                                 "phone1","phone1_type","phone2","phone2_type",

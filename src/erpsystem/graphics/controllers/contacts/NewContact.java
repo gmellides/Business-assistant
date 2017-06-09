@@ -8,6 +8,7 @@ package erpsystem.graphics.controllers.contacts;
 import erpsystem.database.contacts.Contacts_Operation;
 import erpsystem.entities.people.Contact;
 import erpsystem.util.datetime.DateTimeProvider;
+import erpsystem.util.system.WindowsManager;
 import erpsystem.util.xml.read.ComboBox_Parser;
 import java.io.File;
 import java.net.URL;
@@ -68,7 +69,7 @@ public class NewContact implements Initializable {
         private ImageView icon_img;
     // -- End of FXML Components Declaration
     
-   
+   private final WindowsManager window_check = new WindowsManager();
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -91,6 +92,7 @@ public class NewContact implements Initializable {
                      succed_dialog.showAndWait();
                      Stage window = (Stage) btnSave.getScene().getWindow();
                      window.close();
+                     window_check.NewContact_toogle(false);
                  }else{
                      Alert succed_dialog = new Alert(Alert.AlertType.ERROR);
                      succed_dialog.setTitle(default_strings.getString("dialog_contactSaved_title"));
@@ -98,6 +100,7 @@ public class NewContact implements Initializable {
                      succed_dialog.showAndWait();
                      Stage window = (Stage) btnSave.getScene().getWindow();
                      window.close();
+                     window_check.NewContact_toogle(false);
                  }
             }else{
                // error for fields 
@@ -105,6 +108,7 @@ public class NewContact implements Initializable {
         }
         @FXML
         private void btnClose_Action(ActionEvent event) {
+            window_check.NewContact_toogle(false);
             Stage current_stage = (Stage) btnClose.getScene().getWindow();
             current_stage.close();
         }

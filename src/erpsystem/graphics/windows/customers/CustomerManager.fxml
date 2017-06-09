@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="330.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.customers.CustomerManager">
+<AnchorPane id="AnchorPane" prefHeight="330.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.customers.CustomerManager">
     <stylesheets>
         <URL value="@/erpsystem/graphics/CSS/customers/customermanager.css" />
     </stylesheets>
@@ -18,7 +17,7 @@
       <Pane prefHeight="356.0" prefWidth="600.0">
          <children>
             <Button fx:id="btnClose" layoutX="514.0" layoutY="321.0" mnemonicParsing="false" onAction="#btnClose_Action" text="%btnClose" />
-            <Button layoutX="204.0" layoutY="231.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="132.0" text="%new_customer" />
+            <Button layoutX="204.0" layoutY="231.0" mnemonicParsing="false" onAction="#btnNewCustomer_Action" prefHeight="25.0" prefWidth="132.0" text="%new_customer" />
             <Button layoutX="392.0" layoutY="231.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="132.0" text="%cmgr_btnBackUp" />
             <Button layoutX="204.0" layoutY="273.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="132.0" text="%cmgr_btnViewContacts" />
             <Button layoutX="392.0" layoutY="273.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="132.0" text="%cmgr_btnExportPDF" />

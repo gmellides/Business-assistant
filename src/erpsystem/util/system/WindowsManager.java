@@ -38,6 +38,15 @@ public class WindowsManager {
     public void ContactManager_toogle(boolean value){
         WindowsManager.ContactManager = value;
     }
+        public void NewContact_toogle(boolean value){
+            WindowsManager.NewContact = value;
+        }
+        public void ShowSearchContact_toogle(boolean value){
+            WindowsManager.ShowSearchContact = value;
+        }
+        public void BackupContacts_toogle(boolean value){
+            WindowsManager.BackupContacts = value;
+        }    
     public void CustomerManager_toogle(boolean value){
         WindowsManager.CustomerManager = value;
     }
@@ -68,6 +77,15 @@ public class WindowsManager {
     public boolean ContactManager_isOpen(){
         return WindowsManager.ContactManager;   
     }
+        public boolean NewContact_isOpen(){
+            return WindowsManager.NewContact;
+        }
+        public boolean ShowSearchContact_isOpen(){
+            return WindowsManager.ShowSearchContact;
+        }
+        public boolean BackupContacts_isOpen(){
+            return WindowsManager.BackupContacts;
+        }
     public boolean CustomerManager_isOpen(){
         return WindowsManager.CustomerManager;
     }
@@ -88,6 +106,9 @@ public class WindowsManager {
     private static boolean EditBusiness;
     // Buttons Windows
     private static boolean ContactManager;
+        private static boolean NewContact;
+        private static boolean ShowSearchContact;
+        private static boolean BackupContacts;
     private static boolean CustomerManager;
     private static boolean SupplierManager;
     private static boolean Storage;

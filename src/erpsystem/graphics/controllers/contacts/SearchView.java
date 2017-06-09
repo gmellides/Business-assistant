@@ -6,10 +6,10 @@
 package erpsystem.graphics.controllers.contacts;
 
 import erpsystem.database.contacts.Contacts_Operation;
+import erpsystem.util.system.WindowsManager;
 import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -57,6 +57,8 @@ public class SearchView implements Initializable {
     @FXML
     private TextField txt_Instant_Search;
 
+    public static String search_value;
+    private final WindowsManager window_check = new WindowsManager();
     /**
      * Initializes the controller class.
      */
@@ -68,6 +70,7 @@ public class SearchView implements Initializable {
     
     @FXML
     private void btnClose_Action(ActionEvent event) {
+        window_check.ShowSearchContact_toogle(false);
         Stage this_window = (Stage)  btnClose.getScene().getWindow();
         this_window.close();
     }
@@ -75,14 +78,12 @@ public class SearchView implements Initializable {
     
     @FXML
     private void Instant_Search(KeyEvent event) {
-        String search_value = txt_Instant_Search.getText();
-        ObservableList<Map> d = contacts_table.getItems();
- 
+        search_value = event.getText();
+       System.out.print(search_value);
     }
 
     private void set_data(){
-       Contacts_Operation contacts_data = new Contacts_Operation();
-        contacts_table.setItems(contacts_data.select_table_data());
+        contacts_table.setItems(new Contacts_Operation().select_table_data());
         TableColumn[] columns = {col_firstname,col_lastname,col_sex,
                                  col_address,col_zipcode,col_country,
                                  col_greek_state,col_city,col_mail,

@@ -155,9 +155,11 @@ public class Launcher implements Initializable {
             // File > View Business data
             @FXML
             private void mnu_view_BusinessData(ActionEvent event) throws IOException {
-                FXMLLoader f = new FXMLLoader();
-                    f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
-                    Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/menubar/View_BusinessData.fxml").openStream());
+                if(!window_check.ViewBusiness_isOpen()){
+                    window_check.ViewBusiness_toogle(true);
+                    FXMLLoader fxml_loader = new FXMLLoader();
+                    fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
+                    Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/menubar/View_BusinessData.fxml").openStream());
                     Stage stage = new Stage();
                     Scene scene = new Scene(root);
                     stage.setHeight(510);
@@ -165,6 +167,7 @@ public class Launcher implements Initializable {
                     stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                         @Override
                         public void handle(WindowEvent we) {
+                            window_check.ViewBusiness_toogle(false);
                             stage.close();
                         }
                     });
@@ -174,11 +177,14 @@ public class Launcher implements Initializable {
                     // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
                     // stage.getIcons().add(icon);
                     stage.show();
+                } 
             }
             // File > View Admin Data
             @FXML
             private void mnu_ViewAdminData_Action(ActionEvent event) throws IOException {
-                FXMLLoader f = new FXMLLoader();
+                if (!window_check.ViewAdmin_isOpen()){
+                    window_check.ViewAdmin_toogle(true);
+                    FXMLLoader f = new FXMLLoader();
                     f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
                     Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/menubar/View_BusinessAdmin.fxml").openStream());
                     Stage stage = new Stage();
@@ -188,6 +194,7 @@ public class Launcher implements Initializable {
                     stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                         @Override
                         public void handle(WindowEvent we) {
+                            window_check.ViewAdmin_toogle(false);
                             stage.close();
                         }
                     });
@@ -197,10 +204,12 @@ public class Launcher implements Initializable {
                     //Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
                     //stage.getIcons().add(icon);
                     stage.show();
+                }    
             }
             // Edit > Edit Business Data
             @FXML
             private void mnu_edit_BusinessInfo_Action(ActionEvent event) throws IOException {
+                
                         FXMLLoader f = new FXMLLoader();
                         f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
                         Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/menubar/Edit_BusinessData.fxml").openStream());

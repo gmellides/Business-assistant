@@ -40,6 +40,8 @@ public class ContactManager implements Initializable {
     @FXML
     private Label Saved_contacts;
 
+    
+    private final WindowsManager window_check = new WindowsManager();  
     /**
      * Initializes the controller class.
      */
@@ -53,38 +55,45 @@ public class ContactManager implements Initializable {
     // ===== FXML Buttons Action =====
         @FXML
         private void btnNewContactsAction(ActionEvent event) throws IOException {
-            FXMLLoader f = new FXMLLoader();
-                f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
-                Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/contacts/NewContact.fxml").openStream());
-                Stage stage = new Stage();
-                Scene scene = new Scene(root);
-                stage.setHeight(420);
-                stage.setWidth(766);
-                stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-                    @Override
-                    public void handle(WindowEvent we) {
-                        stage.close();
-                    }
-                });
-                stage.setTitle("Νέα Επαφή");
-                stage.setScene(scene);
-                stage.setResizable(false);
-             // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
-             // stage.getIcons().add(icon);
-                stage.show();
+            if(!window_check.NewContact_isOpen()){
+                window_check.NewContact_toogle(true);
+                FXMLLoader fxml_loader = new FXMLLoader();
+                    fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
+                    Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/contacts/NewContact.fxml").openStream());
+                    Stage stage = new Stage();
+                    Scene scene = new Scene(root);
+                    stage.setHeight(420);
+                    stage.setWidth(766);
+                    stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                        @Override
+                        public void handle(WindowEvent we) {
+                            window_check.NewContact_toogle(false);
+                            stage.close();
+                        }
+                    });
+                    stage.setTitle("Νέα Επαφή");
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                 // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
+                 // stage.getIcons().add(icon);
+                    stage.show();
+              }  
         }
         @FXML
         private void btnSearchView_Action(ActionEvent event) throws IOException{
-            FXMLLoader f = new FXMLLoader();
-                f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
-                Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/contacts/SearchView.fxml").openStream());
+            if (!window_check.ShowSearchContact_isOpen()){
+                window_check.ShowSearchContact_toogle(true);
+                FXMLLoader fxml_loader = new FXMLLoader();
+                fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
+                Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/contacts/SearchView.fxml").openStream());
                 Stage stage = new Stage();
                 Scene scene = new Scene(root);
                 stage.setHeight(600);
-                stage.setWidth(850);
+                stage.setWidth(855);
                 stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                     @Override
                     public void handle(WindowEvent we) {
+                        window_check.ShowSearchContact_toogle(false);
                         stage.hide();
                     }
                 });
@@ -94,9 +103,12 @@ public class ContactManager implements Initializable {
                 // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
                 // stage.getIcons().add(icon);
                 stage.show();
+            }
         }
         @FXML
         private void btn_BackUp_Action(ActionEvent event) throws IOException {
+            if (!window_check.BackupContacts_isOpen()){
+                window_check.BackupContacts_toogle(true);
             FXMLLoader f = new FXMLLoader();
                 f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
                 Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/contacts/BackUp.fxml").openStream());
@@ -116,6 +128,7 @@ public class ContactManager implements Initializable {
                 // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
                 // stage.getIcons().add(icon);
                 stage.show();
+            }
         }
         @FXML
         private void btnExit_Action(ActionEvent event) {

@@ -8,6 +8,7 @@ package erpsystem.graphics.controllers.menubar;
 import erpsystem.entities.business.Business;
 import erpsystem.util.export.pdf.business_data.BusinessPDF;
 import erpsystem.util.system.FileManager;
+import erpsystem.util.system.WindowsManager;
 import erpsystem.util.xml.read.BusinessXML_Parser;
 import erpsystem.util.xml.write.BusinessData;
 import java.io.File;
@@ -101,6 +102,7 @@ public class View_BusinessData implements Initializable {
         }
         @FXML
         private void btn_Close_Action(ActionEvent event) {
+            new WindowsManager().ViewBusiness_toogle(false);
             Stage window = (Stage)  btn_ExportCard.getScene().getWindow();
             window.close();
         }
