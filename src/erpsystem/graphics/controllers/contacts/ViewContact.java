@@ -23,12 +23,46 @@ public class ViewContact implements Initializable {
     private Button btn_Close;
     @FXML
     private ImageView contact_icon;
-
+    @FXML
+    private Label lbl_firstname;
+    @FXML
+    private Label lbl_lastname;
+    @FXML
+    private Label lbl_country;
+    @FXML
+    private Label lbl_zipcode;
+    @FXML
+    private Label lbl_sex;
+    @FXML
+    private Label lbl_address;
+    @FXML
+    private Label lbl_city;
+    @FXML
+    private Label lbl_greekState;
+    @FXML
+    private Label lbl_phone1;
+    @FXML
+    private Label lbl_phone2;
+    @FXML
+    private Label lbl_mail;
+    @FXML
+    private Label lbl_phone1_type;
+    @FXML
+    private Label lbl_phone2_type;
+    @FXML
+    private Label lbl_comments;
+    @FXML
+    private Label lbl_website;
+    @FXML
+    private Label lbl_import_date;
+    
+    private ResourceBundle language_strings;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        language_strings = rb;
         if (init_window()){
             set_data();
         }
@@ -44,11 +78,21 @@ public class ViewContact implements Initializable {
         contact_icon.setImage(new Image(new File("").toURI().toString()));
         return true;
     }
+    
+    //lbl_phone1_type , lbl_phone2_type , lbl_import_date
     private void set_data(){
-        Label[] labels = {};
-        String[] default_strings = {};
+        Label[] labels = {lbl_firstname,lbl_lastname,lbl_country,
+                          lbl_zipcode,lbl_sex,lbl_address,lbl_city,
+                          lbl_greekState,lbl_phone1,lbl_phone2,lbl_mail,
+                          lbl_comments,lbl_website};
+        String[] default_strings = {"lbl_firstname","lbl_lastname","lbl_country",
+                                    "lbl_zipcode","lbl_sex","lbl_address","lbl_city",
+                                    "lbl_state","lbl_phone1","lbl_phone2",
+                                    "lbl_mail","lbl_comments","lbl_website"};
+      //  String[] data = {};
         int index = 0;
         for (Label item:labels){
+            item.setText(language_strings.getString(default_strings[index])+" ");
             index++;
         }
     }

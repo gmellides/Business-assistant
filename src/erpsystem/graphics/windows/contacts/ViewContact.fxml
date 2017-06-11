@@ -20,17 +20,27 @@
             <Button fx:id="btn_Close" layoutX="591.0" layoutY="379.0" mnemonicParsing="false" onAction="#btn_Close_Action" text="%btnClose" />
             <Button layoutX="178.0" layoutY="379.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="93.0" text="Button" />
             <Button layoutX="27.0" layoutY="379.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="93.0" text="Button" />
-            <Label layoutX="39.0" layoutY="204.0" text="Label" />
-            <Label layoutX="39.0" layoutY="267.0" text="Label" />
-            <Label layoutX="418.0" layoutY="135.0" text="Label" />
-            <Label layoutX="218.0" layoutY="267.0" text="Label" />
-            <Label layoutX="218.0" layoutY="143.0" text="Label" />
+            <Label fx:id="lbl_firstname" layoutX="39.0" layoutY="204.0" text="Label" />
+            <Label fx:id="lbl_lastname" layoutX="39.0" layoutY="244.0" text="Label" />
+            <Label fx:id="lbl_country" layoutX="183.0" layoutY="244.0" text="Label" />
+            <Label fx:id="lbl_zipcode" layoutX="183.0" layoutY="169.0" text="Label" />
+            <Label fx:id="lbl_sex" layoutX="39.0" layoutY="285.0" text="Label" />
             <Label layoutX="246.0" layoutY="40.0" prefHeight="39.0" prefWidth="344.0" text="Label">
                <font>
                   <Font size="27.0" />
                </font>
             </Label>
-            <Label layoutX="218.0" layoutY="204.0" text="Label" />
+            <Label fx:id="lbl_address" layoutX="39.0" layoutY="327.0" text="Label" />
+            <Label fx:id="lbl_city" layoutX="183.0" layoutY="204.0" text="Label" />
+            <Label fx:id="lbl_greekState" layoutX="329.0" layoutY="169.0" text="Label" />
+            <Label fx:id="lbl_phone1" layoutX="183.0" layoutY="285.0" text="Label" />
+            <Label fx:id="lbl_phone2" layoutX="183.0" layoutY="327.0" text="Label" />
+            <Label fx:id="lbl_mail" layoutX="329.0" layoutY="204.0" text="Label" />
+            <Label fx:id="lbl_phone1_type" layoutX="329.0" layoutY="286.0" text="Label" />
+            <Label fx:id="lbl_phone2_type" layoutX="329.0" layoutY="327.0" text="Label" />
+            <Label fx:id="lbl_comments" layoutX="481.0" layoutY="188.0" prefHeight="91.0" prefWidth="196.0" text="Label" />
+            <Label fx:id="lbl_website" layoutX="481.0" layoutY="169.0" text="Label" />
+            <Label fx:id="lbl_import_date" layoutX="481.0" layoutY="327.0" text="Label" />
          </children>
       </Pane>
    </children>

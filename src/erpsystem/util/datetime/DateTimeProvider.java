@@ -45,6 +45,12 @@ public class DateTimeProvider {
         return DateTimeFormat.format(date);
     } // GetDateTime()  
     
+    public String GetTimestamp(){
+        DateFormat date_time_format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        Date Date = new Date();
+        return date_time_format.format(Date);
+    }
+    
     public String GetDateTime_file(){
         DateFormat DateTimeFormat = new SimpleDateFormat("dd-MM-yyyy HH.mm.ss");
         Date date = new Date();

@@ -102,7 +102,7 @@ public class View_BusinessData implements Initializable {
         }
         @FXML
         private void btn_Close_Action(ActionEvent event) {
-            new WindowsManager().ViewBusiness_toogle(false);
+            new WindowsManager().ViewBusiness_toggle(false);
             Stage window = (Stage)  btn_ExportCard.getScene().getWindow();
             window.close();
         }

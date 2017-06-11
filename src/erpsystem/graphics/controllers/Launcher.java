@@ -68,7 +68,7 @@ public class Launcher implements Initializable {
             @FXML
             private void btn_Customers_Action(ActionEvent event) throws IOException {
                 if (!window_check.CustomerManager_isOpen()){
-                    window_check.CustomerManager_toogle(true);
+                    window_check.CustomerManager_toggle(true);
                     FXMLLoader fxml_loader = new FXMLLoader();
                     fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
                     Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/customers/CustomerManager.fxml").openStream());
@@ -79,7 +79,7 @@ public class Launcher implements Initializable {
                     stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                         @Override
                         public void handle(WindowEvent we) {
-                            window_check.CustomerManager_toogle(false);
+                            window_check.CustomerManager_toggle(false);
                             stage.close();
                         }
                     });
@@ -122,7 +122,7 @@ public class Launcher implements Initializable {
             @FXML
             private void btnContactManagerAction(ActionEvent event) throws IOException {
                 if (!window_check.ContactManager_isOpen()){
-                    window_check.ContactManager_toogle(true);
+                    window_check.ContactManager_toggle(true);
                     FXMLLoader f = new FXMLLoader();
                     f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
                     Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/contacts/ContactManager.fxml").openStream());
@@ -133,7 +133,7 @@ public class Launcher implements Initializable {
                     stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                         @Override
                         public void handle(WindowEvent we) {
-                            window_check.ContactManager_toogle(false);
+                            window_check.ContactManager_toggle(false);
                             stage.close();
                         }
                     });
@@ -156,7 +156,7 @@ public class Launcher implements Initializable {
             @FXML
             private void mnu_view_BusinessData(ActionEvent event) throws IOException {
                 if(!window_check.ViewBusiness_isOpen()){
-                    window_check.ViewBusiness_toogle(true);
+                    window_check.ViewBusiness_toggle(true);
                     FXMLLoader fxml_loader = new FXMLLoader();
                     fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
                     Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/menubar/View_BusinessData.fxml").openStream());
@@ -167,7 +167,7 @@ public class Launcher implements Initializable {
                     stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                         @Override
                         public void handle(WindowEvent we) {
-                            window_check.ViewBusiness_toogle(false);
+                            window_check.ViewBusiness_toggle(false);
                             stage.close();
                         }
                     });
@@ -183,7 +183,7 @@ public class Launcher implements Initializable {
             @FXML
             private void mnu_ViewAdminData_Action(ActionEvent event) throws IOException {
                 if (!window_check.ViewAdmin_isOpen()){
-                    window_check.ViewAdmin_toogle(true);
+                    window_check.ViewAdmin_toggle(true);
                     FXMLLoader f = new FXMLLoader();
                     f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
                     Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/menubar/View_BusinessAdmin.fxml").openStream());
@@ -194,7 +194,7 @@ public class Launcher implements Initializable {
                     stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                         @Override
                         public void handle(WindowEvent we) {
-                            window_check.ViewAdmin_toogle(false);
+                            window_check.ViewAdmin_toggle(false);
                             stage.close();
                         }
                     });

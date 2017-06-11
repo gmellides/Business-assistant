@@ -5,6 +5,8 @@
  */
 package erpsystem.entities.people;
 
+import java.sql.Date;
+
 public class Contact extends Person {
     // ---- Set Methods
     public void setPhone_1(String Phone_1) {
@@ -22,7 +24,7 @@ public class Contact extends Person {
     public void setWebsite(String Website) {
         this.Website = Website;
     }
-    public void setImport_date(String Import_date) {
+    public void setImport_date(Date Import_date) {
         this.Import_date = Import_date;
     }
 
@@ -70,7 +72,7 @@ public class Contact extends Person {
     public String getWebsite() {
         return Website;
     }
-    public String getImport_date() {
+    public Date getImport_date() {
         return Import_date;
     }
 
@@ -115,5 +117,5 @@ public class Contact extends Person {
     private String Mail;
     private String Comments;
     private String Website;
-    private String Import_date;
+    private Date Import_date;
 }

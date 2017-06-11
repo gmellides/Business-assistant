@@ -5,9 +5,8 @@
  */
 package erpsystem.graphics.controllers.contacts;
 
-import erpsystem.database.contacts.Contacts_Operation;
+import erpsystem.database.contacts.ContactsConnection;
 import erpsystem.entities.people.Contact;
-import erpsystem.util.datetime.DateTimeProvider;
 import erpsystem.util.system.WindowsManager;
 import erpsystem.util.xml.read.ComboBox_Parser;
 import java.io.File;
@@ -84,15 +83,15 @@ public class NewContact implements Initializable {
             if (Check_fields()){
                 Contact obj = new Contact();
                  data_to_obj(obj);                 
-                 database = new Contacts_Operation();
-                 if(database.insert_contact(obj)){
+                 database = new ContactsConnection();
+                 if(!database.insert_contact(obj)){
                      Alert succed_dialog = new Alert(Alert.AlertType.INFORMATION);
                      succed_dialog.setTitle(default_strings.getString("dialog_contactSaved_title"));
                      succed_dialog.setContentText(default_strings.getString("dialog_contactSaved_message"));
                      succed_dialog.showAndWait();
                      Stage window = (Stage) btnSave.getScene().getWindow();
                      window.close();
-                     window_check.NewContact_toogle(false);
+                     window_check.NewContact_toggle(false);
                  }else{
                      Alert succed_dialog = new Alert(Alert.AlertType.ERROR);
                      succed_dialog.setTitle(default_strings.getString("dialog_contactSaved_title"));
@@ -100,7 +99,7 @@ public class NewContact implements Initializable {
                      succed_dialog.showAndWait();
                      Stage window = (Stage) btnSave.getScene().getWindow();
                      window.close();
-                     window_check.NewContact_toogle(false);
+                     window_check.NewContact_toggle(false);
                  }
             }else{
                // error for fields 
@@ -108,7 +107,7 @@ public class NewContact implements Initializable {
         }
         @FXML
         private void btnClose_Action(ActionEvent event) {
-            window_check.NewContact_toogle(false);
+            window_check.NewContact_toggle(false);
             Stage current_stage = (Stage) btnClose.getScene().getWindow();
             current_stage.close();
         }
@@ -177,11 +176,10 @@ public class NewContact implements Initializable {
             obj.setPhone_2(txt_phone2.getText());
             obj.setPhone_2_type(phone2_type_ComboBox.getSelectionModel().getSelectedItem());
             obj.setZipCode(Integer.parseInt(txt_zipcode.getText()));
-            obj.setImport_date(new DateTimeProvider().GetDate()+" "+new DateTimeProvider().GetTime());
         }
     // -- END of Methods
     
     private ComboBox_Parser combodata_xml;
-    private Contacts_Operation database;
+    private ContactsConnection database;
     private ResourceBundle default_strings;
 }

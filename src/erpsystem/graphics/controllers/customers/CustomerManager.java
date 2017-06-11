@@ -34,7 +34,7 @@ public class CustomerManager implements Initializable {
     
     @FXML
     private void btnClose_Action(ActionEvent event) {
-        new WindowsManager().CustomerManager_toogle(false);
+        new WindowsManager().CustomerManager_toggle(false);
         Stage window = (Stage) btnClose.getScene().getWindow();
         window.close();
     }

@@ -22,41 +22,41 @@ public class WindowsManager {
     }
     
     // MenuBar toogles
-    public void ViewAdmin_toogle(boolean value){
+    public void ViewAdmin_toggle(boolean value){
         WindowsManager.ViewAdmin = value;
     }
-    public void ViewBusiness_toogle(boolean value){
+    public void ViewBusiness_toggle(boolean value){
         WindowsManager.ViewBusiness = value;
     }
-    public void EditAdmin_toogle(boolean value){
+    public void EditAdmin_toggle(boolean value){
         WindowsManager.EditAdmin = value;
     }
-    public void EditBusiness_toogle(boolean value){
+    public void EditBusiness_toggle(boolean value){
         WindowsManager.EditBusiness = value;
     }
     // Buttons toogle
-    public void ContactManager_toogle(boolean value){
+    public void ContactManager_toggle(boolean value){
         WindowsManager.ContactManager = value;
     }
-        public void NewContact_toogle(boolean value){
+        public void NewContact_toggle(boolean value){
             WindowsManager.NewContact = value;
         }
-        public void ShowSearchContact_toogle(boolean value){
+        public void ShowSearchContact_toggle(boolean value){
             WindowsManager.ShowSearchContact = value;
         }
-        public void BackupContacts_toogle(boolean value){
+        public void BackupContacts_toggle(boolean value){
             WindowsManager.BackupContacts = value;
         }    
-    public void CustomerManager_toogle(boolean value){
+    public void CustomerManager_toggle(boolean value){
         WindowsManager.CustomerManager = value;
     }
-    public void SupplierManager_toogle(boolean value){
+    public void SupplierManager_toggle(boolean value){
         WindowsManager.SupplierManager = value;
     }
-    public void Storage_toogle(boolean value){
+    public void Storage_toggle(boolean value){
         WindowsManager.Storage = value;
     }
-    public void Employee_toogle(boolean value){
+    public void Employee_toggle(boolean value){
         WindowsManager.Employee = value;
     }
     
