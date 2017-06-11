@@ -23,13 +23,10 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class NewContact implements Initializable {
-    // -- FXML Components Declaration
-        @FXML
-        private Pane background_panel;
+    
         @FXML
         private ComboBox<String> sex_ComboBox;
         @FXML
@@ -127,6 +124,7 @@ public class NewContact implements Initializable {
         public void set_style(){
             icon_img.setImage(new Image(new File("resources/images/contacts/new_contact.png").toURI().toString()));
         }// set_style()
+        
         /**
          * Retrieve data from XML Files and place it into combo boxes
          */

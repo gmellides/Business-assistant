@@ -28,6 +28,8 @@ public class BackUp implements Initializable {
     private Button btn_SelectFile;
     @FXML
     private TextField txt_Path;
+    @FXML
+    private Button btn_Import;
 
     /**
      * Initializes the controller class.
@@ -53,21 +55,22 @@ public class BackUp implements Initializable {
         @FXML
         private void btn_SelectFile_Action(ActionEvent event) {
             Stage this_stage = (Stage) btn_SelectFile.getScene().getWindow();
-                FileChooser b_logo_chooser = new FileChooser();
-                b_logo_chooser.setTitle("Λογοτυπο επιχείρησης");
-                b_logo_chooser.getExtensionFilters().addAll(
+                FileChooser csv_chooser = new FileChooser();
+                csv_chooser.setTitle("Λογοτυπο επιχείρησης");
+                csv_chooser.getExtensionFilters().addAll(
                     new FileChooser.ExtensionFilter("Όλα τα αρχεία", "*.*"),
                     new FileChooser.ExtensionFilter("CSV", "*.csv")
                 );
-                File logo_file_chooser = b_logo_chooser.showOpenDialog(this_stage);
+                File logo_file_chooser = csv_chooser.showOpenDialog(this_stage);
+                btn_Import.setDisable(false);
                 if (logo_file_chooser == null){
-                    // No Action required 
-                    // When Cancel option 
-                    // is selected.
+                    btn_Import.setDisable(true);
                 }else{
-
-
+                    txt_Path.setText(logo_file_chooser.getAbsolutePath().toString());
                 }
+        }
+        @FXML
+        private void btn_Import_Action(ActionEvent event) {
         }
         @FXML
         private void btn_Close_Action(ActionEvent event) {
@@ -80,4 +83,6 @@ public class BackUp implements Initializable {
     private ResourceBundle default_strings;
     private Contacts_Operation contacts_database;
     private ContactsExport export_csv;
+
+    
 }

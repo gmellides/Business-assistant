@@ -15,7 +15,7 @@
         <URL value="@/erpsystem/graphics/CSS/contacts/NewContact.css" />
     </stylesheets>
    <children>
-      <Pane fx:id="background_panel" prefHeight="389.0" prefWidth="766.0" styleClass="background_panel">
+      <Pane prefHeight="389.0" prefWidth="766.0" styleClass="background_panel">
          <children>
             <Button fx:id="btnSave" layoutX="654.0" layoutY="350.0" mnemonicParsing="false" onAction="#btnSave_Action" prefHeight="25.0" prefWidth="91.0" text="%btnSave" />
             <Button fx:id="btnClose" layoutX="21.0" layoutY="350.0" mnemonicParsing="false" onAction="#btnClose_Action" text="%btnClose" />

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.shape.*?>
 <?import java.lang.*?>
@@ -14,32 +15,32 @@
         <URL value="@/erpsystem/graphics/CSS/contacts/ContactManager.css" />
     </stylesheets>
    <children>
-      <Pane fx:id="background_pane" layoutY="1.0" prefHeight="400.0" prefWidth="600.0" styleClass="background_panel">
+      <Pane layoutY="1.0" prefHeight="400.0" prefWidth="600.0" styleClass="background_panel">
          <children>
-            <Button layoutX="445.0" layoutY="349.0" mnemonicParsing="false" onAction="#btnExit_Action" prefHeight="25.0" prefWidth="141.0" text="%cmgr_btnExit" />
-            <Button layoutX="412.0" layoutY="244.0" mnemonicParsing="false" onAction="#btn_BackUp_Action" prefHeight="25.0" prefWidth="163.0" text="%cmgr_btnBackUp" />
-            <Button fx:id="btnSearchView" layoutX="230.0" layoutY="285.0" mnemonicParsing="false" onAction="#btnSearchView_Action" prefHeight="25.0" prefWidth="163.0" text="%cmgr_btnViewContacts" />
-            <Button fx:id="btnNewContact" layoutX="230.0" layoutY="244.0" mnemonicParsing="false" onAction="#btnNewContactsAction" prefHeight="25.0" prefWidth="163.0" text="%cmgr_btnNewContact" />
-            <Line endX="150.0" layoutX="178.0" layoutY="192.0" rotate="90.0" startX="-100.0" />
-            <Label layoutX="175.0" layoutY="14.0" prefHeight="35.0" prefWidth="267.0" text="%cmgr_lbltitle" wrapText="true">
+            <Button layoutX="434.0" layoutY="354.0" mnemonicParsing="false" onAction="#btnExit_Action" prefHeight="25.0" prefWidth="141.0" text="%cmgr_btnExit" />
+            <Button layoutX="307.0" layoutY="244.0" mnemonicParsing="false" onAction="#btn_BackUp_Action" prefHeight="25.0" prefWidth="181.0" text="%cmgr_btnBackUp" />
+            <Button layoutX="103.0" layoutY="285.0" mnemonicParsing="false" onAction="#btnSearchView_Action" prefHeight="25.0" prefWidth="181.0" text="%cmgr_btnViewContacts" />
+            <Button fx:id="btnNewContact" layoutX="103.0" layoutY="244.0" mnemonicParsing="false" onAction="#btnNewContactsAction" prefHeight="25.0" prefWidth="181.0" text="%cmgr_btnNewContact" />
+            <Line endX="300.0" layoutX="283.0" layoutY="69.0" startX="-100.0" />
+            <Label layoutX="178.0" layoutY="24.0" prefHeight="35.0" prefWidth="267.0" text="%cmgr_lbltitle" wrapText="true">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label layoutX="314.0" layoutY="84.0" text="%cmgr_lblinfo">
+            <Label layoutX="43.0" layoutY="138.0" text="%cmgr_lblinfo">
                <font>
-                  <Font size="22.0" />
+                  <Font size="19.0" />
                </font></Label>
-            <Label fx:id="lbl_savedContacts" layoutX="218.0" layoutY="145.0" text="%cmgr_lblsummary">
+            <Label layoutX="86.0" layoutY="176.0" text="%cmgr_lblsummary">
                <font>
-                  <Font size="21.0" />
+                  <Font size="16.0" />
                </font></Label>
-            <Pane fx:id="contact_mgrPane" layoutX="14.0" layoutY="123.0" prefHeight="154.0" prefWidth="177.0" styleClass=".ko" />
-            <Label fx:id="Saved_contacts" layoutX="464.0" layoutY="145.0" text="Label">
+            <Label fx:id="Saved_contacts" layoutX="331.0" layoutY="176.0" text="Label">
                <font>
-                  <Font size="22.0" />
+                  <Font size="16.0" />
                </font></Label>
-            <Button layoutX="412.0" layoutY="285.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="163.0" text="%cmgr_btnExportPDF" />
+            <Button layoutX="307.0" layoutY="285.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="181.0" text="%cmgr_btnExportPDF" />
+            <ImageView fx:id="icn_contactManager" fitHeight="121.0" fitWidth="152.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
    </children>

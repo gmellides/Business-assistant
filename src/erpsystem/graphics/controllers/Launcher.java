@@ -33,15 +33,11 @@ public class Launcher implements Initializable {
     // ====== FXML Components =======
         @FXML
         private Label lcn_lblDateTime;
-        @FXML
-        private Button btnExit;
-        @FXML
-        private Button btnContactManager;
-    // === END OF FXML Components ===
-    
+    // ==============================
+        
     private AppData temp_data;
     private Timer DateTimeUpdater; 
-    private ResourceBundle language_strings;     
+    private ResourceBundle default_strings;     
     private final WindowsManager window_check = new WindowsManager();    
 
     /**
@@ -49,7 +45,7 @@ public class Launcher implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        language_strings = rb;
+        default_strings = rb;
         Start_DateTimeInfo();
     }
 
@@ -83,7 +79,7 @@ public class Launcher implements Initializable {
                             stage.close();
                         }
                     });
-                    stage.setTitle(language_strings.getString("customer_manager"));
+                    stage.setTitle(default_strings.getString("customer_manager"));
                     stage.setScene(scene);
                     stage.setResizable(false);
                  // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
@@ -171,7 +167,7 @@ public class Launcher implements Initializable {
                             stage.close();
                         }
                     });
-                    stage.setTitle(language_strings.getString("view_business_data"));
+                    stage.setTitle(default_strings.getString("view_business_data"));
                     stage.setScene(scene);
                     stage.setResizable(false);
                     // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
@@ -198,7 +194,7 @@ public class Launcher implements Initializable {
                             stage.close();
                         }
                     });
-                    stage.setTitle(language_strings.getString("view_admin_data"));
+                    stage.setTitle(default_strings.getString("view_admin_data"));
                     stage.setScene(scene);
                     stage.setResizable(false);
                     //Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
@@ -223,7 +219,7 @@ public class Launcher implements Initializable {
                                 stage.close();
                             }
                         });
-                        stage.setTitle(language_strings.getString("edit_business_data"));
+                        stage.setTitle(default_strings.getString("edit_business_data"));
                         stage.setScene(scene);
                         stage.setResizable(false);
                             // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
@@ -246,7 +242,7 @@ public class Launcher implements Initializable {
                                 stage.close();
                             }
                         });
-                        stage.setTitle(language_strings.getString("edit_admin_data"));
+                        stage.setTitle(default_strings.getString("edit_admin_data"));
                         stage.setScene(scene);
                         stage.setResizable(false);
                             // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());

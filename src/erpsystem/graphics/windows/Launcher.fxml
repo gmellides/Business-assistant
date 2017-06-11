@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import java.net.URL?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
@@ -13,18 +20,18 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="473.0" prefWidth="754.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.Launcher">
+<AnchorPane id="AnchorPane" prefHeight="473.0" prefWidth="754.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.Launcher">
     <stylesheets>
         <URL value="@/erpsystem/graphics/CSS/launchscreen.css" />
     </stylesheets>
    <children>
       <Pane layoutX="2.0" prefHeight="475.0" prefWidth="757.0" styleClass="background_panel">
          <children>
-            <Button fx:id="btnExit" layoutX="625.0" layoutY="434.0" mnemonicParsing="false" onAction="#btnExitAction" prefHeight="25.0" prefWidth="115.0" text="%lnc_btnExit" />
+            <Button layoutX="625.0" layoutY="434.0" mnemonicParsing="false" onAction="#btnExitAction" prefHeight="25.0" prefWidth="115.0" text="%lnc_btnExit" />
             <Button layoutX="31.0" layoutY="260.0" mnemonicParsing="false" onAction="#btn_Employee_Action" prefHeight="25.0" prefWidth="138.0" text="%lnc_btnEmployeeManager" />
-            <Button fx:id="btnContactManager" layoutX="586.0" layoutY="313.0" mnemonicParsing="false" onAction="#btnContactManagerAction" prefHeight="25.0" prefWidth="138.0" text="%lnc_btnContactManager" />
+            <Button layoutX="586.0" layoutY="313.0" mnemonicParsing="false" onAction="#btnContactManagerAction" prefHeight="25.0" prefWidth="138.0" text="%lnc_btnContactManager" />
             <Button layoutX="586.0" layoutY="149.0" mnemonicParsing="false" onAction="#btnStorage_Action" prefHeight="25.0" prefWidth="138.0" text="%lnc_btnStorageManager" />
-            <Label layoutX="295.0" layoutY="37.0" text="%lnc_lblAppTitle">
+            <Label layoutX="277.0" layoutY="37.0" text="%lnc_lblAppTitle">
                <font>
                   <Font size="29.0" />
                </font>

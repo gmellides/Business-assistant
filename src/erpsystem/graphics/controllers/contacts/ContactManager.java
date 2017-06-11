@@ -6,8 +6,8 @@
 package erpsystem.graphics.controllers.contacts;
 
 import erpsystem.database.contacts.ContactsConnection;
-import erpsystem.database.contacts.Contacts_Operation;
 import erpsystem.util.system.WindowsManager;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,7 +20,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -29,28 +30,20 @@ public class ContactManager implements Initializable {
     @FXML
     private Button btnNewContact;
     @FXML
-    private Pane contact_mgrPane;
-    @FXML
-    private Pane background_pane;
-    @FXML
-    private Button btnSearchView;
-    @FXML
-    private Label lbl_savedContacts;
-    @FXML
-    private Label lbl_lastInput;
-    @FXML
     private Label Saved_contacts;
-
+    @FXML
+    private ImageView icn_contactManager;
+    
     private ResourceBundle default_strings;
     private final WindowsManager window_check = new WindowsManager();  
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         default_strings = rb;
-        set_style();
-        Saved_contacts.setText(String.valueOf(new ContactsConnection().count_contacts()));
+        init_window();
     }    
 
     // ===== FXML Buttons Action =====
@@ -72,7 +65,7 @@ public class ContactManager implements Initializable {
                             stage.close();
                         }
                     });
-                    stage.setTitle("Νέα Επαφή");
+                    stage.setTitle(default_strings.getString("lbl_windowtitle"));
                     stage.setScene(scene);
                     stage.setResizable(false);
                  // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
@@ -98,7 +91,7 @@ public class ContactManager implements Initializable {
                         stage.hide();
                     }
                 });
-                stage.setTitle("Νέα Επαφή");
+                stage.setTitle(default_strings.getString("ViewSearch_Title"));
                 stage.setScene(scene);
                 stage.setResizable(false);
                 // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
@@ -140,9 +133,9 @@ public class ContactManager implements Initializable {
     // ===============================
     
     // ========== Methods ============
-        public void set_style(){
-            contact_mgrPane.setStyle("-fx-background-image: url('file://../resources/images/contacts/contact_manager.png\');");
-        }
-        
+        public void init_window(){
+           icn_contactManager.setImage(new Image(new File("resources/images/contacts/contact_manager.png").toURI().toString()));
+           Saved_contacts.setText(String.valueOf(new ContactsConnection().count_contacts()));
+        }       
     // ===============================
 }
