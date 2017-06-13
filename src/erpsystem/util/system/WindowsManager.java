@@ -16,9 +16,45 @@ public class WindowsManager {
         // Buttons
         WindowsManager.ContactManager = false;
         WindowsManager.CustomerManager = false;
+            WindowsManager.NewCustomer = false;
         WindowsManager.Storage = false;
         WindowsManager.Employee = false;
         WindowsManager.SupplierManager = false;
+    }
+    
+    public void toggle_window(String Input){
+        switch(Input){
+            case "contacts/ContactManager.fxml":
+                ContactManager_toggle(false);
+                break;
+            case "storage/StorageManager.fxml":
+                Storage_toggle(false);
+                break;
+            case "customers/CustomerManager.fxml":
+                CustomerManager_toggle(false);
+                break;
+            case "menubar/View_BusinessData.fxml":
+                ViewBusiness_toggle(false);
+                break;
+            case "menubar/View_BusinessAdmin.fxml":
+                ViewBusiness_toggle(false);
+                break;
+            case "menubar/Edit_BusinessData.fxml":
+                EditBusiness_toggle(false);
+                break;
+            case "menubar/Edit_BusinessAdmin.fxml":
+                EditAdmin_toggle(false);
+                break;
+            case "contacts/BackUp.fxml":
+                BackupContacts_toggle(false);
+                break;
+            case "contacts/SearchView.fxml":
+                ShowSearchContact_toggle(false);
+                break;
+           case "contacts/NewContact.fxml":
+                NewContact_toggle(false);
+                break;
+        }
     }
     
     // MenuBar toogles
@@ -50,6 +86,9 @@ public class WindowsManager {
     public void CustomerManager_toggle(boolean value){
         WindowsManager.CustomerManager = value;
     }
+        public void NewCustomer_toggle(boolean value){
+            WindowsManager.NewCustomer = value;
+        }
     public void SupplierManager_toggle(boolean value){
         WindowsManager.SupplierManager = value;
     }
@@ -89,6 +128,10 @@ public class WindowsManager {
     public boolean CustomerManager_isOpen(){
         return WindowsManager.CustomerManager;
     }
+        public boolean NewCustomer_isOpen(){
+            return WindowsManager.NewCustomer;
+        }
+        
     public boolean SupplierManager_isOpen(){
         return WindowsManager.SupplierManager;
     }
@@ -110,6 +153,7 @@ public class WindowsManager {
         private static boolean ShowSearchContact;
         private static boolean BackupContacts;
     private static boolean CustomerManager;
+        private static boolean NewCustomer;
     private static boolean SupplierManager;
     private static boolean Storage;
     private static boolean Employee;

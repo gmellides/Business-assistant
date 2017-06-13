@@ -29,11 +29,11 @@
                   <TableColumn fx:id="Col_id" prefWidth="75.0" text="Customer_id" visible="false" />
                 <TableColumn fx:id="col_firstname" prefWidth="95.0" resizable="false" text="%col_firstname" />
                 <TableColumn fx:id="col_lastname" prefWidth="95.0" resizable="false" text="%col_lastname" />
-                  <TableColumn fx:id="col_sex" minWidth="3.0" prefWidth="70.0" resizable="false" text="%col_sex" />
+                  <TableColumn fx:id="col_sex" minWidth="3.0" prefWidth="65.0" resizable="false" text="%col_sex" />
                   <TableColumn fx:id="col_address" minWidth="3.0" prefWidth="110.0" resizable="false" text="%col_address" />
-                  <TableColumn fx:id="col_zipcode" prefWidth="86.0" resizable="false" text="%col_zipcode" />
+                  <TableColumn fx:id="col_zipcode" prefWidth="68.0" resizable="false" text="%col_zipcode" />
                   <TableColumn fx:id="col_country" prefWidth="57.0" resizable="false" text="%col_country" visible="false" />
-                  <TableColumn fx:id="col_greek_state" prefWidth="76.0" resizable="false" text="%col_state" />
+                  <TableColumn fx:id="col_greek_state" prefWidth="101.0" resizable="false" text="%col_state" />
                   <TableColumn fx:id="col_city" prefWidth="77.0" resizable="false" text="%col_city" visible="false" />
                   <TableColumn fx:id="col_mail" prefWidth="113.0" resizable="false" text="%col_mail" />
                   <TableColumn fx:id="col_phone1" prefWidth="93.0" resizable="false" text="%col_phone1" />

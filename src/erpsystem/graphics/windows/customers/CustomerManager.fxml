@@ -24,20 +24,35 @@
       <Pane prefHeight="356.0" prefWidth="600.0">
          <children>
             <Button fx:id="btnClose" layoutX="514.0" layoutY="321.0" mnemonicParsing="false" onAction="#btnClose_Action" text="%btnClose" />
-            <Button layoutX="204.0" layoutY="231.0" mnemonicParsing="false" onAction="#btnNewCustomer_Action" prefHeight="25.0" prefWidth="132.0" text="%new_customer" />
-            <Button layoutX="392.0" layoutY="231.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="132.0" text="%cmgr_btnBackUp" />
-            <Button layoutX="204.0" layoutY="273.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="132.0" text="%cmgr_btnViewContacts" />
-            <Button layoutX="392.0" layoutY="273.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="132.0" text="%cmgr_btnExportPDF" />
+            <Button layoutX="67.0" layoutY="231.0" mnemonicParsing="false" onAction="#btnNewCustomer_Action" prefHeight="25.0" prefWidth="213.0" text="%new_customer" />
+            <Button layoutX="300.0" layoutY="231.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnBackUp" />
+            <Button layoutX="67.0" layoutY="273.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnViewContacts" />
+            <Button layoutX="300.0" layoutY="273.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnExportPDF" />
             <Label layoutX="207.0" layoutY="20.0" text="Label">
                <font>
                   <Font size="27.0" />
                </font></Label>
-            <Label layoutX="225.0" layoutY="96.0" text="Label" />
-            <Label layoutX="225.0" layoutY="139.0" text="Label" />
-            <Label layoutX="358.0" layoutY="139.0" text="Label" />
-            <Label layoutX="225.0" layoutY="178.0" text="Label" />
-            <Label layoutX="358.0" layoutY="178.0" text="Label" />
-            <ImageView fitHeight="114.0" fitWidth="145.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="81.0" layoutY="114.0" text="Label">
+               <font>
+                  <Font size="17.0" />
+               </font></Label>
+            <Label layoutX="126.0" layoutY="156.0" text="Label">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+            <Label layoutX="358.0" layoutY="156.0" text="Label">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+            <Label layoutX="126.0" layoutY="187.0" text="Label">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+            <Label layoutX="358.0" layoutY="187.0" text="Label">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+            <ImageView fitHeight="100.0" fitWidth="133.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <Line endX="326.0" layoutX="260.0" layoutY="71.0" startX="-100.0" />
          </children>
       </Pane>

@@ -50,78 +50,43 @@ public class ContactManager implements Initializable {
         @FXML
         private void btnNewContactsAction(ActionEvent event) throws IOException {
             if(!window_check.NewContact_isOpen()){
-                window_check.NewContact_toggle(true);
-                FXMLLoader fxml_loader = new FXMLLoader();
-                    fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
-                    Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/contacts/NewContact.fxml").openStream());
-                    Stage stage = new Stage();
-                    Scene scene = new Scene(root);
-                    stage.setHeight(420);
-                    stage.setWidth(766);
-                    stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-                        @Override
-                        public void handle(WindowEvent we) {
-                            window_check.NewContact_toggle(false);
-                            stage.close();
-                        }
-                    });
-                    stage.setTitle(default_strings.getString("lbl_windowtitle"));
-                    stage.setScene(scene);
-                    stage.setResizable(false);
-                 // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
-                 // stage.getIcons().add(icon);
-                    stage.show();
+                window_check.NewContact_toggle(true);    
+                try{
+                    OpenWindow("contacts/NewContact.fxml",
+                               766,
+                               420,
+                               default_strings.getString("lbl_windowtitle"));
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
               }  
         }
         @FXML
         private void btnSearchView_Action(ActionEvent event) throws IOException{
             if (!window_check.ShowSearchContact_isOpen()){
                 window_check.ShowSearchContact_toggle(true);
-                FXMLLoader fxml_loader = new FXMLLoader();
-                fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
-                Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/contacts/SearchView.fxml").openStream());
-                Stage stage = new Stage();
-                Scene scene = new Scene(root);
-                stage.setHeight(600);
-                stage.setWidth(855);
-                stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-                    @Override
-                    public void handle(WindowEvent we) {
-                        window_check.ShowSearchContact_toggle(false);
-                        stage.hide();
-                    }
-                });
-                stage.setTitle(default_strings.getString("ViewSearch_Title"));
-                stage.setScene(scene);
-                stage.setResizable(false);
-                // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
-                // stage.getIcons().add(icon);
-                stage.show();
+                try{
+                    OpenWindow("contacts/SearchView.fxml",
+                               855,
+                               600,
+                               default_strings.getString("ViewSearch_Title"));
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
             }
         }
         @FXML
         private void btn_BackUp_Action(ActionEvent event) throws IOException {
             if (!window_check.BackupContacts_isOpen()){
-                window_check.BackupContacts_toggle(true);
-            FXMLLoader f = new FXMLLoader();
-                f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
-                Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/contacts/BackUp.fxml").openStream());
-                Stage stage = new Stage();
-                Scene scene = new Scene(root);
-                stage.setHeight(252);
-                stage.setWidth(547);
-                stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-                    @Override
-                    public void handle(WindowEvent we) {
-                        stage.hide();
-                    }
-                });
-                stage.setTitle(default_strings.getString("cmgr_btnBackUp"));
-                stage.setScene(scene);
-                stage.setResizable(false);
-                // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
-                // stage.getIcons().add(icon);
-                stage.show();
+                window_check.BackupContacts_toggle(true);    
+                try{
+                    OpenWindow("contacts/BackUp.fxml",
+                               547,
+                               252,
+                               default_strings.getString("cmgr_btnBackUp"));
+                }catch(IOException e){
+                    e.printStackTrace();
+                }         
             }
         }
         @FXML
@@ -137,5 +102,32 @@ public class ContactManager implements Initializable {
            icn_contactManager.setImage(new Image(new File("resources/images/contacts/contact_manager.png").toURI().toString()));
            Saved_contacts.setText(String.valueOf(new ContactsConnection().count_contacts()));
         }       
+        
+        private void OpenWindow(String WindowPath,
+                                int Width,
+                                int Height,
+                                String WindowName) throws IOException{
+            FXMLLoader f = new FXMLLoader();
+                f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
+                Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/"+WindowPath).openStream());
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                stage.setHeight(Height);
+                stage.setWidth(Width);
+                stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                    @Override
+                    public void handle(WindowEvent we) {
+                        window_check.toggle_window(WindowPath);
+                        stage.close();
+                    }
+                });
+                stage.setTitle(WindowName);
+                stage.setScene(scene);
+                stage.setResizable(false);
+                // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
+                // stage.getIcons().add(icon);
+                stage.show();
+            
+        }
     // ===============================
 }

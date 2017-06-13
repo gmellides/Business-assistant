@@ -66,7 +66,10 @@ public class NewContact implements Initializable {
     // -- End of FXML Components Declaration
     
    private final WindowsManager window_check = new WindowsManager();
-   
+   private ComboBox_Parser combodata_xml;
+   private ContactsConnection database;
+   private ResourceBundle default_strings;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         default_strings = rb;
@@ -113,9 +116,12 @@ public class NewContact implements Initializable {
            String Selection =  countries_cmb.getSelectionModel().getSelectedItem();
            if (Selection.equals("Ελλάδα")){
                 state_cmb.setDisable(false);
+                city_cmb.setDisable(false);
            }else{
-              // state_cmb.getSelectionModel().clearSelection();
-               state_cmb.setDisable(false);
+               state_cmb.getSelectionModel().clearSelection();
+               state_cmb.setDisable(true);
+               city_cmb.getSelectionModel().clearSelection();
+               city_cmb.setDisable(true);
            }
         }
     // -- END of FXML Components Action
@@ -123,8 +129,7 @@ public class NewContact implements Initializable {
     // -- Methods   
         public void set_style(){
             icon_img.setImage(new Image(new File("resources/images/contacts/new_contact.png").toURI().toString()));
-        }// set_style()
-        
+        }// set_style() 
         /**
          * Retrieve data from XML Files and place it into combo boxes
          */
@@ -142,7 +147,6 @@ public class NewContact implements Initializable {
                ex.printStackTrace();
             }
         }// init_comboboxes()
-        
         public boolean Check_fields(){
             boolean flag = false;
                 TextField[] fields = {txt_firstname,txt_lastname,txt_address,txt_zipcode,
@@ -157,7 +161,6 @@ public class NewContact implements Initializable {
                 }
             return flag;
         }
-        
         private void data_to_obj(Contact obj){
             obj.setFirstName(txt_firstname.getText());
             obj.setLastName(txt_lastname.getText());
@@ -167,8 +170,16 @@ public class NewContact implements Initializable {
             obj.setWebsite(txt_website.getText());
             obj.setState(state_cmb.getSelectionModel().getSelectedItem());
             obj.setMail(txt_mail.getText());
-            obj.setCity(city_cmb.getSelectionModel().getSelectedItem());
-            obj.setCountry(countries_cmb.getSelectionModel().getSelectedItem());
+            if(!city_cmb.isDisabled()){
+                obj.setCity(city_cmb.getSelectionModel().getSelectedItem());
+            }else{
+                obj.setCity("----");
+            }
+            if (!countries_cmb.isDisabled()){
+                obj.setCountry(countries_cmb.getSelectionModel().getSelectedItem());
+            }else{
+                obj.setCountry("----");
+            }
             obj.setPhone_1(txt_phone1.getText());
             obj.setPhone_1_type(phone1_type_ComboBox.getSelectionModel().getSelectedItem());
             obj.setPhone_2(txt_phone2.getText());
@@ -176,8 +187,4 @@ public class NewContact implements Initializable {
             obj.setZipCode(Integer.parseInt(txt_zipcode.getText()));
         }
     // -- END of Methods
-    
-    private ComboBox_Parser combodata_xml;
-    private ContactsConnection database;
-    private ResourceBundle default_strings;
 }
