@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import javafx.scene.control.*?>
@@ -20,37 +21,37 @@
         <URL value="@/erpsystem/graphics/CSS/contacts/SearchView.css" />
     </stylesheets>
    <children>
-      <Pane fx:id="background_panel" prefHeight="570.0" prefWidth="850.0" styleClass="background_panel">
+      <Pane prefHeight="570.0" prefWidth="850.0" styleClass="background_panel">
          <children>
             <Button fx:id="btnClose" layoutX="719.0" layoutY="537.0" mnemonicParsing="false" onAction="#btnClose_Action" prefHeight="25.0" prefWidth="117.0" text="%btnClose" />
             <TableView fx:id="contacts_table" layoutX="5.0" layoutY="112.0" prefHeight="417.0" prefWidth="838.0">
               <columns>
                   <TableColumn fx:id="Col_id" prefWidth="75.0" text="Customer_id" visible="false" />
-                <TableColumn fx:id="col_firstname" prefWidth="100.0" resizable="false" text="%col_firstname" />
-                <TableColumn fx:id="col_lastname" prefWidth="91.0" resizable="false" text="%col_lastname" />
-                  <TableColumn fx:id="col_sex" minWidth="3.0" prefWidth="48.0" resizable="false" text="%col_sex" />
-                  <TableColumn fx:id="col_address" minWidth="3.0" prefWidth="79.0" resizable="false" text="%col_address" />
-                  <TableColumn fx:id="col_zipcode" prefWidth="63.0" resizable="false" text="%col_zipcode" />
-                  <TableColumn fx:id="col_country" prefWidth="57.0" resizable="false" text="%col_country" />
-                  <TableColumn fx:id="col_greek_state" resizable="false" text="%col_state" />
-                  <TableColumn fx:id="col_city" prefWidth="58.0" resizable="false" text="%col_city" />
-                  <TableColumn fx:id="col_mail" prefWidth="76.0" resizable="false" text="%col_mail" />
-                  <TableColumn fx:id="col_phone1" prefWidth="98.0" resizable="false" text="%col_phone1" />
+                <TableColumn fx:id="col_firstname" prefWidth="95.0" resizable="false" text="%col_firstname" />
+                <TableColumn fx:id="col_lastname" prefWidth="95.0" resizable="false" text="%col_lastname" />
+                  <TableColumn fx:id="col_sex" minWidth="3.0" prefWidth="70.0" resizable="false" text="%col_sex" />
+                  <TableColumn fx:id="col_address" minWidth="3.0" prefWidth="110.0" resizable="false" text="%col_address" />
+                  <TableColumn fx:id="col_zipcode" prefWidth="86.0" resizable="false" text="%col_zipcode" />
+                  <TableColumn fx:id="col_country" prefWidth="57.0" resizable="false" text="%col_country" visible="false" />
+                  <TableColumn fx:id="col_greek_state" prefWidth="76.0" resizable="false" text="%col_state" />
+                  <TableColumn fx:id="col_city" prefWidth="77.0" resizable="false" text="%col_city" visible="false" />
+                  <TableColumn fx:id="col_mail" prefWidth="113.0" resizable="false" text="%col_mail" />
+                  <TableColumn fx:id="col_phone1" prefWidth="93.0" resizable="false" text="%col_phone1" />
                   <TableColumn fx:id="Col_Phone1Type" prefWidth="75.0" text="phone1_type" visible="false" />
-                  <TableColumn fx:id="col_phone2" prefWidth="98.0" resizable="false" text="%col_phone2" />
+                  <TableColumn fx:id="col_phone2" prefWidth="98.0" text="%col_phone2" />
                   <TableColumn fx:id="Col_Phone2Type" prefWidth="75.0" text="phone2_type" visible="false" />
                   <TableColumn fx:id="Col_Comments" prefWidth="75.0" text="comments" visible="false" />
                   <TableColumn fx:id="Col_website" prefWidth="75.0" text="website" visible="false" />
                   <TableColumn fx:id="Col_ImportDate" prefWidth="75.0" text="import_date" visible="false" />
               </columns>
             </TableView>
-            <Pane fx:id="image_panel" layoutX="14.0" layoutY="14.0" prefHeight="91.0" prefWidth="175.0" />
             <Label layoutX="316.0" layoutY="28.0" text="%ViewSearch_Title">
                <font>
                   <Font size="43.0" />
                </font>
             </Label>
             <TextField fx:id="txt_Instant_Search" layoutX="14.0" layoutY="537.0" onKeyPressed="#Instant_Search" prefHeight="25.0" prefWidth="193.0" promptText="Search Here..." />
+            <ImageView fx:id="icon_img" fitHeight="100.0" fitWidth="208.0" layoutX="8.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
    </children>

@@ -168,7 +168,7 @@ public class NewContact implements Initializable {
             obj.setState(state_cmb.getSelectionModel().getSelectedItem());
             obj.setMail(txt_mail.getText());
             obj.setCity(city_cmb.getSelectionModel().getSelectedItem());
-            obj.setCountry(city_cmb.getSelectionModel().getSelectedItem());
+            obj.setCountry(countries_cmb.getSelectionModel().getSelectedItem());
             obj.setPhone_1(txt_phone1.getText());
             obj.setPhone_1_type(phone1_type_ComboBox.getSelectionModel().getSelectedItem());
             obj.setPhone_2(txt_phone2.getText());

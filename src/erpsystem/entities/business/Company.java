@@ -64,10 +64,6 @@ public class Company {
         return Mail;
     }
     
-    
-    
-    
-    
     private String CompanyName;
     private String Address;
     private String City;

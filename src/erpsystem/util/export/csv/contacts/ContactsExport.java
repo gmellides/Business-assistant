@@ -5,14 +5,14 @@
  */
 package erpsystem.util.export.csv.contacts;
 
-import com.healthmarketscience.jackcess.Row;
 import erpsystem.util.system.FileManager;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.Map;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 
 public class ContactsExport {
     private FileManager workspace;
@@ -20,7 +20,7 @@ public class ContactsExport {
     private BufferedWriter buffer;
     private FileWriter writer;
     
-    public boolean export_file(ResourceBundle default_strings,ArrayList<Row> input){
+    public boolean export_file(ResourceBundle default_strings,ObservableList<Map> input){
         workspace = new FileManager();
         csv_file = new File(workspace.getDocuments_root()+"/"+default_strings.getString("backup_filename")+"*.csv");
         
@@ -38,7 +38,7 @@ public class ContactsExport {
     
     private void create_file(File csv_file,
                              ResourceBundle default_strings,
-                             ArrayList<Row> input){
+                             ObservableList<Map> input){
         String[] csv_columns = {"firstname","lastname","sex","address",
                                 "zipcode","country","greek_state","city","mail",
                                 "phone1","phone1_type","phone2","phone2_type",
@@ -52,14 +52,14 @@ public class ContactsExport {
                 if(!item.equals("import_date"))
                     buffer.write(",");
             }
-            for (Row item : input){
+            for (Map item : input){
                 buffer.write("\n");
-                for (String index : csv_columns){
-                    buffer.write(",");
-                    if (index.equals("zipcode")){
-                        buffer.append(String.valueOf(item.getInt(index)));
+                for (String index : csv_columns){  
+                    if (index.equals("import_date")){
+                        buffer.append(String.valueOf(item.get(index)));
                     }else{
-                        buffer.append(item.getString(index));
+                    buffer.append(String.valueOf(item.get(index)));
+                        buffer.write(",");
                     }
                 }  
             }

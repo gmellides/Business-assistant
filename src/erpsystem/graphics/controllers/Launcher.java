@@ -25,7 +25,6 @@ import java.util.TimerTask;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 public class Launcher implements Initializable {
@@ -35,7 +34,6 @@ public class Launcher implements Initializable {
         private Label lcn_lblDateTime;
     // ==============================
         
-    private AppData temp_data;
     private Timer DateTimeUpdater; 
     private ResourceBundle default_strings;     
     private final WindowsManager window_check = new WindowsManager();    

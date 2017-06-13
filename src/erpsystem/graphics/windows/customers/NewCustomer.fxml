@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import javafx.scene.control.*?>
@@ -23,8 +25,11 @@
          <children>
             <Button layoutX="688.0" layoutY="380.0" mnemonicParsing="false" text="%btnSave" />
             <Button layoutX="20.0" layoutY="380.0" mnemonicParsing="false" text="%btnClose" />
-            <Label layoutX="335.0" layoutY="31.0" text="Label" />
-            <ImageView fitHeight="82.0" fitWidth="103.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="299.0" layoutY="14.0" text="Window Title">
+               <font>
+                  <Font size="30.0" />
+               </font></Label>
+            <ImageView fitHeight="99.0" fitWidth="129.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="36.0" layoutY="134.0" text="Label" />
             <TextField layoutX="87.0" layoutY="130.0" />
             <Label layoutX="36.0" layoutY="169.0" text="Label" />
@@ -33,7 +38,8 @@
             <ComboBox layoutX="86.0" layoutY="256.0" prefWidth="150.0" />
             <Label layoutX="36.0" layoutY="214.0" text="Label" />
             <Label layoutX="36.0" layoutY="260.0" text="Label" />
-            <CheckBox layoutX="276.0" layoutY="88.0" mnemonicParsing="false" text="business" />
+            <CheckBox layoutX="161.0" layoutY="96.0" mnemonicParsing="false" text="business" />
+            <Line endX="490.0" layoutX="262.0" layoutY="74.0" startX="-100.0" />
          </children>
       </Pane>
    </children>

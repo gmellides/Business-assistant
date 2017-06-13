@@ -5,3 +5,6 @@
 .mainFxmlClass {
 
 }
+.background_panel{
+    -fx-background-color: #FFFFFF;
+}

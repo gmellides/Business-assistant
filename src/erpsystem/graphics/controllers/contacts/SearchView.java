@@ -7,6 +7,7 @@ package erpsystem.graphics.controllers.contacts;
 
 import erpsystem.database.contacts.Contacts_Operation;
 import erpsystem.util.system.WindowsManager;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
@@ -24,18 +25,15 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.MapValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 public class SearchView implements Initializable {
 
-    @FXML
-    private Pane background_panel;
-    @FXML
-    private Pane image_panel;
     @FXML
     private Button btnClose;
     @FXML
@@ -63,11 +61,6 @@ public class SearchView implements Initializable {
     @FXML
     private TableColumn col_phone2;
     @FXML
-    private TextField txt_Instant_Search;
-
-    public static String search_value;
-    private final WindowsManager window_check = new WindowsManager();
-    @FXML
     private TableColumn Col_id;
     @FXML
     private TableColumn<?, ?> Col_Phone1Type;
@@ -79,8 +72,15 @@ public class SearchView implements Initializable {
     private TableColumn<?, ?> Col_website;
     @FXML
     private TableColumn<?, ?> Col_ImportDate;
-   
+    @FXML
+    private TextField txt_Instant_Search;
+    @FXML
+    private ImageView icon_img;
+    
+    public static String search_value;
+    private final WindowsManager window_check = new WindowsManager();
     private ResourceBundle language_strings;
+    
     
     /**
      * Initializes the controller class.
@@ -92,19 +92,17 @@ public class SearchView implements Initializable {
         set_data();
     }  
     
-    @FXML
-    private void btnClose_Action(ActionEvent event) {
-        window_check.ShowSearchContact_toggle(false);
-        Stage this_window = (Stage)  btnClose.getScene().getWindow();
-        this_window.close();
-    }
-    
-    
-    @FXML
-    private void Instant_Search(KeyEvent event) {
-        search_value = event.getText();
-       System.out.print(search_value);
-    }
+        @FXML
+        private void btnClose_Action(ActionEvent event) {
+            window_check.ShowSearchContact_toggle(false);
+            Stage this_window = (Stage)  btnClose.getScene().getWindow();
+            this_window.close();
+        }
+        @FXML
+        private void Instant_Search(KeyEvent event) {
+            search_value = event.getText();
+           System.out.print(search_value);
+        }
 
     private void set_data(){
         // Double Click Event for Table
@@ -115,15 +113,23 @@ public class SearchView implements Initializable {
                                     && event.getClickCount() == 2) {
                         Map clickedRow = row.getItem();
                         try{
+                            
                             FXMLLoader fxml_loader = new FXMLLoader();
                             fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
-                      
+                            
                             Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/contacts/ViewContact.fxml").openStream());
+                            
+                            
+                            
+                            ViewContact d = fxml_loader.getController();
+                            d.set_window(clickedRow);
+                            
                             
                             Stage stage = new Stage();
                             Scene scene = new Scene(root);
                             stage.setHeight(444);
                             stage.setWidth(680);
+                            
                             stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                                 @Override
                                 public void handle(WindowEvent we) {
@@ -152,7 +158,7 @@ public class SearchView implements Initializable {
                                  col_phone1,Col_Phone1Type,col_phone2,
                                  Col_Phone2Type,Col_Comments,Col_website,
                                  Col_ImportDate};
-        String[] id = {"","firstname","lastname","sex",
+        String[] id = {"contact_id","firstname","lastname","sex",
                        "address","zipcode","country",
                        "greek_state","city","mail",
                        "phone1","phone1_type","phone2",
@@ -166,7 +172,7 @@ public class SearchView implements Initializable {
         
     }
     public void set_style(){
-        image_panel.setStyle("-fx-background-image: url('file://../resources/images/contacts/contact_manager.png\');");
+        icon_img.setImage(new Image(new File("resources/images/contacts/contact_manager.png").toURI().toString()));
     }
     
 }

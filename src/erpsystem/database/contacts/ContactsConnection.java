@@ -5,6 +5,7 @@
  */
 package erpsystem.database.contacts;
 
+import com.healthmarketscience.jackcess.Row;
 import erpsystem.entities.people.Contact;
 import erpsystem.util.datetime.DateTimeProvider;
 import java.io.File;
@@ -15,6 +16,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import javafx.collections.FXCollections;
@@ -129,6 +131,7 @@ public class ContactsConnection {
 
             return table_data;
         }   
+        
     private void Disconnect(){
         try{
             if (connection != null)

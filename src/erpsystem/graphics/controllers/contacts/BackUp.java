@@ -5,6 +5,7 @@
  */
 package erpsystem.graphics.controllers.contacts;
 
+import erpsystem.database.contacts.ContactsConnection;
 import erpsystem.database.contacts.Contacts_Operation;
 import erpsystem.util.export.csv.contacts.ContactsExport;
 import erpsystem.util.system.WindowsManager;
@@ -42,9 +43,9 @@ public class BackUp implements Initializable {
     // ===== FXML Buttons Action =====
         @FXML
         private void btn_ExportCSV_Action(ActionEvent event) {
-            contacts_database = new Contacts_Operation();
+            contacts_database = new ContactsConnection();
             export_csv = new ContactsExport();
-            if (export_csv.export_file(default_strings, contacts_database.select_data_csv())){
+            if (export_csv.export_file(default_strings, contacts_database.select_contacts())){
                 Alert succed_dialog = new Alert(Alert.AlertType.INFORMATION);
                 succed_dialog.setTitle(default_strings.getString("dialog_contactsCSV_title"));
 
@@ -52,6 +53,7 @@ public class BackUp implements Initializable {
                 succed_dialog.showAndWait();         
             }  
         }
+        
         @FXML
         private void btn_SelectFile_Action(ActionEvent event) {
             Stage this_stage = (Stage) btn_SelectFile.getScene().getWindow();
@@ -81,7 +83,7 @@ public class BackUp implements Initializable {
     // ===============================
     
     private ResourceBundle default_strings;
-    private Contacts_Operation contacts_database;
+    private ContactsConnection contacts_database;
     private ContactsExport export_csv;
 
     

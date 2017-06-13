@@ -7,6 +7,7 @@ package erpsystem.graphics.controllers.contacts;
 
 import java.io.File;
 import java.net.URL;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -57,6 +58,7 @@ public class ViewContact implements Initializable {
     private Label lbl_import_date;
     
     private ResourceBundle language_strings;
+    
     /**
      * Initializes the controller class.
      */
@@ -64,7 +66,8 @@ public class ViewContact implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         language_strings = rb;
         if (init_window()){
-            set_data();
+          //  SetWindowData();
+            
         }
     }    
 
@@ -80,7 +83,10 @@ public class ViewContact implements Initializable {
     }
     
     //lbl_phone1_type , lbl_phone2_type , lbl_import_date
-    private void set_data(){
+
+    
+    public void set_window(Map input){
+       
         Label[] labels = {lbl_firstname,lbl_lastname,lbl_country,
                           lbl_zipcode,lbl_sex,lbl_address,lbl_city,
                           lbl_greekState,lbl_phone1,lbl_phone2,lbl_mail,
@@ -89,12 +95,17 @@ public class ViewContact implements Initializable {
                                     "lbl_zipcode","lbl_sex","lbl_address","lbl_city",
                                     "lbl_state","lbl_phone1","lbl_phone2",
                                     "lbl_mail","lbl_comments","lbl_website"};
-      //  String[] data = {};
-        int index = 0;
+        String[] map_values = {"firstname","lastname","country","zipcode",
+                               "sex","address","city","greek_state","phone1",
+                                "phone2","this is a mail","comments","website"};
+       int index = 0;
         for (Label item:labels){
-            item.setText(language_strings.getString(default_strings[index])+" ");
+            item.setText(language_strings.getString(default_strings[index])+" "+input.get(map_values[index]));
             index++;
         }
+       
     }
     
+    
+    public Map clicked_row;
 }
