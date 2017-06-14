@@ -43,8 +43,8 @@ public class CustomerManager implements Initializable {
             window_check.NewCustomer_toggle(true);                  
             try{
                 OpenWindow("customers/NewCustomer.fxml",
-                           766,
-                           420,
+                           781,
+                           450,
                            default_strings.getString("lbl_windowtitle"));
             }catch(IOException e){
                 e.printStackTrace();
@@ -83,5 +83,4 @@ public class CustomerManager implements Initializable {
                  // stage.getIcons().add(icon);
          stage.show();
     }
-    
 }

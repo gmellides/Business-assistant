@@ -113,23 +113,15 @@ public class SearchView implements Initializable {
                                     && event.getClickCount() == 2) {
                         Map clickedRow = row.getItem();
                         try{
-                            
                             FXMLLoader fxml_loader = new FXMLLoader();
                             fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
-                            
                             Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/contacts/ViewContact.fxml").openStream());
-                            
-                            
-                            
                             ViewContact d = fxml_loader.getController();
-                            d.set_window(clickedRow);
-                            
-                            
+                            d.set_window(clickedRow);                            
                             Stage stage = new Stage();
                             Scene scene = new Scene(root);
                             stage.setHeight(444);
                             stage.setWidth(680);
-                            
                             stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                                 @Override
                                 public void handle(WindowEvent we) {

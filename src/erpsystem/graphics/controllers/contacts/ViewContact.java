@@ -66,7 +66,7 @@ public class ViewContact implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         language_strings = rb;
         if (init_window()){
-          //  SetWindowData();
+          //  SetWindowData(); 
             
         }
     }    
@@ -86,7 +86,6 @@ public class ViewContact implements Initializable {
 
     
     public void set_window(Map input){
-       
         Label[] labels = {lbl_firstname,lbl_lastname,lbl_country,
                           lbl_zipcode,lbl_sex,lbl_address,lbl_city,
                           lbl_greekState,lbl_phone1,lbl_phone2,lbl_mail,
@@ -97,13 +96,15 @@ public class ViewContact implements Initializable {
                                     "lbl_mail","lbl_comments","lbl_website"};
         String[] map_values = {"firstname","lastname","country","zipcode",
                                "sex","address","city","greek_state","phone1",
-                                "phone2","this is a mail","comments","website"};
-       int index = 0;
+                                "phone2","...this is a mail....","comments","website"};
+        int index = 0;
         for (Label item:labels){
             item.setText(language_strings.getString(default_strings[index])+" "+input.get(map_values[index]));
             index++;
         }
-       
+       lbl_phone1_type.setText(String.valueOf(input.get("phone1_type")));
+       lbl_phone2_type.setText(String.valueOf(input.get("phone2_type")));
+       lbl_import_date.setText(String.valueOf(input.get("import_data")));
     }
     
     

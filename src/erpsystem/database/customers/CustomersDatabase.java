@@ -15,7 +15,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
 public class CustomersDatabase {
     
     private final String database_driver = "jdbc:ucanaccess://";
@@ -25,6 +24,11 @@ public class CustomersDatabase {
     
     private final String COUNT_CUST_QUERY = "SELECT COUNT(*) FROM Customers";
     private final String COUNT_COMP_QUERY = "SELECT COUNT(*) FROM Companies";
+    private final String CUST_QUERY = "SELECT * FROM Customers";
+    private final String COMP_QUERY = "SELECT * FROM Companies";
+    
+    private final String INSERT_CUSTOMER = "";
+    private final String INSERT_COMPANY = "";
     
     public Connection connection;
     public Statement statement;
@@ -41,11 +45,27 @@ public class CustomersDatabase {
     }
     
     public boolean insert_customer(Customer input){
-        return true;
+        boolean flag = false;
+        try{
+            Connect();
+            insert_statement = connection.prepareStatement(INSERT_CUSTOMER);
+            flag = insert_statement.execute();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return flag;
     }
     
     public boolean insert_company(Company input){
-        return true;
+        boolean flag = false;
+        try{
+            Connect();
+            insert_statement = connection.prepareStatement(INSERT_COMPANY);
+            flag = insert_statement.execute();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return flag;
     }
     
     public int[] count_customers(){
@@ -53,25 +73,58 @@ public class CustomersDatabase {
         int Companies = 0;
         try{
             Connect();
-            
             statement = connection.createStatement();
             rs = statement.executeQuery(COUNT_CUST_QUERY);
             while (rs.next()){
                 Customers = rs.getInt(1);
             }
+            rs = null;
             rs = statement.executeQuery(COUNT_COMP_QUERY);
             while (rs.next()){
                 Companies = rs.getInt(1);
             }
+            Disconnect();
         }catch(SQLException e){
             e.printStackTrace();
         }
         int[] result = {Customers,Customers,Customers+Companies};
         return result;
     }
+
+    public void select_customer(){
+        try{
+            Connect();
+            statement = connection.createStatement();
+            rs = statement.executeQuery(CUST_QUERY);
+            while (rs.next()){
+                // Code
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+    public void select_company(){
+        try{
+            Connect();
+            statement = connection.createStatement();
+            rs = statement.executeQuery(COMP_QUERY);
+            while (rs.next()){
+                // Code
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
     
-    
-    private void Disconnect(){
-        
+    private void Disconnect() throws SQLException{
+        if (connection != null){
+            connection.close();
+        }
+        if (statement != null){
+            statement.close();
+        }
+        if (rs != null){
+            rs.close();
+        }
     }
 }

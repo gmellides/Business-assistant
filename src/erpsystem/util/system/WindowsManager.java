@@ -78,7 +78,7 @@ public class WindowsManager {
             WindowsManager.NewContact = value;
         }
         public void ShowSearchContact_toggle(boolean value){
-            WindowsManager.ShowSearchContact = value;
+            WindowsManager.SearchViewContact = value;
         }
         public void BackupContacts_toggle(boolean value){
             WindowsManager.BackupContacts = value;
@@ -120,7 +120,7 @@ public class WindowsManager {
             return WindowsManager.NewContact;
         }
         public boolean ShowSearchContact_isOpen(){
-            return WindowsManager.ShowSearchContact;
+            return WindowsManager.SearchViewContact;
         }
         public boolean BackupContacts_isOpen(){
             return WindowsManager.BackupContacts;
@@ -130,8 +130,7 @@ public class WindowsManager {
     }
         public boolean NewCustomer_isOpen(){
             return WindowsManager.NewCustomer;
-        }
-        
+        }    
     public boolean SupplierManager_isOpen(){
         return WindowsManager.SupplierManager;
     }
@@ -150,10 +149,14 @@ public class WindowsManager {
     // Buttons Windows
     private static boolean ContactManager;
         private static boolean NewContact;
-        private static boolean ShowSearchContact;
+        private static boolean SearchViewContact;
         private static boolean BackupContacts;
+    // ---- Customers Windows     
     private static boolean CustomerManager;
         private static boolean NewCustomer;
+        private static boolean SearchViewCustomer;
+        private static boolean BackupCustomers;
+    // ----------------------
     private static boolean SupplierManager;
     private static boolean Storage;
     private static boolean Employee;
