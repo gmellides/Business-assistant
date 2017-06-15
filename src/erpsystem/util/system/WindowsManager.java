@@ -51,8 +51,11 @@ public class WindowsManager {
             case "contacts/SearchView.fxml":
                 ShowSearchContact_toggle(false);
                 break;
-           case "contacts/NewContact.fxml":
+            case "contacts/NewContact.fxml":
                 NewContact_toggle(false);
+                break;
+            case "customers/NewCustomer.fxml":
+                NewCustomer_toggle(false);
                 break;
         }
     }

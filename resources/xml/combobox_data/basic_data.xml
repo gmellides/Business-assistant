@@ -12,4 +12,9 @@
         <type_value value="work">Εργασία</type_value>
         <type_value value="work_cell">Εταιρικό Κινητό</type_value>
     </phone_type>
+    
+    <customers_data>
+        <customer_type>Λιανικής</customer_type>
+        <customer_type>Χωνδρικής</customer_type>
+    </customers_data>
 </contacts_menu_data>

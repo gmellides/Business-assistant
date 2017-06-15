@@ -16,6 +16,7 @@ import javafx.stage.WindowEvent;
 import javafx.fxml.Initializable;
 import erpsystem.util.datetime.DateTimeProvider;
 import erpsystem.util.system.WindowsManager;
+import java.io.File;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -35,6 +36,7 @@ public class Launcher implements Initializable {
     private ResourceBundle default_strings;     
     private final WindowsManager window_check = new WindowsManager();    
 
+
     /**
      * Initializes the controller class.
      */
@@ -42,6 +44,7 @@ public class Launcher implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         default_strings = rb;
         Start_DateTimeInfo();
+      
     }
 
     // ====== FXML Components Action ======
@@ -61,7 +64,10 @@ public class Launcher implements Initializable {
                 if (!window_check.CustomerManager_isOpen()){
                     window_check.CustomerManager_toggle(true);
                     try{
-                        OpenWindow("customers/CustomerManager.fxml",600,390,default_strings.getString("customer_manager"));
+                        OpenWindow("customers/CustomerManager.fxml",
+                                   600,
+                                   390,
+                                   default_strings.getString("customer_manager"));
                     }catch(IOException e){
                         e.printStackTrace();
                     }

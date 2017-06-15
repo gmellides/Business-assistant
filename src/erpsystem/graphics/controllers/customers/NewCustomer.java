@@ -8,32 +8,82 @@ package erpsystem.graphics.controllers.customers;
 import erpsystem.database.customers.CustomersDatabase;
 import erpsystem.entities.business.Company;
 import erpsystem.entities.people.Customer;
+import erpsystem.util.system.WindowsManager;
+import erpsystem.util.xml.read.ComboBox_Parser;
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class NewCustomer implements Initializable {
 
-    
-    private static boolean isCompany;
+    @FXML
+    private ImageView img_newContact;
     @FXML
     private Button btnClose;
-    
+    @FXML
+    private Label lbl_Name;
+    @FXML
+    private TextField txt_Name;
+    @FXML
+    private TextField txt_LastName;
+    @FXML
+    private TextField txt_address;
+    @FXML
+    private TextField txt_zipcode;
+    @FXML
+    private TextField txt_phone;
+    @FXML
+    private TextField txt_fax;
+    @FXML
+    private TextField txt_mail;
+    @FXML
+    private CheckBox business_toggle;
+    @FXML
+    private ComboBox<String> cmb_sex;
+    @FXML
+    private ComboBox<String> cmb_state;
+    @FXML
+    private ComboBox<String> cmb_city;   
+    @FXML
+    private ComboBox<String> cmb_customerType;
+
+
+    private ResourceBundle default_strings;
+    private static boolean isCompany;
+   
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        default_strings = rb;
         init_window();
     }    
 
     @FXML
     private void isCompany_Action(ActionEvent event) {
-        NewCustomer.isCompany = true;
+        if(business_toggle.isSelected()){
+            NewCustomer.isCompany = true;
+            lbl_Name.setText(default_strings.getString("company_businessName"));
+            txt_LastName.setDisable(true);
+            cmb_sex.setDisable(true);
+        }else{
+            lbl_Name.setText(default_strings.getString("lbl_firstname"));
+            NewCustomer.isCompany = false;
+            txt_LastName.setDisable(false);
+            cmb_sex.setDisable(false);
+        }
         
         /// disable components
         
@@ -43,6 +93,14 @@ public class NewCustomer implements Initializable {
     private void btnSave_Action(ActionEvent event) {
         if (isCompany){
             Company input = new Company();
+                input.setCompanyName(txt_Name.getText());
+                input.setAddress(txt_address.getText());
+                
+                input.setCity(cmb_city.getSelectionModel().getSelectedItem());
+               
+                input.setZipCode(Integer.parseInt(txt_zipcode.getText()));
+                input.setPhone(txt_phone.getText());
+                
             new CustomersDatabase().insert_company(input);
         }else{
             Customer input = new Customer();
@@ -53,10 +111,21 @@ public class NewCustomer implements Initializable {
     
     private void init_window(){
         NewCustomer.isCompany = false;
+        // Set data to combo boxes
+        try{
+            cmb_sex.setItems(new ComboBox_Parser().get_sex());
+            cmb_state.setItems(new ComboBox_Parser().get_states_greece());
+            cmb_city.setItems(new ComboBox_Parser().get_big_cities_greece());
+            cmb_customerType.setItems(new ComboBox_Parser().get_CustomerType());
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        img_newContact.setImage(new Image(new File("resources/images/contacts/new_contact.png").toURI().toString()));
     }
 
     @FXML
     private void btn_Close_Action(ActionEvent event) {
+        new WindowsManager().NewCustomer_toggle(false);
         Stage this_window = (Stage) btnClose.getScene().getWindow();
         this_window.close();
     }

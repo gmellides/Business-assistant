@@ -108,6 +108,23 @@ public class ComboBox_Parser {
           FXCollections.sort(data, compare);
         return data;
     }
-   
+    public ObservableList<String> get_CustomerType() throws Exception{
+         ObservableList<String> data = FXCollections.observableArrayList();
+            xmlFile = new File("resources/xml/combobox_data/basic_data.xml");
+            builder_factory = DocumentBuilderFactory.newInstance();
+            document_builder = builder_factory.newDocumentBuilder();
+            xml_doc = document_builder.parse(xmlFile);
+            NodeList list = xml_doc.getElementsByTagName("customer_type");  
+                for (int i=0; i<list.getLength(); i++){
+                      Node current_node = list.item(i);
+                      if (current_node.getNodeType() == Node.ELEMENT_NODE){
+                          Element current_element = (Element) current_node;
+                          data.add(current_element.getTextContent());
+                      }
+                }
+          Comparator compare = Comparator.naturalOrder();
+          FXCollections.sort(data, compare);
+        return data;
+    }
 }
  
