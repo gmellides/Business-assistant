@@ -39,39 +39,12 @@ public class SearchView implements Initializable {
     @FXML
     private TableView<Map> contacts_table;
     @FXML
-    private TableColumn col_firstname;
-    @FXML
-    private TableColumn col_lastname;
-    @FXML
-    private TableColumn col_sex;
-    @FXML
-    private TableColumn col_address;
-    @FXML
-    private TableColumn col_zipcode;
-    @FXML
-    private TableColumn col_country;
-    @FXML
-    private TableColumn col_greek_state;
-    @FXML
-    private TableColumn col_city;
-    @FXML
-    private TableColumn col_mail;
-    @FXML
-    private TableColumn col_phone1;
-    @FXML
-    private TableColumn col_phone2;
-    @FXML
-    private TableColumn Col_id;
-    @FXML
-    private TableColumn<?, ?> Col_Phone1Type;
-    @FXML
-    private TableColumn<?, ?> Col_Phone2Type;
-    @FXML
-    private TableColumn<?, ?> Col_Comments;
-    @FXML
-    private TableColumn<?, ?> Col_website;
-    @FXML
-    private TableColumn<?, ?> Col_ImportDate;
+    private TableColumn Col_id,col_firstname,col_lastname,col_sex,
+                        col_address,col_zipcode,col_country,
+                        col_greek_state,col_city,col_mail,
+                        col_phone1,Col_Phone1Type,col_phone2,
+                        Col_Phone2Type,Col_Comments,Col_website,
+                        Col_ImportDate;
     @FXML
     private TextField txt_Instant_Search;
     @FXML
@@ -80,7 +53,6 @@ public class SearchView implements Initializable {
     public static String search_value;
     private final WindowsManager window_check = new WindowsManager();
     private ResourceBundle language_strings;
-    
     
     /**
      * Initializes the controller class.
@@ -136,8 +108,8 @@ public class SearchView implements Initializable {
                          // stage.getIcons().add(icon);
                             stage.show();
                         }catch(IOException e){
-                                        e.printStackTrace();
-                         }
+                            e.printStackTrace();
+                        }
                     }
                 });
             return row 

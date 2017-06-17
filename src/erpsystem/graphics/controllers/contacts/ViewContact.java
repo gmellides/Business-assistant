@@ -25,38 +25,12 @@ public class ViewContact implements Initializable {
     @FXML
     private ImageView contact_icon;
     @FXML
-    private Label lbl_firstname;
-    @FXML
-    private Label lbl_lastname;
-    @FXML
-    private Label lbl_country;
-    @FXML
-    private Label lbl_zipcode;
-    @FXML
-    private Label lbl_sex;
-    @FXML
-    private Label lbl_address;
-    @FXML
-    private Label lbl_city;
-    @FXML
-    private Label lbl_greekState;
-    @FXML
-    private Label lbl_phone1;
-    @FXML
-    private Label lbl_phone2;
-    @FXML
-    private Label lbl_mail;
-    @FXML
-    private Label lbl_phone1_type;
-    @FXML
-    private Label lbl_phone2_type;
-    @FXML
-    private Label lbl_comments;
-    @FXML
-    private Label lbl_website;
-    @FXML
-    private Label lbl_import_date;
+    private Label lbl_firstname,lbl_lastname,lbl_country,
+                  lbl_zipcode,lbl_sex,lbl_address,lbl_city,
+                  lbl_greekState,lbl_phone1,lbl_phone2,lbl_mail,
+                  lbl_comments,lbl_website,lbl_phone1_type,lbl_phone2_type,lbl_import_date;
     
+    public Map clicked_row;
     private ResourceBundle language_strings;
     
     /**
@@ -81,10 +55,7 @@ public class ViewContact implements Initializable {
         contact_icon.setImage(new Image(new File("").toURI().toString()));
         return true;
     }
-    
-    //lbl_phone1_type , lbl_phone2_type , lbl_import_date
 
-    
     public void set_window(Map input){
         Label[] labels = {lbl_firstname,lbl_lastname,lbl_country,
                           lbl_zipcode,lbl_sex,lbl_address,lbl_city,
@@ -106,7 +77,4 @@ public class ViewContact implements Initializable {
        lbl_phone2_type.setText(String.valueOf(input.get("phone2_type")));
        lbl_import_date.setText(String.valueOf(input.get("import_data")));
     }
-    
-    
-    public Map clicked_row;
 }

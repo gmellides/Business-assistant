@@ -57,11 +57,12 @@ public class NewCustomer implements Initializable {
     private ComboBox<String> cmb_city;   
     @FXML
     private ComboBox<String> cmb_customerType;
-
+    @FXML
+    private ComboBox<String> cmb_country;
 
     private ResourceBundle default_strings;
     private static boolean isCompany;
-   
+    
     /**
      * Initializes the controller class.
      */
@@ -84,30 +85,45 @@ public class NewCustomer implements Initializable {
             txt_LastName.setDisable(false);
             cmb_sex.setDisable(false);
         }
-        
-        /// disable components
-        
     }
 
     @FXML
     private void btnSave_Action(ActionEvent event) {
-        if (isCompany){
-            Company input = new Company();
-                input.setCompanyName(txt_Name.getText());
-                input.setAddress(txt_address.getText());
-                
-                input.setCity(cmb_city.getSelectionModel().getSelectedItem());
-               
-                input.setZipCode(Integer.parseInt(txt_zipcode.getText()));
-                input.setPhone(txt_phone.getText());
-                
-            new CustomersDatabase().insert_company(input);
-        }else{
-            Customer input = new Customer();
-            new CustomersDatabase().insert_customer(input);
-        }   
+            if (isCompany){
+                Company input = new Company();
+                    input.setCompanyName(txt_Name.getText());
+                    input.setAddress(txt_address.getText());
+                    input.setCity(cmb_city.getSelectionModel().getSelectedItem());
+                    input.setZipCode(Integer.parseInt(txt_zipcode.getText()));
+                    input.setCustomer_type(cmb_customerType.getSelectionModel().getSelectedItem());
+                    input.setPhone(txt_phone.getText());
+                    input.setMail(txt_mail.getText());
+                    input.setFax(txt_fax.getText());
+                    input.setCountry(cmb_country.getSelectionModel().getSelectedItem());
+                new CustomersDatabase().insert_company(input);
+            }else{
+                Customer input = new Customer();
+                    input.setFirstName(txt_Name.getText());
+                    input.setLastName(txt_LastName.getText());
+                    input.setSex(cmb_sex.getSelectionModel().getSelectedItem());
+                    input.setAddress(txt_address.getText());
+                    input.setZipCode(Integer.parseInt(txt_zipcode.getText()));
+                    input.setCity(cmb_city.getSelectionModel().getSelectedItem());
+                    input.setState(cmb_state.getSelectionModel().getSelectedItem());
+                    input.setCountry(cmb_country.getSelectionModel().getSelectedItem());
+                    input.setCustomer_Type(cmb_customerType.getSelectionModel().getSelectedItem());
+                    input.setPhone(txt_phone.getText());
+                    input.setFax(txt_fax.getText());
+                    input.setMail(txt_mail.getText());
+                new CustomersDatabase().insert_customer(input);
+            }   
     }
-    
+    @FXML
+    private void btn_Close_Action(ActionEvent event) {
+        new WindowsManager().NewCustomer_toggle(false);
+        Stage this_window = (Stage) btnClose.getScene().getWindow();
+        this_window.close();
+    }
     
     private void init_window(){
         NewCustomer.isCompany = false;
@@ -116,6 +132,7 @@ public class NewCustomer implements Initializable {
             cmb_sex.setItems(new ComboBox_Parser().get_sex());
             cmb_state.setItems(new ComboBox_Parser().get_states_greece());
             cmb_city.setItems(new ComboBox_Parser().get_big_cities_greece());
+            cmb_country.setItems(new ComboBox_Parser().get_countries());
             cmb_customerType.setItems(new ComboBox_Parser().get_CustomerType());
         }catch(Exception e){
             e.printStackTrace();
@@ -123,10 +140,51 @@ public class NewCustomer implements Initializable {
         img_newContact.setImage(new Image(new File("resources/images/contacts/new_contact.png").toURI().toString()));
     }
 
-    @FXML
-    private void btn_Close_Action(ActionEvent event) {
-        new WindowsManager().NewCustomer_toggle(false);
-        Stage this_window = (Stage) btnClose.getScene().getWindow();
-        this_window.close();
+    private boolean check_null(){
+        boolean flag = false;
+        TextField[] window_fields = {txt_Name,txt_LastName,txt_address,txt_zipcode,
+                                     txt_phone,txt_fax,txt_mail};
+        ComboBox[] comboboxes = {cmb_sex,cmb_state,cmb_city,cmb_customerType,
+                                 cmb_country};
+        if (isCompany){
+            for (TextField item : window_fields){
+               if (item.getText() != null){
+                   flag = true;
+               }else if(item.isDisable()){
+                   flag = true;
+               }else{
+                   flag = false;
+                   break;
+               }
+            }   
+            for (ComboBox item : comboboxes){
+                if (item.getSelectionModel().getSelectedItem() != null){
+                    flag = true;
+                }else if (item.isDisable()){
+                    flag = true;
+                }else{
+                    flag = false;
+                    break;
+                }
+            }
+        }else{
+            for (TextField item : window_fields){
+               if (item.getText() != null){
+                   flag = true;
+               }else{
+                   flag = false;
+                   break;
+               } 
+            }
+            for (ComboBox item : comboboxes){
+                if (item.getSelectionModel().getSelectedItem() != null){
+                    flag = true;
+                }else{
+                    flag = false;
+                    break;
+                }
+            }
+        }
+        return flag;
     }
 }

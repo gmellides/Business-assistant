@@ -20,6 +20,14 @@ public class Company {
         this.City = City;
     }
 
+    public void setCustomer_type(String Customer_type) {
+        this.Customer_type = Customer_type;
+    }
+
+    public void setState(String State) {
+        this.State = State;
+    }
+
     public void setZipCode(int ZipCode) {
         this.ZipCode = ZipCode;
     }
@@ -31,6 +39,12 @@ public class Company {
     public void setPhone(String Phone) {
         this.Phone = Phone;
     }
+
+    public void setFax(String Fax) {
+        this.Fax = Fax;
+    }
+    
+    
 
     public void setMail(String Mail) {
         this.Mail = Mail;
@@ -48,8 +62,16 @@ public class Company {
         return City;
     }
 
+    public String getState() {
+        return State;
+    }
+
     public int getZipCode() {
         return ZipCode;
+    }
+
+    public String getCustomer_type() {
+        return Customer_type;
     }
 
     public String getCountry() {
@@ -60,6 +82,10 @@ public class Company {
         return Phone;
     }
 
+    public String getFax() {
+        return Fax;
+    }
+    
     public String getMail() {
         return Mail;
     }
@@ -67,8 +93,11 @@ public class Company {
     private String CompanyName;
     private String Address;
     private String City;
+    private String State;
     private int ZipCode;
+    private String Customer_type;
     private String Country;
     private String Phone;
+    private String Fax;
     private String Mail;
 }

@@ -26,7 +26,7 @@
         <URL value="@/erpsystem/graphics/CSS/launchscreen.css" />
     </stylesheets>
    <children>
-      <Pane layoutX="2.0" prefHeight="475.0" prefWidth="757.0" styleClass="background_panel">
+      <Pane prefHeight="475.0" prefWidth="759.0" styleClass="background_panel">
          <children>
             <Button layoutX="625.0" layoutY="434.0" mnemonicParsing="false" onAction="#btnExitAction" prefHeight="25.0" prefWidth="115.0" text="%lnc_btnExit" />
             <Button layoutX="31.0" layoutY="260.0" mnemonicParsing="false" onAction="#btn_Employee_Action" prefHeight="25.0" prefWidth="138.0" text="%lnc_btnEmployeeManager" />
