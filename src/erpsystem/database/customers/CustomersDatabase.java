@@ -34,11 +34,11 @@ public class CustomersDatabase {
     private final String COMP_QUERY = "SELECT * FROM Companies";
     
     private final String INSERT_CUSTOMER = "INSERT INTO Customer"
-                + "(customer_id,firstname,lastname,sex,address,zipcode,city,state,country,customer_type,phone,fax,mail,import_date) "
-                + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    + "(customer_id,firstname,lastname,sex,address,zipcode,city,state,country,customer_type,phone,fax,mail,import_date) "
+    + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private final String INSERT_COMPANY = "INSERT INTO Companies"
-            +"(company_id,name,address,zipcode,city,state,country,customer_type,phone,fax,mail,import_date) "
-            +"VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+    +"(company_id,name,address,zipcode,city,state,country,customer_type,phone,fax,mail,import_date) "
+    +"VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
     
     public Connection connection;
     public Statement statement;
@@ -162,7 +162,7 @@ public class CustomersDatabase {
             rs = statement.executeQuery(COMP_QUERY);
             while (rs.next()){
                 Map<String,String> Row_Data = new HashMap();
-                    Row_Data.put("company_id", String.valueOf(rs.getInt("customer_id")));
+                    Row_Data.put("company_id", String.valueOf(rs.getInt("company_id")));
                     Row_Data.put("name", rs.getString("name"));
                     Row_Data.put("address", rs.getString("address"));
                     Row_Data.put("zipcode", String.valueOf(rs.getInt("zipcode")));                      

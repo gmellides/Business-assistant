@@ -40,9 +40,14 @@ public class SearchView implements Initializable {
                         Col_cust_sex,Col_cust_address,Col_cust_zipcode,Col_cust_city,
                         Col_cust_state,Col_cust_country,Col_cust_custType,Col_cust_phone,
                         Col_cust_fax,Col_cust_mail,Col_cust_importDate;
-    
+    @FXML
+    private TableColumn col_comp_companyID,col_comp_BusinessName,col_comp_address,
+                        col_comp_zipcode,col_comp_city,col_comp_state,col_comp_country,
+                        col_comp_customerType,col_comp_phone,col_comp_fax,col_comp_mail,
+                        col_comp_importDate;
     private static boolean isBusiness;
     private ResourceBundle default_strings;
+
     /**
      * Initializes the controller class.
      */
@@ -84,6 +89,7 @@ public class SearchView implements Initializable {
         isBusiness = false;
         
     }
+    
     private boolean isTableFiled(){
         boolean flag = false;
             tbl_customers.setRowFactory(tableview_evt ->{
@@ -92,7 +98,7 @@ public class SearchView implements Initializable {
                     if (! row.isEmpty() && event.getButton()== MouseButton.PRIMARY 
                                         && event.getClickCount() == 2) {
                             Map clickedRow = row.getItem();
-                            OpenWindow(clickedRow);
+                            OpenWindow(724,490,clickedRow);
                         }
                     });
                 return row 
@@ -103,7 +109,7 @@ public class SearchView implements Initializable {
                     if (! row.isEmpty() && event.getButton()== MouseButton.PRIMARY 
                                         && event.getClickCount() == 2) {
                             Map clickedRow = row.getItem();
-                            OpenWindow(clickedRow);
+                            OpenWindow(724,490,clickedRow);
                         }
                     });
                 return row 
@@ -116,28 +122,41 @@ public class SearchView implements Initializable {
             Col_cust_Lastname,Col_cust_sex,Col_cust_address,Col_cust_zipcode,Col_cust_city,
             Col_cust_state,Col_cust_country,Col_cust_custType,Col_cust_phone,Col_cust_fax,
             Col_cust_mail,Col_cust_importDate};
-            String[] id = {"customer_id","firstname","lastname","sex",
-                           "address","zipcode","city","state","country",
-                           "customer_type","phone","fax","mail","import_date"};
+            String[]  customer_id = {"customer_id","firstname","lastname","sex",
+            "address","zipcode","city","state","country","customer_type","phone",
+            "fax","mail","import_date"};
             int index = 0;
             for (TableColumn column : customer_columns){
-                column.setCellValueFactory(new MapValueFactory(id[index]));
+                column.setCellValueFactory(new MapValueFactory(customer_id[index]));
+                index++;
+            }
+            TableColumn[] company_columns = {col_comp_companyID,col_comp_BusinessName,
+            col_comp_address,col_comp_zipcode,col_comp_city,col_comp_state,col_comp_country,
+            col_comp_customerType,col_comp_phone,col_comp_fax,col_comp_mail,col_comp_importDate};
+            String[] companies_id = {"company_id","name","address","zipcode","city",
+            "state","country","customer_type","phone","fax","mail","import_date"};
+            index = 0;
+            for (TableColumn column : company_columns){
+                column.setCellValueFactory(new MapValueFactory(companies_id[index]));
                 index++;
             }
             
         return flag;
     }
-    private void OpenWindow(Map input){
+    
+    private void OpenWindow(int Width,
+                            int Height,
+                            Map input){
         try{
             FXMLLoader fxml_loader = new FXMLLoader();
             fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
-            Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/contacts/ViewContact.fxml").openStream());
+            Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/customers/ViewCustomer.fxml").openStream());
             ViewCustomer d = fxml_loader.getController();
             d.set_window(isBusiness,input);                            
             Stage stage = new Stage();
             Scene scene = new Scene(root);
-            stage.setHeight(444);
-            stage.setWidth(680);
+            stage.setHeight(Height);
+            stage.setWidth(Width);
             stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                 @Override
                 public void handle(WindowEvent we) {                    

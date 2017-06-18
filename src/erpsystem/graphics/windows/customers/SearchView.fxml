@@ -23,13 +23,13 @@
                </font>
             </Label>
             <ImageView fitHeight="77.0" fitWidth="122.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
-            <ToggleButton fx:id="btn_ToggleData" layoutX="318.0" layoutY="546.0" mnemonicParsing="false" onAction="#btn_toggleCustomers_Action" prefHeight="25.0" prefWidth="112.0" selected="true" text="Customers">
+            <ToggleButton fx:id="btn_ToggleData" layoutX="318.0" layoutY="546.0" mnemonicParsing="false" onAction="#btn_toggleCustomers_Action" prefHeight="25.0" prefWidth="112.0" selected="true" text="%btn_customers">
                <toggleGroup>
                   <ToggleGroup fx:id="view_group" />
                </toggleGroup></ToggleButton>
-            <ToggleButton layoutX="472.0" layoutY="546.0" mnemonicParsing="false" onAction="#btn_toggleBusiness_Action" prefHeight="25.0" prefWidth="112.0" text="business" toggleGroup="$view_group" />
+            <ToggleButton layoutX="472.0" layoutY="546.0" mnemonicParsing="false" onAction="#btn_toggleBusiness_Action" prefHeight="25.0" prefWidth="112.0" text="%btn_companies" toggleGroup="$view_group" />
             <TextField layoutX="19.0" layoutY="546.0" prefHeight="25.0" prefWidth="215.0" />
-            <TableView fx:id="tbl_customers" layoutX="3.0" layoutY="120.0" prefHeight="406.0" prefWidth="853.0" visible="false">
+            <TableView fx:id="tbl_customers" layoutX="3.0" layoutY="120.0" prefHeight="406.0" prefWidth="853.0">
               <columns>
                   <TableColumn fx:id="Col_cust_CustomerID" prefWidth="75.0" text="customerID" visible="false" />
                 <TableColumn fx:id="Col_cust_Firstname" prefWidth="90.0" text="%col_firstname" />
@@ -47,19 +47,20 @@
                   <TableColumn fx:id="Col_cust_importDate" prefWidth="75.0" text="import_date" visible="false" />
               </columns>
             </TableView>
-            <TableView fx:id="tbl_companies" layoutX="3.0" layoutY="120.0" prefHeight="406.0" prefWidth="853.0">
+            <TableView fx:id="tbl_companies" layoutX="3.0" layoutY="120.0" prefHeight="406.0" prefWidth="853.0" visible="false">
                <columns>
                   <TableColumn fx:id="col_comp_companyID" prefWidth="75.0" text="companyID" visible="false" />
-                  <TableColumn fx:id="col_comp_BusinessName" prefWidth="75.0" text="bname" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
+                  <TableColumn fx:id="col_comp_BusinessName" prefWidth="133.0" text="%col_bName" />
+                  <TableColumn fx:id="col_comp_address" prefWidth="160.0" text="%col_address" />
+                  <TableColumn fx:id="col_comp_zipcode" prefWidth="75.0" text="%col_zipcode" />
+                  <TableColumn fx:id="col_comp_city" prefWidth="75.0" text="%col_city" />
+                  <TableColumn fx:id="col_comp_state" prefWidth="75.0" text="State" visible="false" />
+                  <TableColumn fx:id="col_comp_country" prefWidth="75.0" text="country" visible="false" />
+                  <TableColumn fx:id="col_comp_customerType" prefWidth="98.0" text="%col_customerType" />
+                  <TableColumn fx:id="col_comp_phone" prefWidth="102.0" text="%col_phone" />
+                  <TableColumn fx:id="col_comp_fax" prefWidth="102.0" text="%col_fax" />
+                  <TableColumn fx:id="col_comp_mail" prefWidth="106.0" text="%col_mail" />
+                  <TableColumn fx:id="col_comp_importDate" prefWidth="75.0" text="Column X" visible="false" />
                </columns>
             </TableView>
          </children>

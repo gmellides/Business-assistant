@@ -10,116 +10,134 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="724.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="erpsystem.graphics.controllers.customers.ViewCustomer">
+<AnchorPane id="AnchorPane" prefHeight="462.0" prefWidth="724.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.customers.ViewCustomer">
     <stylesheets>
         <URL value="@/erpsystem/graphics/CSS/customers/ViewCustomer.css" />
     </stylesheets>
    <children>
-      <Pane prefHeight="500.0" prefWidth="724.0">
+      <Pane prefHeight="467.0" prefWidth="724.0" styleClass="background_panel">
          <children>
-            <Button layoutX="637.0" layoutY="461.0" mnemonicParsing="false" text="%btnClose" />
-            <Label layoutX="258.0" layoutY="14.0" prefHeight="47.0" prefWidth="216.0" text="Label">
+            <Button fx:id="btnClose" layoutX="638.0" layoutY="429.0" mnemonicParsing="false" onAction="#btn_Close_Action" text="%btnClose" />
+            <Label layoutX="205.0" layoutY="14.0" prefHeight="47.0" prefWidth="353.0" text="%view_window_title">
                <font>
                   <Font size="32.0" />
                </font>
             </Label>
             <ImageView fitHeight="119.0" fitWidth="139.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <Line endX="436.0" layoutX="272.0" layoutY="73.0" startX="-100.0" />
-            <Label layoutX="195.0" layoutY="113.0" text="%lbl_firstname">
+            <Label fx:id="lbl_name_Text" layoutX="195.0" layoutY="113.0" text="%lbl_firstname">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="440.0" layoutY="113.0" text="%lbl_lastname">
+            <Label fx:id="lbl_lastname_text" layoutX="440.0" layoutY="113.0" text="%lbl_lastname">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="29.0" layoutY="233.0" text="%lbl_sex">
+            <Label fx:id="lbl_sex" layoutX="29.0" layoutY="213.0" text="%lbl_sex">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="29.0" layoutY="296.0" text="%lbl_country">
+            <Label layoutX="29.0" layoutY="316.0" text="%lbl_country">
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Italic" size="14.0" />
                </font>
             </Label>
             <Label layoutX="29.0" layoutY="353.0" text="%lbl_address">
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Italic" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="261.0" layoutY="170.0" text="%lbl_state">
+            <Label layoutX="488.0" layoutY="316.0" text="%lbl_state">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="265.0" layoutY="316.0" text="%lbl_city">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="265.0" layoutY="355.0" text="%lbl_zipcode">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="30.0" layoutY="252.0" text="%customer_type">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="265.0" layoutY="233.0" text="%lbl_city">
+            <Label fx:id="lbl_name" layoutX="325.0" layoutY="113.0" prefHeight="17.0" prefWidth="101.0" text="Label">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="265.0" layoutY="286.0" text="%lbl_zipcode">
+            <Label fx:id="lbl_lastname" layoutX="587.0" layoutY="113.0" prefHeight="17.0" prefWidth="101.0" text="Label">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="265.0" layoutY="353.0" text="%customer_type">
+            <Label fx:id="sex_label" layoutX="121.0" layoutY="213.0" prefHeight="17.0" prefWidth="101.0" text="Label">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="325.0" layoutY="113.0" prefHeight="17.0" prefWidth="101.0" text="Label">
+            <Label fx:id="lbl_Country" layoutX="121.0" layoutY="316.0" prefHeight="17.0" prefWidth="101.0" text="Label">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="587.0" layoutY="113.0" prefHeight="17.0" prefWidth="101.0" text="Label">
+            <Label fx:id="lbl_Address" layoutX="119.0" layoutY="354.0" prefHeight="17.0" prefWidth="139.0" text="Label">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="121.0" layoutY="233.0" prefHeight="17.0" prefWidth="101.0" text="Label">
+            <Label layoutX="29.0" layoutY="170.0" prefHeight="20.0" prefWidth="79.0" text="%lbl_category_text">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="121.0" layoutY="296.0" prefHeight="17.0" prefWidth="101.0" text="Label">
+            <Label fx:id="lbl_state" layoutX="573.0" layoutY="316.0" prefHeight="17.0" prefWidth="109.0" text="Label">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="119.0" layoutY="354.0" prefHeight="17.0" prefWidth="139.0" text="Label">
+            <Label fx:id="lbl_City" layoutX="372.0" layoutY="316.0" prefHeight="17.0" prefWidth="109.0" text="Label">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="29.0" layoutY="170.0" prefHeight="20.0" prefWidth="36.0" text="Label">
+            <Label fx:id="lbl_zipcode" layoutX="375.0" layoutY="353.0" prefHeight="17.0" prefWidth="109.0" text="Label">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="375.0" layoutY="170.0" prefHeight="17.0" prefWidth="109.0" text="Label">
+            <Label fx:id="lbl_customerType" layoutX="151.0" layoutY="252.0" prefHeight="17.0" prefWidth="109.0" text="Label">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="375.0" layoutY="233.0" prefHeight="17.0" prefWidth="109.0" text="Label">
+            <Label layoutX="243.0" layoutY="172.0" text="%lbl_phone" />
+            <Label fx:id="lbl_Phone" layoutX="325.0" layoutY="172.0" prefHeight="17.0" prefWidth="121.0" text="Label" />
+            <Label layoutX="459.0" layoutY="172.0" text="%lbl_fax">
                <font>
                   <Font size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="375.0" layoutY="286.0" prefHeight="17.0" prefWidth="109.0" text="Label">
+               </font></Label>
+            <Label fx:id="lbl_fax" layoutX="535.0" layoutY="172.0" prefHeight="17.0" prefWidth="121.0" text="Label" />
+            <Label layoutX="240.0" layoutY="215.0" text="%lbl_mail" />
+            <Label fx:id="lbl_mail" layoutX="325.0" layoutY="215.0" prefHeight="17.0" prefWidth="376.0" text="Label" />
+            <Label layoutX="488.0" layoutY="353.0" text="date">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font></Label>
+            <Label fx:id="lbl_date" layoutX="573.0" layoutY="353.0" prefHeight="17.0" prefWidth="121.0" text="Label">
                <font>
                   <Font size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="375.0" layoutY="354.0" prefHeight="17.0" prefWidth="109.0" text="Label">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
+               </font></Label>
+            <Label fx:id="lbl_Category" layoutX="121.0" layoutY="172.0" prefHeight="17.0" prefWidth="101.0" text="Label" />
          </children>
       </Pane>
    </children>

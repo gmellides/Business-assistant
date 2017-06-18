@@ -6,7 +6,6 @@
 package erpsystem.graphics.controllers.contacts;
 
 import erpsystem.database.contacts.ContactsConnection;
-import erpsystem.database.contacts.Contacts_Operation;
 import erpsystem.util.export.csv.contacts.ContactsExport;
 import erpsystem.util.system.WindowsManager;
 import java.io.File;

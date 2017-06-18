@@ -54,8 +54,8 @@
             <TextField fx:id="txt_zipcode" layoutX="355.0" layoutY="130.0" />
             <Label layoutX="518.0" layoutY="134.0" text="%customer_type" />
             <ComboBox fx:id="cmb_customerType" layoutX="612.0" layoutY="130.0" prefHeight="25.0" prefWidth="142.0" promptText="%cmb_select" />
-            <Label layoutX="274.0" layoutY="316.0" text="Label" />
-            <ComboBox fx:id="cmb_country" layoutX="349.0" layoutY="312.0" prefWidth="150.0" />
+            <Label layoutX="274.0" layoutY="316.0" text="%lbl_country" />
+            <ComboBox fx:id="cmb_country" layoutX="349.0" layoutY="312.0" prefWidth="150.0" promptText="%cmb_select" />
          </children>
       </Pane>
    </children>

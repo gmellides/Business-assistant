@@ -34,32 +34,13 @@ public class NewCustomer implements Initializable {
     @FXML
     private Label lbl_Name;
     @FXML
-    private TextField txt_Name;
-    @FXML
-    private TextField txt_LastName;
-    @FXML
-    private TextField txt_address;
-    @FXML
-    private TextField txt_zipcode;
-    @FXML
-    private TextField txt_phone;
-    @FXML
-    private TextField txt_fax;
-    @FXML
-    private TextField txt_mail;
+    private TextField txt_Name,txt_LastName,txt_address,txt_zipcode,txt_phone,
+                      txt_fax,txt_mail;
     @FXML
     private CheckBox business_toggle;
     @FXML
-    private ComboBox<String> cmb_sex;
-    @FXML
-    private ComboBox<String> cmb_state;
-    @FXML
-    private ComboBox<String> cmb_city;   
-    @FXML
-    private ComboBox<String> cmb_customerType;
-    @FXML
-    private ComboBox<String> cmb_country;
-
+    private ComboBox<String> cmb_sex,cmb_state,cmb_city,cmb_customerType,cmb_country;
+ 
     private ResourceBundle default_strings;
     private static boolean isCompany;
     
