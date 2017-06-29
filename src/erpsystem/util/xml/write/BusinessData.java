@@ -5,7 +5,7 @@
  */
 package erpsystem.util.xml.write;
 
-import erpsystem.entities.business.Business;
+import erpsystem.entities.corpotations.Business;
 import erpsystem.util.security.EncryptionUtil;
 import erpsystem.util.system.FileManager;
 import java.io.File;

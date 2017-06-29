@@ -14,25 +14,17 @@ public class WindowsManager {
         WindowsManager.EditAdmin = false;
         WindowsManager.EditBusiness = false;
         // Buttons
-        WindowsManager.ContactManager = false;
         WindowsManager.CustomerManager = false;
             WindowsManager.NewCustomer = false;
+        WindowsManager.ContactManager = false;
         WindowsManager.Storage = false;
         WindowsManager.Employee = false;
         WindowsManager.SupplierManager = false;
+        
     }
     
     public void toggle_window(String Input){
         switch(Input){
-            case "contacts/ContactManager.fxml":
-                ContactManager_toggle(false);
-                break;
-            case "storage/StorageManager.fxml":
-                Storage_toggle(false);
-                break;
-            case "customers/CustomerManager.fxml":
-                CustomerManager_toggle(false);
-                break;
             case "menubar/View_BusinessData.fxml":
                 ViewBusiness_toggle(false);
                 break;
@@ -45,6 +37,24 @@ public class WindowsManager {
             case "menubar/Edit_BusinessAdmin.fxml":
                 EditAdmin_toggle(false);
                 break;
+                
+            case "customers/CustomerManager.fxml":
+                CustomerManager_toggle(false);
+                break;    
+            case "customers/NewCustomer.fxml":
+                NewCustomer_toggle(false);
+                break;   
+            
+            case "suppliers/SupplierManager.fxml":
+                SupplierManager_toggle(false);
+                break;
+            case "suppliers/NewSupplier.fxml":
+                NewSupplier_toggle(false);
+                break;
+                
+            case "contacts/ContactManager.fxml":
+                ContactManager_toggle(false);
+                break;
             case "contacts/BackUp.fxml":
                 BackupContacts_toggle(false);
                 break;
@@ -54,9 +64,12 @@ public class WindowsManager {
             case "contacts/NewContact.fxml":
                 NewContact_toggle(false);
                 break;
-            case "customers/NewCustomer.fxml":
-                NewCustomer_toggle(false);
+                
+            case "storage/StorageManager.fxml":
+                Storage_toggle(false);
                 break;
+            
+            
         }
     }
     
@@ -95,6 +108,9 @@ public class WindowsManager {
     public void SupplierManager_toggle(boolean value){
         WindowsManager.SupplierManager = value;
     }
+        public void NewSupplier_toggle(boolean value){
+            WindowsManager.NewSupplier = value;
+        }
     public void Storage_toggle(boolean value){
         WindowsManager.Storage = value;
     }
@@ -133,10 +149,19 @@ public class WindowsManager {
     }
         public boolean NewCustomer_isOpen(){
             return WindowsManager.NewCustomer;
-        }    
+        }   
+        public boolean SearchViewCustomers_isOpen(){
+            return WindowsManager.SearchViewCustomer;
+        }
+        public boolean BackUpCustomers_isOpen(){
+            return WindowsManager.BackupCustomers;
+        }
     public boolean SupplierManager_isOpen(){
         return WindowsManager.SupplierManager;
     }
+        public boolean NewSupplier_isOpen(){
+            return WindowsManager.NewSupplier;
+        }
     public boolean Storage_isOpen(){
         return WindowsManager.Storage;
     }
@@ -161,6 +186,7 @@ public class WindowsManager {
         private static boolean BackupCustomers;
     // ----------------------
     private static boolean SupplierManager;
+        private static boolean NewSupplier;
     private static boolean Storage;
     private static boolean Employee;
 }

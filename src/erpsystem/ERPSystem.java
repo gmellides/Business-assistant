@@ -31,25 +31,19 @@ public class ERPSystem extends Application {
     }
 
     public void start_graphics(Stage stage) throws IOException{
-         FXMLLoader f = new FXMLLoader();
-
-            f.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
-
-            Parent root = f.load(getClass().getResource("/erpsystem/graphics/windows/Launcher.fxml").openStream());
-            
+         FXMLLoader fxml_loader = new FXMLLoader();
+            fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
+            Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/Launcher.fxml").openStream());
             Scene scene = new Scene(root);
-            
             stage.setWidth(760);
             stage.setHeight(505);
-            
             stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
               @Override
               public void handle(WindowEvent we) {
                  System.exit(0);
               }
             });
-            
-            stage.setTitle(f.getResources().getString("AppName"));
+            stage.setTitle(fxml_loader.getResources().getString("AppName"));
             stage.setScene(scene);
             stage.setResizable(false);
             //Image icon = new Image(getClass().getResource("icon.png").toExternalForm());

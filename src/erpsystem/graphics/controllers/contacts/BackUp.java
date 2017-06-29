@@ -23,14 +23,14 @@ import javafx.stage.Stage;
 public class BackUp implements Initializable {
 
     @FXML
-    private Button btnClose;
-    @FXML
-    private Button btn_SelectFile;
+    private Button btnClose,btn_SelectFile,btn_Import;
     @FXML
     private TextField txt_Path;
-    @FXML
-    private Button btn_Import;
-
+ 
+    private ResourceBundle default_strings;
+    private ContactsConnection contacts_database;
+    private ContactsExport export_csv;
+    
     /**
      * Initializes the controller class.
      */
@@ -47,7 +47,6 @@ public class BackUp implements Initializable {
             if (export_csv.export_file(default_strings, contacts_database.select_contacts())){
                 Alert succed_dialog = new Alert(Alert.AlertType.INFORMATION);
                 succed_dialog.setTitle(default_strings.getString("dialog_contactsCSV_title"));
-
                 succed_dialog.setContentText(default_strings.getString("dialog_contactsCSV_message"));
                 succed_dialog.showAndWait();         
             }  
@@ -80,10 +79,4 @@ public class BackUp implements Initializable {
             window.close();
         }
     // ===============================
-    
-    private ResourceBundle default_strings;
-    private ContactsConnection contacts_database;
-    private ContactsExport export_csv;
-
-    
 }

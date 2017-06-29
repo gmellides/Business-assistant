@@ -58,6 +58,7 @@ public class CustomerManager implements Initializable {
             }catch(IOException e){
                 e.printStackTrace();
             }    
+            close_window();
         }  
     }
     @FXML
@@ -70,12 +71,11 @@ public class CustomerManager implements Initializable {
             }catch(IOException e){
                 e.printStackTrace();
             }
+            close_window();
     }   
     @FXML
     private void btnClose_Action(ActionEvent event) {
-        new WindowsManager().CustomerManager_toggle(false);
-        Stage window = (Stage) btnClose.getScene().getWindow();
-        window.close();
+        close_window();
     }
     
     
@@ -85,6 +85,15 @@ public class CustomerManager implements Initializable {
         lbl_Companies.setText(String.valueOf(number_of_records[1]));
         lbl_Summary.setText(String.valueOf(number_of_records[2]));      
     }
+    
+    private void close_window(){
+        new WindowsManager().CustomerManager_toggle(false);
+        Stage window = (Stage) btnClose.getScene().getWindow();
+        window.close();
+    }
+   
+    
+    
     
     private void OpenWindow(String WindowPath,
                             int Width,

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package erpsystem.entities.business;
+package erpsystem.entities.corpotations;
 
 import erpsystem.entities.people.Person;
 import java.time.LocalDate;

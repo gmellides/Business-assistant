@@ -8,7 +8,7 @@ package erpsystem.graphics.controllers.contacts;
 import erpsystem.database.contacts.ContactsConnection;
 import erpsystem.entities.people.Contact;
 import erpsystem.util.system.WindowsManager;
-import erpsystem.util.xml.read.ComboBox_Parser;
+import erpsystem.util.xml.read.ComboBoxDataParser;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -66,7 +66,7 @@ public class NewContact implements Initializable {
     // -- End of FXML Components Declaration
     
    private final WindowsManager window_check = new WindowsManager();
-   private ComboBox_Parser combodata_xml;
+   private ComboBoxDataParser combodata_xml;
    private ContactsConnection database;
    private ResourceBundle default_strings;
     
@@ -134,7 +134,7 @@ public class NewContact implements Initializable {
          * Retrieve data from XML Files and place it into combo boxes
          */
         public void init_comboboxes(){
-            combodata_xml = new ComboBox_Parser();
+            combodata_xml = new ComboBoxDataParser();
             try {
                 countries_cmb.setItems(combodata_xml.get_countries());
                 sex_ComboBox.setItems(combodata_xml.get_sex());

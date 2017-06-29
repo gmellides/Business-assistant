@@ -6,6 +6,7 @@
 package erpsystem.graphics.controllers.contacts;
 
 import erpsystem.database.contacts.ContactsConnection;
+import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
 import java.io.File;
 import java.io.IOException;
@@ -81,8 +82,8 @@ public class ContactManager implements Initializable {
                 window_check.BackupContacts_toggle(true);    
                 try{
                     OpenWindow("contacts/BackUp.fxml",
-                               547,
-                               252,
+                               new Dimension().BackUp_window_width,
+                               new Dimension().BackUp_window_height,
                                default_strings.getString("cmgr_btnBackUp"));
                 }catch(IOException e){
                     e.printStackTrace();
@@ -118,7 +119,7 @@ public class ContactManager implements Initializable {
                     @Override
                     public void handle(WindowEvent we) {
                         window_check.toggle_window(WindowPath);
-                        stage.close();
+                        stage.close();      
                     }
                 });
                 stage.setTitle(WindowName);

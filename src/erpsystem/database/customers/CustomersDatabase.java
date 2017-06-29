@@ -5,7 +5,7 @@
  */
 package erpsystem.database.customers;
 
-import erpsystem.entities.business.Company;
+import erpsystem.entities.corpotations.CustomerCompany;
 import erpsystem.entities.people.Customer;
 import erpsystem.util.datetime.DateTimeProvider;
 import java.io.File;
@@ -80,7 +80,7 @@ public class CustomersDatabase {
         return flag;
     }
     
-    public boolean insert_company(Company input){
+    public boolean insert_company(CustomerCompany input){
         boolean flag = false;
         try{
             Connect();
@@ -149,6 +149,7 @@ public class CustomersDatabase {
                         Row_Data.put("import_date", String.valueOf(rs.getDate("import_date")));
                     table_data.add(Row_Data);
                 }
+                Disconnect();
             }catch(SQLException e){
                 e.printStackTrace();
             }
@@ -176,6 +177,7 @@ public class CustomersDatabase {
                     Row_Data.put("import_date", String.valueOf(rs.getDate("import_date")));
                 table_data.add(Row_Data);
             }
+            Disconnect();
         }catch(SQLException e){
             e.printStackTrace();
         }
@@ -185,6 +187,9 @@ public class CustomersDatabase {
     private void Disconnect() throws SQLException{
         if (connection != null)
             connection.close();
+        
+        if (insert_statement !=null)
+            insert_statement.close();
         
         if (statement != null)
             statement.close();

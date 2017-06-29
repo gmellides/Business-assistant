@@ -3,12 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package erpsystem.entities.people;
+package erpsystem.entities.actions;
 
-/**
- *
- * @author gabri
- */
-public class Supplier_c extends Person{
+
+public class Hire {
     
 }

@@ -16,10 +16,6 @@ import java.util.Map;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-/**
- *
- * @author gabri
- */
 public class StorageDatabase {
     
     private final String database_driver = "jdbc:ucanaccess://";
@@ -51,6 +47,7 @@ public class StorageDatabase {
                     Map<String,String> row = new HashMap();
                     table_data.add(row);
                 }
+                Disconnect();
             }catch(SQLException e){
                 e.printStackTrace();
             }
@@ -70,7 +67,6 @@ public class StorageDatabase {
         }
         return Products;
     }
-    
     
     private void Disconnect(){
         try{

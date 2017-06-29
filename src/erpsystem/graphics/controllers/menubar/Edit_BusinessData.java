@@ -14,11 +14,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import erpsystem.entities.business.Business;
-import erpsystem.util.xml.read.BusinessXML_Parser;
+import erpsystem.entities.corpotations.Business;
+import erpsystem.util.xml.read.BusinessDataParser;
 import erpsystem.util.xml.write.BusinessData;
 import erpsystem.util.system.FileManager;
-import erpsystem.util.xml.read.ComboBox_Parser;
+import erpsystem.util.xml.read.ComboBoxDataParser;
 import java.io.File;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -33,38 +33,21 @@ import javafx.stage.FileChooser;
 public class Edit_BusinessData implements Initializable {
 
     @FXML
-    private Button btnSave;
-    @FXML
-    private Button btnClose;
+    private Button btnSave,btnClose,btn_Search;
     @FXML
     private DatePicker dtp_establishDate;
     @FXML
-    private TextField txt_Name;
-    @FXML
-    private TextField txt_Address;
-    @FXML
-    private TextField txt_Phone;
-    @FXML
-    private TextField txt_Fax;
-    @FXML
-    private Button btn_Search;
-    @FXML
-    private TextField txt_TaxReg;
+    private TextField txt_Name,txt_Address,txt_Phone,txt_Fax,txt_TaxReg,
+                      txt_Mail,txt_Phone2;
     @FXML
     private TextArea txt_Description;
     @FXML
-    private TextField txt_Mail;
-    @FXML
-    private ImageView business_logo_view;
-    @FXML
-    private Pane background_pane;
-    @FXML
-    private ImageView icon_imageview;
-    @FXML
-    private TextField txt_Phone2;
+    private ImageView business_logo_view,icon_imageview;
     @FXML
     private ComboBox<String> cmb_City;
 
+    private BusinessData BusinessXML;
+    private ResourceBundle default_strings; 
     /**
      * Controller class init. 
      * Search if Business Data exists if yes the window
@@ -74,14 +57,8 @@ public class Edit_BusinessData implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        set_background_and_icon();
-        default_strings = rb;
-        BusinessXML = new BusinessData();
-        if(BusinessXML.get_File().exists()){
-            set_businesslogo();
-            BusinessXML_Parser xmlParser = new BusinessXML_Parser(BusinessXML.get_File());
-            set_data(xmlParser.getData());
-        }
+        init_window(rb);
+        
     }    
 
     // ===== FXML Buttons Action =====
@@ -186,7 +163,7 @@ public class Edit_BusinessData implements Initializable {
          * if no this function sets a default photo in case to 
          * inform user about putting a logo.
          */
-        public void set_businesslogo(){
+        private void set_businesslogo(){
             FileManager path = new FileManager();
             String[] logo_name = new String[]{"/logo.png","/logo.bmp","/logo.jpg"};
             for (String name : logo_name){
@@ -200,8 +177,11 @@ public class Edit_BusinessData implements Initializable {
                 business_logo_view.setImage(new Image(new File("resources/default_img/default.png").toURI().toString()));
             }    
         }
-        
-        public void set_data(Business business){
+        /**
+         * Sets data from XML (Works only when XML file is available)
+         * @param business 
+         */
+        private void set_data(Business business){
             TextField[] textfields = {txt_Name,
                                       txt_Address,
                                       txt_Phone,
@@ -225,17 +205,33 @@ public class Edit_BusinessData implements Initializable {
                 index++;
             }
         }
-        
-        public void set_background_and_icon(){
-            try{
-                cmb_City.setItems(new ComboBox_Parser().get_big_cities_greece());
-            }catch(Exception e){
-                e.printStackTrace();
-            }
-            icon_imageview.setImage(new Image(new File("resources/images/menubar/edit_businessData.png").toURI().toString()));
+        /**
+         * Initialize the window sets the combobox 
+         * icon data from xml if its available and business logo.
+         * @param rb 
+         */
+        private void init_window(ResourceBundle rb){
+            // set combobox
+                try{
+                    cmb_City.setItems(new ComboBoxDataParser().get_big_cities_greece());
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+            // set icon 
+                icon_imageview.setImage(new Image(new File("resources/images/menubar/edit_businessData.png").toURI().toString()));
+            // set language
+                default_strings = rb;
+            // checks for data
+                BusinessXML = new BusinessData();
+                if(BusinessXML.get_File().exists()){
+                    set_businesslogo();
+                    set_data(new BusinessDataParser(BusinessXML.get_File()).getData());
+                }else{
+                   set_businesslogo(); 
+                }
+            // 
         }
     // ===============================
         
-    private BusinessData BusinessXML;
-    private ResourceBundle default_strings;  
+ 
 }

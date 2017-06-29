@@ -5,10 +5,10 @@
  */
 package erpsystem.graphics.controllers.menubar;
 
-import erpsystem.util.xml.read.AdminXML_Parser;
+import erpsystem.util.xml.read.AdminDataParser;
 import erpsystem.util.system.FileManager;
-import erpsystem.entities.business.BusinessAdmin;
-import erpsystem.util.xml.read.ComboBox_Parser;
+import erpsystem.entities.corpotations.BusinessAdmin;
+import erpsystem.util.xml.read.ComboBoxDataParser;
 import erpsystem.util.xml.write.AdminData;
 import java.io.File;
 import java.net.URL;
@@ -33,29 +33,14 @@ public class Edit_BusinessAdmin implements Initializable {
     @FXML
     private ImageView icon_imageview;
     @FXML
-    private ComboBox<String> cmb_Sex;
+    private ComboBox<String> cmb_Sex,cmb_City;
     @FXML
-    private ComboBox<String> cmb_City;
-    @FXML
-    private TextField txt_FirstName;
-    @FXML
-    private TextField txt_LastName;
+    private TextField txt_FirstName,txt_LastName,txt_Address,txt_Phone1,
+                      txt_Phone2,txtMail,txt_TaxReg,txt_ZipCode;
     @FXML
     private DatePicker dtp_Birthdate;
     @FXML
-    private TextField txt_Address;
-    @FXML
-    private TextField txt_Phone1;
-    @FXML
-    private TextField txt_Phone2;
-    @FXML
-    private TextField txtMail;
-    @FXML
     private TextArea txt_Description;
-    @FXML
-    private TextField txt_TaxReg;
-    @FXML
-    private TextField txt_ZipCode;
 
     /**
      * Initializes the controller class.
@@ -65,7 +50,7 @@ public class Edit_BusinessAdmin implements Initializable {
         workspace = new FileManager();
         if(init_window()){
             if(new File(workspace.getApp_data_admin()+"/admin_data.xml").exists()){
-                admin_xml = new AdminXML_Parser(new File(workspace.getApp_data_admin()+"/admin_data.xml"));
+                admin_xml = new AdminDataParser(new File(workspace.getApp_data_admin()+"/admin_data.xml"));
                 put_data(admin_xml.getData());
             }
         }
@@ -118,7 +103,7 @@ public class Edit_BusinessAdmin implements Initializable {
     }
     public boolean init_combobox(){
         boolean flag = false;
-            comboData = new ComboBox_Parser();
+            comboData = new ComboBoxDataParser();
             try{
                 cmb_Sex.setItems(comboData.get_sex());   
                 cmb_City.setItems(comboData.get_big_cities_greece());
@@ -166,7 +151,7 @@ public class Edit_BusinessAdmin implements Initializable {
     }
     
     private FileManager workspace;
-    private ComboBox_Parser comboData;
+    private ComboBoxDataParser comboData;
     private AdminData admin_xml_creator;   
-    private AdminXML_Parser admin_xml;
+    private AdminDataParser admin_xml;
 }

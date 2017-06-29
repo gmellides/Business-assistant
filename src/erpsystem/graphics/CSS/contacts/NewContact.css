@@ -9,3 +9,9 @@
 .background_panel{
     -fx-background-color: #FFFFFF;
 }
+
+.button-normal{
+    -fx-background-color: #339900;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-radius: 5;
+}

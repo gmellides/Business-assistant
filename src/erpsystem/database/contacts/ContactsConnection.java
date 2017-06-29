@@ -125,8 +125,6 @@ public class ContactsConnection {
             }catch(SQLException e){
                 e.printStackTrace();
             }
-
-
             return table_data;
         }   
         
@@ -134,6 +132,8 @@ public class ContactsConnection {
         try{
             if (connection != null)
                 connection.close();
+            if (insert_statement != null)
+                insert_statement.close();
             if (statement != null)
                 statement.close();
             if (rs != null)

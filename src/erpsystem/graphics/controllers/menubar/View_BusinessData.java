@@ -5,11 +5,11 @@
  */
 package erpsystem.graphics.controllers.menubar;
 
-import erpsystem.entities.business.Business;
+import erpsystem.entities.corpotations.Business;
 import erpsystem.util.export.pdf.business_data.BusinessPDF;
 import erpsystem.util.system.FileManager;
 import erpsystem.util.system.WindowsManager;
-import erpsystem.util.xml.read.BusinessXML_Parser;
+import erpsystem.util.xml.read.BusinessDataParser;
 import erpsystem.util.xml.write.BusinessData;
 import java.io.File;
 import java.net.URL;
@@ -171,7 +171,7 @@ public class View_BusinessData implements Initializable {
         }
         
         private void set_data(ResourceBundle bundle,File business_file){
-            BusinessXML_Parser file_reader = new BusinessXML_Parser(business_file);
+            BusinessDataParser file_reader = new BusinessDataParser(business_file);
             business = file_reader.getData();
               lbl_bName.setText(bundle.getString("view_bus_businessname")+"   "+business.getName());
               lbl_bDescription.setText(bundle.getString("view_bus_description")+"   "+business.getDescription());

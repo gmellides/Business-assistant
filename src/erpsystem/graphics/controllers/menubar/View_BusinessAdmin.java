@@ -5,8 +5,8 @@
  */
 package erpsystem.graphics.controllers.menubar;
 
-import erpsystem.entities.business.BusinessAdmin;
-import erpsystem.util.xml.read.AdminXML_Parser;
+import erpsystem.entities.corpotations.BusinessAdmin;
+import erpsystem.util.xml.read.AdminDataParser;
 import erpsystem.util.system.FileManager;
 import java.io.File;
 import java.net.URL;
@@ -67,7 +67,7 @@ public class View_BusinessAdmin implements Initializable {
         data = rb;
         workspace = new FileManager();
         if (new File(workspace.getApp_data_admin()+"/admin_data.xml").exists()){
-            admin_xml = new AdminXML_Parser(new File(workspace.getApp_data_admin()+"/admin_data.xml"));
+            admin_xml = new AdminDataParser(new File(workspace.getApp_data_admin()+"/admin_data.xml"));
             put_data(rb,admin_xml.getData());
         }
     }    
@@ -115,7 +115,7 @@ public class View_BusinessAdmin implements Initializable {
     }
     
    
-    private AdminXML_Parser admin_xml;
+    private AdminDataParser admin_xml;
     private FileManager workspace;
     private ResourceBundle data;
 }

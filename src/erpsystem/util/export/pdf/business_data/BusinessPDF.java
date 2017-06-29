@@ -5,7 +5,7 @@
  */
 package erpsystem.util.export.pdf.business_data;
 
-import erpsystem.entities.business.Business;
+import erpsystem.entities.corpotations.Business;
 import erpsystem.util.datetime.DateTimeProvider;
 import erpsystem.util.system.FileManager;
 import java.io.File;

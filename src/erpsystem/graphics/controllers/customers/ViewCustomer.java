@@ -18,13 +18,14 @@ import javafx.stage.Stage;
 public class ViewCustomer implements Initializable {
 
     @FXML
-    private Label lbl_name_Text,lbl_lastname_text,lbl_sex,lbl_name,lbl_lastname,
-                  sex_label,lbl_Country,lbl_Address,lbl_state,lbl_City,lbl_zipcode,
-                  lbl_customerType,lbl_Phone,lbl_fax,lbl_mail,lbl_date,lbl_Category;
-
-    private ResourceBundle default_strings;
+    private Label lbl_Name,lbl_lastname,lbl_sex,lbl_country,lbl_Address,lbl_State,
+                  lbl_City,lbl_ZipCode,lbl_CustomerType,lbl_category,lbl_phone,
+                  lbl_Fax,lbl_mail,lbl_date;
     @FXML
-    private Button btnClose;
+    private Button btnClose; 
+    
+    private ResourceBundle default_strings;
+
     /**
      * Initializes the controller class.
      */
@@ -41,37 +42,38 @@ public class ViewCustomer implements Initializable {
     
     public void set_window(boolean isBusiness,Map input){
         if (isBusiness){
-            lbl_name_Text.setText(default_strings.getString("company_businessName"));
-            lbl_lastname_text.setVisible(false);
-            lbl_sex.setVisible(false);
-            sex_label.setVisible(false);
+            lbl_sex.setVisible(false);      
             lbl_lastname.setVisible(false);
-            lbl_Category.setText(default_strings.getString("company_cat"));
-            Label[] window_labels = {lbl_name,lbl_Country,lbl_Address,
-            lbl_state,lbl_City,lbl_zipcode,lbl_customerType,lbl_Phone,lbl_fax,
-            lbl_mail,lbl_date};
-            String[] companies_id = {"name","country","address","state","city",
+            Label[] window_labels = {lbl_Name,lbl_country,lbl_Address,lbl_State,
+               lbl_City,lbl_ZipCode,lbl_CustomerType,lbl_phone,lbl_Fax,lbl_mail,
+               lbl_date};
+            String[] companies_data_id = {"name","country","address","state","city",
             "zipcode","customer_type","phone","fax","mail","import_date"};
-           
+            String [] label_strings = {"company_businessName","lbl_country","lbl_address",
+            "lbl_state","lbl_city","lbl_zipcode","customer_type","lbl_phone","lbl_fax",
+            "lbl_mail","lbl_date"};
             int index = 0;
             for (Label item : window_labels){
-                item.setText(String.valueOf(input.get(companies_id[index])));
+                item.setText(default_strings.getString(label_strings[index])+" "+String.valueOf(input.get(companies_data_id[index])));
                 index++;
             }
-            
-        }else{  
-            lbl_Category.setText(default_strings.getString("customer_cat"));
-            Label[] window_labels = {lbl_name,lbl_lastname,sex_label,lbl_Address,lbl_zipcode,lbl_City,lbl_state,
-                  lbl_Country,lbl_customerType,lbl_Phone,lbl_fax,lbl_mail,lbl_date};
-            String[]  customer_id = {"firstname","lastname","sex",
-            "address","zipcode","city","state","country","customer_type","phone",
+            lbl_category.setText(default_strings.getString("lbl_category_text")+" "+default_strings.getString("company_cat"));
+        }else{   
+            Label[] window_labels = {lbl_Name,lbl_lastname,lbl_sex,lbl_country,
+            lbl_Address,lbl_State,lbl_City,lbl_ZipCode,lbl_CustomerType,
+            lbl_phone,lbl_Fax,lbl_mail,lbl_date};
+            String[] customers_data_id = {"firstname","lastname","sex","country",
+            "address","state","city","zipcode","customer_type","phone",
             "fax","mail","import_date"};
+            String[] label_strings = {"lbl_firstname","lbl_lastname","lbl_sex","lbl_country",
+            "lbl_address","lbl_state","lbl_city","lbl_zipcode","customer_type","lbl_phone",
+            "lbl_fax","lbl_mail","lbl_date"};
             int index = 0;
             for (Label item : window_labels){
-                item.setText(String.valueOf(input.get(customer_id[index])));
+                item.setText(default_strings.getString(label_strings[index])+" "+String.valueOf(input.get(customers_data_id[index])));
                 index++;
             }
-            
+            lbl_category.setText(default_strings.getString("lbl_category_text")+" "+default_strings.getString("customer_cat"));
         }
     }
 }

@@ -15,6 +15,7 @@ import javafx.event.EventHandler;
 import javafx.stage.WindowEvent;
 import javafx.fxml.Initializable;
 import erpsystem.util.datetime.DateTimeProvider;
+import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
 import java.io.IOException;
 import java.util.Timer;
@@ -34,7 +35,6 @@ public class Launcher implements Initializable {
     private Timer DateTimeUpdater; 
     private ResourceBundle default_strings;     
     private final WindowsManager window_check = new WindowsManager();    
-
 
     /**
      * Initializes the controller class.
@@ -64,8 +64,8 @@ public class Launcher implements Initializable {
                     window_check.CustomerManager_toggle(true);
                     try{
                         OpenWindow("customers/CustomerManager.fxml",
-                                   600,
-                                   390,
+                                   new Dimension().Manager_window_width,
+                                   new Dimension().Manager_window_height,
                                    default_strings.getString("customer_manager"));
                     }catch(IOException e){
                         e.printStackTrace();
@@ -77,6 +77,20 @@ public class Launcher implements Initializable {
             }
             @FXML
             private void btn_Suppliers_Action(ActionEvent event) {
+                if (!window_check.SupplierManager_isOpen()){
+                    window_check.SupplierManager_toggle(true);
+                    try{
+                        OpenWindow("suppliers/SupplierManager.fxml",
+                                   new Dimension().Manager_window_width,
+                                   new Dimension().Manager_window_height,
+                                   default_strings.getString("customer_manager"));
+                    }catch(IOException e){
+                        e.printStackTrace();
+                    }
+                }else{
+                    
+                }
+            
             }
             @FXML
             private void btn_Finance_Action(ActionEvent event) {
@@ -85,8 +99,8 @@ public class Launcher implements Initializable {
             private void btnStorage_Action(ActionEvent event) throws IOException {    
                     try{
                         OpenWindow("storage/StorageManager.fxml",
-                                   600,
-                                   420,
+                                   new Dimension().Manager_window_width,
+                                   new Dimension().Manager_window_height,
                                    default_strings.getString("customer_manager"));
                     }catch(IOException e){
                         e.printStackTrace();
@@ -99,8 +113,8 @@ public class Launcher implements Initializable {
                     window_check.ContactManager_toggle(true);
                     try{
                         OpenWindow("contacts/ContactManager.fxml",
-                                   600,
-                                   420,
+                                   new Dimension().Manager_window_width,
+                                   new Dimension().Manager_window_height,
                                    default_strings.getString("customer_manager"));
                     }catch(IOException e){
                         e.printStackTrace();

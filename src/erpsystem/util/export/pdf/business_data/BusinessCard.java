@@ -1,6 +1,6 @@
 package erpsystem.util.export.pdf.business_data;
 
-import erpsystem.entities.business.Business;
+import erpsystem.entities.corpotations.Business;
 import erpsystem.util.system.FileManager;
 import java.io.IOException;
 import java.util.ResourceBundle;

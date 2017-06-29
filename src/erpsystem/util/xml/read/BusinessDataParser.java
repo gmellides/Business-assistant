@@ -5,7 +5,7 @@
  */
 package erpsystem.util.xml.read;
 
-import erpsystem.entities.business.Business;
+import erpsystem.entities.corpotations.Business;
 import erpsystem.util.security.DecryptionUtil;
 import erpsystem.util.system.FileManager;
 import java.io.File;
@@ -18,7 +18,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class BusinessXML_Parser {
+public class BusinessDataParser {
     private final File xml_file;
     private DocumentBuilderFactory doc_builder_fact;
     private DocumentBuilder doc_builder;
@@ -27,7 +27,7 @@ public class BusinessXML_Parser {
     private DecryptionUtil decrypt;
     private HashMap<String,String> xml_data;
     
-    public BusinessXML_Parser(File xml_file){
+    public BusinessDataParser(File xml_file){
         this.xml_file = xml_file;
     }
     

@@ -5,7 +5,7 @@
  */
 package erpsystem.util.xml.read;
 
-import erpsystem.entities.business.BusinessAdmin;
+import erpsystem.entities.corpotations.BusinessAdmin;
 import erpsystem.util.security.DecryptionUtil;
 import java.io.File;
 import java.time.LocalDate;
@@ -17,7 +17,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class AdminXML_Parser {
+public class AdminDataParser {
     private final File xml_file;
     private DocumentBuilderFactory doc_builder_fact;
     private DocumentBuilder doc_builder;
@@ -25,7 +25,7 @@ public class AdminXML_Parser {
     private BusinessAdmin BusinessAdminData;
     private DecryptionUtil decrypt;
     
-    public AdminXML_Parser(File xml_file){
+    public AdminDataParser(File xml_file){
         this.xml_file = xml_file;
     }
     
