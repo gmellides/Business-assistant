@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package erpsystem.graphics.controllers.menubar;
+package erpsystem.graphics.controllers.menubar.business;
 
 import java.net.URL;
 import java.util.ResourceBundle;

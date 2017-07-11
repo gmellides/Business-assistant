@@ -6,6 +6,8 @@
 package erpsystem.graphics.controllers.customers;
 
 import erpsystem.database.customers.CustomersDatabase;
+import erpsystem.util.system.Dimension;
+import erpsystem.util.system.WindowsManager;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
@@ -45,7 +47,7 @@ public class SearchView implements Initializable {
                         col_comp_zipcode,col_comp_city,col_comp_state,col_comp_country,
                         col_comp_customerType,col_comp_phone,col_comp_fax,col_comp_mail,
                         col_comp_importDate;
-    private static boolean isBusiness;
+    private static boolean isCompany;
     private ResourceBundle default_strings;
 
     /**
@@ -59,7 +61,7 @@ public class SearchView implements Initializable {
     
     @FXML
     private void btn_toggleCustomers_Action(ActionEvent event) {
-        isBusiness = false;
+        isCompany = false;
         if (tbl_companies.isVisible())
             tbl_companies.setVisible(false);
         if (!tbl_customers.isVisible())
@@ -68,7 +70,7 @@ public class SearchView implements Initializable {
 
     @FXML
     private void btn_toggleBusiness_Action(ActionEvent event) {
-        isBusiness = true;
+        isCompany = true;
         if (tbl_customers.isVisible())
             tbl_customers.setVisible(false);
         if (!tbl_companies.isVisible())
@@ -77,19 +79,21 @@ public class SearchView implements Initializable {
 
     @FXML
     private void btn_Close_Action(ActionEvent event) {
-        Stage this_window = (Stage) btn_ToggleData.getScene().getWindow();
-        this_window.close();
+        close_window();
+        OpenManager();
     }
-    
-    // hnadcuiovg
-    
+        
     private void init_window(){
         if(isTableFiled())
             tbl_companies.setVisible(false);
-        isBusiness = false;
-        
+        isCompany = false;
     }
     
+    private void close_window(){
+        // window toogle 
+        Stage this_window = (Stage) btn_ToggleData.getScene().getWindow();
+        this_window.close();
+    }
     private boolean isTableFiled(){
         boolean flag = false;
             tbl_customers.setRowFactory(tableview_evt ->{
@@ -115,7 +119,7 @@ public class SearchView implements Initializable {
                 return row 
             ;});
             
-        tbl_customers.setItems(new CustomersDatabase().select_customer());
+        tbl_customers.setItems(new CustomersDatabase().select_person());
         tbl_companies.setItems(new CustomersDatabase().select_company());
          
             TableColumn[] customer_columns = {Col_cust_CustomerID,Col_cust_Firstname,
@@ -143,7 +147,7 @@ public class SearchView implements Initializable {
             
         return flag;
     }
-    
+    // View Window
     private void OpenWindow(int Width,
                             int Height,
                             Map input){
@@ -152,7 +156,7 @@ public class SearchView implements Initializable {
             fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
             Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/customers/ViewCustomer.fxml").openStream());
             ViewCustomer d = fxml_loader.getController();
-            d.set_window(isBusiness,input);                            
+            d.set_window(isCompany,input);                            
             Stage stage = new Stage();
             Scene scene = new Scene(root);
             stage.setHeight(Height);
@@ -166,8 +170,33 @@ public class SearchView implements Initializable {
             stage.setTitle(default_strings.getString("customer_manager"));
             stage.setScene(scene);
             stage.setResizable(false);
-         // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
-         // stage.getIcons().add(icon);
+         // stage.getIcons().add(new Image(getClass().getResource("icon.png").toExternalForm()));
+            stage.show();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+    // Manager
+    private void OpenManager(){
+        try{
+            FXMLLoader fxml_loader = new FXMLLoader();
+            fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
+            Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/customers/CustomerManager.fxml").openStream());
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            stage.setHeight(new Dimension().Manager_window_height);
+            stage.setWidth(new Dimension().Manager_window_width);
+               stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                   @Override
+                   public void handle(WindowEvent we) {
+                       new WindowsManager().toggle_window("customers/CustomerManager.fxml");
+                       stage.close();
+                   }
+               });
+            stage.setTitle(default_strings.getString("customer_manager"));
+            stage.setScene(scene);
+            stage.setResizable(false);
+            // stage.getIcons().add(new Image(getClass().getResource("icon.png").toExternalForm()));
             stage.show();
         }catch(IOException e){
             e.printStackTrace();

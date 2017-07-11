@@ -16,10 +16,18 @@ public class WindowsManager {
         // Buttons
         WindowsManager.CustomerManager = false;
             WindowsManager.NewCustomer = false;
+            WindowsManager.SearchViewCustomer = false;
+            WindowsManager.BackupCustomers = false;
+        WindowsManager.SupplierManager = false;
+            WindowsManager.NewSupplier = false;
+            WindowsManager.SearchViewCustomer = false;
+            WindowsManager.BackupCustomers = false;
         WindowsManager.ContactManager = false;
+            WindowsManager.NewContact = false;
+            WindowsManager.SearchViewContact = false;
+            WindowsManager.BackupContacts = false;
         WindowsManager.Storage = false;
         WindowsManager.Employee = false;
-        WindowsManager.SupplierManager = false;
         
     }
     
@@ -51,7 +59,14 @@ public class WindowsManager {
             case "suppliers/NewSupplier.fxml":
                 NewSupplier_toggle(false);
                 break;
-                
+            case "suppliers/BackUp.fxml":
+                BackupSupplier_toggle(false);
+                break;
+            case "suppliers/SearchView.fxml":
+                SearchViewSupplier_toggle(false);
+                break;
+           
+               
             case "contacts/ContactManager.fxml":
                 ContactManager_toggle(false);
                 break;
@@ -68,8 +83,7 @@ public class WindowsManager {
             case "storage/StorageManager.fxml":
                 Storage_toggle(false);
                 break;
-            
-            
+           
         }
     }
     
@@ -99,18 +113,33 @@ public class WindowsManager {
         public void BackupContacts_toggle(boolean value){
             WindowsManager.BackupContacts = value;
         }    
+        
     public void CustomerManager_toggle(boolean value){
         WindowsManager.CustomerManager = value;
     }
         public void NewCustomer_toggle(boolean value){
             WindowsManager.NewCustomer = value;
         }
+        public void SearchViewCustomer_toggle(boolean value){
+            WindowsManager.SearchViewCustomer = value;
+        }
+        public void BackupCustomer_toggle(boolean value){
+            WindowsManager.BackupCustomers = value;
+        }   
+        
     public void SupplierManager_toggle(boolean value){
         WindowsManager.SupplierManager = value;
     }
         public void NewSupplier_toggle(boolean value){
             WindowsManager.NewSupplier = value;
         }
+        public void SearchViewSupplier_toggle(boolean value){
+            WindowsManager.SearchViewCustomer = value;
+        }
+        public void BackupSupplier_toggle(boolean value){
+            WindowsManager.BackupCustomers = value;
+        }  
+        
     public void Storage_toggle(boolean value){
         WindowsManager.Storage = value;
     }
@@ -162,6 +191,12 @@ public class WindowsManager {
         public boolean NewSupplier_isOpen(){
             return WindowsManager.NewSupplier;
         }
+        public boolean SearchViewSupplier_isOpen(){
+            return WindowsManager.SearchViewSupplier;    
+        }
+        public boolean BackUpSuppliers_isOpen(){
+            return WindowsManager.BackUpSupplier;
+        }
     public boolean Storage_isOpen(){
         return WindowsManager.Storage;
     }
@@ -184,9 +219,11 @@ public class WindowsManager {
         private static boolean NewCustomer;
         private static boolean SearchViewCustomer;
         private static boolean BackupCustomers;
-    // ----------------------
+    // ---- Suppliers Windows
     private static boolean SupplierManager;
         private static boolean NewSupplier;
+        private static boolean SearchViewSupplier;
+        private static boolean BackUpSupplier;
     private static boolean Storage;
     private static boolean Employee;
 }

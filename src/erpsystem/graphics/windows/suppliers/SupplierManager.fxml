@@ -27,10 +27,10 @@
                <font>
                   <Font size="27.0" />
                </font></Label>
-            <Label layoutX="129.0" layoutY="143.0" text="Label" />
-            <Label layoutX="164.0" layoutY="180.0" text="Label" />
-            <Label layoutX="164.0" layoutY="207.0" text="Label" />
-            <Label layoutX="164.0" layoutY="236.0" text="Label">
+            <Label layoutX="129.0" layoutY="143.0" text="%cmgr_lblinfo" />
+            <Label layoutX="164.0" layoutY="180.0" text="%btn_customers" />
+            <Label layoutX="164.0" layoutY="207.0" text="%btn_companies" />
+            <Label layoutX="164.0" layoutY="236.0" text="%cmgr_customers_sum">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>

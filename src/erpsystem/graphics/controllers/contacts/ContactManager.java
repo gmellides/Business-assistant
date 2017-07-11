@@ -68,8 +68,8 @@ public class ContactManager implements Initializable {
                 window_check.ShowSearchContact_toggle(true);
                 try{
                     OpenWindow("contacts/SearchView.fxml",
-                               855,
-                               600,
+                               new Dimension().SearchView_window_width,
+                               new Dimension().SearchView_window_height,
                                default_strings.getString("ViewSearch_Title"));
                 }catch(IOException e){
                     e.printStackTrace();

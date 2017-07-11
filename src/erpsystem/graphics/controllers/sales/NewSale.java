@@ -7,18 +7,9 @@ package erpsystem.graphics.controllers.sales;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 
-public class SalesManager implements Initializable {
-
-    @FXML
-    private Button btn_Close_Action;
-    @FXML
-    private Button btn_NewSale_Action;
-    @FXML
-    private Button btn_ShowSales_Action;
+public class NewSale implements Initializable {
 
     /**
      * Initializes the controller class.

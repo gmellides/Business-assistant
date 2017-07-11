@@ -40,26 +40,15 @@ public class ViewCustomer implements Initializable {
         this_window.close();
     }
     
-    public void set_window(boolean isBusiness,Map input){
-        if (isBusiness){
-            lbl_sex.setVisible(false);      
-            lbl_lastname.setVisible(false);
-            Label[] window_labels = {lbl_Name,lbl_country,lbl_Address,lbl_State,
-               lbl_City,lbl_ZipCode,lbl_CustomerType,lbl_phone,lbl_Fax,lbl_mail,
-               lbl_date};
-            String[] companies_data_id = {"name","country","address","state","city",
-            "zipcode","customer_type","phone","fax","mail","import_date"};
-            String [] label_strings = {"company_businessName","lbl_country","lbl_address",
-            "lbl_state","lbl_city","lbl_zipcode","customer_type","lbl_phone","lbl_fax",
-            "lbl_mail","lbl_date"};
-            int index = 0;
-            for (Label item : window_labels){
-                item.setText(default_strings.getString(label_strings[index])+" "+String.valueOf(input.get(companies_data_id[index])));
-                index++;
-            }
-            lbl_category.setText(default_strings.getString("lbl_category_text")+" "+default_strings.getString("company_cat"));
+    public void set_window(boolean isCompany,Map input){
+        if (isCompany){
+            Fill_Customer_Company(input);
         }else{   
-            Label[] window_labels = {lbl_Name,lbl_lastname,lbl_sex,lbl_country,
+            Fill_Customer_Person(input);
+        }
+    }
+    private void Fill_Customer_Person(Map input){
+        Label[] window_labels = {lbl_Name,lbl_lastname,lbl_sex,lbl_country,
             lbl_Address,lbl_State,lbl_City,lbl_ZipCode,lbl_CustomerType,
             lbl_phone,lbl_Fax,lbl_mail,lbl_date};
             String[] customers_data_id = {"firstname","lastname","sex","country",
@@ -74,6 +63,23 @@ public class ViewCustomer implements Initializable {
                 index++;
             }
             lbl_category.setText(default_strings.getString("lbl_category_text")+" "+default_strings.getString("customer_cat"));
+    }
+    private void Fill_Customer_Company(Map input){
+        lbl_sex.setVisible(false);      
+        lbl_lastname.setVisible(false);
+        Label[] window_labels = {lbl_Name,lbl_country,lbl_Address,lbl_State,
+        lbl_City,lbl_ZipCode,lbl_CustomerType,lbl_phone,lbl_Fax,lbl_mail,
+        lbl_date};
+        String[] companies_data_id = {"name","country","address","state","city",
+       "zipcode","customer_type","phone","fax","mail","import_date"};
+        String [] label_strings = {"company_businessName","lbl_country","lbl_address",
+        "lbl_state","lbl_city","lbl_zipcode","customer_type","lbl_phone","lbl_fax",
+        "lbl_mail","lbl_date"};
+        int index = 0;
+        for (Label item : window_labels){
+            item.setText(default_strings.getString(label_strings[index])+" "+String.valueOf(input.get(companies_data_id[index])));
+            index++;
         }
+        lbl_category.setText(default_strings.getString("lbl_category_text")+" "+default_strings.getString("company_cat"));
     }
 }

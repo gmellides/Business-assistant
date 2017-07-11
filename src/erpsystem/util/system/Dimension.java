@@ -12,5 +12,6 @@ public class Dimension {
     public final int BackUp_window_width = 547;
     public final int BackUp_window_height = 252;
     
-    
+    public final int SearchView_window_width = 855;
+    public final int SearchView_window_height = 600;
 }

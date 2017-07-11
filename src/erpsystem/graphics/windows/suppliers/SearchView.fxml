@@ -9,12 +9,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="590.0" prefWidth="860.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="erpsystem.graphics.controllers.suppliers.SearchView">
+<AnchorPane id="AnchorPane" prefHeight="573.0" prefWidth="844.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.suppliers.SearchView">
     <stylesheets>
         <URL value="@/erpsystem/graphics/CSS/suppliers/SearchView.css" />
     </stylesheets>
    <children>
-      <Pane prefHeight="587.0" prefWidth="860.0">
+      <Pane prefHeight="573.0" prefWidth="854.0">
          <children>
             <ImageView fitHeight="86.0" fitWidth="124.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="347.0" layoutY="25.0" text="Label">
@@ -22,16 +22,48 @@
                   <Font size="29.0" />
                </font>
             </Label>
-            <TableView layoutX="6.0" layoutY="111.0" prefHeight="418.0" prefWidth="850.0">
+            <TableView fx:id="Suppliers_Person" layoutX="6.0" layoutY="111.0" prefHeight="418.0" prefWidth="839.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="Col_supl_person_id" prefWidth="75.0" text="C1" visible="false" />
+                <TableColumn fx:id="Col_firstname" prefWidth="75.0" text="C2" />
+                  <TableColumn fx:id="Col_lastname" prefWidth="75.0" text="C1" />
+                  <TableColumn fx:id="Col_sex" prefWidth="75.0" text="C2" />
+                  <TableColumn fx:id="Col_address" prefWidth="75.0" text="C2" />
+                  <TableColumn fx:id="Col_zipcode" prefWidth="75.0" text="C1" />
+                  <TableColumn fx:id="Col_country" prefWidth="75.0" text="C2" />
+                  <TableColumn fx:id="Col_state" prefWidth="75.0" text="C1" />
+                  <TableColumn fx:id="Col_supplier_type" prefWidth="75.0" text="C2" />
+                  <TableColumn fx:id="Col_city" prefWidth="75.0" text="C2" />
+                  <TableColumn fx:id="Col_phone" prefWidth="75.0" text="C1" />
+                  <TableColumn fx:id="Col_mail" prefWidth="75.0" text="C2" />
+                  <TableColumn fx:id="Col_fax" prefWidth="75.0" text="C1" />
+                  <TableColumn fx:id="Col_bank" prefWidth="75.0" text="C2" visible="false" />
+                  <TableColumn fx:id="Col_IBAN" prefWidth="75.0" text="C2" visible="false" />
+                  <TableColumn fx:id="Col_ImportDate" prefWidth="75.0" text="C2" visible="false" />
               </columns>
             </TableView>
-            <Button layoutX="758.0" layoutY="548.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" text="Button" />
-            <TextField layoutX="14.0" layoutY="558.0" prefHeight="25.0" prefWidth="191.0" />
-            <ToggleButton layoutX="303.0" layoutY="548.0" mnemonicParsing="false" text="ToggleButton" />
-            <ToggleButton layoutX="469.0" layoutY="548.0" mnemonicParsing="false" text="ToggleButton" />
+            <TableView fx:id="Suppliers_Companies" layoutX="6.0" layoutY="111.0" prefHeight="418.0" prefWidth="839.0">
+              <columns>
+                <TableColumn fx:id="Col_c_supl_company_id" prefWidth="75.0" text="C1" visible="false" />
+                <TableColumn fx:id="Col_c_name" prefWidth="75.0" text="C2" visible="false" />
+                  <TableColumn fx:id="Col_c_address" prefWidth="75.0" text="C2" />
+                  <TableColumn fx:id="Col_c_zipcode" prefWidth="75.0" text="C1" />
+                  <TableColumn fx:id="Col_c_city" prefWidth="75.0" text="C1" />
+                  <TableColumn fx:id="Col_c_state" prefWidth="75.0" text="C2" />
+                  <TableColumn fx:id="Col_c_country" prefWidth="75.0" text="C1" />
+                  <TableColumn fx:id="Col_c_supplier_type" prefWidth="75.0" text="C1" />
+                  <TableColumn fx:id="Col_c_phone" prefWidth="75.0" text="C2" />
+                  <TableColumn fx:id="Col_c_fax" prefWidth="75.0" text="C1" />
+                  <TableColumn fx:id="Col_c_mail" prefWidth="75.0" text="C1" />
+                  <TableColumn fx:id="Col_c_bank" prefWidth="75.0" text="C2" />
+                  <TableColumn fx:id="Col_c_IBAN" prefWidth="75.0" text="C1" />
+                  <TableColumn fx:id="Col_c_import_date" prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
+            <Button layoutX="757.0" layoutY="536.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="88.0" text="Button" />
+            <TextField layoutX="14.0" layoutY="536.0" prefHeight="25.0" prefWidth="191.0" />
+            <ToggleButton fx:id="Person_toggle" layoutX="303.0" layoutY="536.0" mnemonicParsing="false" onAction="#btn_togglePerson_Action" text="ToggleButton" />
+            <ToggleButton fx:id="Companies_toggle" layoutX="469.0" layoutY="536.0" mnemonicParsing="false" onAction="#btn_toogleCompanies_Action" text="ToggleButton" />
          </children>
       </Pane>
    </children>

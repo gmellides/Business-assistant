@@ -56,7 +56,7 @@ public class BackUp implements Initializable {
         private void btn_SelectFile_Action(ActionEvent event) {
             Stage this_stage = (Stage) btn_SelectFile.getScene().getWindow();
                 FileChooser csv_chooser = new FileChooser();
-                csv_chooser.setTitle("Λογοτυπο επιχείρησης");
+                csv_chooser.setTitle("jnfiwe");
                 csv_chooser.getExtensionFilters().addAll(
                     new FileChooser.ExtensionFilter("Όλα τα αρχεία", "*.*"),
                     new FileChooser.ExtensionFilter("CSV", "*.csv")

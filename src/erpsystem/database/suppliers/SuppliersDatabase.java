@@ -23,13 +23,15 @@ import javafx.collections.ObservableList;
 
 public class SuppliersDatabase {
     private final String database_driver = "jdbc:ucanaccess://";
-    private final String database_path = new File("databases/Suppliers_t.accdb").getAbsolutePath();
+    private final String database_path = new File("databases/data.accdb").getAbsolutePath();
     private final String Username = null;
     private final String Password = null;
     private final String COUNT_SUPP_QUERY = "SELECT COUNT(*) FROM Suppliers_Person";
     private final String COUNT_COMP_QUERY = "SELECT COUNT(*) FROM Supplier_Company";
+    
     private final String SELECT_SUPP_QUERY = "SELECT * FROM Suppliers_Person";
     private final String SELECT_COMP_QUERY = "SELECT * FROM Supplier_Company";
+    
     private final String INSERT_SUPP_QUERY = "INSERT INTO Suppliers_Person(supl_person_id,firstname,lastname,sex,address,zipcode,country,state,supplier_type,city,phone,mail,fax,bank,iban,import_date)" +
     "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private final String INSERT_COMP_QUERY = "INSERT INTO Supplier_Company(supl_company_id,name,address,zipcode,city,state,country,supplier_type,phone,fax,mail,bank,iban,import_date)" +

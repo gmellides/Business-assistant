@@ -6,6 +6,7 @@
 package erpsystem.graphics.controllers.customers;
 
 import erpsystem.database.customers.CustomersDatabase;
+import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
 import java.io.IOException;
 import java.net.URL;
@@ -26,15 +27,11 @@ public class CustomerManager implements Initializable {
 
     @FXML
     private Button btnClose;
-
+    @FXML
+    private Label lbl_Companies,lbl_Summary,lbl_Customers;
+  
     private ResourceBundle default_strings;
     private WindowsManager window_check;
-    @FXML
-    private Label lbl_Companies;
-    @FXML
-    private Label lbl_Summary;
-    @FXML
-    private Label lbl_Customers;
     
     /**
      * Initializes the controller class.
@@ -65,25 +62,38 @@ public class CustomerManager implements Initializable {
     private void btn_SearchView_Action(ActionEvent event) {
             try{
                 OpenWindow("customers/SearchView.fxml",
-                           864,
-                           610,
+                           new Dimension().SearchView_window_width,
+                           new Dimension().SearchView_window_height,
                            default_strings.getString("lbl_windowtitle"));
             }catch(IOException e){
                 e.printStackTrace();
             }
             close_window();
-    }   
+    } 
+    
+    @FXML
+    private void btn_BackUp_Action(ActionEvent event) {
+            try{
+                OpenWindow("customers/BackUp.fxml",
+                           new Dimension().BackUp_window_width,
+                           new Dimension().BackUp_window_height,
+                           default_strings.getString("cmgr_btnBackUp"));
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+            close_window();
+    }
+
     @FXML
     private void btnClose_Action(ActionEvent event) {
         close_window();
     }
     
-    
     private void init_window(){
         int[] number_of_records = new CustomersDatabase().count_customers();
-        lbl_Customers.setText(String.valueOf(number_of_records[0]));
-        lbl_Companies.setText(String.valueOf(number_of_records[1]));
-        lbl_Summary.setText(String.valueOf(number_of_records[2]));      
+            lbl_Customers.setText(String.valueOf(number_of_records[0]));
+            lbl_Companies.setText(String.valueOf(number_of_records[1]));
+            lbl_Summary.setText(String.valueOf(number_of_records[2]));      
     }
     
     private void close_window(){
@@ -91,10 +101,7 @@ public class CustomerManager implements Initializable {
         Stage window = (Stage) btnClose.getScene().getWindow();
         window.close();
     }
-   
-    
-    
-    
+     
     private void OpenWindow(String WindowPath,
                             int Width,
                             int Height,
@@ -111,15 +118,23 @@ public class CustomerManager implements Initializable {
                 public void handle(WindowEvent we) {
                     window_check.toggle_window(WindowPath);
                     stage.close();
+                    if (!WindowPath.equals("customers/CustomerManager.fxml")){
+                        try{
+                            OpenWindow("customers/CustomerManager.fxml",
+                                       new Dimension().Manager_window_width,
+                                       new Dimension().Manager_window_height,
+                                       default_strings.getString("customer_manager"));
+                        }catch(IOException e){
+                            e.printStackTrace();
+                        }
+                    }   
                 }
             });
-         stage.setTitle(default_strings.getString("lbl_windowtitle"));
+         stage.setTitle(WindowName);
          stage.setScene(scene);
          stage.setResizable(false);
-                 // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
-                 // stage.getIcons().add(icon);
+         // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
+         // stage.getIcons().add(icon);
          stage.show();
     }
-
-    
 }

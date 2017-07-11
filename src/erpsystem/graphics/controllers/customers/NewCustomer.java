@@ -8,6 +8,7 @@ package erpsystem.graphics.controllers.customers;
 import erpsystem.database.customers.CustomersDatabase;
 import erpsystem.entities.corpotations.CustomerCompany;
 import erpsystem.entities.people.Customer;
+import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
 import erpsystem.util.xml.read.ComboBoxDataParser;
 import java.io.File;
@@ -55,8 +56,7 @@ public class NewCustomer implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        default_strings = rb;
-        init_window();
+        init_window(rb);
     }    
 
         @FXML
@@ -73,7 +73,6 @@ public class NewCustomer implements Initializable {
                 cmb_sex.setDisable(false);
             }
         }
-
         @FXML
         private void btnSave_Action(ActionEvent event) {
                 if (isCompany){
@@ -88,6 +87,9 @@ public class NewCustomer implements Initializable {
                         input.setFax(txt_fax.getText());
                         input.setCountry(cmb_country.getSelectionModel().getSelectedItem());
                     new CustomersDatabase().insert_company(input);
+                    // Alert 
+                    close_window();
+                    OpenManager();
                 }else{
                     Customer input = new Customer();
                         input.setFirstName(txt_Name.getText());
@@ -103,28 +105,31 @@ public class NewCustomer implements Initializable {
                         input.setFax(txt_fax.getText());
                         input.setMail(txt_mail.getText());
                     new CustomersDatabase().insert_customer(input);
+                    // Alert
+                    close_window();
+                    OpenManager();
                 }   
         }
-        
-    @FXML
-    private void btn_Close_Action(ActionEvent event) {
-        new WindowsManager().NewCustomer_toggle(false);
-        Stage this_window = (Stage) btnClose.getScene().getWindow();
-        this_window.close();
+        @FXML
+        private void btn_Close_Action(ActionEvent event) {
+        close_window();
+        OpenManager();
     }
     
-    private void init_window(){
+    
+    private void init_window(ResourceBundle rb){
+        default_strings = rb;
         NewCustomer.isCompany = false;
         // Set data to combo boxes
-        try{
-            cmb_sex.setItems(new ComboBoxDataParser().get_sex());
-            cmb_state.setItems(new ComboBoxDataParser().get_states_greece());
-            cmb_city.setItems(new ComboBoxDataParser().get_big_cities_greece());
-            cmb_country.setItems(new ComboBoxDataParser().get_countries());
-            cmb_customerType.setItems(new ComboBoxDataParser().get_CustomerType());
-        }catch(Exception e){
-            e.printStackTrace();
-        }
+            try{
+                cmb_sex.setItems(new ComboBoxDataParser().get_sex());
+                cmb_state.setItems(new ComboBoxDataParser().get_states_greece());
+                cmb_city.setItems(new ComboBoxDataParser().get_big_cities_greece());
+                cmb_country.setItems(new ComboBoxDataParser().get_countries());
+                cmb_customerType.setItems(new ComboBoxDataParser().get_CustomerType());
+            }catch(Exception e){
+                e.printStackTrace();
+            }
         img_newContact.setImage(new Image(new File("resources/images/contacts/new_contact.png").toURI().toString()));
     }
 
@@ -176,29 +181,34 @@ public class NewCustomer implements Initializable {
         return flag;
     }
     
-    private void OpenWindow(String WindowPath,
-                            int Width,
-                            int Height,
-                            String WindowName) throws IOException{
-         FXMLLoader fxml_loader = new FXMLLoader();
-         fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
-         Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/"+WindowPath).openStream());
-         Stage stage = new Stage();
-         Scene scene = new Scene(root);
-         stage.setHeight(Height);
-         stage.setWidth(Width);
-            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-                @Override
-                public void handle(WindowEvent we) {
-                   new WindowsManager().toggle_window(WindowPath);
-                    stage.close();
-                }
-            });
-         stage.setTitle(default_strings.getString("lbl_windowtitle"));
-         stage.setScene(scene);
-         stage.setResizable(false);
-                 // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
-                 // stage.getIcons().add(icon);
-         stage.show();
+    private void close_window(){
+        new WindowsManager().NewCustomer_toggle(false);
+        Stage this_window = (Stage) btnClose.getScene().getWindow();
+        this_window.close();
+    }
+    private void OpenManager(){
+        try{
+            FXMLLoader fxml_loader = new FXMLLoader();
+            fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
+            Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/customers/CustomerManager.fxml").openStream());
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            stage.setHeight(new Dimension().Manager_window_height);
+            stage.setWidth(new Dimension().Manager_window_width);
+               stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                   @Override
+                   public void handle(WindowEvent we) {
+                       new WindowsManager().toggle_window("customers/CustomerManager.fxml");
+                       stage.close();
+                   }
+               });
+            stage.setTitle(default_strings.getString("customer_manager"));
+            stage.setScene(scene);
+            stage.setResizable(false);
+            // stage.getIcons().add(new Image(getClass().getResource("icon.png").toExternalForm()));
+            stage.show();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
 }

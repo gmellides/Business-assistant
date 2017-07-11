@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="564.0" prefWidth="516.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="erpsystem.graphics.controllers.sales.NewSale">
+    <stylesheets>
+        <URL value="@/erpsystem/graphics/CSS/sales/NewSale.css" />
+    </stylesheets>
+   <children>
+      <Pane prefHeight="564.0" prefWidth="519.0">
+         <children>
+            <ImageView fitHeight="93.0" fitWidth="104.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="222.0" layoutY="24.0" text="Label">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Line endX="257.0" layoutX="243.0" layoutY="84.0" startX="-100.0" />
+            <ComboBox layoutX="143.0" layoutY="165.0" prefHeight="25.0" prefWidth="358.0" />
+            <Label layoutX="38.0" layoutY="169.0" prefHeight="17.0" prefWidth="87.0" text="ONOMA PELATI" />
+            <Label layoutX="231.0" layoutY="125.0" text="Pelatis" />
+            <Button layoutX="397.0" layoutY="525.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="Button" />
+            <ComboBox layoutX="143.0" layoutY="260.0" prefHeight="25.0" prefWidth="358.0" />
+            <Line endX="400.0" layoutX="109.0" layoutY="219.0" startX="-100.0" />
+            <Label layoutX="231.0" layoutY="235.0" text="PROION" />
+            <Label layoutX="38.0" layoutY="264.0" text="TO PROION " />
+            <Label layoutX="38.0" layoutY="320.0" text="%lbl_Quantity" />
+            <Label layoutX="428.0" layoutY="320.0" text="Label" />
+            <Label layoutX="38.0" layoutY="371.0" text="%lbl_Summary" />
+            <Label layoutX="143.0" layoutY="371.0" text="5.0 EURO " />
+            <TextField layoutX="143.0" layoutY="316.0" prefHeight="25.0" prefWidth="116.0" />
+            <Label layoutX="345.0" layoutY="320.0" text="Label" />
+            <CheckBox layoutX="35.0" layoutY="473.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="150.0" text="EKDOSH APODEIKSHS" />
+            <CheckBox layoutX="397.0" layoutY="125.0" mnemonicParsing="false" text="EPIXEIRISI " />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -72,7 +72,7 @@ public class SearchView implements Initializable {
         }
         @FXML
         private void Instant_Search(KeyEvent event) {
-            search_value = event.getText();
+           search_value = event.getText();
            System.out.print(search_value);
         }
 
@@ -138,5 +138,4 @@ public class SearchView implements Initializable {
     public void set_style(){
         icon_img.setImage(new Image(new File("resources/images/contacts/contact_manager.png").toURI().toString()));
     }
-    
 }

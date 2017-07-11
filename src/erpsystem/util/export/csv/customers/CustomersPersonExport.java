@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package erpsystem.util.export.csv.contacts;
+package erpsystem.util.export.csv.customers;
 
 import erpsystem.util.system.FileManager;
 import java.io.BufferedWriter;
@@ -14,35 +14,35 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 
-public class ContactsExport {
+public class CustomersPersonExport {
+    
     private FileManager workspace;
     private File csv_file;
     private BufferedWriter buffer;
     private FileWriter writer;
     
-    public boolean export_file(ResourceBundle default_strings,ObservableList<Map> input){
+    public boolean export_file(ResourceBundle default_strings,
+                              ObservableList<Map> data){
         workspace = new FileManager();
-        csv_file = new File(workspace.getDocuments_root()+"/"+default_strings.getString("filename_contacts_csv")+"*.csv");
-        
-        if (csv_file.exists()){
-            csv_file.delete();       
-            create_file(csv_file,default_strings,input);
-        }else{
-            create_file(csv_file,default_strings,input);
-        }
-        // check if file exists
-        // if yes delete and create new 
-        // if no create new 
+        csv_file = new File(workspace.getDocuments_root()+"/"+default_strings.getString("backup_filename")+"*.csv");
+            if (csv_file.exists()){
+                csv_file.delete();       
+                create_file(csv_file,default_strings,data);
+            }else{
+                create_file(csv_file,default_strings,data);
+            }
+            // check if file exists
+            // if yes delete and create new 
+            // if no create new 
         return true;
     }
     
     private void create_file(File csv_file,
                              ResourceBundle default_strings,
                              ObservableList<Map> input){
-        String[] csv_columns = {"firstname","lastname","sex","address",
-                                "zipcode","country","greek_state","city","mail",
-                                "phone1","phone1_type","phone2","phone2_type",
-                                "comments","website","import_date"};
+        String[] csv_columns = {"firstname","lastname","sex","address","zipcode",
+        "city","state","country","customer_type","phone","fax","mail",
+        "import_date"};
         try{        
             writer = new FileWriter(workspace.getDocuments_root()+"/"+FileName(default_strings));
             buffer = new BufferedWriter(writer);
@@ -75,10 +75,10 @@ public class ContactsExport {
             }catch(IOException e){
                     e.printStackTrace();
             }
-        }
+        } 
     }
     
     private String FileName(ResourceBundle res){
-        return res.getString("filename_contacts_csv")+".csv";
+        return res.getString("filename_customers_person_csv")+".csv";
     }
 }

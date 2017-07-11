@@ -6,6 +6,7 @@
 package erpsystem.graphics.controllers.suppliers;
 
 import erpsystem.database.suppliers.SuppliersDatabase;
+import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
 import java.io.IOException;
 import java.net.URL;
@@ -40,42 +41,53 @@ public class SupplierManager implements Initializable {
         private void btn_NewSupplier_Action(ActionEvent event) {
             try{
                 OpenWindow("suppliers/NewSupplier.fxml",
-                           750,448,"sioghaeuio");
+                           750,
+                           448,
+                           "sioghaeuio");
             }catch(IOException e){
                 e.printStackTrace();
             }
+            close_window();
         }
 
         @FXML
         private void btn_ShowRecords_Action(ActionEvent event) {
             //CODE TODO 
             try{
-                OpenWindow("suppliers/NewSupplier.fxml",
-                           12,12,"sioghaeuio");
+                OpenWindow("suppliers/SearchView.fxml",
+                           new Dimension().SearchView_window_width,
+                           new Dimension().SearchView_window_height,
+                           "sioghaeuio");
             }catch(IOException e){
                 e.printStackTrace();
             }
+            close_window();
         }
 
         @FXML
         private void btn_BackUp_Action(ActionEvent event) {
             //CODE TODO
             try{
-                OpenWindow("suppliers/NewSupplier.fxml",
-                           12,12,"sioghaeuio");
+                OpenWindow("suppliers/BackUp.fxml",
+                           new Dimension().BackUp_window_width,
+                           new Dimension().BackUp_window_height,
+                           default_strings.getString("backup_window_title"));
             }catch(IOException e){
                 e.printStackTrace();
             }
+            close_window();
         }
 
         @FXML
         private void btn_Close_Action(ActionEvent event) {
-            new WindowsManager().SupplierManager_toggle(false);
-            Stage window = (Stage) lbl_suppl_sum.getScene().getWindow();
-            window.close();
+            close_window();
         }
     
-        
+    private void close_window(){
+        new WindowsManager().SupplierManager_toggle(false);
+        Stage window = (Stage) lbl_suppl_sum.getScene().getWindow();
+        window.close();  
+    }
     private void init_window(ResourceBundle rb){
        // Strings File
         default_strings = rb;
@@ -87,7 +99,6 @@ public class SupplierManager implements Initializable {
        //Set Icon on Imageview
         // CODE TODO 
     }    
-        
     private void OpenWindow(String WindowPath,
                             int Width,
                             int Height,
@@ -104,13 +115,23 @@ public class SupplierManager implements Initializable {
                 public void handle(WindowEvent we) {
                     new WindowsManager().toggle_window(WindowPath);
                     stage.close();
+                    if(!WindowPath.equals("suppliers/SupplierManager.fxml")){
+                        try{
+                        OpenWindow("suppliers/SupplierManager.fxml",
+                                   new Dimension().Manager_window_width,
+                                   new Dimension().Manager_window_height,
+                                   default_strings.getString("customer_manager"));
+                        }catch(IOException e){
+                            e.printStackTrace();
+                        }
+                    }
                 }
             });
-         stage.setTitle(default_strings.getString("lbl_windowtitle"));
+         stage.setTitle(WindowName);
          stage.setScene(scene);
          stage.setResizable(false);
-         // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
-         // stage.getIcons().add(icon);
+      // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
+      // stage.getIcons().add(icon);
          stage.show();
     }
 }

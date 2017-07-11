@@ -33,7 +33,7 @@ public class ContactsConnection {
                                         + "WHERE contact_id = ?";
    
     private final String database_driver = "jdbc:ucanaccess://";
-    private final String database_path = new File("databases/Contacts_t.accdb").getAbsolutePath();
+    private final String database_path = new File("databases/data.accdb").getAbsolutePath();
     private final String Username = null;
     private final String Password = null;
     
