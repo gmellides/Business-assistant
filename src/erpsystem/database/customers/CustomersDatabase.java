@@ -34,10 +34,10 @@ public class CustomersDatabase {
     private final String COMP_QUERY = "SELECT * FROM Customer_Companies";
     
     private final String INSERT_CUSTOMER = "INSERT INTO Customer_Person"
-    + "(customer_id,firstname,lastname,sex,address,zipcode,city,state,country,customer_type,phone,fax,mail,import_date) "
+    + "(cust_customer_id,firstname,lastname,sex,address,zipcode,city,state,country,customer_type,phone,fax,mail,import_date) "
     + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private final String INSERT_COMPANY = "INSERT INTO Customer_Companies"
-    +"(company_id,name,address,zipcode,city,state,country,customer_type,phone,fax,mail,import_date) "
+    +"(cust_company_id,name,address,zipcode,city,state,country,customer_type,phone,fax,mail,import_date) "
     +"VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
     
     public Connection connection;
@@ -131,7 +131,7 @@ public class CustomersDatabase {
                     rs = statement.executeQuery(CUST_QUERY);
                     while (rs.next()){
                         Map<String,String> Row_Data = new HashMap();
-                            Row_Data.put("customer_id", String.valueOf(rs.getInt("customer_id")));
+                            Row_Data.put("customer_id", String.valueOf(rs.getInt("cust_customer_id")));
                             Row_Data.put("firstname", rs.getString("firstname"));
                             Row_Data.put("lastname", rs.getString("lastname"));
                             Row_Data.put("sex", rs.getString("sex") );
@@ -161,7 +161,7 @@ public class CustomersDatabase {
                 rs = statement.executeQuery(COMP_QUERY);
                 while (rs.next()){
                     Map<String,String> Row_Data = new HashMap();
-                        Row_Data.put("company_id", String.valueOf(rs.getInt("company_id")));
+                        Row_Data.put("company_id", String.valueOf(rs.getInt("cust_company_id")));
                         Row_Data.put("name", rs.getString("name"));
                         Row_Data.put("address", rs.getString("address"));
                         Row_Data.put("zipcode", String.valueOf(rs.getInt("zipcode")));                      

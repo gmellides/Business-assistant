@@ -11,8 +11,9 @@ package erpsystem.entities.product;
  */
 public class Product {
     private String Name;
+    private String Description;
     private String Category;
-    private double Quantity;
-    private double Price; // -- for a product
-    
+    private int Quantity;
+    private double VAT;
+    private double SellPrice; // -- for a product
 }

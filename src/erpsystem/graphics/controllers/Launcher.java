@@ -24,6 +24,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 
 public class Launcher implements Initializable {
    
@@ -135,7 +136,7 @@ public class Launcher implements Initializable {
                 if(!window_check.ViewBusiness_isOpen()){
                     window_check.ViewBusiness_toggle(true);
                     try{
-                        OpenWindow("menubar/View_BusinessData.fxml",
+                        OpenWindow("menubar/business/View_BusinessData.fxml",
                                     747,
                                     510,
                                     default_strings.getString("view_business_data"));
@@ -150,7 +151,7 @@ public class Launcher implements Initializable {
                 if (!window_check.ViewAdmin_isOpen()){
                     window_check.ViewAdmin_toggle(true);
                     try{
-                        OpenWindow("menubar/View_BusinessAdmin.fxml",
+                        OpenWindow("menubar/admin/View_BusinessAdmin.fxml",
                                    694,
                                    470,
                                    default_strings.getString("view_admin_data"));
@@ -164,7 +165,7 @@ public class Launcher implements Initializable {
             @FXML
             private void mnu_edit_BusinessInfo_Action(ActionEvent event) throws IOException {
                 try{
-                   OpenWindow("menubar/Edit_BusinessData.fxml",
+                   OpenWindow("menubar/business/Edit_BusinessData.fxml",
                               694,
                               515,
                               default_strings.getString("edit_business_data"));
@@ -176,7 +177,7 @@ public class Launcher implements Initializable {
             @FXML
             private void mnu_edtBusinessAdmin_Action(ActionEvent event) throws IOException {
                 try{
-                   OpenWindow("menubar/Edit_BusinessAdmin.fxml",
+                   OpenWindow("menubar/admin/Edit_BusinessAdmin.fxml",
                               800,
                               430,
                               default_strings.getString("edit_admin_data"));
@@ -192,7 +193,7 @@ public class Launcher implements Initializable {
         // ===============================     
     // ==== ENF OF COMPONENTS ACTION ======  
             
-    // ====== My Methods ========
+    // ====== Methods ========
         private void Start_DateTimeInfo(){
             DateTimeUpdater = new Timer();
             DateTimeUpdater.schedule(new TimerTask(){
@@ -229,10 +230,9 @@ public class Launcher implements Initializable {
                     stage.setTitle(WindowName);
                     stage.setScene(scene);
                     stage.setResizable(false);
-                 // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
-                 // stage.getIcons().add(icon);
+                    stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
                     stage.show();
                     
         }
-    // ==== END OF MY METHODS ===
+    // ==== END OF METHODS ===
 }

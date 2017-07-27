@@ -125,8 +125,7 @@ public class ContactManager implements Initializable {
                 stage.setTitle(WindowName);
                 stage.setScene(scene);
                 stage.setResizable(false);
-                // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
-                // stage.getIcons().add(icon);
+                stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
                 stage.show();
             
         }

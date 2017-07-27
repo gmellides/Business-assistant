@@ -6,7 +6,7 @@
  */
 package erpsystem.financial;
 
-public class c_Outcomes {
+public class Outcomes {
 
     /*
       Set Methods will get data from Database Automaticly

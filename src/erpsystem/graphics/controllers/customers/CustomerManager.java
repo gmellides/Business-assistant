@@ -20,6 +20,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -133,8 +134,7 @@ public class CustomerManager implements Initializable {
          stage.setTitle(WindowName);
          stage.setScene(scene);
          stage.setResizable(false);
-         // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
-         // stage.getIcons().add(icon);
+         stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
          stage.show();
     }
 }
