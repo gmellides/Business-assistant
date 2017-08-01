@@ -28,24 +28,23 @@
    <children>
       <Pane prefHeight="475.0" prefWidth="759.0" styleClass="background_panel">
          <children>
-            <Button layoutX="625.0" layoutY="434.0" mnemonicParsing="false" onAction="#btnExitAction" prefHeight="25.0" prefWidth="115.0" text="%lnc_btnExit" />
-            <Button layoutX="31.0" layoutY="260.0" mnemonicParsing="false" onAction="#btn_Employee_Action" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnEmployeeManager" />
-            <Button layoutX="586.0" layoutY="313.0" mnemonicParsing="false" onAction="#btnContactManagerAction" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnContactManager" />
-            <Button layoutX="586.0" layoutY="149.0" mnemonicParsing="false" onAction="#btnStorage_Action" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnStorageManager" />
-            <Label layoutX="277.0" layoutY="37.0" text="%lnc_lblAppTitle">
+            <Button fx:id="btn_Exit" layoutX="625.0" layoutY="434.0" mnemonicParsing="false" onAction="#btnExitAction" prefHeight="25.0" prefWidth="115.0" styleClass="exit_btn" text="%lnc_btnExit" />
+            <Button fx:id="btn_Employees" layoutX="31.0" layoutY="260.0" mnemonicParsing="false" onAction="#btn_Employee_Action" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnEmployeeManager" />
+            <Button fx:id="btn_Contact" layoutX="586.0" layoutY="313.0" mnemonicParsing="false" onAction="#btnContactManagerAction" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnContactManager" />
+            <Button fx:id="btn_Storage" layoutX="586.0" layoutY="149.0" mnemonicParsing="false" onAction="#btnStorage_Action" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnStorageManager" />
+            <Label layoutX="232.0" layoutY="73.0" prefHeight="43.0" prefWidth="319.0" styleClass="app_title" text="%AppName" textAlignment="CENTER">
                <font>
                   <Font size="29.0" />
                </font>
             </Label>
             <Line endX="200.0" layoutX="517.0" layoutY="245.0" rotate="90.0" startX="-100.0" />
             <Line endX="200.0" layoutX="134.0" layoutY="245.0" rotate="90.0" startX="-100.0" />
-            <Button layoutX="31.0" layoutY="149.0" mnemonicParsing="false" onAction="#btn_Customers_Action" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnCostumers" />
-            <Button layoutX="31.0" layoutY="201.0" mnemonicParsing="false" onAction="#btn_Suppliers_Action" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnSuppliers" />
-            <Button layoutX="31.0" layoutY="313.0" mnemonicParsing="false" onAction="#btn_Finance_Action" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnFinance" />
-            <PieChart layoutX="200.0" layoutY="139.0" prefHeight="257.0" prefWidth="353.0" />
-            <Label fx:id="lcn_lblDateTime" layoutX="295.0" layoutY="115.0" text="Sunday 14, April 2017 04:20:30" />
-            <Button layoutX="586.0" layoutY="201.0" mnemonicParsing="false" onAction="#btnSales_Action" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnSalesManager" />
-            <Button layoutX="586.0" layoutY="260.0" mnemonicParsing="false" onAction="#btnPurchases_Action" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnPurchaseManager" />
+            <Button fx:id="btn_Customers" layoutX="31.0" layoutY="149.0" mnemonicParsing="false" onAction="#btn_Customers_Action" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnCostumers" />
+            <Button fx:id="btn_Suppliers" layoutX="31.0" layoutY="201.0" mnemonicParsing="false" onAction="#btn_Suppliers_Action" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnSuppliers" />
+            <Button fx:id="btn_Finance" layoutX="31.0" layoutY="313.0" mnemonicParsing="false" onAction="#btn_Finance_Action" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnFinance" />
+            <Label fx:id="lcn_lblDateTime" layoutX="289.0" layoutY="371.0" styleClass="date_time" text="Sunday 14, April 2017 04:20:30" />
+            <Button fx:id="btn_Sales" layoutX="586.0" layoutY="201.0" mnemonicParsing="false" onAction="#btnSales_Action" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnSalesManager" />
+            <Button fx:id="btn_Purchases" layoutX="586.0" layoutY="260.0" mnemonicParsing="false" onAction="#btnPurchases_Action" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnPurchaseManager" />
             <MenuBar layoutX="-1.0" prefHeight="25.0" prefWidth="767.0">
               <menus>
                 <Menu mnemonicParsing="false" text="%lnc_MenuFile">
@@ -70,6 +69,7 @@
                 </Menu>
               </menus>
             </MenuBar>
+            <ImageView fx:id="img_logo" fitHeight="226.0" fitWidth="276.0" layoutX="245.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
    </children>

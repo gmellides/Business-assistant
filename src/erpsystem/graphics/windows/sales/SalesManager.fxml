@@ -19,8 +19,8 @@
          <children>
             <Button layoutX="498.0" layoutY="361.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="88.0" text="%btnClose" />
             <Button layoutX="348.0" layoutY="271.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="132.0" text="Button" />
-            <Button layoutX="143.0" layoutY="271.0" mnemonicParsing="false" onAction="#btn_NewSale_Action" prefHeight="25.0" prefWidth="132.0" text="Button" />
-            <Button layoutX="143.0" layoutY="310.0" mnemonicParsing="false" onAction="#btn_ShowSales_Action" prefHeight="25.0" prefWidth="132.0" text="Button" />
+            <Button layoutX="143.0" layoutY="271.0" mnemonicParsing="false" onAction="#btn_NewSale_Action" prefHeight="25.0" prefWidth="132.0" text="New Sale" />
+            <Button layoutX="143.0" layoutY="310.0" mnemonicParsing="false" onAction="#btn_ShowSales_Action" prefHeight="25.0" prefWidth="132.0" text="View Sales" />
             <Button layoutX="348.0" layoutY="310.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="132.0" text="Button" />
             <ImageView fitHeight="107.0" fitWidth="132.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="275.0" layoutY="14.0" text="Label">
@@ -29,6 +29,7 @@
                </font>
             </Label>
             <Line endX="333.0" layoutX="256.0" layoutY="68.0" startX="-100.0" />
+            <Label layoutX="115.0" layoutY="121.0" text="Label" />
          </children>
       </Pane>
    </children>

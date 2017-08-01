@@ -10,12 +10,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="564.0" prefWidth="516.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="erpsystem.graphics.controllers.sales.NewSale">
+<AnchorPane id="AnchorPane" prefHeight="564.0" prefWidth="516.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.sales.NewSale">
     <stylesheets>
         <URL value="@/erpsystem/graphics/CSS/sales/NewSale.css" />
     </stylesheets>
    <children>
-      <Pane prefHeight="564.0" prefWidth="519.0">
+      <Pane prefHeight="623.0" prefWidth="549.0">
          <children>
             <ImageView fitHeight="93.0" fitWidth="104.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="222.0" layoutY="24.0" text="Label">
@@ -24,22 +24,31 @@
                </font>
             </Label>
             <Line endX="257.0" layoutX="243.0" layoutY="84.0" startX="-100.0" />
-            <ComboBox layoutX="143.0" layoutY="165.0" prefHeight="25.0" prefWidth="358.0" />
+            <ComboBox fx:id="cmb_customer" layoutX="143.0" layoutY="165.0" prefHeight="25.0" prefWidth="381.0" />
             <Label layoutX="38.0" layoutY="169.0" prefHeight="17.0" prefWidth="87.0" text="ONOMA PELATI" />
-            <Label layoutX="231.0" layoutY="125.0" text="Pelatis" />
-            <Button layoutX="397.0" layoutY="525.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="Button" />
-            <ComboBox layoutX="143.0" layoutY="260.0" prefHeight="25.0" prefWidth="358.0" />
-            <Line endX="400.0" layoutX="109.0" layoutY="219.0" startX="-100.0" />
-            <Label layoutX="231.0" layoutY="235.0" text="PROION" />
+            <Label layoutX="224.0" layoutY="125.0" text="%lbl_CustomerTitle" />
+            <Button layoutX="435.0" layoutY="584.0" mnemonicParsing="false" onAction="#btn_ConfirmSale_Action" prefHeight="25.0" prefWidth="104.0" text="%btn_Confirm" />
+            <ComboBox fx:id="cmb_product" layoutX="143.0" layoutY="260.0" prefHeight="25.0" prefWidth="381.0" />
+            <Line endX="420.0" layoutX="115.0" layoutY="219.0" startX="-100.0" />
+            <Label layoutX="229.0" layoutY="235.0" text="%lbl_ProductTitle" />
             <Label layoutX="38.0" layoutY="264.0" text="TO PROION " />
-            <Label layoutX="38.0" layoutY="320.0" text="%lbl_Quantity" />
-            <Label layoutX="428.0" layoutY="320.0" text="Label" />
-            <Label layoutX="38.0" layoutY="371.0" text="%lbl_Summary" />
-            <Label layoutX="143.0" layoutY="371.0" text="5.0 EURO " />
-            <TextField layoutX="143.0" layoutY="316.0" prefHeight="25.0" prefWidth="116.0" />
-            <Label layoutX="345.0" layoutY="320.0" text="Label" />
-            <CheckBox layoutX="35.0" layoutY="473.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="150.0" text="EKDOSH APODEIKSHS" />
-            <CheckBox layoutX="397.0" layoutY="125.0" mnemonicParsing="false" text="EPIXEIRISI " />
+            <Label layoutX="40.0" layoutY="303.0" text="%lbl_Quantity" />
+            <Label layoutX="381.0" layoutY="303.0" prefHeight="17.0" prefWidth="116.0" text="Label" />
+            <Label layoutX="38.0" layoutY="338.0" text="%lbl_Summary" />
+            <Label layoutX="143.0" layoutY="338.0" text="5.0 EURO " />
+            <TextField fx:id="txt_Quantity" layoutX="143.0" layoutY="299.0" prefHeight="25.0" prefWidth="116.0" />
+            <Label layoutX="325.0" layoutY="303.0" text="Label" />
+            <CheckBox fx:id="chk_Receipt" layoutX="275.0" layoutY="588.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="150.0" text="%chk_Recipt" />
+            <CheckBox fx:id="chk_Company" layoutX="397.0" layoutY="125.0" mnemonicParsing="false" text="%company_checkbox" />
+            <Button layoutX="25.0" layoutY="584.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="104.0" text="%btnClose" />
+            <Label layoutX="243.0" layoutY="376.0" text="%lbl_Basket" />
+            <TableView layoutX="9.0" layoutY="399.0" prefHeight="177.0" prefWidth="530.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
+            <Button layoutX="324.0" layoutY="334.0" mnemonicParsing="false" onAction="#btn_addToBasket_Action" prefHeight="25.0" prefWidth="205.0" text="%btn_addProduct" />
          </children>
       </Pane>
    </children>

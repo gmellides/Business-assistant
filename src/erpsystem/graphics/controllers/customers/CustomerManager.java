@@ -33,7 +33,9 @@ public class CustomerManager implements Initializable {
   
     private ResourceBundle default_strings;
     private WindowsManager window_check;
-    
+    @FXML
+    private Button btn_newCustomer,btn_backUp,btn_viewCustomer;
+        
     /**
      * Initializes the controller class.
      */
@@ -71,7 +73,6 @@ public class CustomerManager implements Initializable {
             }
             close_window();
     } 
-    
     @FXML
     private void btn_BackUp_Action(ActionEvent event) {
             try{
@@ -84,25 +85,28 @@ public class CustomerManager implements Initializable {
             }
             close_window();
     }
-
     @FXML
     private void btnClose_Action(ActionEvent event) {
         close_window();
     }
     
     private void init_window(){
+        btn_backUp.setDisable(true);
+        btn_viewCustomer.setDisable(true);
         int[] number_of_records = new CustomersDatabase().count_customers();
             lbl_Customers.setText(String.valueOf(number_of_records[0]));
             lbl_Companies.setText(String.valueOf(number_of_records[1]));
             lbl_Summary.setText(String.valueOf(number_of_records[2]));      
+            if (number_of_records[2] > 0){
+                btn_backUp.setDisable(false);
+                btn_viewCustomer.setDisable(false);
+            }
     }
-    
     private void close_window(){
         new WindowsManager().CustomerManager_toggle(false);
         Stage window = (Stage) btnClose.getScene().getWindow();
         window.close();
-    }
-     
+    }    
     private void OpenWindow(String WindowPath,
                             int Width,
                             int Height,

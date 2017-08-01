@@ -24,9 +24,9 @@
       <Pane prefHeight="400.0" prefWidth="600.0" styleClass="background_panel">
          <children>
             <Button fx:id="btnClose" layoutX="513.0" layoutY="348.0" mnemonicParsing="false" onAction="#btnClose_Action" text="%btnClose" />
-            <Button layoutX="67.0" layoutY="256.0" mnemonicParsing="false" onAction="#btnNewCustomer_Action" prefHeight="25.0" prefWidth="213.0" text="%new_customer" />
-            <Button layoutX="300.0" layoutY="256.0" mnemonicParsing="false" onAction="#btn_BackUp_Action" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnBackUp" />
-            <Button layoutX="67.0" layoutY="298.0" mnemonicParsing="false" onAction="#btn_SearchView_Action" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnViewContacts" />
+            <Button fx:id="btn_newCustomer" layoutX="67.0" layoutY="256.0" mnemonicParsing="false" onAction="#btnNewCustomer_Action" prefHeight="25.0" prefWidth="213.0" text="%new_customer" />
+            <Button fx:id="btn_backUp" layoutX="300.0" layoutY="256.0" mnemonicParsing="false" onAction="#btn_BackUp_Action" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnBackUp" />
+            <Button fx:id="btn_viewCustomer" layoutX="67.0" layoutY="298.0" mnemonicParsing="false" onAction="#btn_SearchView_Action" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnViewContacts" />
             <Button layoutX="300.0" layoutY="298.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnExportPDF" />
             <Label layoutX="207.0" layoutY="20.0" text="Label">
                <font>

@@ -17,25 +17,36 @@ import javafx.fxml.Initializable;
 import erpsystem.util.datetime.DateTimeProvider;
 import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
+import java.io.File;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class Launcher implements Initializable {
    
     // ====== FXML Components =======
         @FXML
+        private ImageView img_logo;
+        @FXML
         private Label lcn_lblDateTime;
+        @FXML
+        private Button btn_Exit,btn_Employees,btn_Contact,btn_Storage,btn_Customers,
+        btn_Suppliers,btn_Finance,btn_Sales,btn_Purchases;
     // ==============================
         
     private Timer DateTimeUpdater; 
     private ResourceBundle default_strings;     
     private final WindowsManager window_check = new WindowsManager();    
+    
+    
+    
 
     /**
      * Initializes the controller class.
@@ -43,8 +54,7 @@ public class Launcher implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         default_strings = rb;
-        Start_DateTimeInfo();
-      
+        init_window();
     }
 
     // ====== FXML Components Action ======
@@ -52,6 +62,14 @@ public class Launcher implements Initializable {
         // ======= Buttons ========
             @FXML
             private void btnSales_Action(ActionEvent event) {
+                try{
+                    OpenWindow("sales/SalesManager.fxml",
+                               new Dimension().Manager_window_width,
+                               new Dimension().Manager_window_height,
+                               default_strings.getString("customer_manager"));
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
             }
             @FXML
             private void btnPurchases_Action(ActionEvent event) {
@@ -106,8 +124,7 @@ public class Launcher implements Initializable {
                     }catch(IOException e){
                         e.printStackTrace();
                     }
-             }
-            
+             } 
             @FXML
             private void btnContactManagerAction(ActionEvent event){
                 if (!window_check.ContactManager_isOpen()){
@@ -122,7 +139,6 @@ public class Launcher implements Initializable {
                     }
                 } 
             }
-            
             @FXML
             private void btnExitAction(ActionEvent event) {
                 System.exit(0);
@@ -194,7 +210,8 @@ public class Launcher implements Initializable {
     // ==== ENF OF COMPONENTS ACTION ======  
             
     // ====== Methods ========
-        private void Start_DateTimeInfo(){
+        private void init_window(){
+            img_logo.setImage(new Image(new File("resources/logo/icon.png").toURI().toString()));
             DateTimeUpdater = new Timer();
             DateTimeUpdater.schedule(new TimerTask(){
                 @Override
