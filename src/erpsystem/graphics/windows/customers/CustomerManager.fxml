@@ -18,12 +18,12 @@
 
 <AnchorPane id="AnchorPane" prefHeight="330.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.customers.CustomerManager">
     <stylesheets>
-        <URL value="@/erpsystem/graphics/CSS/customers/customermanager.css" />
+        <URL value="@/erpsystem/graphics/CSS/style.css" />
     </stylesheets>
    <children>
       <Pane prefHeight="400.0" prefWidth="600.0" styleClass="background_panel">
          <children>
-            <Button fx:id="btnClose" layoutX="513.0" layoutY="348.0" mnemonicParsing="false" onAction="#btnClose_Action" text="%btnClose" />
+            <Button fx:id="btnClose" layoutX="475.0" layoutY="350.0" mnemonicParsing="false" onAction="#btnClose_Action" prefHeight="25.0" prefWidth="102.0" text="%btnClose" />
             <Button fx:id="btn_newCustomer" layoutX="67.0" layoutY="256.0" mnemonicParsing="false" onAction="#btnNewCustomer_Action" prefHeight="25.0" prefWidth="213.0" text="%new_customer" />
             <Button fx:id="btn_backUp" layoutX="300.0" layoutY="256.0" mnemonicParsing="false" onAction="#btn_BackUp_Action" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnBackUp" />
             <Button fx:id="btn_viewCustomer" layoutX="67.0" layoutY="298.0" mnemonicParsing="false" onAction="#btn_SearchView_Action" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnViewContacts" />
@@ -32,7 +32,7 @@
                <font>
                   <Font size="27.0" />
                </font></Label>
-            <Label layoutX="81.0" layoutY="127.0" text="%cmgr_lblinfo">
+            <Label layoutX="236.0" layoutY="127.0" text="%cmgr_lblinfo">
                <font>
                   <Font size="14.0" />
                </font></Label>
@@ -52,7 +52,7 @@
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Label>
-            <ImageView fitHeight="100.0" fitWidth="133.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="img_customerManager" fitHeight="122.0" fitWidth="118.0" layoutX="16.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" />
             <Line endX="326.0" layoutX="260.0" layoutY="71.0" startX="-100.0" />
             <Label layoutX="126.0" layoutY="157.0" text="%btn_customers">
                <font>

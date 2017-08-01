@@ -1,0 +1,48 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 1, 2017, 1:49:56 PM
+    Author     : gabri
+*/
+/* ==================================== */
+/* Background Panel */
+    .background_panel{
+        -fx-background-color: white;
+    }
+/* Button Style & Hover Effect*/
+    .simple_btn{
+        -fx-background-color: white;
+        -fx-border-color: #006699;
+        -fx-border-width: 3px;
+        -fx-border-radius: 10px;
+    }
+    .simple_btn:hover{
+        -fx-background-color: white;
+        -fx-border-color: #ff9933;
+        -fx-border-width: 3px;
+        -fx-border-radius: 10px;
+    }
+/* Exit Button Style & Hover Effect */
+    .exit_btn{
+        -fx-background-color: white;
+        -fx-border-color: #ff0033;
+        -fx-border-width: 3px;
+        -fx-border-radius: 10px;  
+    }
+    .exit_btn:hover{
+        -fx-background-color:#ff3333;
+        -fx-text-fill: #FFFFFF;
+    }
+/* Launcher Screen Labels */
+    .app_title{
+        -fx-text-fill: black;
+        -fx-effect: dropshadow(one-pass-box,black,10,0,0,0);
+    }
+    .date_time{
+        -fx-text-fill: black;
+        -fx-effect: dropshadow(three-pass-box,black,10,0,0,0);
+    }
+/* ------------------------------------ */  

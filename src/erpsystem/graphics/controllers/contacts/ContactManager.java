@@ -45,7 +45,7 @@ public class ContactManager implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         default_strings = rb;
         init_window();
-    }    
+    }
 
     // ===== FXML Buttons Action =====
         @FXML

@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="429.0" prefWidth="694.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.menubar.business.Edit_BusinessData">
     <stylesheets>
-        <URL value="@/erpsystem/graphics/CSS/menubar/Edit_BusinessData.css" />
+        <URL value="@/erpsystem/graphics/CSS/style.css" />
     </stylesheets>
    <children>
       <Pane prefHeight="495.0" prefWidth="694.0" styleClass="background_panel">

@@ -15,7 +15,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="222.0" prefWidth="537.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.customers.BackUp">
     <stylesheets>
-        <URL value="@/erpsystem/graphics/CSS/customers/BackUp.css" />
+        <URL value="@/erpsystem/graphics/CSS/style.css" />
     </stylesheets>
     <children>
       <Pane prefHeight="232.0" prefWidth="547.0">

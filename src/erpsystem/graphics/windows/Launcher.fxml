@@ -23,7 +23,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="473.0" prefWidth="754.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.Launcher">
     <stylesheets>
-        <URL value="@/erpsystem/graphics/CSS/launchscreen.css" />
+        <URL value="@/erpsystem/graphics/CSS/style.css" />
     </stylesheets>
    <children>
       <Pane prefHeight="475.0" prefWidth="759.0" styleClass="background_panel">

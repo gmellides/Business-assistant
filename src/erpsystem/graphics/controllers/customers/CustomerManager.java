@@ -8,6 +8,7 @@ package erpsystem.graphics.controllers.customers;
 import erpsystem.database.customers.CustomersDatabase;
 import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -35,6 +37,8 @@ public class CustomerManager implements Initializable {
     private WindowsManager window_check;
     @FXML
     private Button btn_newCustomer,btn_backUp,btn_viewCustomer;
+    @FXML
+    private ImageView img_customerManager;
         
     /**
      * Initializes the controller class.
@@ -101,6 +105,7 @@ public class CustomerManager implements Initializable {
                 btn_backUp.setDisable(false);
                 btn_viewCustomer.setDisable(false);
             }
+        img_customerManager.setImage(new Image(new File("resources/images/customers/customer_manager.png").toURI().toString()));
     }
     private void close_window(){
         new WindowsManager().CustomerManager_toggle(false);

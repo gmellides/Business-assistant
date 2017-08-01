@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.contacts.ContactManager">
     <stylesheets>
-        <URL value="@/erpsystem/graphics/CSS/contacts/ContactManager.css" />
+        <URL value="@/erpsystem/graphics/CSS/style.css" />
     </stylesheets>
    <children>
       <Pane layoutY="1.0" prefHeight="400.0" prefWidth="600.0" styleClass="background_panel">
