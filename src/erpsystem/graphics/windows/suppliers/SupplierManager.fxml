@@ -17,7 +17,7 @@
    <children>
       <Pane prefHeight="400.0" prefWidth="600.0" styleClass="background_panel">
          <children>
-            <Button layoutX="505.0" layoutY="361.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="81.0" text="Button" />
+            <Button layoutX="505.0" layoutY="361.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="81.0" text="%gnr_btn_Close" />
             <Button layoutX="92.0" layoutY="286.0" mnemonicParsing="false" onAction="#btn_NewSupplier_Action" prefHeight="25.0" prefWidth="187.0" text="%newSupplier_windowname" />
             <Button layoutX="92.0" layoutY="321.0" mnemonicParsing="false" onAction="#btn_ShowRecords_Action" prefHeight="25.0" prefWidth="187.0" text="%searchViewSupplier_windowname" />
             <Button layoutX="300.0" layoutY="286.0" mnemonicParsing="false" onAction="#btn_BackUp_Action" prefHeight="25.0" prefWidth="187.0" text="%cmgr_btnBackUp" />

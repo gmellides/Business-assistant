@@ -5,7 +5,7 @@
  */
 package erpsystem.graphics.controllers.contacts;
 
-import erpsystem.database.contacts.ContactsConnection;
+import erpsystem.database.contacts.ContactsDatabase;
 import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
 import java.io.File;
@@ -101,7 +101,7 @@ public class ContactManager implements Initializable {
     // ========== Methods ============
         public void init_window(){
            icn_contactManager.setImage(new Image(new File("resources/images/contacts/contact_manager.png").toURI().toString()));
-           Saved_contacts.setText(String.valueOf(new ContactsConnection().count_contacts()));
+           Saved_contacts.setText(String.valueOf(new ContactsDatabase().count_contacts()));
         }       
         
         private void OpenWindow(String WindowPath,

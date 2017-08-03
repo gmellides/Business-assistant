@@ -40,7 +40,7 @@
             <Label layoutX="325.0" layoutY="303.0" text="Label" />
             <CheckBox fx:id="chk_Receipt" layoutX="275.0" layoutY="588.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="150.0" text="%chk_Recipt" />
             <CheckBox fx:id="chk_Company" layoutX="397.0" layoutY="125.0" mnemonicParsing="false" text="%company_checkbox" />
-            <Button layoutX="25.0" layoutY="584.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="104.0" text="%btnClose" />
+            <Button layoutX="25.0" layoutY="584.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="104.0" text="%grn_btn_Close" />
             <Label layoutX="243.0" layoutY="376.0" text="%lbl_Basket" />
             <TableView layoutX="9.0" layoutY="399.0" prefHeight="177.0" prefWidth="530.0">
               <columns>

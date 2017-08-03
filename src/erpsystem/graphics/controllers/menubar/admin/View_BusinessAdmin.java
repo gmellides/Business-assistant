@@ -24,39 +24,15 @@ import javafx.stage.Stage;
 public class View_BusinessAdmin implements Initializable {
 
     @FXML
-    private Button btn_ExportPDF;
-    @FXML
-    private Button btn_ExportCard;
-    @FXML
-    private Button btn_Close;
+    private Button btn_ExportCard,btn_ExportPDF,btn_Close;
     @FXML
     private ImageView icon_imageview;
     @FXML
     private Pane background_pane;
     @FXML
-    private Label lbl_fistname;
-    @FXML
-    private Label lbl_lastname;
-    @FXML
-    private Label lbl_sex;
-    @FXML
-    private Label lbl_address;
-    @FXML
-    private Label lbl_phone1;
-    @FXML
-    private Label lbl_phone2;
-    @FXML
-    private Label lbl_birthdate;
-    @FXML
-    private Label lbl_city;
-    @FXML
-    private Label lbl_zipcode;
-    @FXML
-    private Label lbl_mail;
-    @FXML
-    private Label lbl_taxreg;
-    @FXML
-    private Label lbl_description;
+    private Label lbl_fistname,lbl_lastname,lbl_sex,lbl_address,lbl_phone1,
+    lbl_phone2,lbl_birthdate,lbl_city,lbl_zipcode,lbl_mail,lbl_taxreg,lbl_description;
+
 
     /**
      * Initializes the controller class.
@@ -102,9 +78,9 @@ public class View_BusinessAdmin implements Initializable {
                              String.valueOf(admin.getZipCode()),admin.getMail(),
                              admin.getTaxReg(),admin.getDescription()};
             
-            String[] default_stringID = {"lbl_firstname","lbl_lastname","lbl_sex","lbl_address",
-                                         "lbl_phone1","lbl_phone2","edt_admin_bdate","lbl_city",
-                                         "lbl_zipcode","lbl_mail","edt_admin_taxreg","edt_admin_description"};
+            String[] default_stringID = {"gnr_lbl_firstname","gnr_lbl_lastname","gnr_lbl_sex","gnr_lbl_address",
+                                         "gnr_lbl_phone1","gnr_lbl_phone2","edt_admin_bdate","gnr_lbl_city",
+                                         "gnr_lbl_zipcode","gnr_lbl_mail","edt_admin_taxreg","edt_admin_description"};
             int index = 0;
             for (Label item : labels){
                 item.setText(default_strings.getString(default_stringID[index])+" "+data[index]);

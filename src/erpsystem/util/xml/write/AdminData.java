@@ -54,35 +54,21 @@ public class AdminData {
     
     // ======== Private Methods
         /**
-        * 
+        * This method creates the XML file and puts data in it. 
+        * Once the xml file will be created this method will encrypt 
+        * string data and will save the encrypted data inside the XML 
+        * file.
         * @param data 
         */
         private void create_xml(BusinessAdmin data){
             encrypt = new EncryptionUtil();
-           String[] tags = {"admin_firstname",
-                            "admin_lastname",
-                            "admin_birthday",
-                            "admin_sex",
-                            "admin_address",
-                            "admin_zipcode",
-                            "admin_city",
-                            "admin_phone1",
-                            "admin_phone2",
-                            "admin_description",
-                            "admin_tax_reg",
-                            "admin_mail"};
-            String[] values = {data.getFirstName(),
-                               data.getLastName(),
-                               String.valueOf(data.getBirthdate()),
-                               data.getSex(),
-                               data.getAddress(),
-                               String.valueOf(data.getZipCode()),
-                               data.getCity(),
-                               data.getPhone1(),
-                               data.getPhone2(),
-                               data.getDescription(),
-                               data.getTaxReg(),
-                               data.getMail()};
+            String[] tags = {"admin_firstname","admin_lastname","admin_birthday","admin_sex",
+                             "admin_address","admin_zipcode","admin_city","admin_phone1",
+                             "admin_phone2","admin_description","admin_tax_reg","admin_mail"};
+            String[] values = {data.getFirstName(),data.getLastName(),
+                               String.valueOf(data.getBirthdate()),data.getSex(),data.getAddress(),
+                               String.valueOf(data.getZipCode()),data.getCity(),data.getPhone1(),
+                               data.getPhone2(),data.getDescription(),data.getTaxReg(),data.getMail()};
             try{
                 DocumentBuilderFactory doc_fact = DocumentBuilderFactory.newInstance();
                 DocumentBuilder doc_builder = doc_fact.newDocumentBuilder();

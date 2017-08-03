@@ -19,7 +19,7 @@
    <children>
       <Pane prefHeight="454.0" prefWidth="703.0">
          <children>
-            <Button layoutX="616.0" layoutY="409.0" mnemonicParsing="false" text="%btnClose" />
+            <Button layoutX="616.0" layoutY="409.0" mnemonicParsing="false" text="%grn_btn_Close" />
             <Button layoutX="190.0" layoutY="303.0" mnemonicParsing="false" text="new product" />
             <Button layoutX="188.0" layoutY="341.0" mnemonicParsing="false" text="show storage" />
             <Button layoutX="366.0" layoutY="303.0" mnemonicParsing="false" text="show " />

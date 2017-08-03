@@ -17,7 +17,7 @@
    <children>
       <Pane prefHeight="414.0" prefWidth="750.0">
          <children>
-            <Button layoutX="614.0" layoutY="369.0" mnemonicParsing="false" onAction="#btn_Save_Action" prefHeight="25.0" prefWidth="112.0" text="%btnSave" />
+            <Button layoutX="614.0" layoutY="369.0" mnemonicParsing="false" onAction="#btn_Save_Action" prefHeight="25.0" prefWidth="112.0" text="%gnr_btn_Save" />
             <Label layoutX="345.0" layoutY="14.0" text="Label">
                <font>
                   <Font size="26.0" />
@@ -26,29 +26,29 @@
             <ImageView fitHeight="119.0" fitWidth="150.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <Line endX="421.0" layoutX="305.0" layoutY="74.0" startX="-100.0" />
             <CheckBox fx:id="business_toggle" layoutX="205.0" layoutY="106.0" mnemonicParsing="false" onAction="#isBusiness_Action" text="%company_checkbox" />
-            <Label fx:id="lbl_name" layoutX="36.0" layoutY="161.0" text="%lbl_firstname" />
-            <Label layoutX="36.0" layoutY="202.0" text="%lbl_lastname" />
-            <Label layoutX="36.0" layoutY="246.0" text="%lbl_sex" />
-            <Label layoutX="36.0" layoutY="287.0" text="%lbl_address" />
+            <Label fx:id="lbl_name" layoutX="36.0" layoutY="161.0" text="%gnr_lbl_firstname" />
+            <Label layoutX="36.0" layoutY="202.0" text="%gnr_lbl_lastname" />
+            <Label layoutX="36.0" layoutY="246.0" text="%gnr_lbl_sex" />
+            <Label layoutX="36.0" layoutY="287.0" text="%gnr_lbl_address" />
             <TextField fx:id="txtName" layoutX="108.0" layoutY="157.0" />
             <TextField fx:id="txtLastName" layoutX="108.0" layoutY="198.0" />
             <ComboBox fx:id="cmbSex" layoutX="107.0" layoutY="242.0" prefWidth="150.0" />
-            <Label layoutX="36.0" layoutY="332.0" text="%lbl_zipcode" />
+            <Label layoutX="36.0" layoutY="332.0" text="%gnr_lbl_zipcode" />
             <TextField fx:id="txtAddress" layoutX="108.0" layoutY="283.0" />
             <TextField fx:id="txtZipCode" layoutX="108.0" layoutY="328.0" />
-            <Label layoutX="280.0" layoutY="161.0" text="%lbl_country" />
-            <Label layoutX="280.0" layoutY="202.0" text="%lbl_state" />
-            <Label layoutX="280.0" layoutY="246.0" text="%lbl_city" />
-            <Label layoutX="280.0" layoutY="287.0" text="%lbl_phone" />
-            <Label layoutX="280.0" layoutY="332.0" text="%lbl_fax" />
+            <Label layoutX="280.0" layoutY="161.0" text="%gnr_lbl_country" />
+            <Label layoutX="280.0" layoutY="202.0" text="%gnr_lbl_state" />
+            <Label layoutX="280.0" layoutY="246.0" text="%gnr_lbl_city" />
+            <Label layoutX="280.0" layoutY="287.0" text="%gnr_lbl_phone" />
+            <Label layoutX="280.0" layoutY="332.0" text="%gnr_lbl_fax" />
             <ComboBox fx:id="cmbCountry" layoutX="356.0" layoutY="157.0" prefWidth="150.0" />
             <ComboBox fx:id="cmbState" layoutX="356.0" layoutY="198.0" prefWidth="150.0" />
             <ComboBox fx:id="cmbCity" layoutX="356.0" layoutY="242.0" prefWidth="150.0" />
             <TextField fx:id="txtPhone" layoutX="357.0" layoutY="283.0" />
             <TextField fx:id="txtFax" layoutX="357.0" layoutY="328.0" />
-            <Label layoutX="519.0" layoutY="161.0" text="%lbl_mail" />
+            <Label layoutX="519.0" layoutY="161.0" text="%gnr_lbl_mail" />
             <TextField fx:id="txtMail" layoutX="578.0" layoutY="157.0" />
-            <Button layoutX="22.0" layoutY="369.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="134.0" text="%btnClose" />
+            <Button layoutX="22.0" layoutY="369.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="134.0" text="%gnr_btn_Close" />
             <Label layoutX="519.0" layoutY="202.0" text="%lbl_bankName" />
             <TextField fx:id="txtBankName" layoutX="578.0" layoutY="198.0" />
             <TextField fx:id="txtIBAN" layoutX="578.0" layoutY="242.0" />

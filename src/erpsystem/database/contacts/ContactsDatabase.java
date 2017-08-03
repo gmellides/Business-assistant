@@ -20,7 +20,7 @@ import java.util.Map;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class ContactsConnection {
+public class ContactsDatabase {
     
     private final String INSERT_QUERY = "INSERT INTO Contacts(contact_id,firstname,lastname,sex,address,zipcode,"
                                         + "country,greek_state,city,mail,phone1,phone1_type,phone2,"
@@ -29,8 +29,8 @@ public class ContactsConnection {
     private final String COUNT_QUERY = "SELECT COUNT(*) FROM Contacts;";
     private final String SELECT_QUERY = "SELECT * FROM Contacts;";
     private final String UPDATE_QUERY = "UPDATE Contacts "
-                                        + "COLUMN .... "
-                                        + "WHERE contact_id = ?";
+                                        +"COLUMN .... "
+                                        +"WHERE contact_id = ?";
    
     private final String database_driver = "jdbc:ucanaccess://";
     private final String database_path = new File("databases/data.accdb").getAbsolutePath();

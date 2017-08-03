@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package erpsystem;
 
 import erpsystem.util.system.FileManager;
@@ -21,18 +16,30 @@ import javafx.stage.WindowEvent;
 public class ERPSystem extends Application {
     private final FileManager manager = new FileManager();
     
+    /**
+     * Checks if folders exists if yes the app will start
+     * else the app will create the required folders and 
+     * then the app will start.
+     * @param stage
+     * @throws Exception 
+     */
     @Override
     public void start(Stage stage) throws Exception {
         if (manager.check_folders()){
            start_graphics(stage);
         }else{
-            if(manager.create_all_folders())
-                start_graphics(stage);
+            if(manager.create_all_folders()){
+               start_graphics(stage);
+            }
         }
     }
-
+    /**
+     * Starts the Launcher Window.
+     * @param stage
+     * @throws IOException 
+     */
     public void start_graphics(Stage stage) throws IOException{
-         FXMLLoader fxml_loader = new FXMLLoader();
+        FXMLLoader fxml_loader = new FXMLLoader();
             fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
             Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/Launcher.fxml").openStream());
             Scene scene = new Scene(root);
@@ -50,7 +57,6 @@ public class ERPSystem extends Application {
             stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
             stage.show();
     }
-
     /**
      * @param args the command line arguments
      */
@@ -58,5 +64,5 @@ public class ERPSystem extends Application {
         new WindowsManager().Init();
         launch(args);   
     }
-
+    
 }

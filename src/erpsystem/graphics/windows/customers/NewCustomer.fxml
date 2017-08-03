@@ -23,39 +23,39 @@
    <children>
       <Pane prefHeight="419.0" prefWidth="771.0" styleClass="background_panel">
          <children>
-            <Button layoutX="640.0" layoutY="380.0" mnemonicParsing="false" onAction="#btnSave_Action" prefHeight="25.0" prefWidth="121.0" text="%btnSave" />
-            <Button fx:id="btnClose" layoutX="20.0" layoutY="380.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="92.0" text="%btnClose" />
+            <Button layoutX="640.0" layoutY="380.0" mnemonicParsing="false" onAction="#btnSave_Action" prefHeight="25.0" prefWidth="121.0" text="%gnr_btn_Save" />
+            <Button fx:id="btnClose" layoutX="20.0" layoutY="380.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="92.0" text="%gnr_btn_Close" />
             <Label layoutX="228.0" layoutY="14.0" text="%newcustomer_windowname">
                <font>
                   <Font size="30.0" />
                </font></Label>
             <ImageView fx:id="img_newContact" fitHeight="99.0" fitWidth="129.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="lbl_Name" layoutX="15.0" layoutY="134.0" text="%lbl_firstname" />
+            <Label fx:id="lbl_Name" layoutX="15.0" layoutY="134.0" text="%gnr_lbl_firstname" />
             <TextField fx:id="txt_Name" layoutX="96.0" layoutY="130.0" />
-            <Label layoutX="15.0" layoutY="198.0" text="%lbl_lastname" />
+            <Label layoutX="15.0" layoutY="198.0" text="%gnr_lbl_lastname" />
             <TextField fx:id="txt_LastName" layoutX="96.0" layoutY="197.0" />
-            <ComboBox fx:id="cmb_sex" layoutX="95.0" layoutY="254.0" prefWidth="150.0" promptText="%cmb_select" />
-            <ComboBox fx:id="cmb_state" layoutX="342.0" layoutY="194.0" prefWidth="150.0" promptText="%cmb_select" />
-            <Label layoutX="15.0" layoutY="258.0" text="%lbl_sex" />
-            <Label layoutX="263.0" layoutY="198.0" text="%lbl_state" />
+            <ComboBox fx:id="cmb_sex" layoutX="95.0" layoutY="254.0" prefWidth="150.0" promptText="%gnr_cmb_select" />
+            <ComboBox fx:id="cmb_state" layoutX="342.0" layoutY="194.0" prefWidth="150.0" promptText="%gnr_cmb_select" />
+            <Label layoutX="15.0" layoutY="258.0" text="%gnr_lbl_sex" />
+            <Label layoutX="263.0" layoutY="198.0" text="%gnr_lbl_state" />
             <CheckBox fx:id="business_toggle" layoutX="161.0" layoutY="96.0" mnemonicParsing="false" onAction="#isCompany_Action" text="%company_checkbox" />
             <Line endX="490.0" layoutX="262.0" layoutY="74.0" startX="-100.0" />
             <TextField fx:id="txt_address" layoutX="96.0" layoutY="312.0" />
-            <Label layoutX="15.0" layoutY="316.0" text="%lbl_address" />
-            <Label layoutX="512.0" layoutY="198.0" text="%lbl_phone" />
-            <Label layoutX="512.0" layoutY="258.0" text="%lbl_fax" />
-            <Label layoutX="512.0" layoutY="316.0" text="%lbl_mail" />
+            <Label layoutX="15.0" layoutY="316.0" text="%gnr_lbl_address" />
+            <Label layoutX="512.0" layoutY="198.0" text="%gnr_lbl_phone" />
+            <Label layoutX="512.0" layoutY="258.0" text="%gnr_lbl_fax" />
+            <Label layoutX="512.0" layoutY="316.0" text="%gnr_lbl_mail" />
             <TextField fx:id="txt_phone" layoutX="605.0" layoutY="194.0" />
             <TextField fx:id="txt_fax" layoutX="605.0" layoutY="250.0" />
             <TextField fx:id="txt_mail" layoutX="605.0" layoutY="312.0" />
-            <ComboBox fx:id="cmb_city" layoutX="342.0" layoutY="254.0" prefWidth="150.0" promptText="%cmb_select" />
-            <Label layoutX="263.0" layoutY="258.0" text="%lbl_city" />
-            <Label layoutX="263.0" layoutY="134.0" text="%lbl_zipcode" />
+            <ComboBox fx:id="cmb_city" layoutX="342.0" layoutY="254.0" prefWidth="150.0" promptText="%gnr_cmb_select" />
+            <Label layoutX="263.0" layoutY="258.0" text="%gnr_lbl_city" />
+            <Label layoutX="263.0" layoutY="134.0" text="%gnr_lbl_zipcode" />
             <TextField fx:id="txt_zipcode" layoutX="342.0" layoutY="130.0" />
             <Label layoutX="512.0" layoutY="134.0" text="%customer_type" />
-            <ComboBox fx:id="cmb_customerType" layoutX="612.0" layoutY="130.0" prefHeight="25.0" prefWidth="142.0" promptText="%cmb_select" />
-            <Label layoutX="263.0" layoutY="316.0" text="%lbl_country" />
-            <ComboBox fx:id="cmb_country" layoutX="342.0" layoutY="312.0" prefWidth="150.0" promptText="%cmb_select" />
+            <ComboBox fx:id="cmb_customerType" layoutX="612.0" layoutY="130.0" prefHeight="25.0" prefWidth="142.0" promptText="%gnr_cmb_select" />
+            <Label layoutX="263.0" layoutY="316.0" text="%gnr_lbl_country" />
+            <ComboBox fx:id="cmb_country" layoutX="342.0" layoutY="312.0" prefWidth="150.0" promptText="%gnr_cmb_select" />
          </children>
       </Pane>
    </children>

@@ -61,10 +61,10 @@ public class ViewContact implements Initializable {
                           lbl_zipcode,lbl_sex,lbl_address,lbl_city,
                           lbl_greekState,lbl_phone1,lbl_phone2,lbl_mail,
                           lbl_comments,lbl_website};
-        String[] default_strings = {"lbl_firstname","lbl_lastname","lbl_country",
-                                    "lbl_zipcode","lbl_sex","lbl_address","lbl_city",
-                                    "lbl_state","lbl_phone1","lbl_phone2",
-                                    "lbl_mail","lbl_comments","lbl_website"};
+        String[] default_strings = {"gnr_lbl_firstname","gnr_lbl_lastname","gnr_lbl_country",
+                                    "gnr_lbl_zipcode","gnr_lbl_sex","gnr_lbl_address","gnr_lbl_city",
+                                    "gnr_lbl_state","gnr_lbl_phone1","gnr_lbl_phone2",
+                                    "gnr_lbl_mail","gnr_lbl_comments","gnr_lbl_website"};
         String[] map_values = {"firstname","lastname","country","zipcode",
                                "sex","address","city","greek_state","phone1",
                                 "phone2","...this is a mail....","comments","website"};

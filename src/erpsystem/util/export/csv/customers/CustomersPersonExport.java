@@ -24,7 +24,7 @@ public class CustomersPersonExport {
     public boolean export_file(ResourceBundle default_strings,
                               ObservableList<Map> data){
         workspace = new FileManager();
-        csv_file = new File(workspace.getDocuments_root()+"/"+default_strings.getString("backup_filename")+"*.csv");
+        csv_file = new File(workspace.getDocuments_root()+"/"+default_strings.getString("filename_customers_person_csv")+"*.csv");
             if (csv_file.exists()){
                 csv_file.delete();       
                 create_file(csv_file,default_strings,data);

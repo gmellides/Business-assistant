@@ -5,7 +5,7 @@
  */
 package erpsystem.graphics.controllers.contacts;
 
-import erpsystem.database.contacts.Contacts_Operation;
+import erpsystem.database.contacts.ContactsDatabase;
 import erpsystem.util.system.WindowsManager;
 import java.io.File;
 import java.io.IOException;
@@ -60,8 +60,7 @@ public class SearchView implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         language_strings = rb;
-        set_style();
-        set_data();
+        init_window();
     }  
     
         @FXML
@@ -76,7 +75,8 @@ public class SearchView implements Initializable {
            System.out.print(search_value);
         }
 
-    private void set_data(){
+    private void init_window(){
+        icon_img.setImage(new Image(new File("resources/images/contacts/contact_manager.png").toURI().toString()));
         // Double Click Event for Table
         contacts_table.setRowFactory(tableview_evt ->{
             TableRow<Map> row = new TableRow<>();
@@ -115,7 +115,7 @@ public class SearchView implements Initializable {
             return row 
         ;});
         
-        contacts_table.setItems(new Contacts_Operation().select_table_data());
+        contacts_table.setItems(new ContactsDatabase().select_contacts());
         TableColumn[] columns = {Col_id,col_firstname,col_lastname,col_sex,
                                  col_address,col_zipcode,col_country,
                                  col_greek_state,col_city,col_mail,
@@ -136,6 +136,6 @@ public class SearchView implements Initializable {
         
     }
     public void set_style(){
-        icon_img.setImage(new Image(new File("resources/images/contacts/contact_manager.png").toURI().toString()));
+        
     }
 }

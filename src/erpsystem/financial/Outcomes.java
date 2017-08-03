@@ -13,7 +13,6 @@ public class Outcomes {
       Data will change every year this will controlled from
       automaticly 
     */
-    
     public void setEnergy_bill(double Energy_bill) {
         this.Energy_bill = Energy_bill;
     }

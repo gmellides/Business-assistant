@@ -30,41 +30,16 @@ import javafx.stage.Stage;
 public class View_BusinessData implements Initializable {
 
     @FXML
-    private Button btn_ExportCard;
+    private Button btn_ExportCard,btn_ExportPDF;
     @FXML
-    private Button btn_ExportPDF;
-    @FXML
-    private ImageView b_logo;
+    private ImageView b_logo,icon_imageview;
     @FXML
     private Line graphic_line;
     @FXML
-    private Label lbl_bName;
-    @FXML
-    private Label lbl_bDescription;
-    @FXML
-    private Label lbl_lblPhone;
-    @FXML
-    private Label lbl_Address;
-    @FXML
-    private Label lbl_Fax;
-    @FXML
-    private Label lbl_City;
-    @FXML
-    private Label lbl_TaxReg;
-    @FXML
-    private Label lbl_EstablishData;
-    @FXML
-    private Label lbl_LastEdit;
+    private Label lbl_bName,lbl_bDescription,lbl_lblPhone,lbl_Address,lbl_Fax,
+    lbl_City,lbl_TaxReg,lbl_EstablishData,lbl_LastEdit,lbl_nodata,lbl_Mail,lbl_phone2;
     @FXML
     private Pane background_pane;
-    @FXML
-    private ImageView icon_imageview;
-    @FXML
-    private Label lbl_nodata;
-    @FXML
-    private Label lbl_Mail;
-    @FXML
-    private Label lbl_phone2;
 
     /**
      * Initializes the controller class.
@@ -72,8 +47,6 @@ public class View_BusinessData implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         init_window(rb);
-        
-        workplace = new FileManager();
         BusinessXML = new BusinessData();
             if(BusinessXML.get_File().exists()){
                 set_logo();
@@ -175,19 +148,18 @@ public class View_BusinessData implements Initializable {
             business = file_reader.getData();
               lbl_bName.setText(bundle.getString("view_bus_businessname")+"   "+business.getName());
               lbl_bDescription.setText(bundle.getString("view_bus_description")+"   "+business.getDescription());
-              lbl_lblPhone.setText(bundle.getString("lbl_phone")+"  "+business.getPhone1());
-              lbl_Fax.setText(bundle.getString("lbl_fax")+"  "+business.getFax());
-              lbl_Address.setText(bundle.getString("lbl_address")+"  "+business.getAddress());
-              lbl_City.setText(bundle.getString("lbl_city")+"  "+business.getCity());
-              lbl_TaxReg.setText(bundle.getString("view_bus_taxreg")+"  "+business.getTaxReg());
-              lbl_EstablishData.setText(bundle.getString("view_bus_date")+"  "+business.getDate());
-              lbl_Mail.setText(bundle.getString("lbl_mail")+"  "+business.getMail());
+              lbl_lblPhone.setText(bundle.getString("gnr_lbl_phone")+"  "+business.getPhone1());
+              lbl_Fax.setText(bundle.getString("gnr_lbl_fax")+"  "+business.getFax());
+              lbl_Address.setText(bundle.getString("gnr_lbl_address")+"  "+business.getAddress());
+              lbl_City.setText(bundle.getString("grn_lbl_city")+"  "+business.getCity());
+              lbl_TaxReg.setText(bundle.getString("gnr_view_bus_taxreg")+"  "+business.getTaxReg());
+              lbl_EstablishData.setText(bundle.getString("grn_view_bus_date")+"  "+business.getDate());
+              lbl_Mail.setText(bundle.getString("gnr_lbl_mail")+"  "+business.getMail());
               SimpleDateFormat date_format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
               lbl_LastEdit.setText(bundle.getString("view_bus_LastEdit")+"  "+date_format.format(business_file.lastModified()));
         }
     // ===============================
-    
-    private FileManager workplace;
+   
     private Business business;
     private BusinessData BusinessXML;
     private BusinessPDF export_pdf;

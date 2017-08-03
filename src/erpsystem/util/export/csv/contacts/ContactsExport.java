@@ -20,19 +20,22 @@ public class ContactsExport {
     private BufferedWriter buffer;
     private FileWriter writer;
     
+    /**
+     * Checks if file exists if yes deletes the old file and creates a new
+     * one with the values.
+     * @param default_strings
+     * @param input
+     * @return 
+     */
     public boolean export_file(ResourceBundle default_strings,ObservableList<Map> input){
         workspace = new FileManager();
         csv_file = new File(workspace.getDocuments_root()+"/"+default_strings.getString("filename_contacts_csv")+"*.csv");
-        
-        if (csv_file.exists()){
-            csv_file.delete();       
-            create_file(csv_file,default_strings,input);
-        }else{
-            create_file(csv_file,default_strings,input);
-        }
-        // check if file exists
-        // if yes delete and create new 
-        // if no create new 
+            if (csv_file.exists()){
+                csv_file.delete();       
+                create_file(csv_file,default_strings,input);
+            }else{
+                create_file(csv_file,default_strings,input);
+            }
         return true;
     }
     

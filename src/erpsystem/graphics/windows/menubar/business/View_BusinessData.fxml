@@ -17,9 +17,9 @@
    <children>
       <Pane fx:id="background_pane" prefHeight="492.0" prefWidth="747.0" styleClass="background_panel">
          <children>
-            <Button fx:id="btn_ExportCard" layoutX="14.0" layoutY="441.0" mnemonicParsing="false" onAction="#btnExportCard_Action" prefHeight="25.0" prefWidth="172.0" text="%btnExportCard" />
-            <Button fx:id="btn_ExportPDF" layoutX="196.0" layoutY="441.0" mnemonicParsing="false" onAction="#btnExportPDF_Action" prefHeight="25.0" prefWidth="172.0" text="%btnExportPDF" />
-            <Button layoutX="561.0" layoutY="436.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="35.0" prefWidth="172.0" text="%btnClose" />
+            <Button fx:id="btn_ExportCard" layoutX="14.0" layoutY="441.0" mnemonicParsing="false" onAction="#btnExportCard_Action" prefHeight="25.0" prefWidth="172.0" text="%gnr_btn_ExportCard" />
+            <Button fx:id="btn_ExportPDF" layoutX="196.0" layoutY="441.0" mnemonicParsing="false" onAction="#btnExportPDF_Action" prefHeight="25.0" prefWidth="172.0" text="%gnr_btn_ExportPDF" />
+            <Button layoutX="561.0" layoutY="436.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="35.0" prefWidth="172.0" text="%gnr_btn_Close" />
             <Label layoutX="183.0" layoutY="22.0" text="%view_bus_title">
                <font>
                   <Font size="39.0" />

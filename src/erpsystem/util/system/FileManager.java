@@ -5,12 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
-/*
- - ERP FILES
-  -- Κάρτα επιχείρησης
-  -- Στοιχεία Επιχείρησης
-    
-*/
+
 public class FileManager {
     /**
      * Creates Data Folder on the path that jar is placed
@@ -128,7 +123,7 @@ public class FileManager {
     private final String app_data_root = System.getProperty("user.dir")+"/user_data";
     private final String app_data_business = app_data_root+"/business";
     private final String app_data_admin = app_data_root+"/admin";
-    private final String Documents_root = System.getProperty("user.home")+"/Documents/Erp System Files";
+    private final String Documents_root = System.getProperty("user.home")+"/Documents/Business Assistant Files";
     private final String Documents_business = Documents_root+"/Επιχείρηση";
     private final String Documents_business_data = Documents_business+"/Στοιχεία Επιχείρησης";
     private final String Documents_business_reports = Documents_business+"/Αγορές Επιχείρησης";

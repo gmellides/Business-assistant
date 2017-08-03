@@ -5,7 +5,7 @@
  */
 package erpsystem.graphics.controllers.contacts;
 
-import erpsystem.database.contacts.ContactsConnection;
+import erpsystem.database.contacts.ContactsDatabase;
 import erpsystem.entities.people.Contact;
 import erpsystem.util.system.WindowsManager;
 import erpsystem.util.xml.read.ComboBoxDataParser;
@@ -67,7 +67,7 @@ public class NewContact implements Initializable {
     
    private final WindowsManager window_check = new WindowsManager();
    private ComboBoxDataParser combodata_xml;
-   private ContactsConnection database;
+   private ContactsDatabase database;
    private ResourceBundle default_strings;
     
     @Override
@@ -83,19 +83,19 @@ public class NewContact implements Initializable {
             if (Check_fields()){
                 Contact obj = new Contact();
                  data_to_obj(obj);                 
-                 database = new ContactsConnection();
+                 database = new ContactsDatabase();
                  if(!database.insert_contact(obj)){
                      Alert succed_dialog = new Alert(Alert.AlertType.INFORMATION);
-                     succed_dialog.setTitle(default_strings.getString("dialog_contactSaved_title"));
-                     succed_dialog.setContentText(default_strings.getString("dialog_contactSaved_message"));
+                     succed_dialog.setTitle(default_strings.getString("dlg_contactSaved_title"));
+                     succed_dialog.setContentText(default_strings.getString("dlg_contactSaved_message"));
                      succed_dialog.showAndWait();
                      Stage window = (Stage) btnSave.getScene().getWindow();
                      window.close();
                      window_check.NewContact_toggle(false);
                  }else{
                      Alert succed_dialog = new Alert(Alert.AlertType.ERROR);
-                     succed_dialog.setTitle(default_strings.getString("dialog_contactSaved_title"));
-                     succed_dialog.setContentText(default_strings.getString("dialog_contactSaved_message"));
+                     succed_dialog.setTitle(default_strings.getString("dlg_contactSaved_title"));
+                     succed_dialog.setContentText(default_strings.getString("dlg_contactSaved_message"));
                      succed_dialog.showAndWait();
                      Stage window = (Stage) btnSave.getScene().getWindow();
                      window.close();

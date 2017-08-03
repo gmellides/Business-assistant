@@ -27,7 +27,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 
 public class Edit_BusinessData implements Initializable {
@@ -84,8 +83,8 @@ public class Edit_BusinessData implements Initializable {
             data_to_XML.save_data(b_data);
 
             Alert succed_dialog = new Alert(AlertType.INFORMATION);
-            succed_dialog.setTitle(default_strings.getString("dialog_businessData_Title"));
-            succed_dialog.setContentText(default_strings.getString("dialog_businessData_Message"));
+            succed_dialog.setTitle(default_strings.getString("dlg_businessData_Title"));
+            succed_dialog.setContentText(default_strings.getString("dlg_businessData_Message"));
             succed_dialog.showAndWait();
         }
         /**

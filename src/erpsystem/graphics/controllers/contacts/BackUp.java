@@ -5,7 +5,7 @@
  */
 package erpsystem.graphics.controllers.contacts;
 
-import erpsystem.database.contacts.ContactsConnection;
+import erpsystem.database.contacts.ContactsDatabase;
 import erpsystem.util.export.csv.contacts.ContactsExport;
 import erpsystem.util.system.WindowsManager;
 import java.io.File;
@@ -28,7 +28,7 @@ public class BackUp implements Initializable {
     private TextField txt_Path;
  
     private ResourceBundle default_strings;
-    private ContactsConnection contacts_database;
+    private ContactsDatabase contacts_database;
     private ContactsExport export_csv;
     
     /**
@@ -42,12 +42,12 @@ public class BackUp implements Initializable {
     // ===== FXML Buttons Action =====
         @FXML
         private void btn_ExportCSV_Action(ActionEvent event) {
-            contacts_database = new ContactsConnection();
+            contacts_database = new ContactsDatabase();
             export_csv = new ContactsExport();
             if (export_csv.export_file(default_strings, contacts_database.select_contacts())){
                 Alert succed_dialog = new Alert(Alert.AlertType.INFORMATION);
-                succed_dialog.setTitle(default_strings.getString("dialog_contactsCSV_title"));
-                succed_dialog.setContentText(default_strings.getString("dialog_contactsCSV_message"));
+                succed_dialog.setTitle(default_strings.getString("dlg_contactsCSV_title"));
+                succed_dialog.setContentText(default_strings.getString("dlg_contactsCSV_message"));
                 succed_dialog.showAndWait();         
             }  
         }

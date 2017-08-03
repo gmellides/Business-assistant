@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package erpsystem.util.export.pdf.business_data;
+package erpsystem.util.export.pdf.admin_data;
 
-import erpsystem.entities.corpotations.Business;
+import erpsystem.entities.corpotations.BusinessAdmin;
 import erpsystem.util.datetime.DateTimeProvider;
 import erpsystem.util.system.FileManager;
 import java.io.File;
@@ -19,14 +19,15 @@ import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType0Font;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
-public class BusinessPDF {
-    private FileManager workspace;
+
+public class AdminPDF {
+      private FileManager workspace;
     private String file_name;
     
     // ======== Public Method
-    public boolean save_pdf(ResourceBundle bundle,Business data){
+    public boolean save_pdf(ResourceBundle bundle,BusinessAdmin data){
         boolean flag = false;
-            create_file(bundle);
+            create_file();
             fill_file(bundle,data);
             flag = true;
         return flag;
@@ -38,7 +39,7 @@ public class BusinessPDF {
          * Creates an PDF File with one page and writes some useful informations
          * for example the Author(That is the app name), Description and Title. 
          */
-        private void create_file(ResourceBundle rb){
+        private void create_file(){
             workspace = new FileManager();
             try{
                 PDDocument doc = new PDDocument();
@@ -49,7 +50,7 @@ public class BusinessPDF {
                 doc_info.setAuthor("ERP SYSTEM NAME");
                 // add a new page
                 doc.addPage(page);
-                file_name = Pdf_name(rb);
+                file_name = Pdf_name();
                 doc.save(workspace.getDocuments_business_data()+"/"+file_name);
                 doc.close();
             }catch(IOException e){
@@ -63,13 +64,11 @@ public class BusinessPDF {
          * @param bundle
          * @param data 
          */
-        private void fill_file(ResourceBundle bundle,Business data){
+        private void fill_file(ResourceBundle bundle,BusinessAdmin data){
             String[] default_strings = {"view_bus_businessname",
             "view_bus_description","view_bus_taxreg","lbl_address",
             "lbl_city","lbl_phone","lbl_fax","lbl_mail","view_bus_date"};
-            String[] data_strings = {data.getName(),data.getDescription(),
-            data.getTaxReg(),data.getAddress(),data.getCity(),data.getPhone1(),
-            data.getPhone2(),data.getFax(),data.getMail(),String.valueOf(data.getDate())};
+            String[] data_strings = {};
             
             File pdf_file = new File(workspace.getDocuments_business_data()+"/"+file_name);
             try{
@@ -118,8 +117,7 @@ public class BusinessPDF {
         /**
          * Returns the name that the fill will get the name is a 
          */
-        private String Pdf_name(ResourceBundle rb){
-            return rb.getString("filename_businessData_pdf")+"-"+new DateTimeProvider().GetDateTime_file()+".pdf";
+        private String Pdf_name(){
+            return "Στοιχεία Διαχειρηστή-"+new DateTimeProvider().GetDateTime_file()+".pdf";
         }
-    // ==============================
 }

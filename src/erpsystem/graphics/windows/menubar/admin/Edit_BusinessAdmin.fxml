@@ -16,26 +16,26 @@
    <children>
       <Pane fx:id="background_pane" prefHeight="402.0" prefWidth="802.0" styleClass="background_panel">
          <children>
-            <Button layoutX="22.0" layoutY="356.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="77.0" text="%btnClose" />
-            <Button layoutX="674.0" layoutY="356.0" mnemonicParsing="false" onAction="#btn_Save_Action" prefHeight="25.0" prefWidth="95.0" text="%btnSave" />
+            <Button layoutX="22.0" layoutY="356.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="77.0" text="%gnr_btn_Close" />
+            <Button layoutX="674.0" layoutY="356.0" mnemonicParsing="false" onAction="#btn_Save_Action" prefHeight="25.0" prefWidth="95.0" text="%gnr_btn_Save" />
             <Label layoutX="231.0" layoutY="47.0" text="%edt_admin_lblTitle">
                <font>
                   <Font size="29.0" />
                </font></Label>
             <ImageView fx:id="icon_imageview" fitHeight="139.0" fitWidth="144.0" layoutX="22.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="21.0" layoutY="197.0" text="%lbl_firstname" />
-            <Label layoutX="22.0" layoutY="235.0" text="%lbl_lastname" />
+            <Label layoutX="21.0" layoutY="197.0" text="%gnr_lbl_firstname" />
+            <Label layoutX="22.0" layoutY="235.0" text="%gnr_lbl_lastname" />
             <Label layoutX="22.0" layoutY="272.0" text="%edt_admin_bdate" />
-            <Label layoutX="22.0" layoutY="306.0" text="%lbl_sex" />
-            <Label layoutX="280.0" layoutY="166.0" text="%lbl_address" />
-            <Label layoutX="280.0" layoutY="235.0" text="%lbl_city" />
-            <Label layoutX="280.0" layoutY="272.0" text="%lbl_phone1" />
+            <Label layoutX="22.0" layoutY="306.0" text="%gnr_lbl_sex" />
+            <Label layoutX="280.0" layoutY="166.0" text="%gnr_lbl_address" />
+            <Label layoutX="280.0" layoutY="235.0" text="%gnr_lbl_city" />
+            <Label layoutX="280.0" layoutY="272.0" text="%gnr_lbl_phone1" />
             <TextField fx:id="txt_FirstName" layoutX="123.0" layoutY="193.0" />
             <TextField fx:id="txt_LastName" layoutX="123.0" layoutY="230.0" />
             <DatePicker fx:id="dtp_Birthdate" layoutX="123.0" layoutY="268.0" prefHeight="25.0" prefWidth="149.0" />
             <ComboBox fx:id="cmb_Sex" layoutX="122.0" layoutY="303.0" prefWidth="150.0" />
-            <Label layoutX="280.0" layoutY="307.0" text="%lbl_phone2" />
-            <Label layoutX="518.0" layoutY="307.0" text="%lbl_mail" />
+            <Label layoutX="280.0" layoutY="307.0" text="%gnr_lbl_phone2" />
+            <Label layoutX="518.0" layoutY="307.0" text="%gnr_lbl_mail" />
             <Label layoutX="518.0" layoutY="184.0" text="%edt_admin_description" />
             <Label layoutX="516.0" layoutY="272.0" text="%edt_admin_taxreg" />
             <TextField fx:id="txt_Address" layoutX="360.0" layoutY="162.0" prefHeight="25.0" prefWidth="144.0" />
@@ -44,7 +44,7 @@
             <TextField fx:id="txtMail" layoutX="590.0" layoutY="303.0" prefHeight="25.0" prefWidth="198.0" />
             <TextArea fx:id="txt_Description" layoutX="590.0" layoutY="180.0" prefHeight="80.0" prefWidth="198.0" wrapText="true" />
             <TextField fx:id="txt_TaxReg" layoutX="590.0" layoutY="268.0" prefHeight="25.0" prefWidth="198.0" />
-            <Label layoutX="280.0" layoutY="197.0" text="%lbl_zipcode" />
+            <Label layoutX="280.0" layoutY="197.0" text="%gnr_lbl_zipcode" />
             <TextField fx:id="txt_ZipCode" layoutX="360.0" layoutY="193.0" onKeyPressed="#ZipCode_Validation" prefHeight="25.0" prefWidth="144.0" />
             <ComboBox fx:id="cmb_City" layoutX="359.0" layoutY="230.0" prefHeight="25.0" prefWidth="144.0" />
          </children>
