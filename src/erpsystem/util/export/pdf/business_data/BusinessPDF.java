@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package erpsystem.util.export.pdf.business_data;
 
 import erpsystem.entities.corpotations.Business;
@@ -65,11 +60,25 @@ public class BusinessPDF {
          */
         private void fill_file(ResourceBundle bundle,Business data){
             String[] default_strings = {"view_bus_businessname",
-            "view_bus_description","view_bus_taxreg","lbl_address",
-            "lbl_city","lbl_phone","lbl_fax","lbl_mail","view_bus_date"};
-            String[] data_strings = {data.getName(),data.getDescription(),
-            data.getTaxReg(),data.getAddress(),data.getCity(),data.getPhone1(),
-            data.getPhone2(),data.getFax(),data.getMail(),String.valueOf(data.getDate())};
+                                        "view_bus_description",
+                                        "view_bus_taxreg",
+                                        "gnr_lbl_address",
+                                        "gnr_lbl_city",
+                                        "gnr_lbl_phone1",
+                                        "gnr_lbl_phone2",
+                                        "gnr_lbl_fax",
+                                        "gnr_lbl_mail",
+                                        "view_bus_date"};
+            String[] data_strings = {data.getName(),
+                                     data.getDescription(),
+                                     data.getTaxReg(),
+                                     data.getAddress(),
+                                     data.getCity(),
+                                     data.getPhone1(),
+                                     data.getPhone2(),
+                                     data.getFax(),
+                                     data.getMail(),
+                                     String.valueOf(data.getDate())};
             
             File pdf_file = new File(workspace.getDocuments_business_data()+"/"+file_name);
             try{
@@ -77,13 +86,17 @@ public class BusinessPDF {
                 PDPage doc_page = pdf_doc.getPage(0);
                 PDPageContentStream content = new PDPageContentStream(pdf_doc,doc_page);
                 // Set External Font
-                PDFont font = PDType0Font.load(pdf_doc,new File("resources/fonts/Roboto-Thin.ttf"));
+                PDFont font = PDType0Font.load(pdf_doc,new File("resources/fonts/pdf/Roboto-Regular.ttf"));
                 // Add Business Logo 
-                PDImageXObject business_logo = PDImageXObject.createFromFile(workspace.getApp_data_business()+"/logo.png", pdf_doc);
-                content.drawImage(business_logo, 60, 600,150,150);
+                if (new File(workspace.getApp_data_business()+"/logo.png").exists()){
+                    PDImageXObject business_logo = PDImageXObject.createFromFile(workspace.getApp_data_business()+"/logo.png", pdf_doc);   
+                    content.drawImage(business_logo, 60, 600,150,150);
+                }else{
+                    //
+                }
                 // Add Rectabgle to page
-               // content.addRect(10, 10, 200, 200);
-              //  content.fill();
+                content.addRect(20, 20, 570, 750);
+                content.closeAndStroke();
                 // Text to pdf
                 // -- pdf title
                 content.beginText();

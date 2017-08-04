@@ -41,6 +41,10 @@ public class View_BusinessData implements Initializable {
     @FXML
     private Pane background_pane;
 
+    private Business business;
+    private BusinessData BusinessXML;
+    private BusinessPDF export_pdf;
+    private ResourceBundle default_strings;
     /**
      * Initializes the controller class.
      */
@@ -68,9 +72,9 @@ public class View_BusinessData implements Initializable {
             export_pdf = new BusinessPDF();
             if(export_pdf.save_pdf(default_strings,business)){
                 Alert succed_dialog = new Alert(Alert.AlertType.CONFIRMATION);
-            succed_dialog.setTitle(default_strings.getString("dialog_businessData_exportpdf_Title"));
-            succed_dialog.setContentText(default_strings.getString("dialog_businessData_exportpdf_Message"));
-            succed_dialog.showAndWait();
+                succed_dialog.setTitle(default_strings.getString("dlg_businessData_exportpdf_Title"));
+                succed_dialog.setContentText(default_strings.getString("dlg_businessData_exportpdf_Message"));
+                succed_dialog.showAndWait();
             }
         }
         @FXML
@@ -151,17 +155,13 @@ public class View_BusinessData implements Initializable {
               lbl_lblPhone.setText(bundle.getString("gnr_lbl_phone")+"  "+business.getPhone1());
               lbl_Fax.setText(bundle.getString("gnr_lbl_fax")+"  "+business.getFax());
               lbl_Address.setText(bundle.getString("gnr_lbl_address")+"  "+business.getAddress());
-              lbl_City.setText(bundle.getString("grn_lbl_city")+"  "+business.getCity());
-              lbl_TaxReg.setText(bundle.getString("gnr_view_bus_taxreg")+"  "+business.getTaxReg());
-              lbl_EstablishData.setText(bundle.getString("grn_view_bus_date")+"  "+business.getDate());
+              lbl_City.setText(bundle.getString("gnr_lbl_city")+"  "+business.getCity());
+              lbl_TaxReg.setText(bundle.getString("view_bus_taxreg")+"  "+business.getTaxReg());
+              lbl_EstablishData.setText(bundle.getString("view_bus_date")+"  "+business.getDate());
               lbl_Mail.setText(bundle.getString("gnr_lbl_mail")+"  "+business.getMail());
               SimpleDateFormat date_format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
               lbl_LastEdit.setText(bundle.getString("view_bus_LastEdit")+"  "+date_format.format(business_file.lastModified()));
         }
     // ===============================
    
-    private Business business;
-    private BusinessData BusinessXML;
-    private BusinessPDF export_pdf;
-    private ResourceBundle default_strings;
 }

@@ -9,7 +9,16 @@ import java.time.LocalDate;
 
 public class Business {
 
-    public Business(String Name, String Description, String Address, String City, String Phone1, String Phone2, String Fax, String TaxReg, String Mail, LocalDate Date) {
+    public Business(String Name, 
+                    String Description, 
+                    String Address, 
+                    String City, 
+                    String Phone1, 
+                    String Phone2, 
+                    String Fax, 
+                    String TaxReg, 
+                    String Mail, 
+                    LocalDate Date) {
         this.Name = Name;
         this.Description = Description;
         this.Address = Address;

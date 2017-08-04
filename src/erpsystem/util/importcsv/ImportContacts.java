@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package erpsystem.util.importcsv;
 
 import erpsystem.database.contacts.ContactsDatabase;
@@ -18,7 +13,7 @@ public class ImportContacts {
     private BufferedReader reader;
     private ContactsDatabase contacts_db;
     
-    public boolean parse_csv(String file_path){
+    public boolean import_csv(String file_path){
         contacts_db = new ContactsDatabase();
         String csv_line = null;
         try{

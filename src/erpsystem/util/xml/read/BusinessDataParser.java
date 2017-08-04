@@ -31,9 +31,18 @@ public class BusinessDataParser {
     }
     
     public Business getData(){
-            String[] xml_elements = {"business_name","business_address","business_description",
-                                     "business_phone","business_fax","business_taxreg","business_city",
-                                     "business_date","business_mail"};
+            String[] xml_elements = {
+                             "business_name",
+                             "business_address",
+                             "business_description",
+                             "business_phone1",
+                             "business_phone2",
+                             "business_fax",
+                             "business_taxreg",
+                             "business_city",
+                             "business_date",
+                             "business_mail"
+            };
             try{           
             doc_builder_fact = DocumentBuilderFactory.newInstance();
             doc_builder = doc_builder_fact.newDocumentBuilder();
@@ -55,7 +64,10 @@ public class BusinessDataParser {
             }
         return decrypt_data();
     }
-    
+    /** 
+     * This Method Decrypts data from the XML and returns an object with actual values.
+     * @return 
+     */
     private Business decrypt_data(){
         decrypt =  new DecryptionUtil();
         LocalDate establish_date = LocalDate.parse(decrypt.decrypt_string(xml_data.get("business_date")));

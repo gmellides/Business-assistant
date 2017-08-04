@@ -20,10 +20,10 @@
             <TextField fx:id="txt_Name" layoutX="169.0" layoutY="109.0" prefHeight="25.0" prefWidth="204.0" />
             <TextArea fx:id="txt_Description" layoutX="169.0" layoutY="144.0" prefHeight="74.0" prefWidth="204.0" wrapText="true" />
             <TextField fx:id="txt_Address" layoutX="169.0" layoutY="233.0" prefHeight="25.0" prefWidth="204.0" />
-            <TextField fx:id="txt_Phone" layoutX="169.0" layoutY="272.0" onKeyPressed="#Phone_Validator" prefHeight="25.0" prefWidth="204.0" />
-            <TextField fx:id="txt_Fax" layoutX="169.0" layoutY="335.0" onKeyPressed="#Fax_Validator" prefHeight="25.0" prefWidth="204.0" />
-            <TextField fx:id="txt_Phone2" layoutX="169.0" layoutY="304.0" onKeyPressed="#Fax_Validator" prefHeight="25.0" prefWidth="204.0" />
-            <TextField fx:id="txt_TaxReg" layoutX="169.0" layoutY="410.0" onKeyPressed="#TaxReg_Validator" prefHeight="25.0" prefWidth="204.0" />
+            <TextField fx:id="txt_Phone" layoutX="169.0" layoutY="272.0"  prefHeight="25.0" prefWidth="204.0" />
+            <TextField fx:id="txt_Fax" layoutX="169.0" layoutY="335.0"  prefHeight="25.0" prefWidth="204.0" />
+            <TextField fx:id="txt_Phone2" layoutX="169.0" layoutY="304.0"  prefHeight="25.0" prefWidth="204.0" />
+            <TextField fx:id="txt_TaxReg" layoutX="169.0" layoutY="410.0"  prefHeight="25.0" prefWidth="204.0" />
             <DatePicker fx:id="dtp_establishDate" layoutX="501.0" layoutY="109.0" prefHeight="25.0" prefWidth="154.0" />
             <TextField fx:id="txt_Mail" layoutX="472.0" layoutY="156.0" prefHeight="25.0" prefWidth="181.0" />
             <Button fx:id="btn_Search" layoutX="472.0" layoutY="211.0" mnemonicParsing="false" onAction="#btnSearch_Action" prefHeight="25.0" prefWidth="181.0" text="%edt_bus_btnSearch" />
@@ -35,19 +35,19 @@
                </font>
             </Label>
             <Label layoutX="26.0" layoutY="113.0" text="%edt_bus_businessname" />
-            <Label layoutX="26.0" layoutY="237.0" prefHeight="17.0" prefWidth="75.0" text="%lbl_address" />
-            <Label layoutX="26.0" layoutY="276.0" prefHeight="17.0" prefWidth="75.0" text="%lbl_phone1" />
-            <Label layoutX="26.0" layoutY="377.0" prefHeight="17.0" prefWidth="34.0" text="%lbl_city" />
+            <Label layoutX="26.0" layoutY="237.0" prefHeight="17.0" prefWidth="75.0" text="%gnr_lbl_address" />
+            <Label layoutX="26.0" layoutY="276.0" prefHeight="17.0" prefWidth="75.0" text="%gnr_lbl_phone1" />
+            <Label layoutX="26.0" layoutY="377.0" prefHeight="17.0" prefWidth="34.0" text="%gnr_lbl_city" />
             <Label layoutX="26.0" layoutY="414.0" text="%edt_bus_taxreg" />
             <Label layoutX="399.0" layoutY="113.0" text="%edt_bus_date" />
             <Label layoutX="399.0" layoutY="215.0" text="%edt_bus_logo" />
             <Label layoutX="26.0" layoutY="147.0" prefHeight="17.0" prefWidth="123.0" text="%edt_bus_description" />
-            <Label layoutX="26.0" layoutY="339.0" text="%lbl_fax" />
-            <Label layoutX="399.0" layoutY="160.0" text="%lbl_mail" />
+            <Label layoutX="26.0" layoutY="339.0" text="%gnr_lbl_fax" />
+            <Label layoutX="399.0" layoutY="160.0" text="%gnr_lbl_mail" />
             <ImageView fx:id="business_logo_view" fitHeight="177.0" fitWidth="200.0" layoutX="437.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true" />
             <Line endX="440.0" layoutX="231.0" layoutY="78.0" startX="-100.0" />
             <ImageView fx:id="icon_imageview" fitHeight="80.0" fitWidth="104.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="26.0" layoutY="308.0" text="%lbl_phone2" />
+            <Label layoutX="26.0" layoutY="308.0" text="%gnr_lbl_phone2" />
             <ComboBox fx:id="cmb_City" layoutX="169.0" layoutY="373.0" prefHeight="25.0" prefWidth="204.0" />
          </children>
       </Pane>

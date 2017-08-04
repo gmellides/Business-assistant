@@ -26,7 +26,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.FileChooser;
 
 public class Edit_BusinessData implements Initializable {
@@ -86,6 +85,7 @@ public class Edit_BusinessData implements Initializable {
             succed_dialog.setTitle(default_strings.getString("dlg_businessData_Title"));
             succed_dialog.setContentText(default_strings.getString("dlg_businessData_Message"));
             succed_dialog.showAndWait();
+            close_window();
         }
         /**
          * Displays a file chooser and saves an image to user data folder.
@@ -123,36 +123,13 @@ public class Edit_BusinessData implements Initializable {
          */
         @FXML
         private void btnClose_Action(ActionEvent event) {
-            Stage this_Stage = (Stage) btnClose.getScene().getWindow();
-            this_Stage.hide();
+            close_window();
         }
     // ===============================
         
     // === Input Check with RegEx ===
-        @FXML
-        private void Phone_Validator(KeyEvent event) {
-            if(event.getText().matches("[0-9]")){
-                txt_Phone.getStyleClass().remove("text_field_error");
-            }else{
-                txt_Phone.getStyleClass().add("text_field_error");
-            }
-        }
-        @FXML
-        private void Fax_Validator(KeyEvent event) {
-            if(event.getText().matches("[0-9]")){
-                // ok continue
-            }else{
-                
-            }
-        }
-        @FXML
-        private void TaxReg_Validator(KeyEvent event) {
-            if(event.getText().matches("[0-9]")){
-                // ok continue
-            }else{
-                
-            }
-        }
+     
+       
     // ===============================
 
     // ========== Methods ============
@@ -229,6 +206,13 @@ public class Edit_BusinessData implements Initializable {
                    set_businesslogo(); 
                 }
             // 
+        }
+        /**
+         * Close Current Window 
+         */
+        private void close_window(){
+            Stage this_Stage = (Stage) btnClose.getScene().getWindow();
+            this_Stage.hide();
         }
     // ===============================
         
