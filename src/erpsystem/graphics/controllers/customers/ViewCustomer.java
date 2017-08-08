@@ -47,7 +47,6 @@ public class ViewCustomer implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         default_strings = rb;
     }
-
     @FXML
     private void btn_Close_Action(ActionEvent event) {
         Stage this_window = (Stage) btnClose.getScene().getWindow();
@@ -59,11 +58,11 @@ public class ViewCustomer implements Initializable {
         if (flag){
             View_Panel.setVisible(false);
             Edit_Panel.setVisible(true);
-            btn_editToggle.setText("Provoli");
+            btn_editToggle.setText(default_strings.getString("gnr_btn_view"));
         }else{
             View_Panel.setVisible(true);
             Edit_Panel.setVisible(false);
-            btn_editToggle.setText("Epeksergasia");
+            btn_editToggle.setText(default_strings.getString("gnr_btn_edit"));
         }
     }
     /*
@@ -76,20 +75,23 @@ public class ViewCustomer implements Initializable {
             view_customer_company(input);
             edit_customer_company(input);
         }else{   
-            view_customer_person(input);
-            edit_customer_person(input);
+            view_customer_individual(input);
+            edit_customer_individual(input);
         }
         try{
             cmb_country.setItems(new ComboBoxDataParser().get_countries());
             cmb_city.setItems(new ComboBoxDataParser().get_big_cities_greece());
             cmb_state.setItems(new ComboBoxDataParser().get_states_greece());
             cmb_sex.setItems(new ComboBoxDataParser().get_sex());  
-            //cmb_customerType
+            cmb_customerType.setItems(new ComboBoxDataParser().get_CustomerType());
         }catch(Exception e){
             e.printStackTrace();
         }
     }
-    private void view_customer_person(Map input){
+    /*
+        Loads data to View Panel for a customer 
+    */
+    private void view_customer_individual(Map input){
         Label[] window_labels = {lbl_Name_view,lbl_lastname_view,lbl_sex_view,
             lbl_country_view,lbl_Address_view,lbl_State_view,lbl_City_view,
             lbl_ZipCode_view,lbl_CustomerType_view,lbl_phone_view,lbl_Fax_view,
@@ -97,9 +99,10 @@ public class ViewCustomer implements Initializable {
         String[] map_id = {"firstname","lastname","sex","country",
             "address","state","city","zipcode","customer_type","phone",
             "fax","mail","import_date"};
-        String[] label_strings = {"lbl_firstname","lbl_lastname","lbl_sex","lbl_country",
-            "lbl_address","lbl_state","lbl_city","lbl_zipcode","customer_type","lbl_phone",
-            "lbl_fax","lbl_mail","lbl_date"};
+        String[] label_strings = {"gnr_lbl_firstname","gnr_lbl_lastname",
+            "gnr_lbl_sex","gnr_lbl_country","gnr_lbl_address","gnr_lbl_state",
+            "gnr_lbl_city","gnr_lbl_zipcode","customer_type","gnr_lbl_phone",
+            "gnr_lbl_fax","gnr_lbl_mail","gnr_lbl_date"};
         int index = 0;
         for (Label item : window_labels){
             item.setText(default_strings.getString(label_strings[index])+" "+String.valueOf(input.get(map_id[index])));
@@ -107,7 +110,7 @@ public class ViewCustomer implements Initializable {
         }
         lbl_category_view.setText(default_strings.getString("lbl_category_text")+" "+default_strings.getString("customer_cat"));
     }
-    private void edit_customer_person(Map input){
+    private void edit_customer_individual(Map input){
         TextField[] fields = {txtName_edit,txtLastname_edit,txtAddress_edit,txtMail_edit,
                     txtPhone_edit,txtFax_edit,txtZipcode_edit};
         String[] map_id = {"firstname","lastname","address",
@@ -131,10 +134,10 @@ public class ViewCustomer implements Initializable {
                 lbl_State_view,lbl_City_view,lbl_ZipCode_view,lbl_CustomerType_view,
                 lbl_phone_view,lbl_Fax_view,lbl_mail_view,lbl_date_view};
         String[] companies_data_id = {"name","country","address","state","city",
-                 "zipcode","customer_type","phone","fax","mail","import_date"};
-        String[] label_strings = {"company_businessName","lbl_country","lbl_address",
-                 "lbl_state","lbl_city","lbl_zipcode","customer_type","lbl_phone","lbl_fax",
-                 "lbl_mail","lbl_date"};
+                "zipcode","customer_type","phone","fax","mail","import_date"};
+        String[] label_strings = {"company_businessName","gnr_lbl_country","gnr_lbl_address",
+                "gnr_lbl_state","gnr_lbl_city","gnr_lbl_zipcode","customer_type","gnr_lbl_phone","gnr_lbl_fax",
+                "gnr_lbl_mail","gnr_lbl_date"};
         int index = 0;
         for (Label item : window_labels){
             item.setText(default_strings.getString(label_strings[index])+" "+String.valueOf(input.get(companies_data_id[index])));

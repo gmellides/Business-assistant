@@ -18,7 +18,7 @@
         <URL value="@/erpsystem/graphics/CSS/style.css" />
     </stylesheets>
     <children>
-      <Pane prefHeight="232.0" prefWidth="547.0">
+      <Pane prefHeight="232.0" prefWidth="547.0" styleClass="background_panel">
          <children>
             <Label layoutX="139.0" layoutY="14.0" text="%backup_window_title">
                <font>
@@ -26,17 +26,17 @@
                </font></Label>
             <Label layoutX="27.0" layoutY="136.0" text="%import_csv_label" />
             <Button layoutX="400.0" layoutY="95.0" mnemonicParsing="false" onAction="#btn_ExportCSV_Action" prefHeight="25.0" prefWidth="122.0" text="%export_csv_button" />
-            <Button fx:id="btnClose" layoutX="432.0" layoutY="186.0" mnemonicParsing="false" onAction="#btn_Close_Action" text="%gnr_btn_Close" />
+            <Button fx:id="btnClose" layoutX="411.0" layoutY="186.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="122.0" text="%gnr_btn_Close" />
             <Button fx:id="btn_SelectFile" layoutX="400.0" layoutY="132.0" mnemonicParsing="false" onAction="#btn_SelectFile_Action" prefHeight="25.0" prefWidth="122.0" text="%edt_bus_btnSearch" />
             <TextField fx:id="txt_Path" editable="false" layoutX="112.0" layoutY="132.0" prefHeight="25.0" prefWidth="274.0" />
             <Label layoutX="27.0" layoutY="99.0" prefHeight="17.0" prefWidth="136.0" text="%export_csv_label" />
-            <Button layoutX="22.0" layoutY="186.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="import" />
-            <RadioButton layoutX="163.0" layoutY="99.0" mnemonicParsing="false" text="%btn_customers">
+            <Button fx:id="btn_importCSV" disable="true" layoutX="14.0" layoutY="186.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="136.0" text="%gnr_btn_ImportCSV" />
+            <RadioButton fx:id="rdb_Indeviduals" layoutX="163.0" layoutY="99.0" mnemonicParsing="false" text="%btn_customers">
                <toggleGroup>
-                  <ToggleGroup fx:id="customer_category" />
+                  <ToggleGroup fx:id="backup_option" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton layoutX="289.0" layoutY="99.0" mnemonicParsing="false" text="%btn_companies" toggleGroup="$customer_category" />
+            <RadioButton fx:id="rdb_Companies" layoutX="289.0" layoutY="99.0" mnemonicParsing="false" text="%btn_companies" toggleGroup="$backup_option" />
             <Line endX="400.0" layoutX="124.0" layoutY="62.0" startX="-100.0" />
          </children>
       </Pane>

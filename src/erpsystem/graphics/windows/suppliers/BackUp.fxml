@@ -15,7 +15,7 @@
         <URL value="@/erpsystem/graphics/CSS/style.css" />
     </stylesheets>
    <children>
-      <Pane prefHeight="232.0" prefWidth="547.0">
+      <Pane prefHeight="232.0" prefWidth="547.0" styleClass="background_panel">
          <children>
             <ImageView fitHeight="82.0" fitWidth="91.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="112.0" layoutY="14.0" prefHeight="40.0" prefWidth="310.0" text="%cmgr_btnBackUp">

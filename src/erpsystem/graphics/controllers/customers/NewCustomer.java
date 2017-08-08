@@ -67,7 +67,7 @@ public class NewCustomer implements Initializable {
                 txt_LastName.setDisable(true);
                 cmb_sex.setDisable(true);
             }else{
-                lbl_Name.setText(default_strings.getString("lbl_firstname"));
+                lbl_Name.setText(default_strings.getString("gnr_lbl_firstname"));
                 NewCustomer.isCompany = false;
                 txt_LastName.setDisable(false);
                 cmb_sex.setDisable(false);
@@ -205,7 +205,7 @@ public class NewCustomer implements Initializable {
             stage.setTitle(default_strings.getString("customer_manager"));
             stage.setScene(scene);
             stage.setResizable(false);
-            // stage.getIcons().add(new Image(getClass().getResource("icon.png").toExternalForm()));
+            stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
             stage.show();
         }catch(IOException e){
             e.printStackTrace();

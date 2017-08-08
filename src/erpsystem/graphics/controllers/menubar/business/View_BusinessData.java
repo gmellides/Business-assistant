@@ -36,8 +36,8 @@ public class View_BusinessData implements Initializable {
     @FXML
     private Line graphic_line;
     @FXML
-    private Label lbl_bName,lbl_bDescription,lbl_lblPhone,lbl_Address,lbl_Fax,
-    lbl_City,lbl_TaxReg,lbl_EstablishData,lbl_LastEdit,lbl_nodata,lbl_Mail,lbl_phone2;
+    private Label lbl_bName,lbl_bDescription,lbl_Phone,lbl_Address,lbl_Fax,
+    lbl_City,lbl_TaxReg,lbl_EstablishDate,lbl_LastEdit,lbl_nodata,lbl_Mail,lbl_phone2;
     @FXML
     private Pane background_pane;
 
@@ -45,6 +45,7 @@ public class View_BusinessData implements Initializable {
     private BusinessData BusinessXML;
     private BusinessPDF export_pdf;
     private ResourceBundle default_strings;
+    
     /**
      * Initializes the controller class.
      */
@@ -103,9 +104,9 @@ public class View_BusinessData implements Initializable {
          * doesn't exist Disables all the Lables.
          */
         private void clear_window(){
-            Label[] lables = {lbl_bName,lbl_bDescription,lbl_lblPhone,
+            Label[] lables = {lbl_bName,lbl_bDescription,lbl_Phone,
                               lbl_phone2,lbl_Fax,lbl_Address,lbl_City,
-                              lbl_TaxReg,lbl_EstablishData,lbl_LastEdit,
+                              lbl_TaxReg,lbl_EstablishDate,lbl_LastEdit,
                               lbl_Mail};
             btn_ExportPDF.setVisible(false);
             btn_ExportCard.setVisible(false);
@@ -150,18 +151,35 @@ public class View_BusinessData implements Initializable {
         private void set_data(ResourceBundle bundle,File business_file){
             BusinessDataParser file_reader = new BusinessDataParser(business_file);
             business = file_reader.getData();
-              lbl_bName.setText(bundle.getString("view_bus_businessname")+"   "+business.getName());
-              lbl_bDescription.setText(bundle.getString("view_bus_description")+"   "+business.getDescription());
-              lbl_lblPhone.setText(bundle.getString("gnr_lbl_phone")+"  "+business.getPhone1());
-              lbl_Fax.setText(bundle.getString("gnr_lbl_fax")+"  "+business.getFax());
-              lbl_Address.setText(bundle.getString("gnr_lbl_address")+"  "+business.getAddress());
-              lbl_City.setText(bundle.getString("gnr_lbl_city")+"  "+business.getCity());
-              lbl_TaxReg.setText(bundle.getString("view_bus_taxreg")+"  "+business.getTaxReg());
-              lbl_EstablishData.setText(bundle.getString("view_bus_date")+"  "+business.getDate());
-              lbl_Mail.setText(bundle.getString("gnr_lbl_mail")+"  "+business.getMail());
+              String[] strings_id = {"view_bus_businessname","view_bus_description","gnr_lbl_phone",
+                                     "gnr_lbl_phone2","gnr_lbl_fax","gnr_lbl_address","gnr_lbl_city",
+                                     "view_bus_taxreg","view_bus_date","gnr_lbl_mail"};
+              String[] data = {business.getName(),business.getDescription(),business.getPhone1(),
+                               business.getPhone2(),business.getFax(),business.getAddress(),
+                               business.getCity(),business.getTaxReg(),
+                               String.valueOf(business.getDate()),business.getMail()};
+              Label[] labels = {lbl_bName,lbl_bDescription,lbl_Phone,lbl_phone2,lbl_Fax,
+                                lbl_Address,lbl_City,lbl_TaxReg,lbl_EstablishDate,lbl_Mail};
+              int index = 0;
+              for(Label item : labels){
+                  item.setText(bundle.getString(strings_id[index])+" "+data[index]);
+                  index++;
+              }
               SimpleDateFormat date_format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
               lbl_LastEdit.setText(bundle.getString("view_bus_LastEdit")+"  "+date_format.format(business_file.lastModified()));
         }
     // ===============================
    
 }
+/*
+Alternative code for window fill
+lbl_bName.setText(bundle.getString("view_bus_businessname")+"   "+business.getName());
+              lbl_bDescription.setText(bundle.getString("view_bus_description")+"   "+business.getDescription());
+              lbl_Phone.setText(bundle.getString("gnr_lbl_phone")+"  "+business.getPhone1());
+              lbl_Fax.setText(bundle.getString("gnr_lbl_fax")+"  "+business.getFax());
+              lbl_Address.setText(bundle.getString("gnr_lbl_address")+"  "+business.getAddress());
+              lbl_City.setText(bundle.getString("gnr_lbl_city")+"  "+business.getCity());
+              lbl_TaxReg.setText(bundle.getString("view_bus_taxreg")+"  "+business.getTaxReg());
+              lbl_EstablishData.setText(bundle.getString("view_bus_date")+"  "+business.getDate());
+              lbl_Mail.setText(bundle.getString("gnr_lbl_mail")+"  "+business.getMail());
+*/

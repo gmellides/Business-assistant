@@ -35,7 +35,7 @@
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_lblPhone" layoutX="40.0" layoutY="282.0" text="b phone">
+            <Label fx:id="lbl_Phone" layoutX="40.0" layoutY="282.0" text="b phone">
                <font>
                   <Font size="14.0" />
                </font></Label>
@@ -55,7 +55,7 @@
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_EstablishData" layoutX="300.0" layoutY="368.0" text="b date">
+            <Label fx:id="lbl_EstablishDate" layoutX="300.0" layoutY="368.0" text="b date">
                <font>
                   <Font size="14.0" />
                </font></Label>
@@ -72,7 +72,7 @@
                   <Font size="55.0" />
                </font>
             </Label>
-            <Label fx:id="lbl_phone2" layoutX="300.0" layoutY="282.0" prefHeight="17.0" prefWidth="52.0" text="Label">
+            <Label fx:id="lbl_phone2" layoutX="300.0" layoutY="282.0" prefHeight="20.0" prefWidth="178.0" text="Label">
                <font>
                   <Font size="14.0" />
                </font></Label>

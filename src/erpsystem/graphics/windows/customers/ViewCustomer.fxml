@@ -31,7 +31,7 @@
             </Label>
             <ImageView fitHeight="119.0" fitWidth="139.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <Line endX="436.0" layoutX="272.0" layoutY="73.0" startX="-100.0" />
-            <Pane fx:id="View_Panel" layoutX="14.0" layoutY="80.0" prefHeight="344.0" prefWidth="690.0" visible="false">
+            <Pane fx:id="View_Panel" layoutX="14.0" layoutY="80.0" prefHeight="344.0" prefWidth="690.0">
                <children>
                   <Label fx:id="lbl_category_view" layoutX="212.0" layoutY="162.0" prefHeight="20.0" prefWidth="223.0" text="%lbl_category_text">
                      <font>
@@ -43,22 +43,22 @@
                         <Font name="System Italic" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbl_mail_view" layoutX="244.0" layoutY="262.0" prefHeight="20.0" prefWidth="428.0" text="%lbl_mail">
+                  <Label fx:id="lbl_mail_view" layoutX="244.0" layoutY="262.0" prefHeight="20.0" prefWidth="428.0" text="%gnr_lbl_mail">
                      <font>
                         <Font name="System Italic" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbl_phone_view" layoutX="14.0" layoutY="262.0" text="%lbl_phone">
+                  <Label fx:id="lbl_phone_view" layoutX="14.0" layoutY="262.0" text="%gnr_lbl_phone">
                      <font>
                         <Font name="System Italic" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbl_Fax_view" layoutX="14.0" layoutY="310.0" prefHeight="20.0" prefWidth="209.0" text="%lbl_fax">
+                  <Label fx:id="lbl_Fax_view" layoutX="14.0" layoutY="310.0" prefHeight="20.0" prefWidth="209.0" text="%gnr_lbl_fax">
                      <font>
                         <Font name="System Italic" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbl_sex_view" layoutX="486.0" layoutY="162.0" prefHeight="20.0" prefWidth="111.0" text="%lbl_sex">
+                  <Label fx:id="lbl_sex_view" layoutX="486.0" layoutY="162.0" prefHeight="20.0" prefWidth="111.0" text="%gnr_lbl_sex">
                      <font>
                         <Font name="System Italic" size="14.0" />
                      </font>
@@ -68,44 +68,44 @@
                         <Font name="System Italic" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbl_ZipCode_view" layoutX="469.0" layoutY="127.0" prefHeight="20.0" prefWidth="209.0" text="%lbl_zipcode">
+                  <Label fx:id="lbl_ZipCode_view" layoutX="469.0" layoutY="127.0" prefHeight="20.0" prefWidth="209.0" text="%gnr_lbl_zipcode">
                      <font>
                         <Font name="System Italic" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbl_City_view" layoutX="345.0" layoutY="97.0" prefHeight="20.0" prefWidth="331.0" text="%lbl_city">
+                  <Label fx:id="lbl_City_view" layoutX="345.0" layoutY="97.0" prefHeight="20.0" prefWidth="331.0" text="%gnr_lbl_city">
                      <font>
                         <Font name="System Italic" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbl_State_view" layoutX="14.0" layoutY="162.0" prefHeight="20.0" prefWidth="188.0" text="%lbl_state">
+                  <Label fx:id="lbl_State_view" layoutX="14.0" layoutY="162.0" prefHeight="20.0" prefWidth="188.0" text="%gnr_lbl_state">
                      <font>
                         <Font name="System Italic" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbl_Address_view" layoutX="14.0" layoutY="97.0" prefHeight="20.0" prefWidth="319.0" text="%lbl_address">
+                  <Label fx:id="lbl_Address_view" layoutX="14.0" layoutY="97.0" prefHeight="20.0" prefWidth="319.0" text="%gnr_lbl_address">
                      <font>
                         <Font name="System Italic" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbl_country_view" layoutX="233.0" layoutY="127.0" prefHeight="20.0" prefWidth="209.0" text="%lbl_country">
+                  <Label fx:id="lbl_country_view" layoutX="233.0" layoutY="127.0" prefHeight="20.0" prefWidth="209.0" text="%gnr_lbl_country">
                      <font>
                         <Font name="System Italic" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbl_lastname_view" layoutX="406.0" layoutY="32.0" prefHeight="20.0" prefWidth="236.0" text="%lbl_lastname">
+                  <Label fx:id="lbl_lastname_view" layoutX="406.0" layoutY="32.0" prefHeight="20.0" prefWidth="236.0" text="%gnr_lbl_lastname">
                      <font>
                         <Font name="System Italic" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lbl_Name_view" layoutX="162.0" layoutY="32.0" prefHeight="20.0" prefWidth="223.0" text="%lbl_firstname">
+                  <Label fx:id="lbl_Name_view" layoutX="162.0" layoutY="32.0" prefHeight="20.0" prefWidth="223.0" text="%gnr_lbl_firstname">
                      <font>
                         <Font name="System Italic" size="14.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane fx:id="Edit_Panel" layoutX="14.0" layoutY="80.0" prefHeight="344.0" prefWidth="690.0">
+            <Pane fx:id="Edit_Panel" layoutX="14.0" layoutY="80.0" prefHeight="344.0" prefWidth="690.0" visible="false">
                <children>
                   <Label layoutX="163.0" layoutY="33.0" text="%gnr_lbl_firstname" />
                   <TextField fx:id="txtName_edit" layoutX="252.0" layoutY="29.0" />
@@ -116,7 +116,7 @@
                   <Label layoutX="16.0" layoutY="130.0" prefHeight="17.0" prefWidth="57.0" text="%gnr_lbl_city" />
                   <Label layoutX="13.0" layoutY="210.0" text="%customer_type" />
                   <Label layoutX="15.0" layoutY="164.0" text="%gnr_lbl_country" />
-                  <Label layoutX="320.0" layoutY="130.0" text="%lbl_zipcode" />
+                  <Label layoutX="320.0" layoutY="130.0" text="%gnr_lbl_zipcode" />
                   <Label layoutX="318.0" layoutY="100.0" text="%gnr_lbl_state" />
                   <Label layoutX="316.0" layoutY="164.0" text="%gnr_lbl_sex" />
                   <Label layoutX="310.0" layoutY="263.0" text="lbl_category_text" />

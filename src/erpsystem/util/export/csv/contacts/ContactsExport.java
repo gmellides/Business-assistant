@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 
 public class ContactsExport {
-    private FileManager workspace;
+
     private File csv_file;
     private BufferedWriter buffer;
     private FileWriter writer;
@@ -28,28 +28,26 @@ public class ContactsExport {
      * @return 
      */
     public boolean export_file(ResourceBundle default_strings,ObservableList<Map> input){
-        workspace = new FileManager();
-        csv_file = new File(workspace.getDocuments_root()+"/"+default_strings.getString("filename_contacts_csv")+"*.csv");
+        csv_file = new File(new FileManager().getDocuments_root()+"/"+default_strings.getString("filename_contacts_csv")+".csv");
             if (csv_file.exists()){
                 csv_file.delete();       
-                create_file(csv_file,default_strings,input);
+                create_file(csv_file,input);
             }else{
-                create_file(csv_file,default_strings,input);
+                create_file(csv_file,input);
             }
         return true;
     }
     
     private void create_file(File csv_file,
-                             ResourceBundle default_strings,
                              ObservableList<Map> input){
         String[] csv_columns = {"firstname","lastname","sex","address",
                                 "zipcode","country","greek_state","city","mail",
                                 "phone1","phone1_type","phone2","phone2_type",
                                 "comments","website","import_date"};
-        try{        
-            writer = new FileWriter(workspace.getDocuments_root()+"/"+FileName(default_strings));
+        try{   
+            writer = new FileWriter(csv_file);
             buffer = new BufferedWriter(writer);
-            // Make Header
+            // CSV Header
             for (String item : csv_columns){
                 buffer.write(item);
                 if(!item.equals("import_date"))
@@ -61,27 +59,16 @@ public class ContactsExport {
                     if (index.equals("import_date")){
                         buffer.append(String.valueOf(item.get(index)));
                     }else{
-                    buffer.append(String.valueOf(item.get(index)));
+                        buffer.append(String.valueOf(item.get(index)));
                         buffer.write(",");
                     }
                 }  
             }
             buffer.flush();
+            writer.close();
+            buffer.close();
         }catch(IOException e){
             e.printStackTrace();
-        }finally{
-            try{
-                if(writer != null)
-                    writer.close();
-                if (buffer != null)
-                    buffer.close();
-            }catch(IOException e){
-                    e.printStackTrace();
-            }
         }
-    }
-    
-    private String FileName(ResourceBundle res){
-        return res.getString("filename_contacts_csv")+".csv";
     }
 }

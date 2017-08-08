@@ -33,16 +33,16 @@ public class WindowsManager {
     
     public void toggle_window(String Input){
         switch(Input){
-            case "menubar/View_BusinessData.fxml":
+            case "menubar/business/View_BusinessData.fxml":
                 ViewBusiness_toggle(false);
                 break;
-            case "menubar/View_BusinessAdmin.fxml":
+            case "menubar/admin/View_BusinessAdmin.fxml":
                 ViewBusiness_toggle(false);
                 break;
-            case "menubar/Edit_BusinessData.fxml":
+            case "menubar/business/Edit_BusinessData.fxml":
                 EditBusiness_toggle(false);
                 break;
-            case "menubar/Edit_BusinessAdmin.fxml":
+            case "menubar/admin/Edit_BusinessAdmin.fxml":
                 EditAdmin_toggle(false);
                 break;
                 

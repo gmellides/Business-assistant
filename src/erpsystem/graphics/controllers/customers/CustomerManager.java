@@ -58,7 +58,7 @@ public class CustomerManager implements Initializable {
                 OpenWindow("customers/NewCustomer.fxml",
                            781,
                            450,
-                           default_strings.getString("lbl_windowtitle"));
+                           default_strings.getString("window_newCustomer"));
             }catch(IOException e){
                 e.printStackTrace();
             }    
@@ -71,7 +71,7 @@ public class CustomerManager implements Initializable {
                 OpenWindow("customers/SearchView.fxml",
                            new Dimension().SearchView_window_width,
                            new Dimension().SearchView_window_height,
-                           default_strings.getString("lbl_windowtitle"));
+                           default_strings.getString("window_showCustomers"));
             }catch(IOException e){
                 e.printStackTrace();
             }
@@ -83,7 +83,7 @@ public class CustomerManager implements Initializable {
                 OpenWindow("customers/BackUp.fxml",
                            new Dimension().BackUp_window_width,
                            new Dimension().BackUp_window_height,
-                           default_strings.getString("cmgr_btnBackUp"));
+                           default_strings.getString("window_BackUp"));
             }catch(IOException e){
                 e.printStackTrace();
             }
@@ -133,7 +133,7 @@ public class CustomerManager implements Initializable {
                             OpenWindow("customers/CustomerManager.fxml",
                                        new Dimension().Manager_window_width,
                                        new Dimension().Manager_window_height,
-                                       default_strings.getString("customer_manager"));
+                                       default_strings.getString("window_customer_manager"));
                         }catch(IOException e){
                             e.printStackTrace();
                         }

@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
@@ -45,10 +46,10 @@ public class BackUp implements Initializable {
             contacts_database = new ContactsDatabase();
             export_csv = new ContactsExport();
             if (export_csv.export_file(default_strings, contacts_database.select_contacts())){
-                Alert succed_dialog = new Alert(Alert.AlertType.INFORMATION);
-                succed_dialog.setTitle(default_strings.getString("dlg_contactsCSV_title"));
-                succed_dialog.setContentText(default_strings.getString("dlg_contactsCSV_message"));
-                succed_dialog.showAndWait();         
+                Alert_dialog(AlertType.INFORMATION,
+                            "dlg_CSV_title",
+                            "dlg_contactsCSV_header",
+                            "dlg_contactsCSV_message");
             }  
         }
         
@@ -78,5 +79,17 @@ public class BackUp implements Initializable {
             Stage window = (Stage) btnClose.getScene().getWindow();
             window.close();
         }
+        
+        
+        private void Alert_dialog(Alert.AlertType type,
+                               String Title,
+                               String Header,
+                               String Message){
+        Alert succed_dialog = new Alert(type);
+        succed_dialog.setTitle(default_strings.getString(Title));
+        succed_dialog.setHeaderText(default_strings.getString(Header));
+        succed_dialog.setContentText(default_strings.getString(Message));
+        succed_dialog.showAndWait();   
+    }
     // ===============================
 }

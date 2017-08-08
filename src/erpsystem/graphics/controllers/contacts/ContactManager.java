@@ -51,12 +51,12 @@ public class ContactManager implements Initializable {
         @FXML
         private void btnNewContactsAction(ActionEvent event) throws IOException {
             if(!window_check.NewContact_isOpen()){
-                window_check.NewContact_toggle(true);    
+                window_check.NewContact_toggle(true);     
                 try{
                     OpenWindow("contacts/NewContact.fxml",
                                766,
                                420,
-                               default_strings.getString("lbl_windowtitle"));
+                               default_strings.getString("window_newContact"));
                 }catch(IOException e){
                     e.printStackTrace();
                 }
@@ -70,7 +70,7 @@ public class ContactManager implements Initializable {
                     OpenWindow("contacts/SearchView.fxml",
                                new Dimension().SearchView_window_width,
                                new Dimension().SearchView_window_height,
-                               default_strings.getString("ViewSearch_Title"));
+                               default_strings.getString("window_showContacts"));
                 }catch(IOException e){
                     e.printStackTrace();
                 }
@@ -84,7 +84,7 @@ public class ContactManager implements Initializable {
                     OpenWindow("contacts/BackUp.fxml",
                                new Dimension().BackUp_window_width,
                                new Dimension().BackUp_window_height,
-                               default_strings.getString("cmgr_btnBackUp"));
+                               default_strings.getString("window_BackUp"));
                 }catch(IOException e){
                     e.printStackTrace();
                 }         

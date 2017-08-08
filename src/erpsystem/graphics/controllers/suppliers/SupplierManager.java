@@ -71,7 +71,7 @@ public class SupplierManager implements Initializable {
                 OpenWindow("suppliers/BackUp.fxml",
                            new Dimension().BackUp_window_width,
                            new Dimension().BackUp_window_height,
-                           default_strings.getString("backup_window_title"));
+                           default_strings.getString("window_BackUp"));
             }catch(IOException e){
                 e.printStackTrace();
             }

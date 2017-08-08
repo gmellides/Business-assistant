@@ -17,8 +17,8 @@
    <children>
       <Pane layoutY="1.0" prefHeight="400.0" prefWidth="600.0" styleClass="background_panel">
          <children>
-            <Button layoutX="434.0" layoutY="354.0" mnemonicParsing="false" onAction="#btnExit_Action" prefHeight="25.0" prefWidth="141.0" text="%cmgr_btnExit" />
-            <Button layoutX="307.0" layoutY="244.0" mnemonicParsing="false" onAction="#btn_BackUp_Action" prefHeight="25.0" prefWidth="181.0" text="%cmgr_btnBackUp" />
+            <Button layoutX="434.0" layoutY="354.0" mnemonicParsing="false" onAction="#btnExit_Action" prefHeight="25.0" prefWidth="141.0" text="%gnr_btn_Close" />
+            <Button layoutX="307.0" layoutY="244.0" mnemonicParsing="false" onAction="#btn_BackUp_Action" prefHeight="25.0" prefWidth="181.0" text="%gnr_btn_backUp" />
             <Button layoutX="103.0" layoutY="285.0" mnemonicParsing="false" onAction="#btnSearchView_Action" prefHeight="25.0" prefWidth="181.0" text="%cmgr_btnViewContacts" />
             <Button fx:id="btnNewContact" layoutX="103.0" layoutY="244.0" mnemonicParsing="false" onAction="#btnNewContactsAction" prefHeight="25.0" prefWidth="181.0" text="%cmgr_btnNewContact" />
             <Line endX="300.0" layoutX="283.0" layoutY="69.0" startX="-100.0" />

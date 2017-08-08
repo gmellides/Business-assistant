@@ -7,9 +7,12 @@ import java.io.IOException;
 import java.nio.channels.FileChannel;
 
 public class FileManager {
+    
+
     /**
      * Creates Data Folder on the path that jar is placed
-     * inside this folder there are some xml files that saves 
+     * inside this folder app will save xml files with encrypted data 
+     * for 
      * @return 
      */
     public boolean create_all_folders(){
@@ -49,7 +52,7 @@ public class FileManager {
                     documents_data_flag = true;
                 }
   
-        if (app_data_flag && documents_data_flag){
+        if (app_data_flag || documents_data_flag){
             method_flag = true;
         }
         
@@ -89,6 +92,11 @@ public class FileManager {
         return flag;
     }
 
+    /**
+     * This methods returns the path of each folder in case to 
+     * save files that application will create.
+     * @return 
+     */
     public String getApp_data_root() {
         return app_data_root;
     }

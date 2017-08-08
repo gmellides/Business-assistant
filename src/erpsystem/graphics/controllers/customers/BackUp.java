@@ -5,8 +5,11 @@
  */
 package erpsystem.graphics.controllers.customers;
 
+import erpsystem.database.customers.CustomersDatabase;
+import erpsystem.util.export.csv.customers.CustomersCSV;
 import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,21 +20,30 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-
 
 public class BackUp implements Initializable {
 
     @FXML
-    private Button btnClose,btn_SelectFile;
+    private Button btnClose,btn_SelectFile,btn_importCSV;
     @FXML
     private TextField txt_Path;
-
+    @FXML
+    private RadioButton rdb_Indeviduals,rdb_Companies;
+    @FXML
+    private ToggleGroup backup_option;
     
     private ResourceBundle default_strings;
+    
     /**
      * Initializes the controller class.
      */
@@ -42,9 +54,53 @@ public class BackUp implements Initializable {
 
     @FXML
     private void btn_ExportCSV_Action(ActionEvent event) {
-        
+        if (backup_option.getSelectedToggle() !=null){
+            if(backup_option.getSelectedToggle().equals(rdb_Companies)){
+                if(new CustomersCSV()
+                        .export_csv(backup_option.getSelectedToggle().equals(rdb_Companies),
+                        default_strings,
+                        new CustomersDatabase().select_company())){
+                        Alert_dialog(AlertType.INFORMATION,
+                                      "dlg_CSV_title",
+                                      "dlg_customersCSV_header",
+                                      "dlg_customersCompaniesCSV_message");  
+                }
+            }else{
+                    if(new CustomersCSV()
+                            .export_csv(backup_option.getSelectedToggle().equals(rdb_Companies),
+                            default_strings,
+                            new CustomersDatabase().select_person())){
+                        Alert_dialog(AlertType.INFORMATION,
+                                      "dlg_CSV_title",
+                                      "dlg_customersCSV_header",
+                                      "dlg_customersIndevidualCSV_message");  
+                    }
+            }
+        }else{
+           Alert_dialog(AlertType.ERROR,
+                        "dlg_selectionErrorCSV_title",
+                        "dlg_selectionErrorCSV_header",
+                        "dlg_selectionErrorCSV_message"); 
+        }
     }
-
+    
+    @FXML
+    private void btn_SelectFile_Action(ActionEvent event) {
+        Stage this_stage = (Stage) btn_SelectFile.getScene().getWindow();
+                FileChooser csv_chooser = new FileChooser();
+                csv_chooser.setTitle("jnfiwe");
+                csv_chooser.getExtensionFilters().addAll(
+                    new FileChooser.ExtensionFilter("Όλα τα αρχεία", "*.*"),
+                    new FileChooser.ExtensionFilter("CSV", "*.csv")
+                );
+                File logo_file_chooser = csv_chooser.showOpenDialog(this_stage);
+                btn_importCSV.setDisable(false);
+                if (logo_file_chooser == null){
+                    btn_importCSV.setDisable(true);
+                }else{
+                    txt_Path.setText(logo_file_chooser.getAbsolutePath().toString());
+                }
+    }
     @FXML
     private void btn_Close_Action(ActionEvent event) {
         Stage window = (Stage) btnClose.getScene().getWindow();
@@ -52,9 +108,6 @@ public class BackUp implements Initializable {
         OpenManager();
     }
 
-    @FXML
-    private void btn_SelectFile_Action(ActionEvent event) {
-    }
     private void OpenManager() {
         try{
             FXMLLoader fxml_loader = new FXMLLoader();
@@ -71,14 +124,23 @@ public class BackUp implements Initializable {
                        stage.close();
                    }
                });
-         stage.setTitle(default_strings.getString("customer_manager"));
+         stage.setTitle(default_strings.getString("window_customer_manager"));
          stage.setScene(scene);
          stage.setResizable(false);
-         // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
-         // stage.getIcons().add(icon);
+         stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
          stage.show();
         }catch(IOException e){
             e.printStackTrace();
         }
+    }
+    private void Alert_dialog(AlertType type,
+                               String Title,
+                               String Header,
+                               String Message){
+        Alert succed_dialog = new Alert(type);
+        succed_dialog.setTitle(default_strings.getString(Title));
+        succed_dialog.setHeaderText(default_strings.getString(Header));
+        succed_dialog.setContentText(default_strings.getString(Message));
+        succed_dialog.showAndWait();   
     }
 }

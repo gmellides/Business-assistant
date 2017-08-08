@@ -39,14 +39,10 @@ public class Launcher implements Initializable {
         @FXML
         private Button btn_Exit,btn_Employees,btn_Contact,btn_Storage,btn_Customers,
         btn_Suppliers,btn_Finance,btn_Sales,btn_Purchases;
-    // ==============================
-        
+    // ==============================        
     private Timer DateTimeUpdater; 
     private ResourceBundle default_strings;     
     private final WindowsManager window_check = new WindowsManager();    
-    
-    
-    
 
     /**
      * Initializes the controller class.
@@ -66,7 +62,7 @@ public class Launcher implements Initializable {
                     OpenWindow("sales/SalesManager.fxml",
                                new Dimension().Manager_window_width,
                                new Dimension().Manager_window_height,
-                               default_strings.getString("customer_manager"));
+                               default_strings.getString("window_sales_manager"));
                 }catch(IOException e){
                     e.printStackTrace();
                 }
@@ -85,7 +81,7 @@ public class Launcher implements Initializable {
                         OpenWindow("customers/CustomerManager.fxml",
                                    new Dimension().Manager_window_width,
                                    new Dimension().Manager_window_height,
-                                   default_strings.getString("customer_manager"));
+                                   default_strings.getString("window_customer_manager"));
                     }catch(IOException e){
                         e.printStackTrace();
                     }
@@ -102,7 +98,7 @@ public class Launcher implements Initializable {
                         OpenWindow("suppliers/SupplierManager.fxml",
                                    new Dimension().Manager_window_width,
                                    new Dimension().Manager_window_height,
-                                   default_strings.getString("customer_manager"));
+                                   default_strings.getString("window_supplier_manager"));
                     }catch(IOException e){
                         e.printStackTrace();
                     }
@@ -120,7 +116,7 @@ public class Launcher implements Initializable {
                         OpenWindow("storage/StorageManager.fxml",
                                    new Dimension().Manager_window_width,
                                    new Dimension().Manager_window_height,
-                                   default_strings.getString("customer_manager"));
+                                   default_strings.getString("window_storage_manager"));
                     }catch(IOException e){
                         e.printStackTrace();
                     }
@@ -133,7 +129,7 @@ public class Launcher implements Initializable {
                         OpenWindow("contacts/ContactManager.fxml",
                                    new Dimension().Manager_window_width,
                                    new Dimension().Manager_window_height,
-                                   default_strings.getString("customer_manager"));
+                                   default_strings.getString("window_contact_manager"));
                     }catch(IOException e){
                         e.printStackTrace();
                     }
@@ -224,8 +220,7 @@ public class Launcher implements Initializable {
                     });
                 }
             },0,1000);
-        }
-          
+        }    
         private void OpenWindow(String WindowPath,
                                 int Width,
                                 int Height,
