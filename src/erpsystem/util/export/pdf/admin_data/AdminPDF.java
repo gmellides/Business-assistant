@@ -20,12 +20,11 @@ import org.apache.pdfbox.pdmodel.font.PDType0Font;
 
 public class AdminPDF {
       private FileManager workspace;
-    private String file_name;
     
     // ======== Public Method
     public boolean save_pdf(ResourceBundle bundle,BusinessAdmin data){
         boolean flag = false;
-            create_file();
+            create_file(bundle);
             fill_file(bundle,data);
             flag = true;
         return flag;
@@ -37,19 +36,18 @@ public class AdminPDF {
          * Creates an PDF File with one page and writes some useful informations
          * for example the Author(That is the app name), Description and Title. 
          */
-        private void create_file(){
+        private void create_file(ResourceBundle rb){
             workspace = new FileManager();
             try{
                 PDDocument doc = new PDDocument();
                 PDPage page = new PDPage();
                 PDDocumentInformation doc_info = new PDDocumentInformation();
                 // Set Doc Info 
-                doc_info.setTitle("Στοιχεία Επιχείρησης");
-                doc_info.setAuthor("ERP SYSTEM NAME");
+                doc_info.setTitle(rb.getString("filename_adminData_pdf"));
+                doc_info.setAuthor(rb.getString("pdf_author"));
                 // add a new page
                 doc.addPage(page);
-                file_name = Pdf_name();
-                doc.save(workspace.getDocuments_business_data()+"/"+file_name);
+                doc.save(workspace.getDocuments_business_data()+"/"+rb.getString("filename_adminData_pdf")+".pdf");
                 doc.close();
             }catch(IOException e){
                 e.printStackTrace();
@@ -82,7 +80,7 @@ public class AdminPDF {
                                      data.getPhone2(),
                                      data.getMail()};
             
-            File pdf_file = new File(workspace.getDocuments_business_data()+"/"+file_name);
+            File pdf_file = new File(workspace.getDocuments_business_data()+"/"+bundle.getString("filename_adminData_pdf")+".pdf");
             try{
                 PDDocument pdf_doc = PDDocument.load(pdf_file);
                 PDPage doc_page = pdf_doc.getPage(0);
@@ -122,11 +120,5 @@ public class AdminPDF {
             }catch(IOException|IllegalArgumentException e){
                 e.printStackTrace();
             }
-        }
-        /**
-         * Returns the name that the fill will get the name is a 
-         */
-        private String Pdf_name(){
-            return "Στοιχεία Διαχειρηστή-"+new DateTimeProvider().GetDateTime_file()+".pdf";
         }
 }

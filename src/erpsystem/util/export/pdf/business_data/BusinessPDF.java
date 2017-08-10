@@ -40,8 +40,8 @@ public class BusinessPDF {
                 PDPage page = new PDPage();
                 PDDocumentInformation doc_info = new PDDocumentInformation();
                 // Set Doc Info 
-                doc_info.setTitle("Στοιχεία Επιχείρησης");
-                doc_info.setAuthor("ERP SYSTEM NAME");
+                doc_info.setTitle(rb.getString("filename_businessData_pdf"));
+                doc_info.setAuthor(rb.getString("pdf_author"));
                 // add a new page
                 doc.addPage(page);
                 file_name = Pdf_name(rb);
