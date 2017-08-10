@@ -53,9 +53,11 @@ public class ImportSuppliers {
             
             while ((csv_line = reader.readLine())!=null){
                 String[] val = csv_line.split(",");
-                Supplier csv_spl = new Supplier();
+                Supplier spl = new Supplier();
+                    spl.setFirstName(val[0]);
+                    spl.setLastName(val[1]);
                     
-                spl_db.insert_supplier_person(csv_spl);
+                spl_db.insert_supplier_person(spl);
             }
         }catch(FileNotFoundException e){
             e.printStackTrace();

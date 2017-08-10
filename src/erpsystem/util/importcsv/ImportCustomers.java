@@ -13,7 +13,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-
 public class ImportCustomers {
     
     private BufferedReader reader;
@@ -23,14 +22,13 @@ public class ImportCustomers {
         if(isCompany){
             import_company(file_path);
         }else{
-            import_person(file_path);
+            import_indevidual(file_path);
         }
-        
         return true;
     }
     
     
-    private void import_person(String file_path){
+    private void import_indevidual(String file_path){
         cust_db = new CustomersDatabase();
         String csv_line = null;
         try{
@@ -39,6 +37,19 @@ public class ImportCustomers {
                 while((csv_line = reader.readLine())!= null){
                     String[] line = csv_line.split(",");
                     Customer cst = new Customer();
+                       cst.setFirstName(line[0]);
+                       cst.setLastName(line[1]);
+                       cst.setSex(line[2]);
+                       cst.setAddress(line[3]);
+                       cst.setZipCode(Integer.parseInt(line[4]));
+                       cst.setCity(line[5]);
+                       cst.setCity(line[6]);
+                       cst.setState(line[7]);
+                       cst.setCountry(line[8]);
+                       cst.setCustomer_Type(line[9]);
+                       cst.setPhone(line[10]);
+                       cst.setFax(line[11]);
+                       cst.setMail(line[12]);
                     cust_db.insert_customer(cst);
                 }
         }catch(FileNotFoundException e){
@@ -56,6 +67,16 @@ public class ImportCustomers {
                 while((csv_line = reader.readLine())!= null){
                     String[] line = csv_line.split(",");
                     CustomerCompany cst = new CustomerCompany();
+                        cst.setCompanyName(line[0]);
+                        cst.setAddress(line[1]);
+                        cst.setZipCode(Integer.parseInt(line[2]));
+                        cst.setCity(line[3]);
+                        cst.setState(line[4]);
+                        cst.setCountry(line[5]);
+                        cst.setCustomer_type(line[6]);
+                        cst.setPhone(line[7]);
+                        cst.setFax(line[8]);
+                        cst.setMail(line[9]);
                     cust_db.insert_company(cst);
                 }
         }catch(FileNotFoundException e){

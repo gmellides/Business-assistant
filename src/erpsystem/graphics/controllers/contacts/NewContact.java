@@ -28,39 +28,17 @@ import javafx.stage.Stage;
 public class NewContact implements Initializable {
     
         @FXML
-        private ComboBox<String> sex_ComboBox;
-        @FXML
-        private ComboBox<String> phone1_type_ComboBox;
-        @FXML
-        private ComboBox<String> phone2_type_ComboBox;
-        @FXML
-        private ComboBox<String> countries_cmb;
-        @FXML
-        private ComboBox<String> state_cmb;
-        @FXML
-        private ComboBox<String> city_cmb;
+        private ComboBox<String> sex_ComboBox,phone1_type_ComboBox,phone2_type_ComboBox,
+                                 countries_cmb,state_cmb,city_cmb;
         @FXML
         private Button btnClose;
         @FXML
         private Button btnSave;
         @FXML
-        private TextField txt_firstname;
-        @FXML
-        private TextField txt_lastname;
-        @FXML
-        private TextField txt_address;
-        @FXML
-        private TextField txt_zipcode;
-        @FXML
-        private TextField txt_mail;
-        @FXML
-        private TextField txt_phone1;
-        @FXML
-        private TextField txt_phone2;
+        private TextField txt_firstname,txt_lastname,txt_address,txt_zipcode,
+                          txt_mail,txt_phone1,txt_phone2,txt_website;
         @FXML
         private TextArea txt_comments;
-        @FXML
-        private TextField txt_website;
         @FXML
         private ImageView icon_img;
     // -- End of FXML Components Declaration
@@ -80,7 +58,7 @@ public class NewContact implements Initializable {
     // -- FXML Componenents Action
         @FXML
         private void btnSave_Action(ActionEvent event) {  
-            if (Check_fields()){
+           
                 Contact obj = new Contact();
                  data_to_obj(obj);                 
                  database = new ContactsDatabase();
@@ -101,9 +79,7 @@ public class NewContact implements Initializable {
                      window.close();
                      window_check.NewContact_toggle(false);
                  }
-            }else{
-               // error for fields 
-            }
+           
         }
         @FXML
         private void btnClose_Action(ActionEvent event) {

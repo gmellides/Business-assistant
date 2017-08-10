@@ -202,7 +202,7 @@ public class NewCustomer implements Initializable {
                        stage.close();
                    }
                });
-            stage.setTitle(default_strings.getString("customer_manager"));
+            stage.setTitle(default_strings.getString("window_customer_manager"));
             stage.setScene(scene);
             stage.setResizable(false);
             stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));

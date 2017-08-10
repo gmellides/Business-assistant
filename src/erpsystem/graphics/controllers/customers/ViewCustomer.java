@@ -78,6 +78,7 @@ public class ViewCustomer implements Initializable {
             view_customer_individual(input);
             edit_customer_individual(input);
         }
+        // Puts items to comboboxes at Edit Panel
         try{
             cmb_country.setItems(new ComboBoxDataParser().get_countries());
             cmb_city.setItems(new ComboBoxDataParser().get_big_cities_greece());

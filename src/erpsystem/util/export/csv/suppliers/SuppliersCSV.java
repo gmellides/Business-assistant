@@ -23,16 +23,23 @@ public class SuppliersCSV {
     public boolean export_file(boolean isCompany,
                                ResourceBundle default_strings,
                                ObservableList<Map> data){
-
         if(isCompany){
             csv_file = new File(new FileManager().getApp_data_root()+"/"+default_strings.getString("")+".csv");
             if (csv_file.exists()){
                 csv_file.delete();
                 create_companies(data);
+            }else{
+                create_companies(data);
             }
         }else{
             csv_file = new File(new FileManager().getApp_data_root()+"/"+default_strings.getString("")+".csv");
-            create_individuals(data);
+            if (csv_file.exists()){
+                csv_file.delete();
+                create_individuals(data);
+            }else{
+                create_individuals(data);
+            }
+            
         }
         return true;
     }

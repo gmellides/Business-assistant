@@ -33,7 +33,7 @@ public class ContactsDatabase {
                                         +"WHERE contact_id = ?";
    
     private final String database_driver = "jdbc:ucanaccess://";
-    private final String database_path = new File("databases/data.accdb").getAbsolutePath();
+    private final String database_path = new File("databases/Cnt_db.accdb").getAbsolutePath();
     private final String Username = null;
     private final String Password = null;
     
@@ -113,6 +113,7 @@ public class ContactsDatabase {
                         row_data.put("country", rs.getString("country"));
                         row_data.put("greek_state", rs.getString("greek_state"));
                         row_data.put("city", rs.getString("city"));
+                        row_data.put("mail", rs.getString("mail"));
                         row_data.put("phone1", rs.getString("phone1"));
                         row_data.put("phone1_type", rs.getString("phone1_type"));
                         row_data.put("phone2", rs.getString("phone2"));

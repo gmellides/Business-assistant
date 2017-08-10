@@ -13,7 +13,7 @@ import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType0Font;
 
-public class ContactsPDF {
+public class ContactsTablePDF {
     private FileManager workspace;
     private String file_name;
     

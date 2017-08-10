@@ -96,16 +96,14 @@ public class SearchView implements Initializable {
                             stage.setWidth(680);
                             stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                                 @Override
-                                public void handle(WindowEvent we) {
-                                   
+                                public void handle(WindowEvent we) {      
                                     stage.close();
                                 }
                             });
-                            stage.setTitle(language_strings.getString("customer_manager"));
+                            stage.setTitle(language_strings.getString("window_viewContact"));
                             stage.setScene(scene);
                             stage.setResizable(false);
-                         // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
-                         // stage.getIcons().add(icon);
+                            stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
                             stage.show();
                         }catch(IOException e){
                             e.printStackTrace();
