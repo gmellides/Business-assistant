@@ -61,6 +61,7 @@ public class ContactManager implements Initializable {
                     e.printStackTrace();
                 }
               }  
+            close_window();
         }
         @FXML
         private void btnSearchView_Action(ActionEvent event) throws IOException{
@@ -75,6 +76,7 @@ public class ContactManager implements Initializable {
                     e.printStackTrace();
                 }
             }
+            close_window();
         }
         @FXML
         private void btn_BackUp_Action(ActionEvent event) throws IOException {
@@ -89,12 +91,11 @@ public class ContactManager implements Initializable {
                     e.printStackTrace();
                 }         
             }
+            close_window();
         }
         @FXML
         private void btnExit_Action(ActionEvent event) {
-            new WindowsManager().ContactManager_toggle(false);
-            Stage this_window = (Stage) btnNewContact.getScene().getWindow();
-            this_window.close();
+            close_window();
         }
     // ===============================
     
@@ -127,6 +128,11 @@ public class ContactManager implements Initializable {
                 stage.setResizable(false);
                 stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
                 stage.show(); 
+        }
+        private void close_window(){
+            new WindowsManager().ContactManager_toggle(false);
+            Stage this_window = (Stage) btnNewContact.getScene().getWindow();
+            this_window.close();
         }
     // ===============================
 }

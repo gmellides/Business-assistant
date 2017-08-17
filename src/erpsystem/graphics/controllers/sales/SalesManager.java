@@ -5,6 +5,7 @@
  */
 package erpsystem.graphics.controllers.sales;
 
+import erpsystem.util.system.Dimension;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,11 +16,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 public class SalesManager implements Initializable {
+
+    @FXML
+    private Button btn_Close;
 
 
     /**
@@ -31,6 +36,14 @@ public class SalesManager implements Initializable {
     } 
         @FXML
         private void btn_NewSale_Action(ActionEvent event) {
+            try{
+                OpenWindow("sales/NewSale.fxml",
+                           new Dimension().NewSale_window_width,
+                           new Dimension().NewSale_window_height,
+                           "");
+            }catch(IOException e){
+                e.printStackTrace();
+            }
         }
         @FXML
         private void btn_ShowSales_Action(ActionEvent event) {
@@ -44,7 +57,8 @@ public class SalesManager implements Initializable {
         
     }
     private void close_window(){
-   
+        Stage win = (Stage) btn_Close.getScene().getWindow();
+        win.close();
     }
     private void OpenWindow(String WindowPath,
                                 int Width,

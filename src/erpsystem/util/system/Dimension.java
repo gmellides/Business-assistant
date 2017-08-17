@@ -14,4 +14,10 @@ public class Dimension {
     
     public final int SearchView_window_width = 855;
     public final int SearchView_window_height = 600;
+    
+    public final int ViewEntry_window_widht = 724;
+    public final int ViewEntry_window_height = 490;
+    
+    public final int NewSale_window_width = 550;
+    public final int NewSale_window_height = 650;
 }

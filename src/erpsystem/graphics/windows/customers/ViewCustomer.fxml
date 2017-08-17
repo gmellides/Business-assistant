@@ -23,15 +23,14 @@
    <children>
       <Pane prefHeight="467.0" prefWidth="724.0" styleClass="background_panel">
          <children>
-            <Button fx:id="btnClose" layoutX="593.0" layoutY="417.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="111.0" text="%gnr_btn_Close" />
+            <ImageView fitHeight="119.0" fitWidth="139.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="205.0" layoutY="14.0" prefHeight="47.0" prefWidth="353.0" text="%view_window_title">
                <font>
                   <Font size="32.0" />
                </font>
             </Label>
-            <ImageView fitHeight="119.0" fitWidth="139.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <Line endX="436.0" layoutX="272.0" layoutY="73.0" startX="-100.0" />
-            <Pane fx:id="View_Panel" layoutX="14.0" layoutY="80.0" prefHeight="327.0" prefWidth="690.0">
+            <Pane fx:id="View_Panel" layoutX="14.0" layoutY="80.0" prefHeight="326.0" prefWidth="699.0">
                <children>
                   <Label fx:id="lbl_category_view" layoutX="212.0" layoutY="162.0" prefHeight="20.0" prefWidth="223.0" text="%lbl_category_text">
                      <font>
@@ -134,7 +133,11 @@
                   <ComboBox fx:id="cmb_state" layoutX="414.0" layoutY="96.0" prefHeight="25.0" prefWidth="243.0" />
                </children>
             </Pane>
-            <ToggleButton fx:id="btn_editToggle" layoutX="21.0" layoutY="417.0" mnemonicParsing="false" onAction="#btn_Edit_Action" prefHeight="25.0" prefWidth="111.0" text="Επεξεργασία" />
+            <Button fx:id="btnClose" layoutX="593.0" layoutY="424.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="111.0" text="%gnr_btn_Close" />
+            <ToggleButton fx:id="btn_editToggle" layoutX="28.0" layoutY="424.0" mnemonicParsing="false" onAction="#btn_Edit_Action" prefHeight="25.0" prefWidth="111.0" text="Επεξεργασία" />
+            <Button fx:id="btn_Delete" layoutX="153.0" layoutY="424.0" mnemonicParsing="false" onAction="#btn_Delete_Action" prefHeight="25.0" prefWidth="111.0" text="%gnr_btn_delete" />
+            <Button fx:id="btn_SaveEdited" layoutX="593.0" layoutY="424.0" mnemonicParsing="false" onAction="#btn_SaveEdited_Action" prefHeight="25.0" prefWidth="111.0" text="%gnr_btn_Save" visible="false" />
+            <Button fx:id="btn_ExportPDF" layoutX="153.0" layoutY="424.0" mnemonicParsing="false" onAction="#btn_ExportPDF_Action" prefHeight="25.0" prefWidth="111.0" text="%gnr_btn_ExportPDF" />
          </children>
       </Pane>
    </children>

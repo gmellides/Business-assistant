@@ -47,21 +47,21 @@ public class CustomersCSV {
     private boolean export_indeviduals(ObservableList<Map> raw_data){
         String[] csv_columns = {"firstname","lastname","sex","address","zipcode",
                                 "city","state","country","customer_type","phone",
-                                "fax","mail","import_date"};
+                                "fax","mail"};
         try{
             writer = new FileWriter(csv_file);
             buffer = new BufferedWriter(writer);
             // CSV Header
             for (String item:csv_columns){
                 buffer.write(item);
-                if(!item.equals("import_date"))
+                if(!item.equals("mail"))
                     buffer.write(",");
             }
             // Fill CSV with data.
             for (Map item : raw_data){
                 buffer.write("\n");
                 for (String index : csv_columns){  
-                    if (index.equals("import_date")){
+                    if (index.equals("mail")){
                         buffer.append(String.valueOf(item.get(index)));
                     }else{
                         buffer.append(String.valueOf(item.get(index)));
@@ -79,21 +79,21 @@ public class CustomersCSV {
     }
     private boolean export_companies(ObservableList<Map> raw_data){
         String[] csv_columns = {"name","address","zipcode","city","state","country",
-                                "customer_type","phone","fax","mail","import_date"};
+                                "customer_type","phone","fax","mail"};
         try{
             writer = new FileWriter(csv_file);
             buffer = new BufferedWriter(writer);
             // CSV Header
             for (String item:csv_columns){
                 buffer.write(item);
-                if(!item.equals("import_date"))
+                if(!item.equals("mail"))
                     buffer.write(",");
             }
             // Fill CSV with data.
             for (Map item : raw_data){
                 buffer.write("\n");
                 for (String index : csv_columns){  
-                    if (index.equals("import_date")){
+                    if (index.equals("mail")){
                         buffer.append(String.valueOf(item.get(index)));
                     }else{
                         buffer.append(String.valueOf(item.get(index)));

@@ -5,7 +5,8 @@
  */
 package erpsystem.graphics.controllers.customers;
 
-import erpsystem.database.customers.CustomersDatabase;
+import erpsystem.database.customers.CustomerCompanies;
+import erpsystem.database.customers.CustomerIndividual;
 import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
 import java.io.IOException;
@@ -25,6 +26,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.MapValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -49,7 +51,7 @@ public class SearchView implements Initializable {
                         col_comp_importDate;
     private static boolean isCompany;
     private ResourceBundle default_strings;
-
+    
     /**
      * Initializes the controller class.
      */
@@ -102,7 +104,9 @@ public class SearchView implements Initializable {
                     if (! row.isEmpty() && event.getButton()== MouseButton.PRIMARY 
                                         && event.getClickCount() == 2) {
                             Map clickedRow = row.getItem();
-                            OpenWindow(724,490,clickedRow);
+                            OpenViewCustomerWindow(new Dimension().ViewEntry_window_widht,
+                                                   new Dimension().ViewEntry_window_height,
+                                                   clickedRow);
                         }
                     });
                 return row 
@@ -113,14 +117,16 @@ public class SearchView implements Initializable {
                     if (! row.isEmpty() && event.getButton()== MouseButton.PRIMARY 
                                         && event.getClickCount() == 2) {
                             Map clickedRow = row.getItem();
-                            OpenWindow(724,490,clickedRow);
+                            OpenViewCustomerWindow(new Dimension().ViewEntry_window_widht,
+                                                   new Dimension().ViewEntry_window_height,
+                                                   clickedRow);
                         }
                     });
                 return row 
             ;});
             
-        tbl_customers.setItems(new CustomersDatabase().select_person());
-        tbl_companies.setItems(new CustomersDatabase().select_company());
+        tbl_customers.setItems(new CustomerIndividual().select_customers());
+        tbl_companies.setItems(new CustomerCompanies().select_company());
          
             TableColumn[] customer_columns = {Col_cust_CustomerID,Col_cust_Firstname,
             Col_cust_Lastname,Col_cust_sex,Col_cust_address,Col_cust_zipcode,Col_cust_city,
@@ -148,9 +154,9 @@ public class SearchView implements Initializable {
         return flag;
     }
     // View Window
-    private void OpenWindow(int Width,
-                            int Height,
-                            Map input){
+    private void OpenViewCustomerWindow(int Width,
+                                        int Height,
+                                        Map input){
         try{
             FXMLLoader fxml_loader = new FXMLLoader();
             fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
@@ -170,7 +176,7 @@ public class SearchView implements Initializable {
             stage.setTitle(default_strings.getString("window_customer_manager"));
             stage.setScene(scene);
             stage.setResizable(false);
-         // stage.getIcons().add(new Image(getClass().getResource("icon.png").toExternalForm()));
+            stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
             stage.show();
         }catch(IOException e){
             e.printStackTrace();

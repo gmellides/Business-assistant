@@ -5,6 +5,8 @@
  */
 package erpsystem.util.importcsv;
 
+import erpsystem.database.suppliers.SupplierCompanies;
+import erpsystem.database.suppliers.SupplierIndividual;
 import erpsystem.database.suppliers.SuppliersDatabase;
 import erpsystem.entities.corpotations.SupplierCompany;
 import erpsystem.entities.people.Supplier;
@@ -36,7 +38,7 @@ public class ImportSuppliers {
                 String[] val = csv_line.split(",");
                     SupplierCompany csv_spl = new SupplierCompany();
                     
-                spl_db.insert_supplier_company(csv_spl);
+                new SupplierCompanies().insert_supplier(csv_spl);
             }
         }catch(FileNotFoundException e){
             e.printStackTrace();
@@ -57,7 +59,7 @@ public class ImportSuppliers {
                     spl.setFirstName(val[0]);
                     spl.setLastName(val[1]);
                     
-                spl_db.insert_supplier_person(spl);
+                new SupplierIndividual().insert_supplier(spl);
             }
         }catch(FileNotFoundException e){
             e.printStackTrace();

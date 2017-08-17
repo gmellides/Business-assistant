@@ -5,6 +5,8 @@
  */
 package erpsystem.graphics.controllers.suppliers;
 
+import erpsystem.database.suppliers.SupplierCompanies;
+import erpsystem.database.suppliers.SupplierIndividual;
 import erpsystem.database.suppliers.SuppliersDatabase;
 import erpsystem.entities.corpotations.SupplierCompany;
 import erpsystem.entities.people.Supplier;
@@ -21,6 +23,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -66,8 +70,11 @@ public class NewSupplier implements Initializable {
                     new_spl.setMail(txtMail.getText());
                     new_spl.setBank(txtBankName.getText());
                     new_spl.setFax(txtFax.getText());
-                new SuppliersDatabase().insert_supplier_company(new_spl);
-                // AlertDialog
+                new SupplierCompanies().insert_supplier(new_spl);
+                Alert_dialog(AlertType.INFORMATION,
+                             "dlg_supplierSaved_title",
+                             "dlg_supplierSaved_header",
+                             "dlg_supplierSaved_message");
                 close_window();
             }else{
                 Supplier new_spl = new Supplier();
@@ -84,8 +91,11 @@ public class NewSupplier implements Initializable {
                     new_spl.setMail(txtMail.getText());
                     new_spl.setBank(txtBankName.getText());
                     new_spl.setFax(txtFax.getText());
-                new SuppliersDatabase().insert_supplier_person(new_spl);
-                // AlertDialog
+                new SupplierIndividual().insert_supplier(new_spl);
+                Alert_dialog(AlertType.INFORMATION,
+                             "dlg_supplierSaved_title",
+                             "dlg_supplierSaved_header",
+                             "dlg_supplierSaved_message");
                 close_window();
             }
         }
@@ -98,6 +108,9 @@ public class NewSupplier implements Initializable {
                 cmbSex.setDisable(true);
             }else{
                 isBusiness = false;
+                lbl_name.setText(default_strings.getString("gnr_lbl_firstname"));
+                txtLastName.setDisable(false);
+                cmbSex.setDisable(false);
             }
         }
         @FXML
@@ -142,7 +155,7 @@ public class NewSupplier implements Initializable {
                        stage.close();
                    }
                });
-            stage.setTitle(default_strings.getString("customer_manager"));
+            stage.setTitle(default_strings.getString("window_supplier_manager"));
             stage.setScene(scene);
             stage.setResizable(false);
             // stage.getIcons().add(new Image(getClass().getResource("icon.png").toExternalForm()));
@@ -150,5 +163,15 @@ public class NewSupplier implements Initializable {
         }catch(IOException e){
             e.printStackTrace();
         }
+    }
+    private void Alert_dialog(Alert.AlertType type,
+                               String Title,
+                               String Header,
+                               String Message){
+            Alert succed_dialog = new Alert(type);
+            succed_dialog.setTitle(default_strings.getString(Title));
+            succed_dialog.setHeaderText(default_strings.getString(Header));
+            succed_dialog.setContentText(default_strings.getString(Message));
+            succed_dialog.showAndWait();
     }
 }

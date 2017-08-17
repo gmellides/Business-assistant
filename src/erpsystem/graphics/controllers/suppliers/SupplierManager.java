@@ -120,7 +120,7 @@ public class SupplierManager implements Initializable {
                         OpenWindow("suppliers/SupplierManager.fxml",
                                    new Dimension().Manager_window_width,
                                    new Dimension().Manager_window_height,
-                                   default_strings.getString("customer_manager"));
+                                   default_strings.getString("window_supplier_manager"));
                         }catch(IOException e){
                             e.printStackTrace();
                         }

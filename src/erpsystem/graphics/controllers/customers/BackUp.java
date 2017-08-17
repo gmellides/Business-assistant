@@ -5,7 +5,8 @@
  */
 package erpsystem.graphics.controllers.customers;
 
-import erpsystem.database.customers.CustomersDatabase;
+import erpsystem.database.customers.CustomerCompanies;
+import erpsystem.database.customers.CustomerIndividual;
 import erpsystem.util.export.csv.customers.CustomersCSV;
 import erpsystem.util.importcsv.ImportCustomers;
 import erpsystem.util.system.Dimension;
@@ -67,7 +68,7 @@ public class BackUp implements Initializable {
                 if(new CustomersCSV()
                         .export_csv(backup_option.getSelectedToggle().equals(rdb_Companies),
                         default_strings,
-                        new CustomersDatabase().select_company())){
+                        new CustomerCompanies().select_company())){
                         Alert_dialog(AlertType.INFORMATION,
                                       "dlg_CSV_title",
                                       "dlg_customersCSV_header",
@@ -77,7 +78,7 @@ public class BackUp implements Initializable {
                 if(new CustomersCSV()
                        .export_csv(backup_option.getSelectedToggle().equals(rdb_Companies),
                         default_strings,
-                        new CustomersDatabase().select_person())){
+                        new CustomerIndividual().select_customers())){
                     Alert_dialog(AlertType.INFORMATION,
                                  "dlg_CSV_title",
                                  "dlg_customersCSV_header",

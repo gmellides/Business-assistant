@@ -6,6 +6,7 @@
 package erpsystem.graphics.controllers.contacts;
 
 import erpsystem.database.contacts.ContactsDatabase;
+import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
 import java.io.File;
 import java.io.IOException;
@@ -84,30 +85,9 @@ public class SearchView implements Initializable {
                 if (! row.isEmpty() && event.getButton()== MouseButton.PRIMARY 
                                     && event.getClickCount() == 2) {
                         Map clickedRow = row.getItem();
-                        try{
-                            FXMLLoader fxml_loader = new FXMLLoader();
-                            fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
-                            Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/contacts/ViewContact.fxml").openStream());
-                            ViewContact d = fxml_loader.getController();
-                            d.set_window(clickedRow);                            
-                            Stage stage = new Stage();
-                            Scene scene = new Scene(root);
-                            stage.setHeight(444);
-                            stage.setWidth(680);
-                            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-                                @Override
-                                public void handle(WindowEvent we) {      
-                                    stage.close();
-                                }
-                            });
-                            stage.setTitle(language_strings.getString("window_viewContact"));
-                            stage.setScene(scene);
-                            stage.setResizable(false);
-                            stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
-                            stage.show();
-                        }catch(IOException e){
-                            e.printStackTrace();
-                        }
+                        OpenViewContactWindow(new Dimension().ViewEntry_window_widht,
+                                              new Dimension().ViewEntry_window_height,
+                                              clickedRow);
                     }
                 });
             return row 
@@ -131,9 +111,31 @@ public class SearchView implements Initializable {
             column.setCellValueFactory(new MapValueFactory(id[index]));
             index++;
         }
-        
     }
-    public void set_style(){
-        
+    private void OpenViewContactWindow(int width,int height,Map clickedRow){
+        try{
+            FXMLLoader fxml_loader = new FXMLLoader();
+            fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
+            Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/contacts/ViewContact.fxml").openStream());
+            ViewContact ctrl = fxml_loader.getController();
+            ctrl.set_window(clickedRow);                            
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            stage.setHeight(height);
+            stage.setWidth(width);
+            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent we) {      
+                    stage.close();
+                }
+            });
+            stage.setTitle(language_strings.getString("window_viewContact"));
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
+            stage.show();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
 }

@@ -7,15 +7,21 @@ package erpsystem.graphics.controllers.contacts;
 
 import erpsystem.database.contacts.ContactsDatabase;
 import erpsystem.entities.people.Contact;
+import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
 import erpsystem.util.xml.read.ComboBoxDataParser;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -24,6 +30,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class NewContact implements Initializable {
     
@@ -31,9 +38,7 @@ public class NewContact implements Initializable {
         private ComboBox<String> sex_ComboBox,phone1_type_ComboBox,phone2_type_ComboBox,
                                  countries_cmb,state_cmb,city_cmb;
         @FXML
-        private Button btnClose;
-        @FXML
-        private Button btnSave;
+        private Button btnClose,btnSave;
         @FXML
         private TextField txt_firstname,txt_lastname,txt_address,txt_zipcode,
                           txt_mail,txt_phone1,txt_phone2,txt_website;
@@ -58,34 +63,35 @@ public class NewContact implements Initializable {
     // -- FXML Componenents Action
         @FXML
         private void btnSave_Action(ActionEvent event) {  
-           
-                Contact obj = new Contact();
-                 data_to_obj(obj);                 
-                 database = new ContactsDatabase();
-                 if(!database.insert_contact(obj)){
-                     Alert succed_dialog = new Alert(Alert.AlertType.INFORMATION);
-                     succed_dialog.setTitle(default_strings.getString("dlg_contactSaved_title"));
-                     succed_dialog.setContentText(default_strings.getString("dlg_contactSaved_message"));
-                     succed_dialog.showAndWait();
-                     Stage window = (Stage) btnSave.getScene().getWindow();
-                     window.close();
-                     window_check.NewContact_toggle(false);
-                 }else{
-                     Alert succed_dialog = new Alert(Alert.AlertType.ERROR);
-                     succed_dialog.setTitle(default_strings.getString("dlg_contactSaved_title"));
-                     succed_dialog.setContentText(default_strings.getString("dlg_contactSaved_message"));
-                     succed_dialog.showAndWait();
-                     Stage window = (Stage) btnSave.getScene().getWindow();
-                     window.close();
-                     window_check.NewContact_toggle(false);
-                 }
-           
+            Contact obj = new Contact();
+             data_to_obj(obj);                 
+             database = new ContactsDatabase();
+            if(!database.insert_contact(obj)){
+                Alert succed_dialog = new Alert(Alert.AlertType.INFORMATION);
+                succed_dialog.setTitle(default_strings.getString("dlg_contactSaved_title"));
+                succed_dialog.setContentText(default_strings.getString("dlg_contactSaved_message"));
+                succed_dialog.showAndWait();
+                Stage window = (Stage) btnSave.getScene().getWindow();
+                window.close();
+                window_check.NewContact_toggle(false);
+                OpenManager();
+            }else{
+                Alert succed_dialog = new Alert(Alert.AlertType.ERROR);
+                succed_dialog.setTitle(default_strings.getString("dlg_contactSaved_title"));
+                succed_dialog.setContentText(default_strings.getString("dlg_contactSaved_message"));
+                succed_dialog.showAndWait();
+                Stage window = (Stage) btnSave.getScene().getWindow();
+                window.close();
+                window_check.NewContact_toggle(false);
+                OpenManager();
+            }   
         }
         @FXML
         private void btnClose_Action(ActionEvent event) {
             window_check.NewContact_toggle(false);
             Stage current_stage = (Stage) btnClose.getScene().getWindow();
             current_stage.close();
+            
         }
         @FXML
         private void cmbCountry_action(ActionEvent event) {
@@ -122,20 +128,6 @@ public class NewContact implements Initializable {
             } catch (Exception ex) {
                ex.printStackTrace();
             }
-        }// init_comboboxes()
-        public boolean Check_fields(){
-            boolean flag = false;
-                TextField[] fields = {txt_firstname,txt_lastname,txt_address,txt_zipcode,
-                                      txt_mail,txt_phone1,txt_phone2,txt_website};
-                for(TextField item: fields){
-                    if (item.getText() != null){
-                        flag = true;
-                    }else{
-                        flag = false;
-                        break;
-                    }
-                }
-            return flag;
         }
         private void data_to_obj(Contact obj){
             obj.setFirstName(txt_firstname.getText());
@@ -161,6 +153,31 @@ public class NewContact implements Initializable {
             obj.setPhone_2(txt_phone2.getText());
             obj.setPhone_2_type(phone2_type_ComboBox.getSelectionModel().getSelectedItem());
             obj.setZipCode(Integer.parseInt(txt_zipcode.getText()));
+        }
+        private void OpenManager(){
+            try{
+                FXMLLoader fxml_loader = new FXMLLoader();
+                fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
+                Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/contacts/ContactManager.fxml").openStream());
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                stage.setHeight(new Dimension().Manager_window_height);
+                stage.setWidth(new Dimension().Manager_window_width);
+                   stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                       @Override
+                       public void handle(WindowEvent we) {
+                           new WindowsManager().toggle_window("contacts/ContactManager.fxml");
+                           stage.close();
+                       }
+                   });
+                stage.setTitle(default_strings.getString("window_contact_manager"));
+                stage.setScene(scene);
+                stage.setResizable(false);
+                stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
+                stage.show();
+            }catch(IOException e){
+                e.printStackTrace();
+            }
         }
     // -- END of Methods
 }

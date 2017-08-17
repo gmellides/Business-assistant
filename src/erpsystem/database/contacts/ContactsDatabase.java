@@ -25,68 +25,61 @@ public class ContactsDatabase {
     private final String INSERT_QUERY = "INSERT INTO Contacts(contact_id,firstname,lastname,sex,address,zipcode,"
                                         + "country,greek_state,city,mail,phone1,phone1_type,phone2,"
                                         + "phone2_type,comments,website,import_date)"
-                                        + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
-    private final String COUNT_QUERY = "SELECT COUNT(*) FROM Contacts;";
-    private final String SELECT_QUERY = "SELECT * FROM Contacts;";
-    private final String UPDATE_QUERY = "UPDATE Contacts "
-                                        +"COLUMN .... "
-                                        +"WHERE contact_id = ?";
-   
+                                        + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    
     private final String database_driver = "jdbc:ucanaccess://";
     private final String database_path = new File("databases/Cnt_db.accdb").getAbsolutePath();
     private final String Username = null;
     private final String Password = null;
     
-    public Connection connection;
-    public Statement statement;
-    public ResultSet rs;
-    public PreparedStatement insert_statement;
+    protected Connection connection;
+    protected Statement statement;
+    protected ResultSet rs;
+    protected PreparedStatement prepared_statement;
  
-    private void Connect(){       
-            try{
-                Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-                connection = DriverManager.getConnection(database_driver+database_path);
-            }catch(ClassNotFoundException|SQLException e){
-                e.printStackTrace();
-            }
+    protected void Connect(){       
+        try{
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+            connection = DriverManager.getConnection(database_driver+database_path);
+        }catch(ClassNotFoundException|SQLException e){
+            e.printStackTrace();
+        }
     }
         public boolean insert_contact(Contact input){
             boolean flag = false;
                 try{
                     Connect();
-                    insert_statement = connection.prepareStatement(INSERT_QUERY);
-                        insert_statement.setInt(1, 0);
-                        insert_statement.setString(2, input.getFirstName());
-                        insert_statement.setString(3, input.getLastName());
-                        insert_statement.setString(4, input.getSex());
-                        insert_statement.setString(5, input.getAddress());
-                        insert_statement.setInt(6, input.getZipCode());
-                        insert_statement.setString(7, input.getCountry());               
-                        insert_statement.setString(8, input.getState());
-                        insert_statement.setString(9, input.getCity());
-                        insert_statement.setString(10, input.getMail());
-                        insert_statement.setString(11, input.getPhone_1());
-                        insert_statement.setString(12, input.getPhone_1_type());
-                        insert_statement.setString(13, input.getPhone_2());
-                        insert_statement.setString(14, input.getPhone_2_type());
-                        insert_statement.setString(15, input.getComments());
-                        insert_statement.setString(16, input.getWebsite());
-                        insert_statement.setTimestamp(17, Timestamp.valueOf(new DateTimeProvider().GetTimestamp()));
-                    flag = insert_statement.execute();
+                    prepared_statement = connection.prepareStatement(INSERT_QUERY);
+                        prepared_statement.setInt(1, 0);
+                        prepared_statement.setString(2, input.getFirstName());
+                        prepared_statement.setString(3, input.getLastName());
+                        prepared_statement.setString(4, input.getSex());
+                        prepared_statement.setString(5, input.getAddress());
+                        prepared_statement.setInt(6, input.getZipCode());
+                        prepared_statement.setString(7, input.getCountry());               
+                        prepared_statement.setString(8, input.getState());
+                        prepared_statement.setString(9, input.getCity());
+                        prepared_statement.setString(10, input.getMail());
+                        prepared_statement.setString(11, input.getPhone_1());
+                        prepared_statement.setString(12, input.getPhone_1_type());
+                        prepared_statement.setString(13, input.getPhone_2());
+                        prepared_statement.setString(14, input.getPhone_2_type());
+                        prepared_statement.setString(15, input.getComments());
+                        prepared_statement.setString(16, input.getWebsite());
+                        prepared_statement.setTimestamp(17, Timestamp.valueOf(new DateTimeProvider().GetTimestamp()));
+                    flag = prepared_statement.execute();
                     Disconnect();
                 }catch(SQLException e){
                     e.printStackTrace();
                 }
             return flag;
         }
-        public boolean update_contact(Contact input){return true;}
-        public boolean delete_contact(){return true;}
         public int count_contacts(){
             int contacts = 0;
                 try{
                     Connect();
                     statement = connection.createStatement();
-                    rs = statement.executeQuery(COUNT_QUERY);
+                    rs = statement.executeQuery("SELECT COUNT(*) FROM Contacts;");
                     while (rs.next()){
                         contacts = rs.getInt(1);
                     }
@@ -101,7 +94,7 @@ public class ContactsDatabase {
             try{
                 Connect();
                 statement = connection.createStatement();
-                rs = statement.executeQuery(SELECT_QUERY);
+                rs = statement.executeQuery("SELECT * FROM Contacts;");
                 while (rs.next()){
                     Map<String,String> row_data = new HashMap();
                         row_data.put("contact_id", rs.getString("contact_id"));
@@ -123,18 +116,18 @@ public class ContactsDatabase {
                         row_data.put("import_date", String.valueOf(rs.getDate("import_date")));
                     table_data.add(row_data);
                 }
+                Disconnect();
             }catch(SQLException e){
                 e.printStackTrace();
             }
             return table_data;
         }   
-        
     private void Disconnect(){
         try{
             if (connection != null)
                 connection.close();
-            if (insert_statement != null)
-                insert_statement.close();
+            if (prepared_statement != null)
+                prepared_statement.close();
             if (statement != null)
                 statement.close();
             if (rs != null)

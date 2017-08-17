@@ -5,6 +5,8 @@
  */
 package erpsystem.graphics.controllers.suppliers;
 
+import erpsystem.database.suppliers.SupplierCompanies;
+import erpsystem.database.suppliers.SupplierIndividual;
 import erpsystem.database.suppliers.SuppliersDatabase;
 import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
@@ -84,8 +86,8 @@ public class SearchView implements Initializable {
     
     private boolean isTableFiled(){
         boolean flag = false;
-            Suppliers_Person.setItems(new SuppliersDatabase().get_Suppliers_Persons());
-            Suppliers_Companies.setItems(new SuppliersDatabase().get_Suppliers_Companies());
+            Suppliers_Person.setItems(new SupplierIndividual().select_suppliers());
+            Suppliers_Companies.setItems(new SupplierCompanies().select_suppliers());
             Suppliers_Person.setRowFactory(tableview_evt ->{
                     TableRow<Map> row = new TableRow<>();
                     row.setOnMouseClicked(event -> {

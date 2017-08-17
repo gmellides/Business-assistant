@@ -5,6 +5,8 @@
  */
 package erpsystem.util.importcsv;
 
+import erpsystem.database.customers.CustomerCompanies;
+import erpsystem.database.customers.CustomerIndividual;
 import erpsystem.database.customers.CustomersDatabase;
 import erpsystem.entities.corpotations.CustomerCompany;
 import erpsystem.entities.people.Customer;
@@ -16,7 +18,6 @@ import java.io.IOException;
 public class ImportCustomers {
     
     private BufferedReader reader;
-    private CustomersDatabase cust_db;
     
     public boolean import_csv(boolean isCompany,String file_path){
         if(isCompany){
@@ -29,7 +30,6 @@ public class ImportCustomers {
     
     
     private void import_indevidual(String file_path){
-        cust_db = new CustomersDatabase();
         String csv_line = null;
         try{
             reader = new BufferedReader(new FileReader(file_path));
@@ -43,14 +43,13 @@ public class ImportCustomers {
                        cst.setAddress(line[3]);
                        cst.setZipCode(Integer.parseInt(line[4]));
                        cst.setCity(line[5]);
-                       cst.setCity(line[6]);
-                       cst.setState(line[7]);
-                       cst.setCountry(line[8]);
-                       cst.setCustomer_Type(line[9]);
-                       cst.setPhone(line[10]);
-                       cst.setFax(line[11]);
-                       cst.setMail(line[12]);
-                    cust_db.insert_customer(cst);
+                       cst.setState(line[6]);
+                       cst.setCountry(line[7]);
+                       cst.setCustomer_Type(line[8]);
+                       cst.setPhone(line[9]);
+                       cst.setFax(line[10]);
+                       cst.setMail(line[11]);
+                    new CustomerIndividual().insert_customer(cst);
                 }
         }catch(FileNotFoundException e){
             e.printStackTrace();
@@ -59,7 +58,6 @@ public class ImportCustomers {
         }
     }
     private void import_company(String file_path){
-        cust_db = new CustomersDatabase();
         String csv_line = null;
         try{
             reader = new BufferedReader(new FileReader(file_path));
@@ -77,7 +75,7 @@ public class ImportCustomers {
                         cst.setPhone(line[7]);
                         cst.setFax(line[8]);
                         cst.setMail(line[9]);
-                    cust_db.insert_company(cst);
+                    new CustomerCompanies().insert_company(cst);
                 }
         }catch(FileNotFoundException e){
             e.printStackTrace();
