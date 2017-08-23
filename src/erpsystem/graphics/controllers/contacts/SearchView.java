@@ -92,7 +92,6 @@ public class SearchView implements Initializable {
                 });
             return row 
         ;});
-        
         contacts_table.setItems(new ContactsDatabase().select_contacts());
         TableColumn[] columns = {Col_id,col_firstname,col_lastname,col_sex,
                                  col_address,col_zipcode,col_country,

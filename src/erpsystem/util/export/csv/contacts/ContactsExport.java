@@ -43,7 +43,7 @@ public class ContactsExport {
         String[] csv_columns = {"firstname","lastname","sex","address",
                                 "zipcode","country","greek_state","city","mail",
                                 "phone1","phone1_type","phone2","phone2_type",
-                                "comments","website","import_date"};
+                                "comments","website"};
         try{   
             writer = new FileWriter(csv_file);
             buffer = new BufferedWriter(writer);
@@ -56,7 +56,7 @@ public class ContactsExport {
             for (Map item : input){
                 buffer.write("\n");
                 for (String index : csv_columns){  
-                    if (index.equals("import_date")){
+                    if (index.equals("website")){
                         buffer.append(String.valueOf(item.get(index)));
                     }else{
                         buffer.append(String.valueOf(item.get(index)));

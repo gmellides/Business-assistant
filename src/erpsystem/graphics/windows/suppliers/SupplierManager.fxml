@@ -21,9 +21,9 @@
             <Button layoutX="92.0" layoutY="286.0" mnemonicParsing="false" onAction="#btn_NewSupplier_Action" prefHeight="25.0" prefWidth="187.0" text="%newSupplier_windowname" />
             <Button layoutX="92.0" layoutY="321.0" mnemonicParsing="false" onAction="#btn_ShowRecords_Action" prefHeight="25.0" prefWidth="187.0" text="%searchViewSupplier_windowname" />
             <Button layoutX="300.0" layoutY="286.0" mnemonicParsing="false" onAction="#btn_BackUp_Action" prefHeight="25.0" prefWidth="187.0" text="%gnr_btn_backUp" />
-            <Button layoutX="300.0" layoutY="321.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="187.0" text="Button" />
+            <Button fx:id="btn_ExportPDF" layoutX="300.0" layoutY="321.0" mnemonicParsing="false" onAction="#btn_ExportPDF_Action" prefHeight="25.0" prefWidth="187.0" text="%cmgr_btnExportPDF" />
             <ImageView fitHeight="107.0" fitWidth="143.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="269.0" layoutY="14.0" text="Label">
+            <Label layoutX="187.0" layoutY="20.0" text="%window_supplier_manager">
                <font>
                   <Font size="27.0" />
                </font></Label>

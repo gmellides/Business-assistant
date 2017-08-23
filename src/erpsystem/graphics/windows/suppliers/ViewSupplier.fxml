@@ -10,36 +10,58 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="420.0" prefWidth="696.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="erpsystem.graphics.controllers.suppliers.ViewSupplier">
+<AnchorPane id="AnchorPane" prefHeight="420.0" prefWidth="696.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.suppliers.ViewSupplier">
     <stylesheets>
         <URL value="@/erpsystem/graphics/CSS/style.css" />
     </stylesheets>
    <children>
       <Pane prefHeight="434.0" prefWidth="730.0">
          <children>
+            <Pane layoutX="12.0" layoutY="85.0" prefHeight="305.0" prefWidth="709.0" visible="false">
+               <children>
+                  <Label fx:id="lbl_bank" layoutX="224.0" layoutY="190.0" prefHeight="17.0" prefWidth="129.0" text="Label" />
+                  <Label fx:id="lbl_supplierType" layoutX="166.0" layoutY="52.0" prefHeight="17.0" prefWidth="181.0" text="Label" />
+                  <Label fx:id="lbl_lastname" layoutX="429.0" layoutY="14.0" prefHeight="17.0" prefWidth="181.0" text="Label" />
+                  <Label fx:id="lbl_sex" layoutX="429.0" layoutY="52.0" prefHeight="17.0" prefWidth="181.0" text="Label" />
+                  <Label fx:id="lbl_address" layoutX="47.0" layoutY="103.0" prefHeight="17.0" prefWidth="129.0" text="Label" />
+                  <Label fx:id="lbl_zipcode" layoutX="47.0" layoutY="147.0" prefHeight="17.0" prefWidth="129.0" text="Label" />
+                  <Label fx:id="lbl_country" layoutX="224.0" layoutY="147.0" prefHeight="17.0" prefWidth="129.0" text="Label" />
+                  <Label fx:id="lbl_state" layoutX="47.0" layoutY="189.0" prefHeight="17.0" prefWidth="129.0" text="Label" />
+                  <Label fx:id="lbl_city" layoutX="224.0" layoutY="103.0" prefHeight="17.0" prefWidth="129.0" text="Label" />
+                  <Label fx:id="lbl_phone" layoutX="379.0" layoutY="103.0" prefHeight="17.0" prefWidth="142.0" text="Label" />
+                  <Label fx:id="lbl_IBAN" layoutX="379.0" layoutY="189.0" prefHeight="17.0" prefWidth="153.0" text="Label" />
+                  <Label fx:id="lbl_ImportDate" layoutX="47.0" layoutY="238.0" prefHeight="17.0" prefWidth="122.0" text="Label" />
+                  <Label fx:id="lbl_fax" layoutX="379.0" layoutY="147.0" prefHeight="17.0" prefWidth="153.0" text="Label" />
+                  <Label fx:id="lbl_name" layoutX="166.0" layoutY="14.0" prefHeight="17.0" prefWidth="181.0" text="Label" />
+                  <Label fx:id="lbl_mail" layoutX="543.0" layoutY="103.0" prefHeight="17.0" prefWidth="153.0" text="Label" />
+               </children>
+            </Pane>
+            <Pane layoutX="12.0" layoutY="85.0" prefHeight="305.0" prefWidth="709.0">
+               <children>
+                  <Label layoutX="161.0" layoutY="14.0" text="%gnr_lbl_firstname" />
+                  <TextField layoutX="206.0" layoutY="10.0" />
+                  <TextField layoutX="504.0" layoutY="10.0" />
+                  <Label layoutX="426.0" layoutY="14.0" text="%gnr_lbl_lastname" />
+                  <Label layoutX="161.0" layoutY="57.0" text="%gnr_lbl_sex" />
+                  <ComboBox layoutX="205.0" layoutY="53.0" prefWidth="150.0" />
+                  <Label layoutX="26.0" layoutY="99.0" text="%gnr_lbl_address" />
+                  <Label layoutX="26.0" layoutY="153.0" text="Label" />
+                  <Label layoutX="26.0" layoutY="205.0" text="Label" />
+                  <TextField layoutX="94.0" layoutY="95.0" />
+               </children>
+            </Pane>
             <Label layoutX="331.0" layoutY="14.0" text="Label">
                <font>
                   <Font size="29.0" />
                </font>
             </Label>
-            <ImageView fitHeight="100.0" fitWidth="129.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="110.0" fitWidth="129.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <Line endX="450.0" layoutX="264.0" layoutY="76.0" startX="-100.0" />
-            <Label fx:id="lbl_name" layoutX="65.0" layoutY="141.0" text="Label" />
-            <Button layoutX="648.0" layoutY="395.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="68.0" text="Button" />
-            <Label fx:id="lbl_bank" layoutX="365.0" layoutY="150.0" text="Label" />
-            <Label fx:id="lbl_supplierType" layoutX="222.0" layoutY="174.0" text="Label" />
-            <Label fx:id="lbl_lastname" layoutX="64.0" layoutY="175.0" text="Label" />
-            <Label fx:id="lbl_sex" layoutX="55.0" layoutY="209.0" text="Label" />
-            <Label fx:id="lbl_address" layoutX="68.0" layoutY="247.0" text="Label" />
-            <Label fx:id="lbl_zipcode" layoutX="74.0" layoutY="287.0" text="Label" />
-            <Label fx:id="lbl_country" layoutX="69.0" layoutY="332.0" text="Label" />
-            <Label fx:id="lbl_state" layoutX="227.0" layoutY="141.0" text="Label" />
-            <Label fx:id="lbl_city" layoutX="222.0" layoutY="209.0" text="Label" />
-            <Label fx:id="lbl_phone" layoutX="223.0" layoutY="247.0" text="Label" />
-            <Label fx:id="lbl_IBAN" layoutX="365.0" layoutY="183.0" text="Label" />
-            <Label fx:id="lbl_ImportDate" layoutX="445.0" layoutY="222.0" text="Label" />
-            <Label fx:id="lbl_fax" layoutX="228.0" layoutY="330.0" text="Label" />
-            <Label fx:id="lbl_mail" layoutX="223.0" layoutY="277.0" text="Label" />
+            <Button fx:id="btn_close" layoutX="616.0" layoutY="395.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="100.0" text="%gnr_btn_Close" />
+            <Button layoutX="143.0" layoutY="395.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" text="%gnr_btn_ExportPDF" />
+            <Button fx:id="btn_Save" layoutX="616.0" layoutY="395.0" mnemonicParsing="false" onAction="#btn_SaveEdited_Action" prefHeight="25.0" prefWidth="100.0" text="%gnr_btn_Save" visible="false" />
+            <Button layoutX="143.0" layoutY="395.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" text="Button" />
+            <ToggleButton layoutX="34.0" layoutY="395.0" mnemonicParsing="false" text="ToggleButton" />
          </children>
       </Pane>
    </children>

@@ -1,7 +1,6 @@
 package erpsystem.util.export.pdf.business_data;
 
 import erpsystem.entities.corpotations.Business;
-import erpsystem.util.datetime.DateTimeProvider;
 import erpsystem.util.system.FileManager;
 import java.io.File;
 import java.io.IOException;
@@ -132,7 +131,7 @@ public class BusinessPDF {
          * Returns the name that the fill will get the name is a 
          */
         private String Pdf_name(ResourceBundle rb){
-            return rb.getString("filename_businessData_pdf")+"-"+new DateTimeProvider().GetDateTime_file()+".pdf";
+            return rb.getString("filename_businessData_pdf")+".pdf";
         }
     // ==============================
 }

@@ -6,6 +6,8 @@
 package erpsystem.graphics.controllers.contacts;
 
 import erpsystem.database.contacts.ContactsView;
+import erpsystem.entities.people.Contact;
+import erpsystem.util.export.pdf.contacts.ContactPDF;
 import erpsystem.util.xml.read.ComboBoxDataParser;
 import java.io.File;
 import java.net.URL;
@@ -61,8 +63,7 @@ public class ViewContact implements Initializable {
         default_strings = rb;
         comboboxes_init();
     }
-    
-    
+
     /**
      * This method is public and will be called from double click on 
      * a table row on SearchView.fxml. this method puts data to View Panel 
@@ -129,9 +130,20 @@ public class ViewContact implements Initializable {
         }
         @FXML
         private void btn_Update_Action(ActionEvent event) {
+            int id = Integer.parseInt((String) clicked_row.get("contact_id"));
+            if(new ContactsView().update_contact(id, edited_object())){
+                Alert_dialog(Alert.AlertType.INFORMATION,
+                            "dlg_contactDelete_title",
+                            "dlg_contactDelete_header",
+                            "dlg_contactDelete_message");
+                close_window();
+            }
             close_window();
         }
-    
+        @FXML
+        private void btn_ExportContactPDF_Action(ActionEvent event) {
+            new ContactPDF().save_pdf(default_strings, clicked_row);
+        }
     /**
      * Fills the Edit Panel with data from Map object with name
      * 'clicked_row'
@@ -205,4 +217,31 @@ public class ViewContact implements Initializable {
             succed_dialog.setContentText(default_strings.getString(Message));
             succed_dialog.showAndWait();
     }
+    private Contact edited_object(){
+            Contact obj = new Contact();
+                obj.setFirstName(txt_edt_firstname.getText());
+                obj.setLastName(txt_edt_lastname.getText());
+                obj.setAddress(txt_edt_address.getText());
+                obj.setSex(cmb_edt_sex.getSelectionModel().getSelectedItem());
+                obj.setComments(txt_edt_comments.getText());
+                obj.setWebsite(txt_edt_website.getText());
+                obj.setState(cmb_edt_state.getSelectionModel().getSelectedItem());
+                obj.setMail(txt_edt_mail.getText());
+                if(!cmb_edt_city.isDisabled()){
+                    obj.setCity(cmb_edt_city.getSelectionModel().getSelectedItem());
+                }else{
+                    obj.setCity("----");
+                }
+                if (!cmb_edt_country.isDisabled()){
+                    obj.setCountry(cmb_edt_country.getSelectionModel().getSelectedItem());
+                }else{
+                    obj.setCountry("----");
+                }
+                obj.setPhone_1(txt_edt_phone1.getText());
+                obj.setPhone_1_type(cmb_edt_phone1Type.getSelectionModel().getSelectedItem());
+                obj.setPhone_2(txt_edt_phone2.getText());
+                obj.setPhone_2_type(cmb_edt_phone2Type.getSelectionModel().getSelectedItem());
+                obj.setZipCode(Integer.parseInt(txt_edt_zipcode.getText()));
+            return obj;
+        }
 }

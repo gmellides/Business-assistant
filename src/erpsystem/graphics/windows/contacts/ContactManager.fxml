@@ -39,7 +39,7 @@
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <Button layoutX="307.0" layoutY="285.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="181.0" text="%cmgr_btnExportPDF" />
+            <Button layoutX="307.0" layoutY="285.0" mnemonicParsing="false" onAction="#btn_ExportContacts_Action" prefHeight="25.0" prefWidth="181.0" text="%cmgr_btnExportPDF" />
             <ImageView fx:id="icn_contactManager" fitHeight="121.0" fitWidth="152.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>

@@ -25,45 +25,45 @@
             <TableView fx:id="Suppliers_Person" layoutX="6.0" layoutY="111.0" prefHeight="418.0" prefWidth="839.0">
               <columns>
                 <TableColumn fx:id="Col_supl_person_id" prefWidth="75.0" text="C1" visible="false" />
-                <TableColumn fx:id="Col_firstname" prefWidth="75.0" text="C2" />
-                  <TableColumn fx:id="Col_lastname" prefWidth="75.0" text="C1" />
-                  <TableColumn fx:id="Col_sex" prefWidth="75.0" text="C2" />
-                  <TableColumn fx:id="Col_address" prefWidth="75.0" text="C2" />
-                  <TableColumn fx:id="Col_zipcode" prefWidth="75.0" text="C1" />
-                  <TableColumn fx:id="Col_country" prefWidth="75.0" text="C2" />
-                  <TableColumn fx:id="Col_state" prefWidth="75.0" text="C1" />
-                  <TableColumn fx:id="Col_supplier_type" prefWidth="75.0" text="C2" />
-                  <TableColumn fx:id="Col_city" prefWidth="75.0" text="C2" />
-                  <TableColumn fx:id="Col_phone" prefWidth="75.0" text="C1" />
-                  <TableColumn fx:id="Col_mail" prefWidth="75.0" text="C2" />
-                  <TableColumn fx:id="Col_fax" prefWidth="75.0" text="C1" />
+                <TableColumn fx:id="Col_firstname" prefWidth="75.0" text="%col_firstname" />
+                  <TableColumn fx:id="Col_lastname" prefWidth="75.0" text="%col_lastname" />
+                  <TableColumn fx:id="Col_sex" prefWidth="75.0" text="%col_sex" />
+                  <TableColumn fx:id="Col_address" prefWidth="89.0" text="%col_address" />
+                  <TableColumn fx:id="Col_zipcode" prefWidth="64.0" text="%col_zipcode" />
+                  <TableColumn fx:id="Col_country" prefWidth="75.0" text="%col_country" visible="false" />
+                  <TableColumn fx:id="Col_state" prefWidth="75.0" text="%col_state" visible="false" />
+                  <TableColumn fx:id="Col_supplier_type" prefWidth="88.0" text="%col_supplierType" />
+                  <TableColumn fx:id="Col_city" prefWidth="75.0" text="%col_city" />
+                  <TableColumn fx:id="Col_phone" prefWidth="97.0" text="%col_phone" />
+                  <TableColumn fx:id="Col_fax" prefWidth="75.0" text="%col_fax" visible="false" />
+                  <TableColumn fx:id="Col_mail" prefWidth="85.0" text="%col_mail" />
                   <TableColumn fx:id="Col_bank" prefWidth="75.0" text="C2" visible="false" />
-                  <TableColumn fx:id="Col_IBAN" prefWidth="75.0" text="C2" visible="false" />
+                  <TableColumn fx:id="Col_IBAN" prefWidth="114.0" text="IBAN" />
                   <TableColumn fx:id="Col_ImportDate" prefWidth="75.0" text="C2" visible="false" />
               </columns>
             </TableView>
-            <TableView fx:id="Suppliers_Companies" layoutX="6.0" layoutY="111.0" prefHeight="418.0" prefWidth="839.0">
+            <TableView fx:id="Suppliers_Companies" layoutX="6.0" layoutY="111.0" prefHeight="418.0" prefWidth="839.0" visible="false">
               <columns>
-                <TableColumn fx:id="Col_c_supl_company_id" prefWidth="75.0" text="C1" visible="false" />
-                <TableColumn fx:id="Col_c_name" prefWidth="75.0" text="C2" visible="false" />
-                  <TableColumn fx:id="Col_c_address" prefWidth="75.0" text="C2" />
-                  <TableColumn fx:id="Col_c_zipcode" prefWidth="75.0" text="C1" />
-                  <TableColumn fx:id="Col_c_city" prefWidth="75.0" text="C1" />
-                  <TableColumn fx:id="Col_c_state" prefWidth="75.0" text="C2" />
-                  <TableColumn fx:id="Col_c_country" prefWidth="75.0" text="C1" />
-                  <TableColumn fx:id="Col_c_supplier_type" prefWidth="75.0" text="C1" />
-                  <TableColumn fx:id="Col_c_phone" prefWidth="75.0" text="C2" />
-                  <TableColumn fx:id="Col_c_fax" prefWidth="75.0" text="C1" />
-                  <TableColumn fx:id="Col_c_mail" prefWidth="75.0" text="C1" />
-                  <TableColumn fx:id="Col_c_bank" prefWidth="75.0" text="C2" />
-                  <TableColumn fx:id="Col_c_IBAN" prefWidth="75.0" text="C1" />
-                  <TableColumn fx:id="Col_c_import_date" prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="Col_c_supl_company_id" prefWidth="75.0" text="id" visible="false" />
+                <TableColumn fx:id="Col_c_name" prefWidth="118.0" resizable="false" text="%col_bName" />
+                  <TableColumn fx:id="Col_c_address" prefWidth="121.0" resizable="false" text="%col_address" />
+                  <TableColumn fx:id="Col_c_zipcode" prefWidth="70.0" resizable="false" text="%col_zipcode" />
+                  <TableColumn fx:id="Col_c_city" prefWidth="92.0" resizable="false" text="%col_city" />
+                  <TableColumn fx:id="Col_c_state" prefWidth="75.0" text="State" visible="false" />
+                  <TableColumn fx:id="Col_c_country" prefWidth="75.0" text="Country" visible="false" />
+                  <TableColumn fx:id="Col_c_supplier_type" prefWidth="105.0" resizable="false" text="%col_supplierType" />
+                  <TableColumn fx:id="Col_c_phone" prefWidth="106.0" resizable="false" text="%col_phone" />
+                  <TableColumn fx:id="Col_c_fax" prefWidth="75.0" text="fax" visible="false" />
+                  <TableColumn fx:id="Col_c_mail" prefWidth="97.0" resizable="false" text="%col_mail" />
+                  <TableColumn fx:id="Col_c_bank" prefWidth="99.0" resizable="false" text="bank" visible="false" />
+                  <TableColumn fx:id="Col_c_IBAN" prefWidth="128.0" resizable="false" text="ΙΒΑΝ" />
+                  <TableColumn fx:id="Col_c_import_date" prefWidth="75.0" text="date" visible="false" />
               </columns>
             </TableView>
-            <Button layoutX="757.0" layoutY="536.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="88.0" text="gnr_btn_Close" />
+            <Button layoutX="732.0" layoutY="536.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="113.0" text="%gnr_btn_Close" />
             <TextField layoutX="14.0" layoutY="536.0" prefHeight="25.0" prefWidth="191.0" />
-            <ToggleButton fx:id="Person_toggle" layoutX="303.0" layoutY="536.0" mnemonicParsing="false" onAction="#btn_togglePerson_Action" text="ToggleButton" />
-            <ToggleButton fx:id="Companies_toggle" layoutX="469.0" layoutY="536.0" mnemonicParsing="false" onAction="#btn_toogleCompanies_Action" text="ToggleButton" />
+            <ToggleButton fx:id="Person_toggle" layoutX="324.0" layoutY="536.0" mnemonicParsing="false" onAction="#btn_togglePerson_Action" text="%btn_customers" />
+            <ToggleButton fx:id="Companies_toggle" layoutX="445.0" layoutY="536.0" mnemonicParsing="false" onAction="#btn_toogleCompanies_Action" prefHeight="25.0" prefWidth="113.0" text="%btn_companies" />
          </children>
       </Pane>
    </children>

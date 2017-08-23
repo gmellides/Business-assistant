@@ -38,11 +38,11 @@ and open the template in the editor.
     }
 /* Launcher Screen Labels */
     .app_title{
-        -fx-text-fill: black;
-        -fx-effect: dropshadow(one-pass-box,black,10,0,0,0);
+        -fx-text-fill: gray;
+       /* -fx-effect: dropshadow(one-pass-box,black,10,0,0,0); */
     }
     .date_time{
-        -fx-text-fill: black;
-        -fx-effect: dropshadow(three-pass-box,black,10,0,0,0);
+        -fx-text-fill: gray;
+       /* -fx-effect: dropshadow(three-pass-box,black,10,0,0,0); */
     }
 /* ------------------------------------ */  

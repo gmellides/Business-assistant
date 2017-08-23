@@ -6,6 +6,9 @@
 package erpsystem.graphics.controllers.customers;
 
 import erpsystem.database.customers.CustomerView;
+import erpsystem.entities.corpotations.CustomerCompany;
+import erpsystem.entities.people.Customer;
+import erpsystem.util.export.pdf.customers.CustomerPDF;
 import erpsystem.util.xml.read.ComboBoxDataParser;
 import java.net.URL;
 import java.util.Map;
@@ -43,6 +46,7 @@ public class ViewCustomer implements Initializable {
     private Map clicked_row;
     private ResourceBundle default_strings;
     private int customerID;
+    private boolean isCompany;
     /**
      * Initializes the controller class.
      */
@@ -66,21 +70,33 @@ public class ViewCustomer implements Initializable {
      */
         @FXML
         private void btn_Delete_Action(ActionEvent event) {
-            if (new CustomerView().delete_customer(customerID)){
+            if (new CustomerView().delete_customer(isCompany,customerID)){
                 //Alert_dialog();
             }
         }
         @FXML
         private void btn_SaveEdited_Action(ActionEvent event) {
-           
+           if (!isCompany){
+               if (new CustomerView().update_customer_individual(customerID, get_cst_obj())){
+                   // alert
+                   close_window();
+               }
+           }else{
+               if (new CustomerView().update_customer_company(customerID, get_cmp_obj())){
+                   // alert
+                   close_window();
+               }
+           }
         }
         @FXML
         private void btn_ExportPDF_Action(ActionEvent event) {
+            if (new CustomerPDF().save_pdf(default_strings, clicked_row)){
+                // alert needed
+            }
         }
         @FXML
         private void btn_Close_Action(ActionEvent event) {
-            Stage this_window = (Stage) btnClose.getScene().getWindow();
-            this_window.close();
+            close_window();
         }
         /**
      * Toggle Button about edit and view panels.
@@ -112,9 +128,10 @@ public class ViewCustomer implements Initializable {
      * at TableView. Fills the View and Edit Panel with Data and puts
      * items in comboboxes.
      */
-        public void set_window(boolean isCompany,Map input){
+        public void set_window(boolean CompanyToogle,Map input){
             clicked_row = input;
-            if (isCompany){
+            isCompany = CompanyToogle;
+            if (CompanyToogle){
                 view_customer_company();
                 edit_customer_company();
             }else{   
@@ -201,6 +218,40 @@ public class ViewCustomer implements Initializable {
             cmb_customerType.getSelectionModel().select(String.valueOf(clicked_row.get("customer_type")));
             cmb_state.getSelectionModel().select(String.valueOf(clicked_row.get("state")));
         } 
+        private Customer get_cst_obj(){
+            Customer obj = new Customer();
+                obj.setFirstName(txtName_edit.getText());
+                obj.setLastName(txtLastname_edit.getText());
+                obj.setAddress(txtAddress_edit.getText());
+                obj.setState(cmb_state.getSelectionModel().getSelectedItem());
+                obj.setCity(cmb_city.getSelectionModel().getSelectedItem());
+                obj.setCustomer_Type(cmb_customerType.getSelectionModel().getSelectedItem());
+                obj.setCountry(cmb_country.getSelectionModel().getSelectedItem());
+                obj.setFax(txtFax_edit.getText());
+                obj.setPhone(txtPhone_edit.getText());
+                obj.setMail(txtMail_edit.getText());
+                obj.setZipCode(Integer.parseInt(txtZipcode_edit.getText()));
+            return obj;
+        }
+        private CustomerCompany get_cmp_obj(){
+            CustomerCompany obj = new CustomerCompany();
+                obj.setAddress(txtAddress_edit.getText());
+                obj.setCompanyName(txtName_edit.getText());
+                obj.setState(cmb_state.getSelectionModel().getSelectedItem());
+                obj.setCity(cmb_city.getSelectionModel().getSelectedItem());
+                obj.setCustomer_type(cmb_customerType.getSelectionModel().getSelectedItem());
+                obj.setCountry(cmb_country.getSelectionModel().getSelectedItem());
+                obj.setFax(txtFax_edit.getText());
+                obj.setPhone(txtPhone_edit.getText());
+                obj.setMail(txtMail_edit.getText());
+            return obj;
+        }
+        private void close_window(){
+            Stage this_window = (Stage) btnClose.getScene().getWindow();
+            this_window.close();
+        }
+        
+        
         private void Alert_dialog(Alert.AlertType type,
                               String Title,
                               String Header,

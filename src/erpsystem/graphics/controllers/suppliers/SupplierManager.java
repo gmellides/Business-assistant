@@ -5,7 +5,10 @@
  */
 package erpsystem.graphics.controllers.suppliers;
 
+import erpsystem.database.suppliers.SupplierCompanies;
+import erpsystem.database.suppliers.SupplierIndividual;
 import erpsystem.database.suppliers.SuppliersDatabase;
+import erpsystem.util.export.pdf.suppliers.SuppliersTablePDF;
 import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
 import java.io.IOException;
@@ -18,7 +21,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -28,6 +33,8 @@ public class SupplierManager implements Initializable {
     private Label lbl_suppl_people,lbl_suppl_comp,lbl_suppl_sum;
  
     private ResourceBundle default_strings;
+    @FXML
+    private Button btn_ExportPDF;
         
     /**
      * Initializes the controller class.
@@ -43,7 +50,7 @@ public class SupplierManager implements Initializable {
                 OpenWindow("suppliers/NewSupplier.fxml",
                            750,
                            448,
-                           "sioghaeuio");
+                           default_strings.getString("window_newSupplier"));
             }catch(IOException e){
                 e.printStackTrace();
             }
@@ -52,12 +59,11 @@ public class SupplierManager implements Initializable {
 
         @FXML
         private void btn_ShowRecords_Action(ActionEvent event) {
-            //CODE TODO 
             try{
                 OpenWindow("suppliers/SearchView.fxml",
                            new Dimension().SearchView_window_width,
                            new Dimension().SearchView_window_height,
-                           "sioghaeuio");
+                           default_strings.getString("window_showSuppliers"));
             }catch(IOException e){
                 e.printStackTrace();
             }
@@ -66,7 +72,6 @@ public class SupplierManager implements Initializable {
 
         @FXML
         private void btn_BackUp_Action(ActionEvent event) {
-            //CODE TODO
             try{
                 OpenWindow("suppliers/BackUp.fxml",
                            new Dimension().BackUp_window_width,
@@ -130,8 +135,16 @@ public class SupplierManager implements Initializable {
          stage.setTitle(WindowName);
          stage.setScene(scene);
          stage.setResizable(false);
-      // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
-      // stage.getIcons().add(icon);
+         stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
          stage.show();
+    }
+
+    @FXML
+    private void btn_ExportPDF_Action(ActionEvent event) {
+        if (new SuppliersTablePDF().save_file(default_strings, 
+                                              new SupplierIndividual().select_suppliers(),
+                                              new SupplierCompanies().select_suppliers())){
+            
+        }
     }
 }

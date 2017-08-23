@@ -5,9 +5,14 @@
  */
 package erpsystem.graphics.controllers.customers;
 
+import erpsystem.database.customers.CustomerCompanies;
+import erpsystem.database.customers.CustomerIndividual;
 import erpsystem.database.customers.CustomersDatabase;
+import erpsystem.util.export.pdf.customers.CustomersTablePDF;
 import erpsystem.util.system.Dimension;
+import erpsystem.util.system.FileManager;
 import erpsystem.util.system.WindowsManager;
+import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -29,17 +34,15 @@ import javafx.stage.WindowEvent;
 public class CustomerManager implements Initializable {
 
     @FXML
-    private Button btnClose;
-    @FXML
     private Label lbl_Companies,lbl_Summary,lbl_Customers;
-  
-    private ResourceBundle default_strings;
-    private WindowsManager window_check;
     @FXML
-    private Button btn_newCustomer,btn_backUp,btn_viewCustomer;
+    private Button btn_newCustomer,btn_ExportPDF,btnClose,btn_backUp,btn_viewCustomer;
     @FXML
     private ImageView img_customerManager;
-        
+    
+    private ResourceBundle default_strings;
+    private WindowsManager window_check;
+
     /**
      * Initializes the controller class.
      */
@@ -50,53 +53,68 @@ public class CustomerManager implements Initializable {
         init_window();
     }
     
-    @FXML
-    private void btnNewCustomer_Action(ActionEvent event) throws IOException {
-        if(!window_check.NewCustomer_isOpen()){
-            window_check.NewCustomer_toggle(true);                  
-            try{
-                OpenWindow("customers/NewCustomer.fxml",
-                           781,
-                           450,
-                           default_strings.getString("window_newCustomer"));
-            }catch(IOException e){
-                e.printStackTrace();
-            }    
-            close_window();
-        }  
-    }
-    @FXML
-    private void btn_SearchView_Action(ActionEvent event) {
-            try{
-                OpenWindow("customers/SearchView.fxml",
-                           new Dimension().SearchView_window_width,
-                           new Dimension().SearchView_window_height,
-                           default_strings.getString("window_showCustomers"));
-            }catch(IOException e){
-                e.printStackTrace();
+        @FXML
+        private void btnNewCustomer_Action(ActionEvent event) throws IOException {
+            if(!window_check.NewCustomer_isOpen()){
+                window_check.NewCustomer_toggle(true);                  
+                try{
+                    OpenWindow("customers/NewCustomer.fxml",
+                               781,
+                               450,
+                               default_strings.getString("window_newCustomer"));
+                }catch(IOException e){
+                    e.printStackTrace();
+                }    
+                close_window();
+            }  
+        }
+        @FXML
+        private void btn_SearchView_Action(ActionEvent event) {
+                try{
+                    OpenWindow("customers/SearchView.fxml",
+                               new Dimension().SearchView_window_width,
+                               new Dimension().SearchView_window_height,
+                               default_strings.getString("window_showCustomers"));
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
+                close_window();
+        } 
+        @FXML
+        private void btn_ExportCustomers_Action(ActionEvent event) {
+            if(new CustomersTablePDF().save_file(default_strings,
+                                                 new CustomerIndividual().select_customers(),
+                                                 new CustomerCompanies().select_company())){
+                try{
+                    File pdf_file = new File(new FileManager().getDocuments_root());
+                    Desktop desktop = Desktop.getDesktop();
+                    desktop.open(pdf_file);
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
             }
+        }
+        @FXML
+        private void btn_BackUp_Action(ActionEvent event) {
+                try{
+                    OpenWindow("customers/BackUp.fxml",
+                               new Dimension().BackUp_window_width,
+                               new Dimension().BackUp_window_height,
+                               default_strings.getString("window_BackUp"));
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
+                close_window();
+        }
+        @FXML
+        private void btnClose_Action(ActionEvent event) {
             close_window();
-    } 
-    @FXML
-    private void btn_BackUp_Action(ActionEvent event) {
-            try{
-                OpenWindow("customers/BackUp.fxml",
-                           new Dimension().BackUp_window_width,
-                           new Dimension().BackUp_window_height,
-                           default_strings.getString("window_BackUp"));
-            }catch(IOException e){
-                e.printStackTrace();
-            }
-            close_window();
-    }
-    @FXML
-    private void btnClose_Action(ActionEvent event) {
-        close_window();
-    }
+        }
     
     private void init_window(){
         btn_backUp.setDisable(true);
         btn_viewCustomer.setDisable(true);
+        btn_ExportPDF.setDisable(true);
         int[] number_of_records = new CustomersDatabase().count_customers();
             lbl_Customers.setText(String.valueOf(number_of_records[0]));
             lbl_Companies.setText(String.valueOf(number_of_records[1]));
@@ -104,6 +122,7 @@ public class CustomerManager implements Initializable {
             if (number_of_records[2] > 0){
                 btn_backUp.setDisable(false);
                 btn_viewCustomer.setDisable(false);
+                btn_ExportPDF.setDisable(false);
             }
         img_customerManager.setImage(new Image(new File("resources/images/customers/customer_manager.png").toURI().toString()));
     }
@@ -145,5 +164,5 @@ public class CustomerManager implements Initializable {
          stage.setResizable(false);
          stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
          stage.show();
-    }
+    } 
 }

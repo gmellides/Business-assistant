@@ -6,6 +6,7 @@
 package erpsystem.graphics.controllers.menubar.business;
 
 import erpsystem.entities.corpotations.Business;
+import erpsystem.util.export.pdf.business_data.BusinessCard;
 import erpsystem.util.export.pdf.business_data.BusinessPDF;
 import erpsystem.util.system.FileManager;
 import erpsystem.util.system.WindowsManager;
@@ -66,18 +67,26 @@ public class View_BusinessData implements Initializable {
     // ===== FXML Buttons Action =====
         @FXML
         private void btnExportCard_Action(ActionEvent event) {
-
+            if(new BusinessCard().save_card(default_strings, business)){
+                Alert_dialog(Alert.AlertType.CONFIRMATION,
+                            "dlg_businessData_exportpdf_title",
+                            "dlg_businessData_exportpdf_header",
+                            "dlg_businessData_exportpdf_message");
+            }
+            // change the text on alert
+            
         }
         @FXML
         private void btnExportPDF_Action(ActionEvent event) {
             export_pdf = new BusinessPDF();
             if(export_pdf.save_pdf(default_strings,business)){
-                Alert succed_dialog = new Alert(Alert.AlertType.CONFIRMATION);
-                succed_dialog.setTitle(default_strings.getString("dlg_businessData_exportpdf_Title"));
-                succed_dialog.setContentText(default_strings.getString("dlg_businessData_exportpdf_Message"));
-                succed_dialog.showAndWait();
+                Alert_dialog(Alert.AlertType.CONFIRMATION,
+                            "dlg_businessData_exportpdf_title",
+                            "dlg_businessData_exportpdf_header",
+                            "dlg_businessData_exportpdf_message");
             }
         }
+        
         @FXML
         private void btn_Close_Action(ActionEvent event) {
             new WindowsManager().ViewBusiness_toggle(false);
@@ -131,7 +140,7 @@ public class View_BusinessData implements Initializable {
         }
         
         private void set_logo(){
-           FileManager path = new FileManager();
+            FileManager path = new FileManager();
                 String[] logo_name = new String[]{"/logo.png","/logo.bmp","/logo.jpg"};
                 for (String name : logo_name){
                     File logo = new File(path.getApp_data_business()+name);
@@ -169,17 +178,14 @@ public class View_BusinessData implements Initializable {
               lbl_LastEdit.setText(bundle.getString("view_bus_LastEdit")+"  "+date_format.format(business_file.lastModified()));
         }
     // ===============================
-   
+    private void Alert_dialog(Alert.AlertType type,
+                                  String Title,
+                                  String Header,
+                                  String Message){
+        Alert succed_dialog = new Alert(type);
+        succed_dialog.setTitle(default_strings.getString(Title));
+        succed_dialog.setHeaderText(default_strings.getString(Header));
+        succed_dialog.setContentText(default_strings.getString(Message));
+        succed_dialog.showAndWait();   
+    }   
 }
-/*
-Alternative code for window fill
-lbl_bName.setText(bundle.getString("view_bus_businessname")+"   "+business.getName());
-              lbl_bDescription.setText(bundle.getString("view_bus_description")+"   "+business.getDescription());
-              lbl_Phone.setText(bundle.getString("gnr_lbl_phone")+"  "+business.getPhone1());
-              lbl_Fax.setText(bundle.getString("gnr_lbl_fax")+"  "+business.getFax());
-              lbl_Address.setText(bundle.getString("gnr_lbl_address")+"  "+business.getAddress());
-              lbl_City.setText(bundle.getString("gnr_lbl_city")+"  "+business.getCity());
-              lbl_TaxReg.setText(bundle.getString("view_bus_taxreg")+"  "+business.getTaxReg());
-              lbl_EstablishData.setText(bundle.getString("view_bus_date")+"  "+business.getDate());
-              lbl_Mail.setText(bundle.getString("gnr_lbl_mail")+"  "+business.getMail());
-*/

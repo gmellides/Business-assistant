@@ -7,7 +7,6 @@ package erpsystem.graphics.controllers.suppliers;
 
 import erpsystem.database.suppliers.SupplierCompanies;
 import erpsystem.database.suppliers.SupplierIndividual;
-import erpsystem.database.suppliers.SuppliersDatabase;
 import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
 import java.io.IOException;
@@ -26,6 +25,7 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.cell.MapValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -42,13 +42,11 @@ public class SearchView implements Initializable {
     private TableColumn Col_c_supl_company_id,Col_c_name,Col_c_address,
     Col_c_zipcode,Col_c_city,Col_c_state,Col_c_country,Col_c_supplier_type,
     Col_c_phone,Col_c_fax,Col_c_mail,Col_c_bank,Col_c_IBAN,Col_c_import_date;
-        
+    @FXML
+    private ToggleButton Person_toggle,Companies_toggle;
+    
     private static boolean isCompany;
     private ResourceBundle default_strings;
-    @FXML
-    private ToggleButton Person_toggle;
-    @FXML
-    private ToggleButton Companies_toggle;
     
     /**
      * Initializes the controller class.
@@ -155,7 +153,7 @@ public class SearchView implements Initializable {
                     stage.close();
                 }
             });
-            stage.setTitle(default_strings.getString("customer_manager"));
+            stage.setTitle(default_strings.getString("window_viewSupplier"));
             stage.setScene(scene);
             stage.setResizable(false);
          // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
@@ -181,10 +179,10 @@ public class SearchView implements Initializable {
                        stage.close();
                    }
                });
-            stage.setTitle(default_strings.getString("customer_manager"));
+            stage.setTitle(default_strings.getString("window_supplier_manager"));
             stage.setScene(scene);
             stage.setResizable(false);
-            // stage.getIcons().add(new Image(getClass().getResource("icon.png").toExternalForm()));
+            stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
             stage.show();
         }catch(IOException e){
             e.printStackTrace();

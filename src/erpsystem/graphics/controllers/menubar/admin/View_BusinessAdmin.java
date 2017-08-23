@@ -6,6 +6,7 @@
 package erpsystem.graphics.controllers.menubar.admin;
 
 import erpsystem.entities.corpotations.BusinessAdmin;
+import erpsystem.util.export.pdf.admin_data.AdminCard;
 import erpsystem.util.export.pdf.admin_data.AdminPDF;
 import erpsystem.util.xml.read.AdminDataParser;
 import erpsystem.util.system.FileManager;
@@ -36,6 +37,9 @@ public class View_BusinessAdmin implements Initializable {
     lbl_phone2,lbl_birthdate,lbl_city,lbl_zipcode,lbl_mail,lbl_taxreg,lbl_description;
 
     private BusinessAdmin adminData;
+    private AdminDataParser admin_xml;
+    private FileManager workspace;
+    private ResourceBundle default_strings;
     /**
      * Initializes the controller class.
      */
@@ -55,17 +59,19 @@ public class View_BusinessAdmin implements Initializable {
     private void btnExportPDF_Action(ActionEvent event) {
         AdminPDF export_pdf = new AdminPDF();
         if (export_pdf.save_pdf(default_strings, adminData)){
-            Alert succed_dialog = new Alert(Alert.AlertType.CONFIRMATION);
-                succed_dialog.setTitle(default_strings.getString("dlg_businessData_exportpdf_Title"));
-                succed_dialog.setContentText(default_strings.getString("dlg_businessData_exportpdf_Message"));
-                succed_dialog.showAndWait();
+            Alert_dialog(Alert.AlertType.CONFIRMATION,
+                         "dlg_businessData_exportpdf_title",
+                         "dlg_businessData_exportpdf_header",
+                         "dlg_businessData_exportpdf_message");
             close_window();
         }
     }
 
     @FXML
     private void btnExportCard_Action(ActionEvent event) {
-        
+        if (new AdminCard().save_card(default_strings, adminData)){
+            System.out.println("ok");
+        }
     }
 
     @FXML
@@ -103,8 +109,16 @@ public class View_BusinessAdmin implements Initializable {
         Stage this_stage = (Stage) btn_Close.getScene().getWindow();
         this_stage.close();
     }
-   
-    private AdminDataParser admin_xml;
-    private FileManager workspace;
-    private ResourceBundle default_strings;
+
+    private void Alert_dialog(Alert.AlertType type,
+                                  String Title,
+                                  String Header,
+                                  String Message){
+        Alert succed_dialog = new Alert(type);
+        succed_dialog.setTitle(default_strings.getString(Title));
+        succed_dialog.setHeaderText(default_strings.getString(Header));
+        succed_dialog.setContentText(default_strings.getString(Message));
+        succed_dialog.showAndWait();   
+    }
+    
 }

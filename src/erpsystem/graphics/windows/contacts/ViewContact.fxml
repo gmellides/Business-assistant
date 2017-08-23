@@ -10,46 +10,46 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="424.0" prefWidth="620.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.contacts.ViewContact">
+<AnchorPane id="AnchorPane" prefHeight="467.0" prefWidth="724.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.contacts.ViewContact">
     <stylesheets>
         <URL value="@/erpsystem/graphics/CSS/style.css" />
     </stylesheets>
    <children>
-      <Pane prefHeight="424.0" prefWidth="686.0" styleClass="background_panel">
+      <Pane prefHeight="467.0" prefWidth="724.0" styleClass="background_panel">
          <children>
-            <Pane fx:id="editPanel" prefHeight="424.0" prefWidth="686.0" visible="false">
+            <Pane fx:id="editPanel" prefHeight="467.0" prefWidth="724.0" visible="false">
                <children>
                    <Label layoutX="211.0" layoutY="118.0" text="%gnr_lbl_firstname" />
                    <Label layoutX="424.0" layoutY="118.0" text="%gnr_lbl_lastname" />
-                   <Label layoutX="29.0" layoutY="204.0" text="%gnr_lbl_country" />
-                   <Label layoutX="29.0" layoutY="253.0" text="%gnr_lbl_zipcode" />
-                   <Label layoutX="215.0" layoutY="160.0" text="%gnr_lbl_sex" />
-                   <Label layoutX="427.0" layoutY="160.0" text="%gnr_lbl_address" />
-                   <Label layoutX="441.0" layoutY="204.0" text="%gnr_lbl_city" />
-                   <Label layoutX="233.0" layoutY="204.0" text="%gnr_lbl_state" />
-                   <Label layoutX="236.0" layoutY="253.0" text="%gnr_lbl_phone1" />
-                   <Label layoutX="28.0" layoutY="296.0" text="%gnr_lbl_phone2" />
-                   <Label layoutX="224.0" layoutY="336.0" text="%gnr_lbl_mail" />
-                   <Label layoutX="437.0" layoutY="274.0" text="%gnr_lbl_comments" />
-                   <Label layoutX="27.0" layoutY="336.0" text="%gnr_lbl_website" />
+                   <Label layoutX="28.0" layoutY="238.0" text="%gnr_lbl_country" />
+                   <Label layoutX="27.0" layoutY="289.0" text="%gnr_lbl_zipcode" />
+                   <Label layoutX="214.0" layoutY="178.0" text="%gnr_lbl_sex" />
+                   <Label layoutX="426.0" layoutY="178.0" text="%gnr_lbl_address" />
+                   <Label layoutX="440.0" layoutY="238.0" text="%gnr_lbl_city" />
+                   <Label layoutX="232.0" layoutY="238.0" text="%gnr_lbl_state" />
+                   <Label layoutX="233.0" layoutY="289.0" text="%gnr_lbl_phone1" />
+                   <Label layoutX="28.0" layoutY="351.0" text="%gnr_lbl_phone2" />
+                   <Label layoutX="224.0" layoutY="393.0" text="%gnr_lbl_mail" />
+                   <Label layoutX="436.0" layoutY="330.0" text="%gnr_lbl_comments" />
+                   <Label layoutX="27.0" layoutY="393.0" text="%gnr_lbl_website" />
                   <TextField fx:id="txt_edt_firstname" layoutX="261.0" layoutY="114.0" prefHeight="25.0" prefWidth="150.0" />
                   <TextField fx:id="txt_edt_lastname" layoutX="495.0" layoutY="114.0" prefHeight="25.0" prefWidth="164.0" />
-                  <ComboBox fx:id="cmb_edt_sex" layoutX="261.0" layoutY="156.0" prefHeight="25.0" prefWidth="140.0" />
-                  <ComboBox fx:id="cmb_edt_country" layoutX="86.0" layoutY="200.0" prefHeight="25.0" prefWidth="130.0" />
-                  <TextField fx:id="txt_edt_address" layoutX="495.0" layoutY="156.0" prefHeight="25.0" prefWidth="164.0" />
-                  <TextField fx:id="txt_edt_phone1" layoutX="320.0" layoutY="249.0" prefHeight="25.0" prefWidth="140.0" />
-                  <TextField fx:id="txt_edt_phone2" layoutX="112.0" layoutY="292.0" prefHeight="25.0" prefWidth="130.0" />
-                  <TextField fx:id="txt_edt_zipcode" layoutX="86.0" layoutY="249.0" prefHeight="25.0" prefWidth="130.0" />
-                  <TextField fx:id="txt_edt_mail" layoutX="282.0" layoutY="332.0" prefHeight="25.0" prefWidth="140.0" />
-                  <TextArea fx:id="txt_edt_comments" layoutX="438.0" layoutY="295.0" prefHeight="61.0" prefWidth="233.0" />
-                  <TextField fx:id="txt_edt_website" layoutX="90.0" layoutY="332.0" prefHeight="25.0" prefWidth="119.0" />
-                  <ComboBox fx:id="cmb_edt_state" layoutX="277.0" layoutY="200.0" prefWidth="150.0" />
-                  <ComboBox fx:id="cmb_edt_city" layoutX="492.0" layoutY="200.0" prefHeight="25.0" prefWidth="164.0" />
-                  <ComboBox fx:id="cmb_edt_phone2Type" layoutX="252.0" layoutY="292.0" prefHeight="25.0" prefWidth="156.0" />
-                  <ComboBox fx:id="cmb_edt_phone1Type" layoutX="492.0" layoutY="249.0" prefHeight="25.0" prefWidth="156.0" />
+                  <ComboBox fx:id="cmb_edt_sex" layoutX="260.0" layoutY="174.0" prefHeight="25.0" prefWidth="140.0" />
+                  <ComboBox fx:id="cmb_edt_country" layoutX="85.0" layoutY="234.0" prefHeight="25.0" prefWidth="130.0" />
+                  <TextField fx:id="txt_edt_address" layoutX="494.0" layoutY="174.0" prefHeight="25.0" prefWidth="164.0" />
+                  <TextField fx:id="txt_edt_phone1" layoutX="317.0" layoutY="285.0" prefHeight="25.0" prefWidth="140.0" />
+                  <TextField fx:id="txt_edt_phone2" layoutX="118.0" layoutY="347.0" prefHeight="25.0" prefWidth="130.0" />
+                  <TextField fx:id="txt_edt_zipcode" layoutX="84.0" layoutY="285.0" prefHeight="25.0" prefWidth="130.0" />
+                  <TextField fx:id="txt_edt_mail" layoutX="282.0" layoutY="389.0" prefHeight="25.0" prefWidth="140.0" />
+                  <TextArea fx:id="txt_edt_comments" layoutX="437.0" layoutY="353.0" prefHeight="61.0" prefWidth="233.0" />
+                  <TextField fx:id="txt_edt_website" layoutX="92.0" layoutY="389.0" prefHeight="25.0" prefWidth="119.0" />
+                  <ComboBox fx:id="cmb_edt_state" layoutX="276.0" layoutY="234.0" prefWidth="150.0" />
+                  <ComboBox fx:id="cmb_edt_city" layoutX="491.0" layoutY="234.0" prefHeight="25.0" prefWidth="164.0" />
+                  <ComboBox fx:id="cmb_edt_phone2Type" layoutX="258.0" layoutY="347.0" prefHeight="25.0" prefWidth="156.0" />
+                  <ComboBox fx:id="cmb_edt_phone1Type" layoutX="489.0" layoutY="285.0" prefHeight="25.0" prefWidth="156.0" />
                </children>
             </Pane>
-            <Pane fx:id="viewPanel" prefHeight="376.0" prefWidth="686.0">
+            <Pane fx:id="viewPanel" prefHeight="422.0" prefWidth="724.0">
                <children>
                    <Label fx:id="lbl_firstname" layoutX="211.0" layoutY="118.0" text="Label" />
                    <Label fx:id="lbl_lastname" layoutX="424.0" layoutY="118.0" text="Label" />
@@ -69,6 +69,10 @@
                    <Label fx:id="lbl_import_date" layoutX="481.0" layoutY="336.0" text="Label" />
                </children>
             </Pane>
+            <Button fx:id="btn_Close" layoutX="597.0" layoutY="428.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="113.0" text="%gnr_btn_Close" />
+            <Button fx:id="btn_Save" layoutX="597.0" layoutY="428.0" mnemonicParsing="false" onAction="#btn_Update_Action" prefHeight="25.0" prefWidth="113.0" text="%gnr_btn_Save" visible="false" />
+            <Button fx:id="btn_ExportPDF" layoutX="133.0" layoutY="428.0" mnemonicParsing="false" onAction="#btn_ExportContactPDF_Action" prefHeight="25.0" prefWidth="130.0" text="%gnr_btn_ExportPDF" />
+            <ToggleButton fx:id="btn_editToggle" layoutX="14.0" layoutY="428.0" mnemonicParsing="false" onAction="#btn_Edit_Action" prefHeight="25.0" prefWidth="113.0" text="%gnr_btn_edit" />
             <ImageView fx:id="contact_icon" fitHeight="150.0" fitWidth="150.0" layoutX="14.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" />
           
             <Label layoutX="246.0" layoutY="40.0" prefHeight="39.0" prefWidth="344.0" text="%lbl_viewContactWin">
@@ -78,11 +82,7 @@
             </Label>
             
             <Line endX="379.0" layoutX="298.0" layoutY="92.0" startX="-100.0" />
-            <ToggleButton fx:id="btn_editToggle" layoutX="14.0" layoutY="374.0" mnemonicParsing="false" onAction="#btn_Edit_Action" prefHeight="25.0" prefWidth="113.0" text="%gnr_btn_edit" />
-            <Button fx:id="btn_ExportPDF" layoutX="134.0" layoutY="374.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="%gnr_btn_ExportPDF" />
-            <Button fx:id="btn_Save" layoutX="549.0" layoutY="374.0" mnemonicParsing="false" onAction="#btn_Update_Action" prefHeight="25.0" prefWidth="113.0" text="%gnr_btn_Save" />
-            <Button fx:id="btn_Close" layoutX="549.0" layoutY="374.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="113.0" text="%gnr_btn_Close" />
-            <Button fx:id="btn_Delete" layoutX="134.0" layoutY="374.0" mnemonicParsing="false" onAction="#btn_Delete_Action" prefHeight="25.0" prefWidth="130.0" text="%gnr_btn_delete" visible="false" />
+            <Button fx:id="btn_Delete" layoutX="133.0" layoutY="428.0" mnemonicParsing="false" onAction="#btn_Delete_Action" prefHeight="25.0" prefWidth="130.0" text="%gnr_btn_delete" visible="false" />
          </children>
       </Pane>
    </children>

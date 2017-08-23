@@ -6,8 +6,11 @@
 package erpsystem.graphics.controllers.contacts;
 
 import erpsystem.database.contacts.ContactsDatabase;
+import erpsystem.util.export.pdf.contacts.ContactsTablePDF;
 import erpsystem.util.system.Dimension;
+import erpsystem.util.system.FileManager;
 import erpsystem.util.system.WindowsManager;
+import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -79,6 +82,19 @@ public class ContactManager implements Initializable {
             close_window();
         }
         @FXML
+        private void btn_ExportContacts_Action(ActionEvent event) {
+           if(new ContactsTablePDF().save_file(default_strings, 
+              new ContactsDatabase().select_contacts())){
+               try{
+                    File pdf_file = new File(new FileManager().getDocuments_root());
+                    Desktop desktop = Desktop.getDesktop();
+                    desktop.open(pdf_file);
+               }catch(IOException e){
+                   e.printStackTrace();
+               }
+           }
+        }
+        @FXML
         private void btn_BackUp_Action(ActionEvent event) throws IOException {
             if (!window_check.BackupContacts_isOpen()){
                 window_check.BackupContacts_toggle(true);    
@@ -135,4 +151,6 @@ public class ContactManager implements Initializable {
             this_window.close();
         }
     // ===============================
+
+
 }

@@ -35,6 +35,7 @@ public class ImportContacts {
                         obj.setPhone_2(values[11]);
                         obj.setPhone_2_type(values[12]);
                         obj.setComments(values[13]);
+                        obj.setWebsite(values[14]);
                     contacts_db.insert_contact(obj);
                 }      
             reader.close();
