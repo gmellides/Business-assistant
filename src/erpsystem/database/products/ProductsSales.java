@@ -16,7 +16,7 @@ public class ProductsSales extends ProductsDatabase{
                     rs = statement.executeQuery("SELECT prd_id,prd_name,prd_category,prd_quantity from Product;");
                     while (rs.next()){
                         data.add(String.valueOf(rs.getInt("prd_id"))+" "+
-                                                rs.getString("prd_name")+"("+
+                                                rs.getString("prd_name")+" ("+
                                                 rs.getString("prd_category")+","+
                                                 "Qunatity: "+
                                                 rs.getString("prd_quantity")+")");  

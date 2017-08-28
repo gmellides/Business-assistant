@@ -7,7 +7,6 @@ package erpsystem.util.importcsv;
 
 import erpsystem.database.customers.CustomerCompanies;
 import erpsystem.database.customers.CustomerIndividual;
-import erpsystem.database.customers.CustomersDatabase;
 import erpsystem.entities.corpotations.CustomerCompany;
 import erpsystem.entities.people.Customer;
 import java.io.BufferedReader;

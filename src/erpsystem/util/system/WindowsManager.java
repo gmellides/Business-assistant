@@ -26,9 +26,9 @@ public class WindowsManager {
             WindowsManager.NewContact = false;
             WindowsManager.SearchViewContact = false;
             WindowsManager.BackupContacts = false;
+        WindowsManager.FinanceWindow = false;
         WindowsManager.Storage = false;
-        WindowsManager.Employee = false;
-        
+        WindowsManager.Employee = false;      
     }
     
     public void toggle_window(String Input){
@@ -79,6 +79,10 @@ public class WindowsManager {
             case "contacts/NewContact.fxml":
                 NewContact_toggle(false);
                 break;
+            
+            case "finance/FinanceWindow.fxml":
+                FinanceWindow_toggle(false);
+                break;    
                 
             case "storage/StorageManager.fxml":
                 Storage_toggle(false);
@@ -139,7 +143,9 @@ public class WindowsManager {
         public void BackupSupplier_toggle(boolean value){
             WindowsManager.BackupCustomers = value;
         }  
-        
+    public void FinanceWindow_toggle(boolean value){
+        WindowsManager.FinanceWindow = value;
+    }  
     public void Storage_toggle(boolean value){
         WindowsManager.Storage = value;
     }
@@ -197,6 +203,9 @@ public class WindowsManager {
         public boolean BackUpSuppliers_isOpen(){
             return WindowsManager.BackUpSupplier;
         }
+    public boolean FinanceWindow_isOpen(){
+        return WindowsManager.FinanceWindow;
+    }
     public boolean Storage_isOpen(){
         return WindowsManager.Storage;
     }
@@ -224,6 +233,7 @@ public class WindowsManager {
         private static boolean NewSupplier;
         private static boolean SearchViewSupplier;
         private static boolean BackUpSupplier;
+    private static boolean FinanceWindow;
     private static boolean Storage;
     private static boolean Employee;
 }

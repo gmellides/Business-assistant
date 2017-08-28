@@ -20,4 +20,11 @@ public class Dimension {
     
     public final int NewSale_window_width = 550;
     public final int NewSale_window_height = 650;
+    
+    public final int Finance_window_width = 750;
+    public final int Finance_window_height = 550;
+    
+    public final int NewPurchase_window_width = 549;
+    public final int NewPurchase_window_height = 633;
+    
 }

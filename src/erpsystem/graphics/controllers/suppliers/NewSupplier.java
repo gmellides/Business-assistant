@@ -7,7 +7,6 @@ package erpsystem.graphics.controllers.suppliers;
 
 import erpsystem.database.suppliers.SupplierCompanies;
 import erpsystem.database.suppliers.SupplierIndividual;
-import erpsystem.database.suppliers.SuppliersDatabase;
 import erpsystem.entities.corpotations.SupplierCompany;
 import erpsystem.entities.people.Supplier;
 import erpsystem.util.system.Dimension;
@@ -54,44 +53,17 @@ public class NewSupplier implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         init_window(rb);
     }    
-    
         @FXML
         private void btn_Save_Action(ActionEvent event) {
-            if (isBusiness){
-                SupplierCompany new_spl = new SupplierCompany();
-                    new_spl.setCompanyName(txtName.getText());
-                    new_spl.setAddress(txtAddress.getText());
-                    new_spl.setZipCode(Integer.parseInt(txtZipCode.getText()));
-                    new_spl.setState(cmbState.getSelectionModel().getSelectedItem());
-                    new_spl.setSupplierType(cmbSupplierType.getSelectionModel().getSelectedItem());
-                    new_spl.setCountry(cmbCountry.getSelectionModel().getSelectedItem());
-                    new_spl.setIBAN(txtIBAN.getText());
-                    new_spl.setPhone(txtPhone.getText());
-                    new_spl.setMail(txtMail.getText());
-                    new_spl.setBank(txtBankName.getText());
-                    new_spl.setFax(txtFax.getText());
-                new SupplierCompanies().insert_supplier(new_spl);
+            if (isBusiness){    
+                new SupplierCompanies().insert_supplier(get_cmp_obj());
                 Alert_dialog(AlertType.INFORMATION,
                              "dlg_supplierSaved_title",
                              "dlg_supplierSaved_header",
                              "dlg_supplierSaved_message");
                 close_window();
-            }else{
-                Supplier new_spl = new Supplier();
-                    new_spl.setFirstName(txtName.getText());
-                    new_spl.setLastName(txtLastName.getText());
-                    new_spl.setSex(cmbSex.getSelectionModel().getSelectedItem());
-                    new_spl.setAddress(txtAddress.getText());
-                    new_spl.setZipcode(Integer.parseInt(txtZipCode.getText()));
-                    new_spl.setState(cmbState.getSelectionModel().getSelectedItem());
-                    new_spl.setSupplier_Type(cmbSupplierType.getSelectionModel().getSelectedItem());
-                    new_spl.setCountry(cmbCountry.getSelectionModel().getSelectedItem());
-                    new_spl.setIBAN(txtIBAN.getText());
-                    new_spl.setPhone(txtPhone.getText());
-                    new_spl.setMail(txtMail.getText());
-                    new_spl.setBank(txtBankName.getText());
-                    new_spl.setFax(txtFax.getText());
-                new SupplierIndividual().insert_supplier(new_spl);
+            }else{  
+                new SupplierIndividual().insert_supplier(get_spl_obj());
                 Alert_dialog(AlertType.INFORMATION,
                              "dlg_supplierSaved_title",
                              "dlg_supplierSaved_header",
@@ -118,7 +90,6 @@ public class NewSupplier implements Initializable {
             close_window();
             OpenManager();
         }
-    
     private void init_window(ResourceBundle rb){
         isBusiness = false;
         default_strings = rb;
@@ -138,6 +109,48 @@ public class NewSupplier implements Initializable {
         Stage window = (Stage) lbl_name.getScene().getWindow();
         window.close();
         OpenManager();
+    }
+    private SupplierCompany get_cmp_obj(){
+        SupplierCompany new_spl = new SupplierCompany();
+            new_spl.setCompanyName(txtName.getText());
+            new_spl.setAddress(txtAddress.getText());
+            new_spl.setZipCode(Integer.parseInt(txtZipCode.getText()));
+            new_spl.setState(cmbState.getSelectionModel().getSelectedItem());
+            new_spl.setSupplierType(cmbSupplierType.getSelectionModel().getSelectedItem());
+            new_spl.setCountry(cmbCountry.getSelectionModel().getSelectedItem());
+            new_spl.setIBAN(txtIBAN.getText());
+            new_spl.setPhone(txtPhone.getText());
+            new_spl.setMail(txtMail.getText());
+            new_spl.setBank(txtBankName.getText());
+            new_spl.setFax(txtFax.getText());
+        return new_spl;
+    }
+    private Supplier get_spl_obj(){
+        Supplier new_spl = new Supplier();
+            new_spl.setFirstName(txtName.getText());
+            new_spl.setLastName(txtLastName.getText());
+            new_spl.setSex(cmbSex.getSelectionModel().getSelectedItem());
+            new_spl.setAddress(txtAddress.getText());
+            new_spl.setZipcode(Integer.parseInt(txtZipCode.getText()));
+            new_spl.setState(cmbState.getSelectionModel().getSelectedItem());
+            new_spl.setSupplier_Type(cmbSupplierType.getSelectionModel().getSelectedItem());
+            new_spl.setCountry(cmbCountry.getSelectionModel().getSelectedItem());
+            new_spl.setIBAN(txtIBAN.getText());
+            new_spl.setPhone(txtPhone.getText());
+            new_spl.setMail(txtMail.getText());
+            new_spl.setBank(txtBankName.getText());
+            new_spl.setFax(txtFax.getText());
+        return new_spl;
+    }
+    private void Alert_dialog(Alert.AlertType type,
+                              String Title,
+                              String Header,
+                              String Message){
+            Alert succed_dialog = new Alert(type);
+            succed_dialog.setTitle(default_strings.getString(Title));
+            succed_dialog.setHeaderText(default_strings.getString(Header));
+            succed_dialog.setContentText(default_strings.getString(Message));
+            succed_dialog.showAndWait();
     }
     private void OpenManager(){
         try{
@@ -163,15 +176,5 @@ public class NewSupplier implements Initializable {
         }catch(IOException e){
             e.printStackTrace();
         }
-    }
-    private void Alert_dialog(Alert.AlertType type,
-                               String Title,
-                               String Header,
-                               String Message){
-            Alert succed_dialog = new Alert(type);
-            succed_dialog.setTitle(default_strings.getString(Title));
-            succed_dialog.setHeaderText(default_strings.getString(Header));
-            succed_dialog.setContentText(default_strings.getString(Message));
-            succed_dialog.showAndWait();
     }
 }

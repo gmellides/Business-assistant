@@ -104,7 +104,7 @@ public class SearchView implements Initializable {
                        "greek_state","city","mail",
                        "phone1","phone1_type","phone2",
                        "phone2_type","comments","website",
-                       "import_data"};
+                       "import_date"};
         int index = 0;
         for (TableColumn column : columns){
             column.setCellValueFactory(new MapValueFactory(id[index]));

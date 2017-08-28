@@ -35,6 +35,7 @@ public class NewSale implements Initializable {
     private ResourceBundle default_strings;
     private float productPrice;
     private int productQuantity;
+    private String productName;
     private HashMap<Integer,String> quantityList;
     private HashMap<Integer,String> priceList;
     
@@ -53,6 +54,9 @@ public class NewSale implements Initializable {
        
         @FXML
         private void btn_addToBasket_Action(ActionEvent event) {
+            if ((!txt_Quantity.getText().isEmpty())&&(Integer.parseInt(txt_Quantity.getText())>0)){
+                
+            }
         }
         /**
          * Quantity TextField event.
@@ -111,10 +115,11 @@ public class NewSale implements Initializable {
         @FXML
         private void cmb_selectedProduct_Action(ActionEvent event) {
             String val = cmb_product_select.getSelectionModel().getSelectedItem();
-            String[] id = val.split(" ");
-            productPrice = Float.parseFloat(priceList.get(Integer.parseInt(id[0])));
-            productQuantity = Integer.valueOf(quantityList.get(Integer.parseInt(id[0])));
-            lbl_sellPrice.setText(priceList.get(Integer.parseInt(id[0]))+"€");
+            String[] splited_string = val.split(" ");
+            productPrice = Float.parseFloat(priceList.get(Integer.parseInt(splited_string[0])));
+            productQuantity = Integer.valueOf(quantityList.get(Integer.parseInt(splited_string[0])));
+            productName = splited_string[1];
+            lbl_sellPrice.setText(priceList.get(Integer.parseInt(splited_string[0]))+"€");
         }
         @FXML
         private void btn_Close_Action(ActionEvent event) {

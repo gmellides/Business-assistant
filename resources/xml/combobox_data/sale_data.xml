@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <product_data>
-
-	<measurement>
-		<measurement_value>Τεμάχιο</measurement_value>
-		<measurement_value>Κιλό</measurement_value>
-		<measurement_value>Τόνος</measurement_value>
-	</measurement>
-	
-	<currency>
-		<curr_value>EUR €</curr_value>
-		<curr_value>USD $</curr_value>
-		<curr_value>GIP £</curr_value>
-	</currency>
-	
-	<product_type>
-		<type_value>Πρώτη Ύλη</type_value>
-		<type_value>Προιών</type_value>
-	</product_type>
-	
-	<category>
-		<cat_value>Άλλα</cat_value>
-	</category>
-	
+    <category>
+        <cat_value>Διάφορα</cat_value>
+    </category>	
 </product_data>

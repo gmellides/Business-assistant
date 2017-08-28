@@ -5,5 +5,5 @@ package erpsystem.util.system;
 
 
 public enum WindowState {
-    ACTIVE
+    ACTIVE, NOT_ACTIVE
 }

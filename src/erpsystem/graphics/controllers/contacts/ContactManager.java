@@ -113,9 +113,7 @@ public class ContactManager implements Initializable {
         private void btnExit_Action(ActionEvent event) {
             close_window();
         }
-    // ===============================
-    
-    // ========== Methods ============
+
         public void init_window(){
            icn_contactManager.setImage(new Image(new File("resources/images/contacts/contact_manager.png").toURI().toString()));
            Saved_contacts.setText(String.valueOf(new ContactsDatabase().count_contacts()));
@@ -150,7 +148,4 @@ public class ContactManager implements Initializable {
             Stage this_window = (Stage) btnNewContact.getScene().getWindow();
             this_window.close();
         }
-    // ===============================
-
-
 }

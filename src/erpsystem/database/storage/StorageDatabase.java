@@ -19,16 +19,16 @@ import javafx.collections.ObservableList;
 public class StorageDatabase {
     
     private final String database_driver = "jdbc:ucanaccess://";
-    private final String database_path = new File("databases/------.accdb").getAbsolutePath();
+    private final String database_path = new File("databases/data.accdb").getAbsolutePath();
     
     private final String COUNT_PROD_QUERY = "SELECT COUNT(*) FROM Products";
     private final String SELECT_PROD_QUERY = "SELECT * FROM Products";
     
-    private Connection connection;
-    private Statement statement;
-    private ResultSet results;
+    protected Connection connection;
+    protected Statement statement;
+    protected ResultSet results;
     
-    private void Connect(){
+    protected void Connect(){
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             connection = DriverManager.getConnection(database_driver+database_path);
@@ -36,39 +36,37 @@ public class StorageDatabase {
             e.printStackTrace();
         }
     }
-    
-    public ObservableList<Map> select_products(){
-        ObservableList<Map> table_data = FXCollections.observableArrayList();
+        public ObservableList<Map> select_products(){
+            ObservableList<Map> table_data = FXCollections.observableArrayList();
+                try{
+                    Connect();
+                    statement = connection.createStatement();
+                    results = statement.executeQuery(SELECT_PROD_QUERY);
+                    while (results.next()){
+                        Map<String,String> row = new HashMap();
+                        table_data.add(row);
+                    }
+                    Disconnect();
+                }catch(SQLException e){
+                    e.printStackTrace();
+                }
+            return table_data;
+        }
+        public int count_products(){
+            int Products = 0;
             try{
                 Connect();
                 statement = connection.createStatement();
-                results = statement.executeQuery(SELECT_PROD_QUERY);
-                while (results.next()){
-                    Map<String,String> row = new HashMap();
-                    table_data.add(row);
+                results = statement.executeQuery(COUNT_PROD_QUERY);
+                while(results.next()){
+                    Products = results.getInt(1);
                 }
-                Disconnect();
             }catch(SQLException e){
                 e.printStackTrace();
             }
-        return table_data;
-    }
-    public int count_products(){
-        int Products = 0;
-        try{
-            Connect();
-            statement = connection.createStatement();
-            results = statement.executeQuery(COUNT_PROD_QUERY);
-            while(results.next()){
-                Products = results.getInt(1);
-            }
-        }catch(SQLException e){
-            e.printStackTrace();
+            return Products;
         }
-        return Products;
-    }
-    
-    private void Disconnect(){
+    protected void Disconnect(){
         try{
         if (connection != null)
             connection.close();

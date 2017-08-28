@@ -133,9 +133,9 @@ public class ViewContact implements Initializable {
             int id = Integer.parseInt((String) clicked_row.get("contact_id"));
             if(new ContactsView().update_contact(id, edited_object())){
                 Alert_dialog(Alert.AlertType.INFORMATION,
-                            "dlg_contactDelete_title",
-                            "dlg_contactDelete_header",
-                            "dlg_contactDelete_message");
+                            "dlg_contactUpdated_title",
+                            "dlg_contactUpdated_header",
+                            "dlg_contactUpdated_message");
                 close_window();
             }
             close_window();
@@ -174,14 +174,14 @@ public class ViewContact implements Initializable {
         Label[] labels = {lbl_firstname,lbl_lastname,lbl_country,
                           lbl_zipcode,lbl_sex,lbl_address,lbl_city,
                           lbl_greekState,lbl_phone1,lbl_phone2,lbl_mail,
-                          lbl_comments,lbl_website};
+                          lbl_comments,lbl_website,lbl_import_date};
         String[] stringsId = {"gnr_lbl_firstname","gnr_lbl_lastname","gnr_lbl_country",
                               "gnr_lbl_zipcode","gnr_lbl_sex","gnr_lbl_address","gnr_lbl_city",
                               "gnr_lbl_state","gnr_lbl_phone1","gnr_lbl_phone2",
-                              "gnr_lbl_mail","gnr_lbl_comments","gnr_lbl_website",};
+                              "gnr_lbl_mail","gnr_lbl_comments","gnr_lbl_website","gnr_lbl_date"};
         String[] map_values = {"firstname","lastname","country","zipcode",
                                "sex","address","city","greek_state","phone1",
-                               "phone2","mail","comments","website"};
+                               "phone2","mail","comments","website","import_date"};
         int index = 0;
         for (Label item:labels){
             item.setText(default_strings.getString(stringsId[index])+" "+clicked_row.get(map_values[index]));

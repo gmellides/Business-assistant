@@ -52,12 +52,59 @@ public class Launcher implements Initializable {
         default_strings = rb;
         init_window();
     }
-
-    // ====== FXML Components Action ======
+        /**
+         * 1.  Customer Button 
+         * Action for Customer Button. This Checks if Customer Manager is 
+         * open or not. If Customer Manager isn't open a new Customer manager 
+         * window will appear.
+         * @param event
+         * @throws IOException 
+         */
+        @FXML
+        private void btn_Customers_Action(ActionEvent event) throws IOException {
+            if (!window_check.CustomerManager_isOpen()){
+                window_check.CustomerManager_toggle(true);
+                try{
+                    OpenWindow("customers/CustomerManager.fxml",
+                               new Dimension().Manager_window_width,
+                               new Dimension().Manager_window_height,
+                               default_strings.getString("window_customer_manager"));
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
+            }else{
+                  
+            }     
+        }
+        /**
+         * 2.  Supplier Button 
+         * Action for Suppliers Button. This Checks if Supplier Manager is 
+         * open or not. If Customer Manager isn't open a new Supplier manager 
+         * window will appear.
+         * @param event
+         * @throws IOException 
+         */
+        @FXML
+        private void btn_Suppliers_Action(ActionEvent event) {
+            if (!window_check.SupplierManager_isOpen()){
+                window_check.SupplierManager_toggle(true);
+                try{
+                    OpenWindow("suppliers/SupplierManager.fxml",
+                               new Dimension().Manager_window_width,
+                               new Dimension().Manager_window_height,
+                               default_strings.getString("window_supplier_manager"));
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
+            }else{
+                  
+            }
+        }    
     
-        // ======= Buttons ========
+    
             @FXML
             private void btnSales_Action(ActionEvent event) {
+
                 try{
                     OpenWindow("sales/SalesManager.fxml",
                                new Dimension().Manager_window_width,
@@ -69,46 +116,36 @@ public class Launcher implements Initializable {
             }
             @FXML
             private void btnPurchases_Action(ActionEvent event) {
+           
+                    try{
+                        OpenWindow("purchaces/PurchaseManager.fxml",
+                                   new Dimension().Manager_window_width,
+                                   new Dimension().Manager_window_height,
+                                   default_strings.getString("window_purchase_manager"));
+                    }catch(IOException e){
+                        e.printStackTrace();
+                    }
             }
             @FXML
             private void btn_Employee_Action(ActionEvent event) {
             }
-            @FXML
-            private void btn_Customers_Action(ActionEvent event) throws IOException {
-                if (!window_check.CustomerManager_isOpen()){
-                    window_check.CustomerManager_toggle(true);
-                    try{
-                        OpenWindow("customers/CustomerManager.fxml",
-                                   new Dimension().Manager_window_width,
-                                   new Dimension().Manager_window_height,
-                                   default_strings.getString("window_customer_manager"));
-                    }catch(IOException e){
-                        e.printStackTrace();
-                    }
-                }else{
-                    
-                }
-                
-            }
-            @FXML
-            private void btn_Suppliers_Action(ActionEvent event) {
-                if (!window_check.SupplierManager_isOpen()){
-                    window_check.SupplierManager_toggle(true);
-                    try{
-                        OpenWindow("suppliers/SupplierManager.fxml",
-                                   new Dimension().Manager_window_width,
-                                   new Dimension().Manager_window_height,
-                                   default_strings.getString("window_supplier_manager"));
-                    }catch(IOException e){
-                        e.printStackTrace();
-                    }
-                }else{
-                    
-                }
             
-            }
+            
             @FXML
             private void btn_Finance_Action(ActionEvent event) {
+                if (!window_check.FinanceWindow_isOpen()){
+                    window_check.FinanceWindow_toggle(true);
+                    try{
+                        OpenWindow("finance/FinanceWindow.fxml",
+                                   new Dimension().Finance_window_width,
+                                   new Dimension().Finance_window_height,
+                                   default_strings.getString("window_finance"));
+                    }catch(IOException e){
+                        e.printStackTrace();
+                    }
+                }else{
+                    
+                }
             }
             @FXML
             private void btnStorage_Action(ActionEvent event) throws IOException {    

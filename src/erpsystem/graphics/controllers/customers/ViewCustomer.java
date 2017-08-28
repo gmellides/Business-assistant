@@ -30,7 +30,8 @@ public class ViewCustomer implements Initializable {
     @FXML
     private Label lbl_category_view,lbl_date_view,lbl_mail_view,lbl_phone_view,
     lbl_Fax_view,lbl_sex_view,lbl_CustomerType_view,lbl_ZipCode_view,lbl_City_view,
-    lbl_State_view,lbl_Address_view,lbl_country_view,lbl_lastname_view,lbl_Name_view;
+    lbl_State_view,lbl_Address_view,lbl_country_view,lbl_lastname_view,lbl_Name_view,
+    lbl_sex_edit,lbl_Lastname_edit;
     @FXML
     private TextField txtName_edit,txtLastname_edit,txtAddress_edit,txtMail_edit,
     txtPhone_edit,txtFax_edit,txtZipcode_edit;
@@ -47,6 +48,7 @@ public class ViewCustomer implements Initializable {
     private ResourceBundle default_strings;
     private int customerID;
     private boolean isCompany;
+
     /**
      * Initializes the controller class.
      */
@@ -204,6 +206,8 @@ public class ViewCustomer implements Initializable {
             lbl_lastname_view.setVisible(false);
             txtLastname_edit.setVisible(false);
             cmb_sex.setVisible(false);
+            lbl_sex_edit.setVisible(false);
+            lbl_Lastname_edit.setVisible(false);
             TextField[] fields =  {txtName_edit,txtAddress_edit,txtMail_edit,
                         txtPhone_edit,txtFax_edit,txtZipcode_edit};
             String[] companies_data_id = {"name","address","mail",
@@ -244,14 +248,13 @@ public class ViewCustomer implements Initializable {
                 obj.setFax(txtFax_edit.getText());
                 obj.setPhone(txtPhone_edit.getText());
                 obj.setMail(txtMail_edit.getText());
+                obj.setZipCode(Integer.parseInt(txtZipcode_edit.getText()));
             return obj;
         }
         private void close_window(){
             Stage this_window = (Stage) btnClose.getScene().getWindow();
             this_window.close();
         }
-        
-        
         private void Alert_dialog(Alert.AlertType type,
                               String Title,
                               String Header,

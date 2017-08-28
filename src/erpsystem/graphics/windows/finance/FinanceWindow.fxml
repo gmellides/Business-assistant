@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="515.0" prefWidth="735.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.finance.FinanceWindow">
+    <stylesheets>
+        <URL value="@/erpsystem/graphics/CSS/style.css" />
+    </stylesheets>
+   <children>
+      <Pane prefHeight="521.0" prefWidth="743.0" styleClass="background_panel">
+         <children>
+            <Button layoutX="621.0" layoutY="482.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="108.0" text="%gnr_btn_Close" />
+            <ImageView fx:id="img_money" fitHeight="135.0" fitWidth="142.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="197.0" layoutY="14.0" prefHeight="47.0" prefWidth="507.0" text="%lbl_windowTitle">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Line endX="450.0" layoutX="273.0" layoutY="71.0" startX="-100.0" />
+            <ToggleButton layoutX="197.0" layoutY="97.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" text="%btn_mainPage" />
+            <ToggleButton layoutX="380.0" layoutY="97.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" text="%btn_Incomes" />
+            <ToggleButton layoutX="562.0" layoutY="97.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" text="%btn_Outcomes" />
+            <Pane fx:id="MainPanel" layoutX="6.0" layoutY="143.0" prefHeight="335.0" prefWidth="730.0" visible="false" />
+            <Pane fx:id="IncomePanel" layoutX="6.0" layoutY="143.0" prefHeight="335.0" prefWidth="730.0" visible="false" />
+            <Pane fx:id="OutcomePanel" layoutX="6.0" layoutY="143.0" prefHeight="335.0" prefWidth="730.0">
+               <children>
+                  <Label layoutX="268.0" layoutY="-1.0" text="%btn_mainPage">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Line endX="100.0" layoutX="212.0" layoutY="168.0" rotate="-90.0" startX="-100.0" />
+                  <Line endX="100.0" layoutX="502.0" layoutY="169.0" rotate="-90.0" startX="-100.0" />
+                  <PieChart fx:id="IncomeOutcomeChart" layoutX="218.0" layoutY="69.0" prefHeight="201.0" prefWidth="275.0" />
+                  <PieChart fx:id="SalesPurchacesChart" layoutY="75.0" prefHeight="195.0" prefWidth="212.0" />
+                  <PieChart fx:id="IncomeTaxesChart" layoutX="502.0" layoutY="75.0" prefHeight="195.0" prefWidth="222.0" />
+               </children></Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
