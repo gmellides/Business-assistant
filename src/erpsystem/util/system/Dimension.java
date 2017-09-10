@@ -24,7 +24,13 @@ public class Dimension {
     public final int Finance_window_width = 750;
     public final int Finance_window_height = 550;
     
-    public final int NewPurchase_window_width = 549;
+    public final int NewPurchase_window_width = 529;
     public final int NewPurchase_window_height = 633;
+    
+    public final int ViewStorage_window_width = 697;
+    public final int ViewStorage_window_height = 496;
+    
+    public final int NewCategory_window_width = 368;
+    public final int NewCategory_window_height = 210;
     
 }

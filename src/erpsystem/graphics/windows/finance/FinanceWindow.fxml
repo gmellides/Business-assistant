@@ -38,11 +38,8 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Line endX="100.0" layoutX="212.0" layoutY="168.0" rotate="-90.0" startX="-100.0" />
-                  <Line endX="100.0" layoutX="502.0" layoutY="169.0" rotate="-90.0" startX="-100.0" />
-                  <PieChart fx:id="IncomeOutcomeChart" layoutX="218.0" layoutY="69.0" prefHeight="201.0" prefWidth="275.0" />
-                  <PieChart fx:id="SalesPurchacesChart" layoutY="75.0" prefHeight="195.0" prefWidth="212.0" />
-                  <PieChart fx:id="IncomeTaxesChart" layoutX="502.0" layoutY="75.0" prefHeight="195.0" prefWidth="222.0" />
+                  <Line endX="100.0" layoutX="345.0" layoutY="186.0" rotate="-90.0" startX="-100.0" />
+                  <PieChart fx:id="IncomeOutcomeChart" layoutX="372.0" layoutY="43.0" prefHeight="285.0" prefWidth="352.0" />
                </children></Pane>
          </children>
       </Pane>

@@ -35,19 +35,19 @@
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_Phone" layoutX="206.0" layoutY="216.0" text="b phone">
+            <Label fx:id="lbl_Phone" layoutX="206.0" layoutY="226.0" prefHeight="20.0" prefWidth="236.0" text="b phone">
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_Address" layoutX="227.0" layoutY="277.0" text="b Address">
+            <Label fx:id="lbl_Address" layoutX="206.0" layoutY="287.0" text="b Address">
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_Fax" layoutX="36.0" layoutY="277.0" text="b fax">
+            <Label fx:id="lbl_Fax" layoutX="43.0" layoutY="287.0" text="b fax">
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_City" layoutX="451.0" layoutY="277.0" text="b city">
+            <Label fx:id="lbl_City" layoutX="518.0" layoutY="287.0" text="b city">
                <font>
                   <Font size="14.0" />
                </font></Label>
@@ -67,12 +67,12 @@
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_nodata" layoutX="63.0" layoutY="206.0" prefHeight="17.0" prefWidth="634.0">
+            <Label fx:id="lbl_nodata" layoutX="65.0" layoutY="206.0" prefHeight="17.0" prefWidth="634.0">
                <font>
                   <Font size="55.0" />
                </font>
             </Label>
-            <Label fx:id="lbl_phone2" layoutX="405.0" layoutY="216.0" prefHeight="20.0" prefWidth="178.0" text="Label">
+            <Label fx:id="lbl_phone2" layoutX="451.0" layoutY="226.0" prefHeight="20.0" prefWidth="254.0" text="Label">
                <font>
                   <Font size="14.0" />
                </font></Label>

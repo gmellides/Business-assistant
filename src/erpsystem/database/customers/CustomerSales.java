@@ -36,9 +36,15 @@ public class CustomerSales extends CustomersDatabase{
             try{
                 Connect();
                     statement = connection.createStatement();
-                    rs = statement.executeQuery("SELECT cust_company_id,name from Customer_Companies;");
+                    rs = statement.executeQuery("SELECT cust_company_id,name,address,zipcode,city,customer_type,phone from Customer_Companies;");
                     while (rs.next()){
-                        data.add(String.valueOf(rs.getInt("cust_company_id"))+" "+rs.getString("name"));  
+                        data.add(String.valueOf(rs.getInt("cust_company_id"))+" "
+                                                +rs.getString("name")+" ("
+                                                +rs.getString("name")+","
+                                                +rs.getInt("zipcode")+","
+                                                +rs.getString("city")+","
+                                                +rs.getString("customer_type")+","
+                                                +rs.getString("phone")+")");  
                     }
                 Disconnect();    
             }catch(SQLException e){

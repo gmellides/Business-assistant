@@ -25,13 +25,14 @@ public class SalesManager implements Initializable {
 
     @FXML
     private Button btn_Close;
-
-
+    
+    private ResourceBundle default_strings;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        default_strings = rb;
         init_window();
     } 
         @FXML
@@ -40,7 +41,7 @@ public class SalesManager implements Initializable {
                 OpenWindow("sales/NewSale.fxml",
                            new Dimension().NewSale_window_width,
                            new Dimension().NewSale_window_height,
-                           "");
+                           default_strings.getString("window_newSale"));
             }catch(IOException e){
                 e.printStackTrace();
             }

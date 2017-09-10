@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
@@ -17,21 +18,30 @@
        <URL value="@/erpsystem/graphics/CSS/style.css" />
     </stylesheets>
    <children>
-      <Pane prefHeight="400.0" prefWidth="600.0">
+      <Pane prefHeight="400.0" prefWidth="600.0" styleClass="background_panel">
          <children>
-            <Button layoutX="470.0" layoutY="361.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="116.0" text="%gnr_btn_Close" />
-            <Button layoutX="126.0" layoutY="271.0" mnemonicParsing="false" onAction="#btn_NewProduct_Action" prefHeight="25.0" prefWidth="156.0" text="new product" />
-            <Button layoutX="126.0" layoutY="309.0" mnemonicParsing="false" onAction="#btn_ShowProducts_Action" prefHeight="25.0" prefWidth="156.0" text="show storage" />
-            <Button layoutX="318.0" layoutY="271.0" mnemonicParsing="false" onAction="#btn_BackUp_Action" prefHeight="25.0" prefWidth="156.0" text="%gnr_btn_backUp" />
-            <Button layoutX="318.0" layoutY="309.0" mnemonicParsing="false" onAction="#btn_ExportPDF_Action" prefHeight="25.0" prefWidth="156.0" text="%cmgr_btnExportPDF" />
-            <ImageView fitHeight="122.0" fitWidth="134.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="182.0" layoutY="14.0" prefHeight="58.0" prefWidth="358.0" text="Label">
+            <Button layoutX="475.0" layoutY="350.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="102.0" text="%gnr_btn_Close" />
+            <Button layoutX="73.0" layoutY="262.0" mnemonicParsing="false" onAction="#btn_NewProduct_Action" prefHeight="25.0" prefWidth="213.0" text="%btn_newProduct" />
+            <Button layoutX="73.0" layoutY="298.0" mnemonicParsing="false" onAction="#btn_ShowStorage_Action" prefHeight="25.0" prefWidth="213.0" text="%btn_viewStorage" />
+            <Button layoutX="293.0" layoutY="262.0" mnemonicParsing="false" onAction="#btn_BackUp_Action" prefHeight="25.0" prefWidth="213.0" text="%gnr_btn_backUp" />
+            <Button layoutX="293.0" layoutY="298.0" mnemonicParsing="false" onAction="#btn_ExportPDF_Action" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnExportPDF" />
+            <ImageView fx:id="img_storageManager" fitHeight="117.0" fitWidth="128.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="182.0" layoutY="14.0" prefHeight="58.0" prefWidth="358.0" text="%window_storage_manager">
                <font>
-                  <Font size="40.0" />
+                  <Font size="29.0" />
                </font>
             </Label>
             <Line endX="330.0" layoutX="258.0" layoutY="80.0" startX="-100.0" />
-            <Label layoutX="167.0" layoutY="153.0" prefHeight="17.0" prefWidth="72.0" text="Label" />
+            <Label layoutX="240.0" layoutY="81.0" prefHeight="30.0" prefWidth="156.0" text="%cmgr_lblinfo">
+               <font>
+                  <Font size="17.0" />
+               </font></Label>
+            <PieChart fx:id="StoragePie" layoutX="142.0" layoutY="107.0" prefHeight="142.0" prefWidth="316.0" />
+            <Label fx:id="lbl_noData" layoutX="114.0" layoutY="150.0" prefHeight="30.0" prefWidth="408.0" text="Label">
+               <font>
+                  <Font size="44.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

@@ -11,6 +11,7 @@ import erpsystem.database.suppliers.SuppliersDatabase;
 import erpsystem.util.export.pdf.suppliers.SuppliersTablePDF;
 import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,6 +25,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -35,6 +37,8 @@ public class SupplierManager implements Initializable {
     private ResourceBundle default_strings;
     @FXML
     private Button btn_ExportPDF;
+    @FXML
+    private ImageView img_supplierManager;
         
     /**
      * Initializes the controller class.
@@ -102,6 +106,7 @@ public class SupplierManager implements Initializable {
         lbl_suppl_comp.setText(String.valueOf(data[1]));
         lbl_suppl_sum.setText(String.valueOf(data[2]));
        //Set Icon on Imageview
+       img_supplierManager.setImage(new Image(new File("resources/images/suppliers/supplier_manager.png").toURI().toString()));
         // CODE TODO 
     }    
     private void OpenWindow(String WindowPath,

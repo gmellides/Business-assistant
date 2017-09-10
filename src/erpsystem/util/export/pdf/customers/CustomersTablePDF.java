@@ -26,7 +26,7 @@ public class CustomersTablePDF {
     public boolean save_file(ResourceBundle bundle,
                              ObservableList<Map> data_individual,
                              ObservableList<Map> data_companies){
-        x = 55;
+        x = 25;
         y = 725;
         create_file(bundle);
         fill_file(bundle,
@@ -144,7 +144,7 @@ public class CustomersTablePDF {
             String[] mapID = {"firstname","lastname","address","zipcode","city",
                               "customer_type","phone","fax","mail"};
                 content.setFont(roboto_italic, 8);
-                x = 55;
+                x = 25;
                 for (Map item : data){
                     for (String mapValue : mapID){
                         content.beginText();
@@ -169,7 +169,7 @@ public class CustomersTablePDF {
                         }
                         content.endText();
                     }
-                    x = 55;
+                    x = 25;
                     y -= 20;
                 }
             
@@ -180,7 +180,7 @@ public class CustomersTablePDF {
                 String[] headerID = {"col_bName","col_address","col_zipcode","col_city",
                                      "col_customerType","col_phone","col_fax","col_mail"};
                 content.setFont(roboto_bold, 9);
-                x = 55;
+                x = 25;
                 for (String item : headerID){
                     content.beginText();
                     content.newLineAtOffset(x,y);
@@ -212,7 +212,7 @@ public class CustomersTablePDF {
          String[] mapID = {"name","address","zipcode","city","customer_type",
                            "phone","fax","mail"};
                 content.setFont(roboto_italic, 8);
-                x = 55;
+                x = 25;
                 for (Map item : data){
                     for (String mapValue : mapID){
                         content.beginText();
@@ -240,7 +240,7 @@ public class CustomersTablePDF {
                         }  
                         content.endText();
                     }
-                    x = 55;
+                    x = 25;
                     y -= 20;
                 }
         }

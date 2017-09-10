@@ -22,11 +22,7 @@ public class FinanceWindow implements Initializable {
     @FXML
     private ImageView img_money;
     @FXML
-    private Pane MainPanel;
-    @FXML
-    private Pane IncomePanel;
-    @FXML
-    private Pane OutcomePanel;
+    private Pane MainPanel,IncomePanel,OutcomePanel;
     @FXML
     private PieChart IncomeOutcomeChart;
     @FXML

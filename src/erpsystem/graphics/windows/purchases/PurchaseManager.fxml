@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.purchases.PurchaseManager">
+    <stylesheets>
+        <URL value="@/erpsystem/graphics/CSS/style.css" />
+    </stylesheets>
+   <children>
+      <Pane prefHeight="400.0" prefWidth="600.0" styleClass="background_panel">
+         <children>
+            <Button layoutX="475.0" layoutY="350.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="102.0" text="%gnr_btn_Close" />
+            <Button layoutX="73.0" layoutY="262.0" mnemonicParsing="false" onAction="#btn_newPurchace_Action" prefHeight="25.0" prefWidth="213.0" text="%bnt_newPurchase" />
+            <Button layoutX="73.0" layoutY="298.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="213.0" text="%btn_showPurchases" />
+            <Button fx:id="btn_BackUp" layoutX="293.0" layoutY="262.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="213.0" text="%gnr_btn_backUp" />
+            <Button fx:id="btn_ExportPDF" layoutX="293.0" layoutY="298.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnExportPDF" />
+            <Label layoutX="199.0" layoutY="14.0" text="Label">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="127.0" fitWidth="135.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="135.0" layoutY="153.0" text="Label" />
+            <Line endX="320.0" layoutX="259.0" layoutY="60.0" startX="-100.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

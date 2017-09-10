@@ -19,7 +19,7 @@ and open the template in the editor.
         -fx-border-width: 3px;
         -fx-border-radius: 10px;
     }
-    .simple_btn:hover{
+    .simple_btn:hover{   
         -fx-background-color: white;
         -fx-border-color: #ff9933;
         -fx-border-width: 3px;

@@ -60,4 +60,19 @@ public class ProductsSales extends ProductsDatabase{
         return quantity;
     }
 
+    public String select_prdName(int id){
+        String data = null;
+            try{
+                Connect();
+                statement = connection.createStatement();
+                rs = statement.executeQuery("SELECT prd_name FROM Product WHERE prd_id = "+id+";");
+                while (rs.next()){
+                    data = rs.getString("prd_name");
+                }
+                Disconnect();    
+            }catch(SQLException e){
+                e.printStackTrace();
+            }
+        return data;
+    }
 }

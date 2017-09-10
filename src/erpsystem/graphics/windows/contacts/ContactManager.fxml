@@ -17,10 +17,10 @@
    <children>
       <Pane layoutY="1.0" prefHeight="400.0" prefWidth="600.0" styleClass="background_panel">
          <children>
-            <Button layoutX="434.0" layoutY="354.0" mnemonicParsing="false" onAction="#btnExit_Action" prefHeight="25.0" prefWidth="141.0" text="%gnr_btn_Close" />
-            <Button layoutX="307.0" layoutY="244.0" mnemonicParsing="false" onAction="#btn_BackUp_Action" prefHeight="25.0" prefWidth="181.0" text="%gnr_btn_backUp" />
-            <Button layoutX="103.0" layoutY="285.0" mnemonicParsing="false" onAction="#btnSearchView_Action" prefHeight="25.0" prefWidth="181.0" text="%cmgr_btnViewContacts" />
-            <Button fx:id="btnNewContact" layoutX="103.0" layoutY="244.0" mnemonicParsing="false" onAction="#btnNewContactsAction" prefHeight="25.0" prefWidth="181.0" text="%cmgr_btnNewContact" />
+            <Button layoutX="475.0" layoutY="350.0" mnemonicParsing="false" onAction="#btnExit_Action" prefHeight="25.0" prefWidth="102.0" text="%gnr_btn_Close" />
+            <Button layoutX="293.0" layoutY="262.0" mnemonicParsing="false" onAction="#btn_BackUp_Action" prefHeight="25.0" prefWidth="213.0" text="%gnr_btn_backUp" />
+            <Button layoutX="73.0" layoutY="298.0" mnemonicParsing="false" onAction="#btnSearchView_Action" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnViewContacts" />
+            <Button fx:id="btnNewContact" layoutX="73.0" layoutY="262.0"  mnemonicParsing="false" onAction="#btnNewContactsAction" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnNewContact" />
             <Line endX="300.0" layoutX="283.0" layoutY="69.0" startX="-100.0" />
             <Label layoutX="178.0" layoutY="24.0" prefHeight="35.0" prefWidth="267.0" text="%cmgr_lbltitle" wrapText="true">
                <font>
@@ -39,7 +39,7 @@
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <Button layoutX="307.0" layoutY="285.0" mnemonicParsing="false" onAction="#btn_ExportContacts_Action" prefHeight="25.0" prefWidth="181.0" text="%cmgr_btnExportPDF" />
+            <Button layoutX="293.0" layoutY="298.0" mnemonicParsing="false" onAction="#btn_ExportContacts_Action" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnExportPDF" />
             <ImageView fx:id="icn_contactManager" fitHeight="121.0" fitWidth="152.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>

@@ -118,8 +118,11 @@ public class NewSale implements Initializable {
             String[] splited_string = val.split(" ");
             productPrice = Float.parseFloat(priceList.get(Integer.parseInt(splited_string[0])));
             productQuantity = Integer.valueOf(quantityList.get(Integer.parseInt(splited_string[0])));
-            productName = splited_string[1];
+            productName = new ProductsSales().select_prdName(Integer.parseInt(splited_string[0]));
             lbl_sellPrice.setText(priceList.get(Integer.parseInt(splited_string[0]))+"€");
+            System.out.println(productName);
+            txt_Quantity.setText("");
+            lbl_product_cost.setText("----"); 
         }
         @FXML
         private void btn_Close_Action(ActionEvent event) {

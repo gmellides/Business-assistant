@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import javafx.scene.control.*?>
@@ -23,42 +24,49 @@
    <children>
       <Pane prefHeight="400.0" prefWidth="600.0" styleClass="background_panel">
          <children>
-            <Button fx:id="btnClose" layoutX="475.0" layoutY="350.0" mnemonicParsing="false" onAction="#btnClose_Action" prefHeight="25.0" prefWidth="102.0" text="%gnr_btn_Close" />
-            <Button fx:id="btn_newCustomer" layoutX="67.0" layoutY="256.0" mnemonicParsing="false" onAction="#btnNewCustomer_Action" prefHeight="25.0" prefWidth="213.0" text="%new_customer" />
-            <Button fx:id="btn_backUp" layoutX="300.0" layoutY="256.0" mnemonicParsing="false" onAction="#btn_BackUp_Action" prefHeight="25.0" prefWidth="213.0" text="%gnr_btn_backUp" />
-            <Button fx:id="btn_viewCustomer" layoutX="67.0" layoutY="298.0" mnemonicParsing="false" onAction="#btn_SearchView_Action" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnViewContacts" />
-            <Button fx:id="btn_ExportPDF" layoutX="300.0" layoutY="298.0" mnemonicParsing="false" onAction="#btn_ExportCustomers_Action" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnExportPDF" />
+            <Button fx:id="btnClose" layoutX="475.0" layoutY="350.0" 
+                    mnemonicParsing="false" 
+                    onAction="#btnClose_Action" 
+                    prefHeight="25.0" prefWidth="102.0" 
+                    text="%gnr_btn_Close" />
+            <Button fx:id="btn_newCustomer" layoutX="73.0" layoutY="262.0" 
+                    mnemonicParsing="false" onAction="#btnNewCustomer_Action" 
+                    prefHeight="25.0" prefWidth="213.0" 
+                    text="%new_customer" />
+            <Button fx:id="btn_backUp" layoutX="293.0" layoutY="262.0" mnemonicParsing="false" onAction="#btn_BackUp_Action" prefHeight="25.0" prefWidth="213.0" text="%gnr_btn_backUp" />
+            <Button fx:id="btn_viewCustomer" layoutX="73.0" layoutY="298.0" mnemonicParsing="false" onAction="#btn_SearchView_Action" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnViewContacts" />
+            <Button fx:id="btn_ExportPDF" layoutX="293.0" layoutY="298.0" mnemonicParsing="false" onAction="#btn_ExportCustomers_Action" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnExportPDF" />
             <Label layoutX="174.0" layoutY="21.0" text="%window_customer_manager">
                <font>
                   <Font size="29.0" />
                </font></Label>
-            <Label layoutX="236.0" layoutY="127.0" text="%cmgr_lblinfo">
+            <Label layoutX="221.0" layoutY="115.0" text="%cmgr_lblinfo">
+               <font>
+                  <Font size="21.0" />
+               </font></Label>
+            <Label layoutX="127.0" layoutY="188.0" text="%btn_companies">
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label layoutX="126.0" layoutY="181.0" text="%btn_companies">
+            <Label fx:id="lbl_Companies" layoutX="359.0" layoutY="188.0" text="Companies">
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_Companies" layoutX="358.0" layoutY="181.0" text="Companies">
-               <font>
-                  <Font size="14.0" />
-               </font></Label>
-            <Label layoutX="126.0" layoutY="210.0" text="%cmgr_customers_sum">
+            <Label layoutX="127.0" layoutY="217.0" text="%cmgr_customers_sum">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_Summary" layoutX="358.0" layoutY="210.0" prefHeight="20.0" prefWidth="69.0" text="Summary">
+            <Label fx:id="lbl_Summary" layoutX="359.0" layoutY="217.0" prefHeight="20.0" prefWidth="69.0" text="Summary">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Label>
-            <ImageView fx:id="img_customerManager" fitHeight="122.0" fitWidth="118.0" layoutX="16.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="img_customerManager" fitHeight="100.0" fitWidth="111.0" layoutX="16.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" />
             <Line endX="326.0" layoutX="260.0" layoutY="71.0" startX="-100.0" />
-            <Label layoutX="126.0" layoutY="157.0" text="%btn_customers">
+            <Label layoutX="127.0" layoutY="164.0" text="%btn_customers">
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_Customers" layoutX="358.0" layoutY="157.0" prefHeight="20.0" prefWidth="58.0" text="persons">
+            <Label fx:id="lbl_Customers" layoutX="359.0" layoutY="164.0" prefHeight="20.0" prefWidth="58.0" text="persons">
                <font>
                   <Font size="14.0" />
                </font>

@@ -64,7 +64,7 @@ public class SupplierIndividual extends SuppliersDatabase{
                     row.put("state", rs.getString("state"));
                     row.put("supplier_type", rs.getString("supplier_type"));
                     row.put("city", rs.getString("city"));
-                    row.put("phone", rs.getString("phone"));    
+                    row.put("phone", rs.getString("phone"));
                     row.put("mail", rs.getString("mail"));
                     row.put("fax", rs.getString("fax"));
                     row.put("bank", rs.getString("bank"));

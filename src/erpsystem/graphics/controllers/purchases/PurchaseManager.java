@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package erpsystem.graphics.controllers.purchaces;
+package erpsystem.graphics.controllers.purchases;
 
 import erpsystem.util.system.Dimension;
 import java.io.IOException;
@@ -27,6 +27,7 @@ public class PurchaseManager implements Initializable {
     private Button btn_ExportPDF,btn_BackUp;
     
     private ResourceBundle default_strings;
+    
     /**
      * Initializes the controller class.
      */
@@ -35,23 +36,27 @@ public class PurchaseManager implements Initializable {
         default_strings = rb;
     }    
 
-    @FXML
-    private void btn_newPurchace_Action(ActionEvent event) {
-        try{
-            OpenWindow("purchaces/NewPurchase.fxml",
-                       new Dimension().NewPurchase_window_width,
-                       new Dimension().NewPurchase_window_height,
-                       default_strings.getString("window_BackUp"));
-        }catch(IOException e){
-            e.printStackTrace();
+        @FXML
+        private void btn_newPurchace_Action(ActionEvent event) {
+            try{
+                OpenWindow("purchases/NewPurchase.fxml",
+                           new Dimension().NewPurchase_window_width,
+                           new Dimension().NewPurchase_window_height,
+                           default_strings.getString("window_BackUp"));
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+            close_window();
         }
-        close_window();
-    }
+        @FXML
+        private void btn_Close_Action(ActionEvent event) {
+            close_window();
+        }
+    
     private void close_window(){
         Stage window = (Stage) btn_BackUp.getScene().getWindow();
         window.close();
     }
-    
     private void OpenWindow(String WindowPath,
                             int Width,
                             int Height,
@@ -70,7 +75,7 @@ public class PurchaseManager implements Initializable {
                     stage.close();
                     if (!WindowPath.equals("purchases/PurchaseManager.fxml")){
                         try{
-                            OpenWindow("purchaces/PurchaseManager.fxml",
+                            OpenWindow("purchases/PurchaseManager.fxml",
                                        new Dimension().Manager_window_width,
                                        new Dimension().Manager_window_height,
                                        default_strings.getString("window_customer_manager"));

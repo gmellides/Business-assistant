@@ -21,8 +21,7 @@ public class StorageDatabase {
     private final String database_driver = "jdbc:ucanaccess://";
     private final String database_path = new File("databases/data.accdb").getAbsolutePath();
     
-    private final String COUNT_PROD_QUERY = "SELECT COUNT(*) FROM Products";
-    private final String SELECT_PROD_QUERY = "SELECT * FROM Products";
+    private final String COUNT_PROD_QUERY = "SELECT COUNT(*) FROM Products;";
     
     protected Connection connection;
     protected Statement statement;
@@ -35,23 +34,7 @@ public class StorageDatabase {
         }catch(ClassNotFoundException|SQLException e){
             e.printStackTrace();
         }
-    }
-        public ObservableList<Map> select_products(){
-            ObservableList<Map> table_data = FXCollections.observableArrayList();
-                try{
-                    Connect();
-                    statement = connection.createStatement();
-                    results = statement.executeQuery(SELECT_PROD_QUERY);
-                    while (results.next()){
-                        Map<String,String> row = new HashMap();
-                        table_data.add(row);
-                    }
-                    Disconnect();
-                }catch(SQLException e){
-                    e.printStackTrace();
-                }
-            return table_data;
-        }
+    } 
         public int count_products(){
             int Products = 0;
             try{
@@ -65,6 +48,25 @@ public class StorageDatabase {
                 e.printStackTrace();
             }
             return Products;
+        }
+        public ObservableList<Map> select_storage_brief(){
+            ObservableList<Map> data = FXCollections.observableArrayList();
+            try{
+                    Connect();
+                    statement = connection.createStatement();
+                    results = statement.executeQuery("SELECT prd_name,prd_quantity FROM Product WHERE prd_quantity >0");
+                    int i = 0;
+                    while (results.next()){
+                        Map<String,String> row = new HashMap<>();
+                            row.put("prd_name",results.getString("prd_name"));
+                            row.put("prd_quantity",String.valueOf(results.getInt("prd_quantity")));
+                        data.add(row);
+                    }
+                    Disconnect();
+                }catch(SQLException e){
+                    e.printStackTrace();
+                }
+            return data;
         }
     protected void Disconnect(){
         try{

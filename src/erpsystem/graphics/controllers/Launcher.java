@@ -28,6 +28,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 public class Launcher implements Initializable {
    
@@ -116,9 +117,8 @@ public class Launcher implements Initializable {
             }
             @FXML
             private void btnPurchases_Action(ActionEvent event) {
-           
                     try{
-                        OpenWindow("purchaces/PurchaseManager.fxml",
+                        OpenWindow("purchases/PurchaseManager.fxml",
                                    new Dimension().Manager_window_width,
                                    new Dimension().Manager_window_height,
                                    default_strings.getString("window_purchase_manager"));
@@ -281,7 +281,53 @@ public class Launcher implements Initializable {
                     stage.setResizable(false);
                     stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
                     stage.show();
-                    
         }
     // ==== END OF METHODS ===
+
+    @FXML
+    private void btn_customers_exited(MouseEvent event) {
+        img_logo.setImage(new Image(new File("resources/logo/icon.png").toURI().toString()));
+    }
+    @FXML
+    private void btn_customers_entered(MouseEvent event) {
+        img_logo.setImage(new Image(new File("resources/images/customers/customer_manager.png").toURI().toString()));
+    }
+
+    @FXML
+    private void btn_contects_Exited(MouseEvent event) {
+        img_logo.setImage(new Image(new File("resources/logo/icon.png").toURI().toString()));
+    }
+
+    @FXML
+    private void btn_contacts_Entered(MouseEvent event) {
+        img_logo.setImage(new Image(new File("resources/images/contacts/contact_manager.png").toURI().toString()));
+    }
+
+    @FXML
+    private void btn_supplier_Exited(MouseEvent event) {
+        img_logo.setImage(new Image(new File("resources/logo/icon.png").toURI().toString()));
+    }
+
+    @FXML
+    private void btn_supplier_Entered(MouseEvent event) {
+        img_logo.setImage(new Image(new File("resources/images/suppliers/supplier_manager.png").toURI().toString()));
+    }
+
+    @FXML
+    private void btn_finance_Exited(MouseEvent event) {
+        img_logo.setImage(new Image(new File("resources/logo/icon.png").toURI().toString()));
+    }
+    @FXML
+    private void btn_finance_Entered(MouseEvent event) {
+        img_logo.setImage(new Image(new File("resources/images/finance/money.png").toURI().toString()));
+    }
+
+    @FXML
+    private void btn_Storage_Exited(MouseEvent event) {
+        img_logo.setImage(new Image(new File("resources/logo/icon.png").toURI().toString()));
+    }
+    @FXML
+    private void btn_Storage_Entered(MouseEvent event) {
+        img_logo.setImage(new Image(new File("resources/images/storage/storage_manager.png").toURI().toString()));
+    }
 }
