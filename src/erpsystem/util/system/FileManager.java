@@ -8,7 +8,6 @@ import java.nio.channels.FileChannel;
 
 public class FileManager {
     
-
     /**
      * Creates Data Folder on the path that jar is placed
      * inside this folder app will save xml files with encrypted data 
@@ -46,6 +45,10 @@ public class FileManager {
                         output_folder_factor.mkdir();
              
                     output_folder_factor = new File(getDocuments_Customer_repots());
+                    if (!output_folder_factor.exists())
+                        output_folder_factor.mkdir();
+                    
+                    output_folder_factor = new File(getDocuments_BackUp_folder());
                     if (!output_folder_factor.exists())
                         output_folder_factor.mkdir();
                     
@@ -127,6 +130,9 @@ public class FileManager {
     public String getDocuments_Customer_repots() {
         return Documents_Customer_repots;
     }
+    public String getDocuments_BackUp_folder(){
+        return Documents_BackUp_folder;
+    }
 
     private final String app_data_root = System.getProperty("user.dir")+"/user_data";
     private final String app_data_business = app_data_root+"/business";
@@ -138,4 +144,5 @@ public class FileManager {
     private final String Documents_Customer = Documents_root+"/Πελάτες";
     private final String Documents_Customer_data = Documents_Customer+"/Στοιχεία Πελατών";
     private final String Documents_Customer_repots = Documents_Customer+"/Πολήσεις";
+    private final String Documents_BackUp_folder = Documents_root+"/Αντίγραφα Ασφαλείας";
 }

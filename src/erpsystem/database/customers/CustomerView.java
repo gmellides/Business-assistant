@@ -12,13 +12,13 @@ import java.sql.SQLException;
 public class CustomerView extends CustomersDatabase{
 
     public boolean update_customer_individual(int id,Customer input){
-        String UPDATE_QUERY = "UPDATE Customer_Person "
-                             +"SET firstname = ?,"
-                             + "lastname = ? ,sex = ?, address = ?,"
-                             + "zipcode = ?,city = ?,state = ?,"
-                             + "country = ? ,customer_type = ?  ,phone = ?,"
-                             + "fax = ?,mail = ?"
-                             +"WHERE cust_customer_id = ?";
+        String UPDATE_QUERY = "UPDATE customer "
+                             +"SET cst_name = ?,"
+                             + "cst_lastname = ? ,cst_sex = ?, cst_address = ?,"
+                             + "cst_zipcode = ?,cst_city = ?,cst_state = ?,"
+                             + "cst_country = ? ,cst_customerType = ? ,cst_phone = ?,"
+                             + "cst_fax = ?,cst_mail = ?"
+                             +"WHERE cst_id = ?";
         try{
             Connect();
             prepared_statement = connection.prepareStatement(UPDATE_QUERY);
@@ -42,13 +42,13 @@ public class CustomerView extends CustomersDatabase{
         return true;
     }
     public boolean update_customer_company(int id,CustomerCompany input){
-        String UPDATE_QUERY = "UPDATE Customer_Companies "
-                             +"SET name = ?,"
-                             + "address = ?,"
-                             + "zipcode = ?,city = ?,state = ?,"
-                             + "country = ? ,customer_type = ? ,phone = ?,fax = ?,"
-                             + "mail = ?"
-                             +"WHERE cust_company_id = ?";
+        String UPDATE_QUERY = "UPDATE customer "
+                             +"SET cst_name = ?,"
+                             + "cst_address = ?,"
+                             + "cst_zipcode = ?,cst_city = ?,cst_state = ?,"
+                             + "cst_country = ? ,cst_customerType = ? ,cst_phone = ?,cst_fax = ?,"
+                             + "cst_mail = ?"
+                             +"WHERE cst_id = ?";
         try{
             Connect();
             prepared_statement = connection.prepareStatement(UPDATE_QUERY);
@@ -72,11 +72,7 @@ public class CustomerView extends CustomersDatabase{
     public boolean delete_customer(boolean isCompany,int id){
         try{
             Connect();
-            if(!isCompany){
-                prepared_statement = connection.prepareStatement("DELETE FROM Customer_Person WHERE cust_customer_id = ?");
-            }else{
-                prepared_statement = connection.prepareStatement("DELETE FROM Customer_Companies WHERE cust_company_id = ?");
-            }
+            prepared_statement = connection.prepareStatement("DELETE FROM customer WHERE cst_id = ?");
             prepared_statement.setInt(1, id);
             prepared_statement.executeUpdate();
         }catch(SQLException e){

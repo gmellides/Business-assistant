@@ -38,12 +38,14 @@ public class Launcher implements Initializable {
         @FXML
         private Label lcn_lblDateTime;
         @FXML
-        private Button btn_Exit,btn_Employees,btn_Contact,btn_Storage,btn_Customers,
+        private Button btn_Exit,btn_Contact,btn_Storage,btn_Customers,
         btn_Suppliers,btn_Finance,btn_Sales,btn_Purchases;
     // ==============================        
     private Timer DateTimeUpdater; 
     private ResourceBundle default_strings;     
     private final WindowsManager window_check = new WindowsManager();    
+    @FXML
+    private Button btn_mail;
 
     /**
      * Initializes the controller class.
@@ -101,10 +103,8 @@ public class Launcher implements Initializable {
                   
             }
         }    
-    
-    
-            @FXML
-            private void btnSales_Action(ActionEvent event) {
+        @FXML
+        private void btnSales_Action(ActionEvent event) {
 
                 try{
                     OpenWindow("sales/SalesManager.fxml",
@@ -115,8 +115,8 @@ public class Launcher implements Initializable {
                     e.printStackTrace();
                 }
             }
-            @FXML
-            private void btnPurchases_Action(ActionEvent event) {
+        @FXML
+        private void btnPurchases_Action(ActionEvent event) {
                     try{
                         OpenWindow("purchases/PurchaseManager.fxml",
                                    new Dimension().Manager_window_width,
@@ -125,30 +125,36 @@ public class Launcher implements Initializable {
                     }catch(IOException e){
                         e.printStackTrace();
                     }
-            }
-            @FXML
-            private void btn_Employee_Action(ActionEvent event) {
-            }
-            
-            
-            @FXML
-            private void btn_Finance_Action(ActionEvent event) {
-                if (!window_check.FinanceWindow_isOpen()){
-                    window_check.FinanceWindow_toggle(true);
-                    try{
-                        OpenWindow("finance/FinanceWindow.fxml",
-                                   new Dimension().Finance_window_width,
-                                   new Dimension().Finance_window_height,
-                                   default_strings.getString("window_finance"));
-                    }catch(IOException e){
-                        e.printStackTrace();
-                    }
-                }else{
-                    
+            }        
+        @FXML
+        private void btn_Finance_Action(ActionEvent event) {
+            if (!window_check.FinanceWindow_isOpen()){
+                window_check.FinanceWindow_toggle(true);
+                try{
+                    OpenWindow("finance/FinanceWindow.fxml",
+                               new Dimension().Finance_window_width,
+                               new Dimension().Finance_window_height,
+                               default_strings.getString("window_finance"));
+                }catch(IOException e){
+                    e.printStackTrace();
                 }
+            }else{
+                  
             }
-            @FXML
-            private void btnStorage_Action(ActionEvent event) throws IOException {    
+        }
+        @FXML
+        private void btn_mail_Action(ActionEvent event) {
+            try{
+                OpenWindow("mail/MailManager.fxml",
+                           new Dimension().MailManager_window_width,
+                           new Dimension().MailManager_window_height,
+                           default_strings.getString("window_customer_manager"));
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+        }
+        @FXML
+        private void btnStorage_Action(ActionEvent event) throws IOException {    
                     try{
                         OpenWindow("storage/StorageManager.fxml",
                                    new Dimension().Manager_window_width,
@@ -158,8 +164,8 @@ public class Launcher implements Initializable {
                         e.printStackTrace();
                     }
              } 
-            @FXML
-            private void btnContactManagerAction(ActionEvent event){
+        @FXML
+        private void btnContactManagerAction(ActionEvent event){
                 if (!window_check.ContactManager_isOpen()){
                     window_check.ContactManager_toggle(true);
                     try{
@@ -172,12 +178,53 @@ public class Launcher implements Initializable {
                     }
                 } 
             }
-            @FXML
-            private void btnExitAction(ActionEvent event) {
-                System.exit(0);
-            }
+        @FXML
+        private void btnExitAction(ActionEvent event) {
+            System.exit(0);
+        }
         // ========================
 
+        //   Image hover Effect    
+            @FXML
+            private void btn_customers_exited(MouseEvent event) {
+                img_logo.setImage(new Image(new File("resources/logo/icon.png").toURI().toString()));
+            }
+            @FXML
+            private void btn_customers_entered(MouseEvent event) {
+                img_logo.setImage(new Image(new File("resources/images/customers/customer_manager.png").toURI().toString()));
+            }
+            @FXML
+            private void btn_contects_Exited(MouseEvent event) {
+                img_logo.setImage(new Image(new File("resources/logo/icon.png").toURI().toString()));
+            }
+            @FXML
+            private void btn_contacts_Entered(MouseEvent event) {
+                img_logo.setImage(new Image(new File("resources/images/contacts/contact_manager.png").toURI().toString()));
+            }
+            @FXML
+            private void btn_supplier_Exited(MouseEvent event) {
+                img_logo.setImage(new Image(new File("resources/logo/icon.png").toURI().toString()));
+            }
+            @FXML
+            private void btn_supplier_Entered(MouseEvent event) {
+                img_logo.setImage(new Image(new File("resources/images/suppliers/supplier_manager.png").toURI().toString()));
+            }
+            @FXML
+            private void btn_finance_Exited(MouseEvent event) {
+                img_logo.setImage(new Image(new File("resources/logo/icon.png").toURI().toString()));
+            }
+            @FXML
+            private void btn_finance_Entered(MouseEvent event) {
+                img_logo.setImage(new Image(new File("resources/images/finance/money.png").toURI().toString()));
+            }
+            @FXML
+            private void btn_Storage_Exited(MouseEvent event) {
+                img_logo.setImage(new Image(new File("resources/logo/icon.png").toURI().toString()));
+            }
+            @FXML
+            private void btn_Storage_Entered(MouseEvent event) {
+                img_logo.setImage(new Image(new File("resources/images/storage/storage_manager.png").toURI().toString()));
+            }
         // ====== Menu Items Action ======
             // File > View Business data
             @FXML
@@ -262,72 +309,25 @@ public class Launcher implements Initializable {
                                 int Width,
                                 int Height,
                                 String WindowName) throws IOException{
-                    FXMLLoader fxml_loader = new FXMLLoader();
-                    fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
-                    Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/"+WindowPath).openStream());
-                    Stage stage = new Stage();
-                    Scene scene = new Scene(root);
-                    stage.setHeight(Height);
-                    stage.setWidth(Width);
-                    stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-                        @Override
-                        public void handle(WindowEvent we) {
-                            window_check.toggle_window(WindowPath);
-                            stage.close();
-                        }
-                    });
-                    stage.setTitle(WindowName);
-                    stage.setScene(scene);
-                    stage.setResizable(false);
-                    stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
-                    stage.show();
+            FXMLLoader fxml_loader = new FXMLLoader();
+            fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
+            Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/"+WindowPath).openStream());
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            stage.setHeight(Height);
+            stage.setWidth(Width);
+            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent we) {
+                    window_check.toggle_window(WindowPath);
+                    stage.close();
+                }
+            });
+            stage.setTitle(WindowName);
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
+            stage.show();
         }
     // ==== END OF METHODS ===
-
-    @FXML
-    private void btn_customers_exited(MouseEvent event) {
-        img_logo.setImage(new Image(new File("resources/logo/icon.png").toURI().toString()));
-    }
-    @FXML
-    private void btn_customers_entered(MouseEvent event) {
-        img_logo.setImage(new Image(new File("resources/images/customers/customer_manager.png").toURI().toString()));
-    }
-
-    @FXML
-    private void btn_contects_Exited(MouseEvent event) {
-        img_logo.setImage(new Image(new File("resources/logo/icon.png").toURI().toString()));
-    }
-
-    @FXML
-    private void btn_contacts_Entered(MouseEvent event) {
-        img_logo.setImage(new Image(new File("resources/images/contacts/contact_manager.png").toURI().toString()));
-    }
-
-    @FXML
-    private void btn_supplier_Exited(MouseEvent event) {
-        img_logo.setImage(new Image(new File("resources/logo/icon.png").toURI().toString()));
-    }
-
-    @FXML
-    private void btn_supplier_Entered(MouseEvent event) {
-        img_logo.setImage(new Image(new File("resources/images/suppliers/supplier_manager.png").toURI().toString()));
-    }
-
-    @FXML
-    private void btn_finance_Exited(MouseEvent event) {
-        img_logo.setImage(new Image(new File("resources/logo/icon.png").toURI().toString()));
-    }
-    @FXML
-    private void btn_finance_Entered(MouseEvent event) {
-        img_logo.setImage(new Image(new File("resources/images/finance/money.png").toURI().toString()));
-    }
-
-    @FXML
-    private void btn_Storage_Exited(MouseEvent event) {
-        img_logo.setImage(new Image(new File("resources/logo/icon.png").toURI().toString()));
-    }
-    @FXML
-    private void btn_Storage_Entered(MouseEvent event) {
-        img_logo.setImage(new Image(new File("resources/images/storage/storage_manager.png").toURI().toString()));
-    }
 }

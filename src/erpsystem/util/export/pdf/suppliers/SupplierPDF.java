@@ -29,10 +29,10 @@ public class SupplierPDF {
             PDDocument doc = new PDDocument();
             PDPage page = new PDPage();
             PDDocumentInformation doc_info = new PDDocumentInformation();
-            doc_info.setTitle(data.get("firstname")+" "+data.get("lastname"));
+            doc_info.setTitle(data.get("spl_name")+" "+data.get("spl_lastname"));
             doc_info.setAuthor(rb.getString("pdf_author"));
             doc.addPage(page);
-            doc.save(new FileManager().getDocuments_business_data()+"/"+data.get("firstname")+" "+data.get("lastname")+".pdf");
+            doc.save(new FileManager().getDocuments_business_data()+"/"+data.get("spl_name")+" "+data.get("spl_lastname")+".pdf");
             doc.close();
         }catch(IOException e){
             e.printStackTrace();
@@ -42,9 +42,9 @@ public class SupplierPDF {
         String[] stringID = {"lbl_firstname","lbl_lastname","lbl_sex","lbl_address",
         "lbl_zipcode","lbl_country","lbl_state","lbl_supplierType","lbl_city","lbl_phone",
         "lbl_mail","lbl_fax","lbl_bankName","lbl_IBAN","lbl_date"};
-        String[] mapID = {"firstname","lastname","sex","address","zipcode","country",
-        "state","supplier_type","city","phone","mail","fax","bank","iban","import_date"};
-        File pdf_file = new File(new FileManager().getDocuments_business_data()+"/"+data.get("firstname")+" "+data.get("lastname")+".pdf");
+        String[] mapID = {"spl_name","spl_lastname","spl_sex","spl_address","spl_zipcode","spl_country",
+        "spl_state","spl_supplier_type","spl_city","spl_phone","spl_mail","spl_fax","spl_bank","spl_iban","spl_date"};
+        File pdf_file = new File(new FileManager().getDocuments_business_data()+"/"+data.get("spl_name")+" "+data.get("spl_lastname")+".pdf");
         try{
             PDDocument pdf_doc = PDDocument.load(pdf_file);
             PDPage doc_page = pdf_doc.getPage(0);

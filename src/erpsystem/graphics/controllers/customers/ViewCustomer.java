@@ -10,6 +10,7 @@ import erpsystem.entities.corpotations.CustomerCompany;
 import erpsystem.entities.people.Customer;
 import erpsystem.util.export.pdf.customers.CustomerPDF;
 import erpsystem.util.xml.read.ComboBoxDataParser;
+import java.io.File;
 import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -22,6 +23,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -31,7 +34,7 @@ public class ViewCustomer implements Initializable {
     private Label lbl_category_view,lbl_date_view,lbl_mail_view,lbl_phone_view,
     lbl_Fax_view,lbl_sex_view,lbl_CustomerType_view,lbl_ZipCode_view,lbl_City_view,
     lbl_State_view,lbl_Address_view,lbl_country_view,lbl_lastname_view,lbl_Name_view,
-    lbl_sex_edit,lbl_Lastname_edit;
+    lbl_sex_edit,lbl_Lastname_edit,lbl_category_edt;
     @FXML
     private TextField txtName_edit,txtLastname_edit,txtAddress_edit,txtMail_edit,
     txtPhone_edit,txtFax_edit,txtZipcode_edit;
@@ -48,7 +51,9 @@ public class ViewCustomer implements Initializable {
     private ResourceBundle default_strings;
     private int customerID;
     private boolean isCompany;
-
+    @FXML
+    private ImageView viewCustomer_icon;
+ 
     /**
      * Initializes the controller class.
      */
@@ -65,6 +70,7 @@ public class ViewCustomer implements Initializable {
         }catch(Exception e){
             e.printStackTrace();
         }
+        viewCustomer_icon.setImage(new Image(new File("resources/images/customers/customer_manager.png").toURI().toString()));
     }
     /**
      * Component event Methods
@@ -149,9 +155,9 @@ public class ViewCustomer implements Initializable {
                 lbl_country_view,lbl_Address_view,lbl_State_view,lbl_City_view,
                 lbl_ZipCode_view,lbl_CustomerType_view,lbl_phone_view,lbl_Fax_view,
                 lbl_mail_view,lbl_date_view};
-            String[] map_id = {"firstname","lastname","sex","country",
-                "address","state","city","zipcode","customer_type","phone",
-                "fax","mail","import_date"};
+            String[] map_id = {"cst_name","cst_lastname","cst_sex","cst_country",
+                "cst_address","cst_state","cst_city","cst_zipcode","cst_customerType","cst_phone",
+                "cst_fax","cst_mail","cst_date"};
             String[] label_strings = {"gnr_lbl_firstname","gnr_lbl_lastname",
                 "gnr_lbl_sex","gnr_lbl_country","gnr_lbl_address","gnr_lbl_state",
                 "gnr_lbl_city","gnr_lbl_zipcode","customer_type","gnr_lbl_phone",
@@ -164,21 +170,22 @@ public class ViewCustomer implements Initializable {
             lbl_category_view.setText(default_strings.getString("lbl_category_text")+" "+default_strings.getString("customer_cat"));
         }
         private void edit_customer_individual(){
-            customerID = Integer.parseInt(String.valueOf(clicked_row.get("customer_id")));
+            customerID = Integer.parseInt(String.valueOf(clicked_row.get("cst_id")));
             TextField[] fields = {txtName_edit,txtLastname_edit,txtAddress_edit,txtMail_edit,
                         txtPhone_edit,txtFax_edit,txtZipcode_edit};
-            String[] map_id = {"firstname","lastname","address",
-                     "mail","phone","fax","zipcode"};
+            String[] map_id = {"cst_name","cst_lastname","cst_address",
+                     "cst_mail","cst_phone","cst_fax","cst_zipcode"};
             int index = 0;
             for (TextField item:fields){
                 item.setText(String.valueOf(clicked_row.get(map_id[index])));
                 index++;
             }
-            cmb_country.getSelectionModel().select(String.valueOf(clicked_row.get("country")));
-            cmb_city.getSelectionModel().select(String.valueOf(clicked_row.get("city")));
-            cmb_sex.getSelectionModel().select(String.valueOf(clicked_row.get("sex")));
-            cmb_customerType.getSelectionModel().select(String.valueOf(clicked_row.get("customer_type")));
-            cmb_state.getSelectionModel().select(String.valueOf(clicked_row.get("state")));
+            lbl_category_edt.setText(default_strings.getString("lbl_category_text")+" "+default_strings.getString("customer_cat"));
+            cmb_country.getSelectionModel().select(String.valueOf(clicked_row.get("cst_country")));
+            cmb_city.getSelectionModel().select(String.valueOf(clicked_row.get("cst_city")));
+            cmb_sex.getSelectionModel().select(String.valueOf(clicked_row.get("cst_sex")));
+            cmb_customerType.getSelectionModel().select(String.valueOf(clicked_row.get("cst_customerType")));
+            cmb_state.getSelectionModel().select(String.valueOf(clicked_row.get("cst_state")));
         }
         // Fills the labels at View panel with data.
         private void view_customer_company(){       
@@ -187,20 +194,20 @@ public class ViewCustomer implements Initializable {
             Label[] window_labels = {lbl_Name_view,lbl_country_view,lbl_Address_view,
                     lbl_State_view,lbl_City_view,lbl_ZipCode_view,lbl_CustomerType_view,
                     lbl_phone_view,lbl_Fax_view,lbl_mail_view,lbl_date_view};
-            String[] companies_data_id = {"name","country","address","state","city",
-                    "zipcode","customer_type","phone","fax","mail","import_date"};
+            String[] mapID = {"cst_name","cst_country","cst_address","cst_state","ccst_ity",
+                    "cst_zipcode","cst_customerType","cst_phone","cst_fax","cst_mail","cst_date"};
             String[] label_strings = {"company_businessName","gnr_lbl_country","gnr_lbl_address",
                     "gnr_lbl_state","gnr_lbl_city","gnr_lbl_zipcode","customer_type","gnr_lbl_phone","gnr_lbl_fax",
                     "gnr_lbl_mail","gnr_lbl_date"};
             int index = 0;
             for (Label item : window_labels){
-                item.setText(default_strings.getString(label_strings[index])+" "+String.valueOf(clicked_row.get(companies_data_id[index])));
+                item.setText(default_strings.getString(label_strings[index])+" "+String.valueOf(clicked_row.get(mapID[index])));
                 index++;
             }
             lbl_category_view.setText(default_strings.getString("lbl_category_text")+" "+default_strings.getString("company_cat"));
         }
         private void edit_customer_company(){
-            customerID = Integer.parseInt(String.valueOf(clicked_row.get("company_id")));
+            customerID = Integer.parseInt(String.valueOf(clicked_row.get("cst_id")));
             // Disable unsed components for Edit Panel
             lbl_sex_view.setVisible(false);      
             lbl_lastname_view.setVisible(false);
@@ -210,17 +217,18 @@ public class ViewCustomer implements Initializable {
             lbl_Lastname_edit.setVisible(false);
             TextField[] fields =  {txtName_edit,txtAddress_edit,txtMail_edit,
                         txtPhone_edit,txtFax_edit,txtZipcode_edit};
-            String[] companies_data_id = {"name","address","mail",
-                     "phone","fax","zipcode","customer_type"};
+            String[] companies_data_id = {"cst_name","cst_address","cst_mail",
+                     "cst_phone","cst_fax","cst_zipcode","cst_customerType"};
             int index = 0;
             for (TextField item : fields){
                 item.setText(String.valueOf(clicked_row.get(companies_data_id[index])));
                 index++;
             }
-            cmb_country.getSelectionModel().select(String.valueOf(clicked_row.get("country")));
-            cmb_city.getSelectionModel().select(String.valueOf(clicked_row.get("city")));
-            cmb_customerType.getSelectionModel().select(String.valueOf(clicked_row.get("customer_type")));
-            cmb_state.getSelectionModel().select(String.valueOf(clicked_row.get("state")));
+            lbl_category_edt.setText(default_strings.getString("lbl_category_text")+" "+default_strings.getString("company_cat"));
+            cmb_country.getSelectionModel().select(String.valueOf(clicked_row.get("cst_country")));
+            cmb_city.getSelectionModel().select(String.valueOf(clicked_row.get("cst_city")));
+            cmb_customerType.getSelectionModel().select(String.valueOf(clicked_row.get("cst_customerType")));
+            cmb_state.getSelectionModel().select(String.valueOf(clicked_row.get("cst_state")));
         } 
         private Customer get_cst_obj(){
             Customer obj = new Customer();
@@ -234,6 +242,7 @@ public class ViewCustomer implements Initializable {
                 obj.setFax(txtFax_edit.getText());
                 obj.setPhone(txtPhone_edit.getText());
                 obj.setMail(txtMail_edit.getText());
+                obj.setSex(cmb_sex.getSelectionModel().getSelectedItem());
                 obj.setZipCode(Integer.parseInt(txtZipcode_edit.getText()));
             return obj;
         }

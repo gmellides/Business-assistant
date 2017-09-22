@@ -28,7 +28,6 @@
                   <ToggleGroup fx:id="view_group" />
                </toggleGroup></ToggleButton>
             <ToggleButton layoutX="461.0" layoutY="536.0" mnemonicParsing="false" onAction="#btn_toggleBusiness_Action" prefHeight="25.0" prefWidth="128.0" text="%btn_companies" toggleGroup="$view_group" />
-            <TextField layoutX="14.0" layoutY="536.0" prefHeight="25.0" prefWidth="198.0" />
             <TableView fx:id="tbl_customers" layoutX="3.0" layoutY="101.0" prefHeight="425.0" prefWidth="841.0">
               <columns>
                   <TableColumn fx:id="Col_cust_CustomerID" prefWidth="75.0" text="customerID" visible="false" />

@@ -5,8 +5,7 @@
  */
 package erpsystem.graphics.controllers.customers;
 
-import erpsystem.database.customers.CustomerCompanies;
-import erpsystem.database.customers.CustomerIndividual;
+import erpsystem.database.customers.CustomersDatabase;
 import erpsystem.util.export.csv.customers.CustomersCSV;
 import erpsystem.util.importcsv.ImportCustomers;
 import erpsystem.util.system.Dimension;
@@ -25,9 +24,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -39,10 +36,7 @@ public class BackUp implements Initializable {
     private Button btnClose,btn_SelectFile,btn_importCSV;
     @FXML
     private TextField txt_Path;
-    @FXML
-    private RadioButton rdb_Indeviduals,rdb_Companies;
-    @FXML
-    private ToggleGroup backup_option;
+
     
     private ResourceBundle default_strings;
     
@@ -63,28 +57,13 @@ public class BackUp implements Initializable {
      */
     @FXML
     private void btn_ExportCSV_Action(ActionEvent event) {
-        if (backup_option.getSelectedToggle() != null){
-            if(backup_option.getSelectedToggle().equals(rdb_Companies)){
-                if(new CustomersCSV()
-                        .export_csv(backup_option.getSelectedToggle().equals(rdb_Companies),
-                        default_strings,
-                        new CustomerCompanies().select_company())){
-                        Alert_dialog(AlertType.INFORMATION,
-                                      "dlg_CSV_title",
-                                      "dlg_customersCSV_header",
-                                      "dlg_customersCompaniesCSV_message");  
-                }
-            }else{
-                if(new CustomersCSV()
-                       .export_csv(backup_option.getSelectedToggle().equals(rdb_Companies),
-                        default_strings,
-                        new CustomerIndividual().select_customers())){
-                    Alert_dialog(AlertType.INFORMATION,
-                                 "dlg_CSV_title",
-                                 "dlg_customersCSV_header",
-                                 "dlg_customersIndevidualCSV_message");  
-                }
-            }
+        if(new CustomersCSV()
+           .export_csv(default_strings,
+                       new CustomersDatabase().select_customersBackUp())){
+            Alert_dialog(AlertType.INFORMATION,
+                        "dlg_CSV_title",
+                        "dlg_customersCSV_title",
+                        "dlg_customersCompaniesCSV_message");  
         }else{
            Alert_dialog(AlertType.ERROR,
                         "dlg_selectionErrorCSV_title",
@@ -110,8 +89,8 @@ public class BackUp implements Initializable {
     }
     @FXML
     private void btn_importCSV_Action(ActionEvent event) {
-        new ImportCustomers().import_csv(backup_option.getSelectedToggle().equals(rdb_Companies),
-                                         txt_Path.getText());
+   //     new ImportCustomers().import_csv(backup_option.getSelectedToggle().equals(rdb_Companies),
+     //                                    txt_Path.getText());
             Alert_dialog(AlertType.INFORMATION,
                          "dlg_importCSV_title",
                          "dlg_importCSV_header",

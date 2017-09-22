@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -26,11 +27,10 @@ public class FinanceWindow implements Initializable {
     @FXML
     private PieChart IncomeOutcomeChart;
     @FXML
-    private PieChart SalesPurchacesChart;
-    @FXML
-    private PieChart IncomeTaxesChart;
+    private ToggleButton btn_basicInfo,btn_IncomePanel,btn_Outcomes;
     
     private ResourceBundle default_strings;
+    
     /**
      * Initializes the controller class.
      */
@@ -47,6 +47,9 @@ public class FinanceWindow implements Initializable {
         
     private void init_window(){
        img_money.setImage(new Image(new File("resources/images/finance/money.png").toURI().toString()));
+       btn_basicInfo.setSelected(true);
+       btn_IncomePanel.setSelected(false);
+       btn_Outcomes.setSelected(false);
        Pie_Init();
     }    
     
@@ -67,5 +70,35 @@ public class FinanceWindow implements Initializable {
     private void close_window(){
         Stage window = (Stage) img_money.getScene().getWindow();
         window.close();
+    }
+
+    @FXML
+    private void btn_BasicInfo_Action(ActionEvent event) {
+       btn_basicInfo.setSelected(true);
+       btn_IncomePanel.setSelected(false);
+       btn_Outcomes.setSelected(false);
+       MainPanel.setVisible(true);
+       IncomePanel.setVisible(false);
+       OutcomePanel.setVisible(false);
+    }
+
+    @FXML
+    private void btn_Income_Panel(ActionEvent event) {
+       btn_basicInfo.setSelected(false);
+       btn_IncomePanel.setSelected(true);
+       btn_Outcomes.setSelected(false);
+       MainPanel.setVisible(false);
+       IncomePanel.setVisible(true);
+       OutcomePanel.setVisible(false);
+    }
+
+    @FXML
+    private void btn_Outcomes_Action(ActionEvent event) {
+       btn_basicInfo.setSelected(false);
+       btn_IncomePanel.setSelected(false);
+       btn_Outcomes.setSelected(true);
+       MainPanel.setVisible(false);
+       IncomePanel.setVisible(false);
+       OutcomePanel.setVisible(true);
     }
 }

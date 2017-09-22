@@ -24,15 +24,8 @@
    <children>
       <Pane prefHeight="400.0" prefWidth="600.0" styleClass="background_panel">
          <children>
-            <Button fx:id="btnClose" layoutX="475.0" layoutY="350.0" 
-                    mnemonicParsing="false" 
-                    onAction="#btnClose_Action" 
-                    prefHeight="25.0" prefWidth="102.0" 
-                    text="%gnr_btn_Close" />
-            <Button fx:id="btn_newCustomer" layoutX="73.0" layoutY="262.0" 
-                    mnemonicParsing="false" onAction="#btnNewCustomer_Action" 
-                    prefHeight="25.0" prefWidth="213.0" 
-                    text="%new_customer" />
+            <Button fx:id="btnClose" layoutX="475.0" layoutY="350.0" mnemonicParsing="false" onAction="#btnClose_Action" prefHeight="25.0" prefWidth="102.0" text="%gnr_btn_Close" />
+            <Button fx:id="btn_newCustomer" layoutX="73.0" layoutY="262.0" mnemonicParsing="false" onAction="#btnNewCustomer_Action" prefHeight="25.0" prefWidth="213.0" text="%new_customer" />
             <Button fx:id="btn_backUp" layoutX="293.0" layoutY="262.0" mnemonicParsing="false" onAction="#btn_BackUp_Action" prefHeight="25.0" prefWidth="213.0" text="%gnr_btn_backUp" />
             <Button fx:id="btn_viewCustomer" layoutX="73.0" layoutY="298.0" mnemonicParsing="false" onAction="#btn_SearchView_Action" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnViewContacts" />
             <Button fx:id="btn_ExportPDF" layoutX="293.0" layoutY="298.0" mnemonicParsing="false" onAction="#btn_ExportCustomers_Action" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnExportPDF" />
@@ -60,7 +53,7 @@
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Label>
-            <ImageView fx:id="img_customerManager" fitHeight="100.0" fitWidth="111.0" layoutX="16.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="img_customerManager" fitHeight="100.0" fitWidth="111.0" layoutX="35.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <Line endX="326.0" layoutX="260.0" layoutY="71.0" startX="-100.0" />
             <Label layoutX="127.0" layoutY="164.0" text="%btn_customers">
                <font>

@@ -98,7 +98,7 @@ public class NewSupplier implements Initializable {
             cmbCountry.setItems(new ComboBoxDataParser().get_countries());
             cmbState.setItems(new ComboBoxDataParser().get_states_greece());
             cmbCity.setItems(new ComboBoxDataParser().get_big_cities_greece());
-            // cmbSupplierType
+            cmbSupplierType.setItems(new ComboBoxDataParser().get_CustomerType());
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -116,6 +116,7 @@ public class NewSupplier implements Initializable {
             new_spl.setAddress(txtAddress.getText());
             new_spl.setZipCode(Integer.parseInt(txtZipCode.getText()));
             new_spl.setState(cmbState.getSelectionModel().getSelectedItem());
+            new_spl.setCity(cmbCity.getSelectionModel().getSelectedItem());
             new_spl.setSupplierType(cmbSupplierType.getSelectionModel().getSelectedItem());
             new_spl.setCountry(cmbCountry.getSelectionModel().getSelectedItem());
             new_spl.setIBAN(txtIBAN.getText());
@@ -131,6 +132,7 @@ public class NewSupplier implements Initializable {
             new_spl.setLastName(txtLastName.getText());
             new_spl.setSex(cmbSex.getSelectionModel().getSelectedItem());
             new_spl.setAddress(txtAddress.getText());
+            new_spl.setCity(cmbCity.getSelectionModel().getSelectedItem());
             new_spl.setZipcode(Integer.parseInt(txtZipCode.getText()));
             new_spl.setState(cmbState.getSelectionModel().getSelectedItem());
             new_spl.setSupplier_Type(cmbSupplierType.getSelectionModel().getSelectedItem());

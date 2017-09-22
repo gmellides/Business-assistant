@@ -112,9 +112,9 @@ public class SearchView implements Initializable {
             Col_sex,Col_address,Col_zipcode,Col_country,Col_state,Col_supplier_type,
             Col_city,Col_phone,Col_mail,Col_fax,Col_bank,Col_IBAN,Col_ImportDate};
             
-            String[] supl_p_map = {"supl_person_id","firstname","lastname","sex",
-            "address","zipcode","country","state","supplier_type","city","phone",
-            "mail","fax","bank","iban","import_date"};
+            String[] supl_p_map = {"spl_id","spl_name","spl_lastname","spl_sex",
+            "spl_address","spl_zipcode","spl_country","spl_state","spl_supplierType","spl_city","spl_phone",
+            "spl_mail","spl_fax","spl_bank","spl_iban","spl_date"};
             int index = 0;
             for (TableColumn item:supl_p_col){
                 item.setCellValueFactory(new MapValueFactory(supl_p_map[index]));
@@ -125,8 +125,8 @@ public class SearchView implements Initializable {
             Col_c_zipcode,Col_c_city,Col_c_state,Col_c_country,Col_c_supplier_type,
             Col_c_phone,Col_c_fax,Col_c_mail,Col_c_bank,Col_c_IBAN,Col_c_import_date};
            
-            String[] supl_c_map = {"supl_company_id","name","address","zipcode","city","state",
-            "country","supplier_type","phone","fax","mail","bank","iban","import_date"};
+            String[] supl_c_map = {"spl_id","spl_name","spl_address","spl_zipcode","spl_city","spl_state",
+            "spl_country","spl_supplierType","spl_phone","spl_fax","spl_mail","spl_bank","spl_iban","spl_date"};
             index = 0;
             for (TableColumn item : supl_c_col){
                 item.setCellValueFactory(new MapValueFactory(supl_c_map[index]));

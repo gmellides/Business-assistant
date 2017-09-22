@@ -15,23 +15,23 @@ public class SuppliersPurchases extends SuppliersDatabase{
             try{ 
                 Connect();
                 statement = connection.createStatement();
-                rs = statement.executeQuery("SELECT supl_person_id,"
-                                            + "firstname,"
-                                            + "lastname,"
-                                            + "address,"
-                                            + "zipcode,"
-                                            + "city,"
-                                            + "phone,"
-                                            + "supplier_type FROM Suppliers_Person;");
+                rs = statement.executeQuery("SELECT spl_id,"
+                                            + "spl_name,"
+                                            + "spl_lastname,"
+                                            + "spl_address,"
+                                            + "spl_zipcode,"
+                                            + "spl_city,"
+                                            + "spl_phone,"
+                                            + "spl_supplierType FROM supplier WHERE spl_isCompany = 0;");
                 while(rs.next()){
-                    data.add(String.valueOf(rs.getInt("supl_person_id"))+" "+
-                             rs.getString("firstname")+" "+
-                             rs.getString("lastname")+" ("+
-                             rs.getString("address")+","+
-                             String.valueOf(rs.getInt("zipcode"))+","+
-                             rs.getString("city")+","+
-                             rs.getString("phone")+","+
-                             rs.getString("supplier_type")+")");
+                    data.add(String.valueOf(rs.getInt("spl_id"))+" "+
+                             rs.getString("spl_name")+" "+
+                             rs.getString("spl_lastname")+" ("+
+                             rs.getString("spl_address")+","+
+                             String.valueOf(rs.getInt("spl_zipcode"))+","+
+                             rs.getString("spl_city")+","+
+                             rs.getString("spl_phone")+","+
+                             rs.getString("spl_supplierType")+")");
                 }
             }catch(SQLException e){
                 e.printStackTrace();
@@ -43,21 +43,21 @@ public class SuppliersPurchases extends SuppliersDatabase{
         try{ 
                 Connect();
                 statement = connection.createStatement();
-                rs = statement.executeQuery("SELECT supl_company_id,"
-                                            + "name,"
-                                            + "address,"
-                                            + "zipcode,"
-                                            + "city,"
-                                            + "phone,"
-                                            + "supplier_type FROM Supplier_Company;");
+                rs = statement.executeQuery("SELECT spl_id,"
+                                            + "spl_name,"
+                                            + "spl_address,"
+                                            + "spl_zipcode,"
+                                            + "spl_city,"
+                                            + "spl_phone,"
+                                            + "spl_supplierType FROM supplier WHERE spl_isCompany = -1;");
             while(rs.next()){
-                data.add(String.valueOf(rs.getInt("supl_company_id"))+" "+
-                         rs.getString("name")+" ("+
-                             rs.getString("address")+","+
-                             String.valueOf(rs.getInt("zipcode"))+","+
-                             rs.getString("city")+","+
-                             rs.getString("phone")+","+
-                      rs.getString("supplier_type")+")");
+                data.add(String.valueOf(rs.getInt("spl_id"))+" "+
+                         rs.getString("spl_name")+" ("+
+                             rs.getString("spl_address")+","+
+                             String.valueOf(rs.getInt("spl_zipcode"))+","+
+                             rs.getString("spl_city")+","+
+                             rs.getString("spl_phone")+","+
+                      rs.getString("spl_supplierType")+")");
             }
         }catch(SQLException e){
             e.printStackTrace();

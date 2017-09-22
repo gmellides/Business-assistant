@@ -33,4 +33,6 @@ public class Dimension {
     public final int NewCategory_window_width = 368;
     public final int NewCategory_window_height = 210;
     
+    public final int MailManager_window_width = 724;
+    public final int MailManager_window_height = 490;
 }

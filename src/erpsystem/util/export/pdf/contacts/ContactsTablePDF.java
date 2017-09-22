@@ -54,7 +54,7 @@ public class ContactsTablePDF {
                 roboto_italic = PDType0Font.load(pdf_doc, new File("resources/fonts/pdf/Roboto-Italic.ttf"));
                 
                 PDImageXObject contacts_icon = PDImageXObject.createFromFile("resources/images/contacts/contact_manager.png", pdf_doc);   
-                content.drawImage(contacts_icon, 55, 700,90,90);
+                content.drawImage(contacts_icon, 55, 700,130,90);
                 // Pdf Info 
                 content.setFont(roboto_reg,21);
                 content.beginText();

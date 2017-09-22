@@ -28,7 +28,7 @@ public class ContactsExport {
      * @return 
      */
     public boolean export_file(ResourceBundle default_strings,ObservableList<Map> input){
-        csv_file = new File(new FileManager().getDocuments_root()+"/"+default_strings.getString("filename_contacts_csv")+".csv");
+        csv_file = new File(new FileManager().getDocuments_BackUp_folder()+"/"+default_strings.getString("filename_contacts_csv")+".csv");
             if (csv_file.exists()){
                 csv_file.delete();       
                 create_file(csv_file,input);

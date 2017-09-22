@@ -30,10 +30,10 @@ public class CustomerPDF {
             PDDocument doc = new PDDocument();
             PDPage page = new PDPage();
             PDDocumentInformation doc_info = new PDDocumentInformation();
-            doc_info.setTitle(data.get("firstname")+" "+data.get("lastname"));
+            doc_info.setTitle(data.get("cst_name")+" "+data.get("cst_lastname"));
             doc_info.setAuthor(rb.getString("pdf_author"));
             doc.addPage(page);
-            doc.save(new FileManager().getDocuments_Customer_data()+"/"+data.get("firstname")+" "+data.get("lastname")+".pdf");
+            doc.save(new FileManager().getDocuments_Customer_data()+"/"+data.get("cst_name")+" "+data.get("cst_lastname")+".pdf");
             doc.close();
         }catch(IOException e){
             e.printStackTrace();
@@ -44,9 +44,9 @@ public class CustomerPDF {
                              "gnr_lbl_sex","gnr_lbl_country","gnr_lbl_address","gnr_lbl_state",
                              "gnr_lbl_city","gnr_lbl_zipcode","customer_type","gnr_lbl_phone",
                              "gnr_lbl_fax","gnr_lbl_mail","gnr_lbl_date"};
-        String[] mapID = {"firstname","lastname","sex","country",
-                          "address","state","city","zipcode","customer_type","phone",
-                          "fax","mail","import_date"};
+        String[] mapID = {"cst_name","cst_lastname","cst_sex","cst_country",
+                          "cst_address","cst_state","cst_city","cst_zipcode","cst_customerType","cst_phone",
+                          "cst_fax","cst_mail","cst_date"};
         File pdf_file = new File(new FileManager().getDocuments_Customer_data()+"/"+data.get("firstname")+" "+data.get("lastname")+".pdf");
         try{
             PDDocument pdf_doc = PDDocument.load(pdf_file);

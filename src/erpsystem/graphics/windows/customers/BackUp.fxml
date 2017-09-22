@@ -31,12 +31,6 @@
             <TextField fx:id="txt_Path" editable="false" layoutX="112.0" layoutY="132.0" prefHeight="25.0" prefWidth="274.0" />
             <Label layoutX="27.0" layoutY="99.0" prefHeight="17.0" prefWidth="136.0" text="%export_csv_label" />
             <Button fx:id="btn_importCSV" disable="true" layoutX="14.0" layoutY="186.0" mnemonicParsing="false" onAction="#btn_importCSV_Action" prefHeight="25.0" prefWidth="136.0" text="%gnr_btn_ImportCSV" />
-            <RadioButton fx:id="rdb_Indeviduals" layoutX="163.0" layoutY="99.0" mnemonicParsing="false" text="%btn_customers">
-               <toggleGroup>
-                  <ToggleGroup fx:id="backup_option" />
-               </toggleGroup>
-            </RadioButton>
-            <RadioButton fx:id="rdb_Companies" layoutX="289.0" layoutY="99.0" mnemonicParsing="false" text="%btn_companies" toggleGroup="$backup_option" />
             <Line endX="400.0" layoutX="124.0" layoutY="62.0" startX="-100.0" />
          </children>
       </Pane>

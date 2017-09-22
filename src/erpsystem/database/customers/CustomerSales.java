@@ -15,15 +15,17 @@ public class CustomerSales extends CustomersDatabase{
             try{
                 Connect();
                     statement = connection.createStatement();
-                    rs = statement.executeQuery("SELECT cust_customer_id,firstname,lastname,address,zipcode,city,phone from Customer_Person;");
+                    rs = statement.executeQuery("SELECT cst_id,cst_name,cst_lastname,"
+                                                + "cst_address,cst_zipcode,cst_city,cst_phone"
+                                                + " FROM customer WHERE cst_isCompany = 0;");
                     while (rs.next()){
-                        data.add(String.valueOf(rs.getInt("cust_customer_id"))+" "+
-                                                rs.getString("firstname")+" "+
-                                                rs.getString("lastname")+" ("+
-                                                rs.getString("address")+","+
-                                                rs.getInt("zipcode")+","+
-                                                rs.getString("city")+","+
-                                                rs.getString("phone")+")");  
+                        data.add(String.valueOf(rs.getInt("cst_id"))+" "+
+                                                rs.getString("cst_name")+" "+
+                                                rs.getString("cst_lastname")+" ("+
+                                                rs.getString("cst_address")+","+
+                                                rs.getInt("cst_zipcode")+","+
+                                                rs.getString("cst_city")+","+
+                                                rs.getString("cst_phone")+")");  
                     }
                 Disconnect();    
             }catch(SQLException e){
@@ -36,15 +38,17 @@ public class CustomerSales extends CustomersDatabase{
             try{
                 Connect();
                     statement = connection.createStatement();
-                    rs = statement.executeQuery("SELECT cust_company_id,name,address,zipcode,city,customer_type,phone from Customer_Companies;");
+                    rs = statement.executeQuery("SELECT cst_id,cst_name,cst_address,cst_zipcode,"
+                                               + "cst_city,cst_customerType,cst_phone "
+                                               + "from customer WHERE cst_isCompany = -1;");
                     while (rs.next()){
-                        data.add(String.valueOf(rs.getInt("cust_company_id"))+" "
-                                                +rs.getString("name")+" ("
-                                                +rs.getString("name")+","
-                                                +rs.getInt("zipcode")+","
-                                                +rs.getString("city")+","
-                                                +rs.getString("customer_type")+","
-                                                +rs.getString("phone")+")");  
+                        data.add(String.valueOf(rs.getInt("cst_id"))+" "
+                                                +rs.getString("cst_name")+" ("
+                                                +rs.getString("cst_address")+","
+                                                +rs.getInt("cst_zipcode")+","
+                                                +rs.getString("cst_city")+","
+                                                +rs.getString("cst_customerType")+","
+                                                +rs.getString("cst_phone")+")");  
                     }
                 Disconnect();    
             }catch(SQLException e){

@@ -26,20 +26,34 @@
                </font>
             </Label>
             <Line endX="450.0" layoutX="273.0" layoutY="71.0" startX="-100.0" />
-            <ToggleButton layoutX="197.0" layoutY="97.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" text="%btn_mainPage" />
-            <ToggleButton layoutX="380.0" layoutY="97.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" text="%btn_Incomes" />
-            <ToggleButton layoutX="562.0" layoutY="97.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" text="%btn_Outcomes" />
-            <Pane fx:id="MainPanel" layoutX="6.0" layoutY="143.0" prefHeight="335.0" prefWidth="730.0" visible="false" />
-            <Pane fx:id="IncomePanel" layoutX="6.0" layoutY="143.0" prefHeight="335.0" prefWidth="730.0" visible="false" />
-            <Pane fx:id="OutcomePanel" layoutX="6.0" layoutY="143.0" prefHeight="335.0" prefWidth="730.0">
+            <ToggleButton fx:id="btn_basicInfo" layoutX="197.0" layoutY="97.0" mnemonicParsing="false" onAction="#btn_BasicInfo_Action" prefHeight="25.0" prefWidth="142.0" text="%btn_mainPage" />
+            <ToggleButton fx:id="btn_IncomePanel" layoutX="380.0" layoutY="97.0" mnemonicParsing="false" onAction="#btn_Income_Panel" prefHeight="25.0" prefWidth="142.0" text="%btn_Incomes" />
+            <ToggleButton fx:id="btn_Outcomes" layoutX="562.0" layoutY="97.0" mnemonicParsing="false" onAction="#btn_Outcomes_Action" prefHeight="25.0" prefWidth="142.0" text="%btn_Outcomes" />
+            <Pane fx:id="MainPanel" layoutX="6.0" layoutY="143.0" prefHeight="335.0" prefWidth="730.0">
                <children>
-                  <Label layoutX="268.0" layoutY="-1.0" text="%btn_mainPage">
+                  <Label layoutX="282.0" layoutY="-1.0" text="%btn_mainPage">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Line endX="100.0" layoutX="345.0" layoutY="186.0" rotate="-90.0" startX="-100.0" />
-                  <PieChart fx:id="IncomeOutcomeChart" layoutX="372.0" layoutY="43.0" prefHeight="285.0" prefWidth="352.0" />
+                  <Line endX="100.0" layoutX="367.0" layoutY="167.0" rotate="90.0" startX="-100.0" />
+                  <PieChart fx:id="IncomeOutcomeChart" layoutX="376.0" layoutY="38.0" prefHeight="283.0" prefWidth="344.0" />
+               </children></Pane>
+            <Pane fx:id="IncomePanel" layoutX="6.0" layoutY="143.0" prefHeight="335.0" prefWidth="730.0" visible="false">
+               <children>
+                  <Label layoutX="331.0" layoutY="14.0" text="%btn_Incomes">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
+            <Pane fx:id="OutcomePanel" layoutX="6.0" layoutY="143.0" prefHeight="335.0" prefWidth="730.0" visible="false">
+               <children>
+                  <Label layoutX="333.0" layoutY="14.0" text="%btn_Outcomes">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
                </children></Pane>
          </children>
       </Pane>

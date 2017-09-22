@@ -60,7 +60,7 @@ public class ViewSupplier implements Initializable {
         "state","supplier_type","city","phone","mail","fax","bank","iban","import_date"};
         int index = 0 ;
         for(Label item : labels){
-            item.setText(default_strings.getString(Lable_text[index])+String.valueOf(clicked_row.get(Data[index])));
+            item.setText(default_strings.getString(Lable_text[index])+" "+String.valueOf(clicked_row.get(Data[index])));
             index++;
         }
         System.out.println(Person_key);
@@ -81,7 +81,7 @@ public class ViewSupplier implements Initializable {
         "supplier_type","city","phone","mail","fax","bank","iban","import_date"};
         int index = 0 ;
         for(Label item : labels){
-            item.setText(default_strings.getString(Lable_text[index])+String.valueOf(clicked_row.get(Data[index])));
+            item.setText(default_strings.getString(Lable_text[index])+" "+String.valueOf(clicked_row.get(Data[index])));
             index++;
         }
     }

@@ -14,15 +14,15 @@
         <URL value="@/erpsystem/graphics/CSS/style.css" />
     </stylesheets>
    <children>
-      <Pane prefHeight="573.0" prefWidth="854.0">
+      <Pane prefHeight="573.0" prefWidth="854.0" styleClass="background_panel">
          <children>
             <ImageView fitHeight="86.0" fitWidth="124.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="347.0" layoutY="25.0" text="Label">
+            <Label layoutX="255.0" layoutY="25.0" text="%viewSuppliers_title">
                <font>
                   <Font size="29.0" />
                </font>
             </Label>
-            <TableView fx:id="Suppliers_Person" layoutX="6.0" layoutY="111.0" prefHeight="418.0" prefWidth="839.0">
+            <TableView fx:id="Suppliers_Person" layoutX="6.0" layoutY="102.0" prefHeight="427.0" prefWidth="839.0">
               <columns>
                 <TableColumn fx:id="Col_supl_person_id" prefWidth="75.0" text="C1" visible="false" />
                 <TableColumn fx:id="Col_firstname" prefWidth="75.0" text="%col_firstname" />
@@ -42,7 +42,7 @@
                   <TableColumn fx:id="Col_ImportDate" prefWidth="75.0" text="C2" visible="false" />
               </columns>
             </TableView>
-            <TableView fx:id="Suppliers_Companies" layoutX="6.0" layoutY="111.0" prefHeight="418.0" prefWidth="839.0" visible="false">
+            <TableView fx:id="Suppliers_Companies" layoutX="6.0" layoutY="102.0" prefHeight="427.0" prefWidth="839.0" visible="false">
               <columns>
                 <TableColumn fx:id="Col_c_supl_company_id" prefWidth="75.0" text="id" visible="false" />
                 <TableColumn fx:id="Col_c_name" prefWidth="118.0" resizable="false" text="%col_bName" />
@@ -61,7 +61,6 @@
               </columns>
             </TableView>
             <Button layoutX="732.0" layoutY="536.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="113.0" text="%gnr_btn_Close" />
-            <TextField layoutX="14.0" layoutY="536.0" prefHeight="25.0" prefWidth="191.0" />
             <ToggleButton fx:id="Person_toggle" layoutX="324.0" layoutY="536.0" mnemonicParsing="false" onAction="#btn_togglePerson_Action" text="%btn_customers" />
             <ToggleButton fx:id="Companies_toggle" layoutX="445.0" layoutY="536.0" mnemonicParsing="false" onAction="#btn_toogleCompanies_Action" prefHeight="25.0" prefWidth="113.0" text="%btn_companies" />
          </children>

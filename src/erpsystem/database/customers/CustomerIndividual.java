@@ -16,10 +16,11 @@ import javafx.collections.ObservableList;
 
 public class CustomerIndividual extends CustomersDatabase{
     
-    private final String INSERT_CUSTOMER = "INSERT INTO Customer_Person"
-    + "(cust_customer_id,firstname,lastname,sex,address,zipcode,city,state,country,customer_type,phone,fax,mail,import_date) "
-    + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-    private final String CUST_QUERY = "SELECT * FROM Customer_Person";
+    private final String INSERT_CUSTOMER = "INSERT INTO customer(cst_id,cst_isCompany,cst_name,cst_lastname,cst_sex,"+
+                                           "cst_address,cst_zipcode,cst_city,cst_state,cst_country,"+
+                                           "cst_customerType,cst_phone,cst_fax,cst_mail,cst_date) "+
+                                           "VALUES (?,0,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    private final String CUST_QUERY = "SELECT * FROM customer WHERE cst_isCompany = -0;";
     
     public boolean insert_customer(Customer input){
         boolean flag = false;
@@ -56,20 +57,20 @@ public class CustomerIndividual extends CustomersDatabase{
              rs = statement.executeQuery(CUST_QUERY);
              while (rs.next()){
                 Map<String,String> Row_Data = new HashMap();
-                    Row_Data.put("customer_id", String.valueOf(rs.getInt("cust_customer_id")));
-                    Row_Data.put("firstname", rs.getString("firstname"));
-                    Row_Data.put("lastname", rs.getString("lastname"));
-                    Row_Data.put("sex", rs.getString("sex") );
-                    Row_Data.put("address", rs.getString("address") );
-                    Row_Data.put("zipcode", String.valueOf(rs.getInt("zipcode")));
-                    Row_Data.put("city", rs.getString("city"));
-                    Row_Data.put("state", rs.getString("state"));
-                    Row_Data.put("country", rs.getString("country"));
-                    Row_Data.put("customer_type", rs.getString("customer_type"));
-                    Row_Data.put("phone", rs.getString("phone"));
-                    Row_Data.put("fax", rs.getString("fax"));
-                    Row_Data.put("mail", rs.getString("mail"));
-                    Row_Data.put("import_date", String.valueOf(rs.getDate("import_date")));
+                    Row_Data.put("cst_id", String.valueOf(rs.getInt("cst_id")));
+                    Row_Data.put("cst_name", rs.getString("cst_name"));
+                    Row_Data.put("cst_lastname", rs.getString("cst_lastname"));
+                    Row_Data.put("cst_sex", rs.getString("cst_sex") );
+                    Row_Data.put("cst_address", rs.getString("cst_address") );
+                    Row_Data.put("cst_zipcode", String.valueOf(rs.getInt("cst_zipcode")));
+                    Row_Data.put("cst_city", rs.getString("cst_city"));
+                    Row_Data.put("cst_state", rs.getString("cst_state"));
+                    Row_Data.put("cst_country", rs.getString("cst_country"));
+                    Row_Data.put("cst_customerType", rs.getString("cst_customerType"));
+                    Row_Data.put("cst_phone", rs.getString("cst_phone"));
+                    Row_Data.put("cst_fax", rs.getString("cst_fax"));
+                    Row_Data.put("cst_mail", rs.getString("cst_mail"));
+                    Row_Data.put("cst_date", String.valueOf(rs.getDate("cst_date")));
                     table_data.add(Row_Data);
                 }
             Disconnect();

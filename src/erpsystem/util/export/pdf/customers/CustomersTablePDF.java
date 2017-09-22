@@ -18,6 +18,7 @@ import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType0Font;
+import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
 public class CustomersTablePDF {
     PDFont roboto_reg,roboto_bold,roboto_italic;
@@ -64,8 +65,9 @@ public class CustomersTablePDF {
                 roboto_bold = PDType0Font.load(pdf_doc, new File("resources/fonts/pdf/Roboto-Bold.ttf"));
                 // Italic 
                 roboto_italic = PDType0Font.load(pdf_doc, new File("resources/fonts/pdf/Roboto-Italic.ttf"));
-                
                 // Pdf Info 
+                PDImageXObject customers_icon = PDImageXObject.createFromFile("resources/images/customers/customer_manager.png", pdf_doc);   
+                content.drawImage(customers_icon, 55, 700,75,90);
                 // Title 
                 content.setFont(roboto_reg,21);
                 content.beginText();
@@ -141,8 +143,8 @@ public class CustomersTablePDF {
             }
         }
     private void create_individual_rows(PDPageContentStream content,ObservableList<Map> data) throws IOException{
-            String[] mapID = {"firstname","lastname","address","zipcode","city",
-                              "customer_type","phone","fax","mail"};
+            String[] mapID = {"cst_name","cst_lastname","cst_address","cst_zipcode","cst_city",
+                              "cst_customerType","cst_phone","cst_fax","cst_mail"};
                 content.setFont(roboto_italic, 8);
                 x = 25;
                 for (Map item : data){
@@ -154,16 +156,16 @@ public class CustomersTablePDF {
                             default:
                                 x+=55;
                                 break;
-                            case "lastname":
+                            case "cst_lastname":
                                 x+=65;
                                 break;
-                            case "address":
+                            case "cst_address":
                                 x+=75;
                                 break;
-                            case "zipcode":
+                            case "cst_zipcode":
                                 x+=30;
                                 break;
-                            case "phone":
+                            case "cst_phone":
                                 x+=70;
                                 break;
                         }
@@ -209,8 +211,8 @@ public class CustomersTablePDF {
                 }
         }
     private void create_companies_rows(PDPageContentStream content,ObservableList<Map> data) throws IOException{
-         String[] mapID = {"name","address","zipcode","city","customer_type",
-                           "phone","fax","mail"};
+         String[] mapID = {"cst_name","cst_address","cst_zipcode","cst_city","cst_customerType",
+                           "cst_phone","cst_fax","cst_mail"};
                 content.setFont(roboto_italic, 8);
                 x = 25;
                 for (Map item : data){
@@ -222,19 +224,19 @@ public class CustomersTablePDF {
                             default:
                                 x+=55;
                                 break;
-                            case "name":
+                            case "cst_name":
                                 x+=85;
                                 break;
-                            case "address":
+                            case "cst_address":
                                 x+=75;
                                 break;
-                            case "supplier_type":
+                            case "cst_customerType":
                                 x+=65;
                                 break;
-                            case "zipcode":
+                            case "cst_zipcode":
                                 x+=40;
                                 break;
-                            case "phone":
+                            case "cst_phone":
                                 x+=75;
                                 break;
                         }  

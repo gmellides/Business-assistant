@@ -15,7 +15,7 @@ import java.sql.Statement;
 
 public class SuppliersDatabase {
     private final String database_driver = "jdbc:ucanaccess://";
-    private final String database_path = new File("databases/data.accdb").getAbsolutePath();
+    private final String database_path = new File("databases/app_data.accdb").getAbsolutePath();
     private final String Username = null;
     private final String Password = null;
  
@@ -38,11 +38,11 @@ public class SuppliersDatabase {
             try{
                 Connect();
                 statement = connection.createStatement();
-                rs = statement.executeQuery("SELECT COUNT(*) FROM Suppliers_Person");
+                rs = statement.executeQuery("SELECT COUNT(*) FROM supplier WHERE spl_isCompany = 0;");
                 while(rs.next()){
                     suppliers = rs.getInt(1);
                 }
-                rs = statement.executeQuery("SELECT COUNT(*) FROM Supplier_Company");
+                rs = statement.executeQuery("SELECT COUNT(*) FROM supplier WHERE spl_isCompany = -1;");
                 while(rs.next()){
                     companies = rs.getInt(1);
                 }

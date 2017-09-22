@@ -24,7 +24,7 @@ public class SuppliersCSV {
                                ResourceBundle default_strings,
                                ObservableList<Map> data){
         if(isCompany){
-            csv_file = new File(new FileManager().getApp_data_root()+"/"+default_strings.getString("")+".csv");
+            csv_file = new File(new FileManager().getDocuments_BackUp_folder()+"/"+default_strings.getString("")+".csv");
             if (csv_file.exists()){
                 csv_file.delete();
                 create_companies(data);

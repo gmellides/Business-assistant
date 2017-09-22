@@ -16,9 +16,11 @@ import javafx.collections.ObservableList;
 
 public class SupplierCompanies extends SuppliersDatabase{
     
-    private final String SELECT_COMP_QUERY = "SELECT * FROM Supplier_Company";
-    private final String INSERT_COMP_QUERY = "INSERT INTO Supplier_Company(supl_company_id,name,address,zipcode,city,state,country,supplier_type,phone,fax,mail,bank,iban,import_date)" +
-    "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    private final String SELECT_COMP_QUERY = "SELECT * FROM supplier WHERE spl_isCompany = -1;";
+    private final String INSERT_COMP_QUERY = "INSERT INTO supplier(spl_id,spl_isCompany,spl_name,spl_lastname," +
+                                             "spl_sex,spl_address,spl_zipcode,spl_city,spl_state," +
+                                             "spl_country,spl_supplierType,spl_phone,spl_fax,spl_mail," +
+                                             "spl_bank,spl_IBAN,spl_date) VALUES(?,-1,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     
     public void insert_supplier(SupplierCompany input){
             try{
@@ -26,18 +28,20 @@ public class SupplierCompanies extends SuppliersDatabase{
                 insert_statement = connection.prepareStatement(INSERT_COMP_QUERY);
                     insert_statement.setInt(1, 0);
                     insert_statement.setString(2, input.getCompanyName() );
-                    insert_statement.setString(3, input.getAddress());
-                    insert_statement.setInt(4, input.getZipCode());
-                    insert_statement.setString(5, input.getCity());
-                    insert_statement.setString(6, input.getState());
-                    insert_statement.setString(7, input.getCountry());
-                    insert_statement.setString(8, input.getSupplierType());
-                    insert_statement.setString(9, input.getPhone());           
-                    insert_statement.setString(10, input.getFax());
-                    insert_statement.setString(11, input.getMail());
-                    insert_statement.setString(12, input.getBank());
-                    insert_statement.setString(13, input.getIBAN());
-                    insert_statement.setTimestamp(14, Timestamp.valueOf(new DateTimeProvider().GetTimestamp()));
+                    insert_statement.setString(3, null);
+                    insert_statement.setString(4, null);
+                    insert_statement.setString(5, input.getAddress());
+                    insert_statement.setInt(6, input.getZipCode());
+                    insert_statement.setString(7, input.getCity());
+                    insert_statement.setString(8, input.getState());
+                    insert_statement.setString(9, input.getCountry());
+                    insert_statement.setString(10, input.getSupplierType());
+                    insert_statement.setString(11, input.getPhone());           
+                    insert_statement.setString(12, input.getFax());
+                    insert_statement.setString(13, input.getMail());
+                    insert_statement.setString(14, input.getBank());
+                    insert_statement.setString(15, input.getIBAN());
+                    insert_statement.setTimestamp(16, Timestamp.valueOf(new DateTimeProvider().GetTimestamp()));
                 insert_statement.execute();
             }catch(SQLException e){
                 e.printStackTrace();
@@ -51,20 +55,20 @@ public class SupplierCompanies extends SuppliersDatabase{
                     rs = statement.executeQuery(SELECT_COMP_QUERY);
                      while(rs.next()){
                          Map<String,String> row = new HashMap();
-                            row.put("supl_company_id", rs.getString("supl_company_id"));
-                            row.put("name", rs.getString("name"));
-                            row.put("address", rs.getString("address"));
-                            row.put("zipcode", String.valueOf(rs.getInt("zipcode")));
-                            row.put("city", rs.getString("city"));
-                            row.put("state", rs.getString("state"));
-                            row.put("country", rs.getString("country"));
-                            row.put("supplier_type", rs.getString("supplier_type"));
-                            row.put("phone", rs.getString("phone"));    
-                            row.put("mail", rs.getString("mail"));
-                            row.put("fax", rs.getString("fax"));
-                            row.put("bank", rs.getString("bank"));
-                            row.put("iban", rs.getString("iban"));
-                            row.put("import_date",String.valueOf(rs.getDate("import_date")));
+                            row.put("spl_id", rs.getString("spl_id"));
+                            row.put("spl_name", rs.getString("spl_name"));
+                            row.put("spl_address", rs.getString("spl_address"));
+                            row.put("spl_zipcode", String.valueOf(rs.getInt("spl_zipcode")));
+                            row.put("spl_city", rs.getString("spl_city"));
+                            row.put("spl_state", rs.getString("spl_state"));
+                            row.put("spl_country", rs.getString("spl_country"));
+                            row.put("spl_supplierType", rs.getString("spl_supplierType"));
+                            row.put("spl_phone", rs.getString("spl_phone"));    
+                            row.put("spl_mail", rs.getString("spl_mail"));
+                            row.put("spl_fax", rs.getString("spl_fax"));
+                            row.put("spl_bank", rs.getString("spl_bank"));
+                            row.put("spl_iban", rs.getString("spl_iban"));
+                            row.put("spl_date",String.valueOf(rs.getDate("spl_date")));
                         ret.add(row);
                      }
                 }catch(SQLException e){

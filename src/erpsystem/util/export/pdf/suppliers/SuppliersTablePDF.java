@@ -142,8 +142,8 @@ public class SuppliersTablePDF {
             }
         }
     private void create_individual_rows(PDPageContentStream content,ObservableList<Map> data) throws IOException{
-            String[] mapID = {"firstname","lastname","address","zipcode","city",
-                              "customer_type","phone","fax","mail"};
+            String[] mapID = {"spl_name","spl_lastname","spl_address","spl_zipcode","spl_city",
+                              "spl_supplierType","spl_phone","spl_fax","spl_mail"};
                 content.setFont(roboto_italic, 8);
                 x = 55;
                 for (Map item : data){
@@ -155,16 +155,16 @@ public class SuppliersTablePDF {
                             default:
                                 x+=55;
                                 break;
-                            case "lastname":
+                            case "spl_lastname":
                                 x+=65;
                                 break;
-                            case "address":
+                            case "spl_address":
                                 x+=75;
                                 break;
-                            case "zipcode":
+                            case "spl_zipcode":
                                 x+=30;
                                 break;
-                            case "phone":
+                            case "spl_phone":
                                 x+=70;
                                 break;
                         }
@@ -213,8 +213,8 @@ public class SuppliersTablePDF {
                 }
         }
     private void create_companies_rows(PDPageContentStream content,ObservableList<Map> data) throws IOException{
-         String[] mapID = {"name","address","zipcode","city","customer_type",
-                           "phone","fax","mail"};
+         String[] mapID = {"spl_name","spl_address","spl_zipcode","spl_city","spl_supplierType",
+                           "spl_phone","spl_fax","spl_mail"};
                 content.setFont(roboto_italic, 8);
                 x = 45;
                 for (Map item : data){
@@ -226,22 +226,22 @@ public class SuppliersTablePDF {
                             default:
                                 x+=45;
                                 break;
-                            case "name":
+                            case "spl_name":
                                 x+=110;
                                 break;
-                            case "address":
+                            case "spl_address":
                                 x+=85;
                                 break;
-                            case "customer_type":
+                            case "spl_supplierType":
                                 x+=55;
                                 break;
-                            case "zipcode":
+                            case "spl_zipcode":
                                 x+=40;
                                 break;
-                            case "phone":
+                            case "spl_phone":
                                 x+=60;
                                 break;
-                            case "fax":
+                            case "spl_fax":
                                 x+=60;
                                 break;
                         }  

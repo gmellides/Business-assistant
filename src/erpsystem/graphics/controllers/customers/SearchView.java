@@ -60,7 +60,7 @@ public class SearchView implements Initializable {
         default_strings = rb;
         init_window();
     }    
-    
+
     @FXML
     private void btn_toggleCustomers_Action(ActionEvent event) {
         isCompany = false;
@@ -132,9 +132,9 @@ public class SearchView implements Initializable {
             Col_cust_Lastname,Col_cust_sex,Col_cust_address,Col_cust_zipcode,Col_cust_city,
             Col_cust_state,Col_cust_country,Col_cust_custType,Col_cust_phone,Col_cust_fax,
             Col_cust_mail,Col_cust_importDate};
-            String[]  customer_id = {"customer_id","firstname","lastname","sex",
-            "address","zipcode","city","state","country","customer_type","phone",
-            "fax","mail","import_date"};
+            String[]  customer_id = {"cst_id","cst_name","cst_lastname","cst_sex",
+            "cst_address","cst_zipcode","cst_city","cst_state","cst_country","cst_customerType","cst_phone",
+            "cst_fax","cst_mail","cst_date"};
             int index = 0;
             for (TableColumn column : customer_columns){
                 column.setCellValueFactory(new MapValueFactory(customer_id[index]));
@@ -143,8 +143,8 @@ public class SearchView implements Initializable {
             TableColumn[] company_columns = {col_comp_companyID,col_comp_BusinessName,
             col_comp_address,col_comp_zipcode,col_comp_city,col_comp_state,col_comp_country,
             col_comp_customerType,col_comp_phone,col_comp_fax,col_comp_mail,col_comp_importDate};
-            String[] companies_id = {"company_id","name","address","zipcode","city",
-            "state","country","customer_type","phone","fax","mail","import_date"};
+            String[] companies_id = {"cst_id","cst_name","cst_address","cst_zipcode","cst_city",
+            "cst_state","cst_country","cst_customerType","cst_phone","cst_fax","cst_mail","cst_date"};
             index = 0;
             for (TableColumn column : company_columns){
                 column.setCellValueFactory(new MapValueFactory(companies_id[index]));
@@ -153,6 +153,7 @@ public class SearchView implements Initializable {
             
         return flag;
     }
+   
     // View Window
     private void OpenViewCustomerWindow(int Width,
                                         int Height,

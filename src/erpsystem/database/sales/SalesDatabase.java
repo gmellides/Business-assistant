@@ -16,7 +16,7 @@ import javafx.collections.FXCollections;
 public class SalesDatabase {
     
     private final String database_driver = "jdbc:ucanaccess://";
-    private final String database_path = new File("databases/data.accdb").getAbsolutePath();
+    private final String database_path = new File("databases/app_data.accdb").getAbsolutePath();
     private final String Username = null;
     private final String Password = null;
     
@@ -39,7 +39,7 @@ public class SalesDatabase {
             try{
                 Connect();
                 statement = connection.createStatement();
-                rs = statement.executeQuery("SELECT * FROM Product");
+                rs = statement.executeQuery("SELECT * FROM products");
                 while(rs.next()){
                     
                 }
