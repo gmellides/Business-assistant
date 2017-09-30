@@ -3,9 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package erpsystem.entities.actions;
+package erpsystem.database.finance;
 
-
-public class Hire {
+/**
+ *
+ * @author gabri
+ */
+public class FinanceSale extends FinanceDatabase{
     
 }

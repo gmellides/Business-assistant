@@ -5,7 +5,7 @@
  */
 package erpsystem.graphics.controllers.contacts;
 
-import erpsystem.database.contacts.ContactsDatabase;
+import erpsystem.database.contacts.CNT_Database;
 import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
 import java.io.File;
@@ -92,7 +92,7 @@ public class SearchView implements Initializable {
                 });
             return row 
         ;});
-        contacts_table.setItems(new ContactsDatabase().select_contacts());
+        contacts_table.setItems(new CNT_Database().select_contacts());
         TableColumn[] columns = {Col_id,col_firstname,col_lastname,col_sex,
                                  col_address,col_zipcode,col_country,
                                  col_greek_state,col_city,col_mail,

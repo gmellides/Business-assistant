@@ -5,9 +5,11 @@
  */
 package erpsystem.util.export.pdf.sales;
 
+import java.util.ResourceBundle;
+
 public class ReceiptPDF {
-    public boolean save_receipt(){
-        return true;
+    public void save_receipt(ResourceBundle default_strings){
+       
     }
     private void create_file(){
         

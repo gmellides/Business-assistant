@@ -5,9 +5,9 @@
  */
 package erpsystem.graphics.controllers.suppliers;
 
-import erpsystem.database.suppliers.SupplierCompanies;
-import erpsystem.database.suppliers.SupplierIndividual;
-import erpsystem.database.suppliers.SuppliersDatabase;
+import erpsystem.database.suppliers.SPL_Companies;
+import erpsystem.database.suppliers.SPL_Individual;
+import erpsystem.database.suppliers.SPL_Database;
 import erpsystem.util.export.pdf.suppliers.SuppliersTablePDF;
 import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
@@ -101,7 +101,7 @@ public class SupplierManager implements Initializable {
        // Strings File
         default_strings = rb;
        // Set Data to labels
-        int[] data = new SuppliersDatabase().count_suppliers();
+        int[] data = new SPL_Database().count_suppliers();
         lbl_suppl_people.setText(String.valueOf(data[0]));
         lbl_suppl_comp.setText(String.valueOf(data[1]));
         lbl_suppl_sum.setText(String.valueOf(data[2]));
@@ -147,8 +147,8 @@ public class SupplierManager implements Initializable {
     @FXML
     private void btn_ExportPDF_Action(ActionEvent event) {
         if (new SuppliersTablePDF().save_file(default_strings, 
-                                              new SupplierIndividual().select_suppliers(),
-                                              new SupplierCompanies().select_suppliers())){
+                                              new SPL_Individual().select_suppliers(),
+                                              new SPL_Companies().select_suppliers())){
             
         }
     }

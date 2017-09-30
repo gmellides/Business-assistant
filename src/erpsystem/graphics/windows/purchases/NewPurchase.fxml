@@ -15,7 +15,7 @@
         <URL value="@/erpsystem/graphics/CSS/style.css" />
     </stylesheets>
    <children>
-      <Pane prefHeight="596.0" prefWidth="485.0">
+      <Pane prefHeight="596.0" prefWidth="485.0" styleClass="background_panel">
          <children>
             <Button layoutX="383.0" layoutY="557.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="%btn_Confirm" />
             <Button layoutX="14.0" layoutY="557.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="91.0" text="%gnr_btn_Close" />

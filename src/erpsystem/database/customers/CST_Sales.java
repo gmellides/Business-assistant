@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class CustomerSales extends CustomersDatabase{
+public class CST_Sales extends CST_Database{
     public ObservableList<String> select_cst_individual(){
         ObservableList<String> data = FXCollections.observableArrayList();
             try{

@@ -5,8 +5,8 @@
  */
 package erpsystem.graphics.controllers.customers;
 
-import erpsystem.database.customers.CustomerCompanies;
-import erpsystem.database.customers.CustomerIndividual;
+import erpsystem.database.customers.CST_Companies;
+import erpsystem.database.customers.CST_Individual;
 import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
 import java.io.IOException;
@@ -125,8 +125,8 @@ public class SearchView implements Initializable {
                 return row 
             ;});
             
-        tbl_customers.setItems(new CustomerIndividual().select_customers());
-        tbl_companies.setItems(new CustomerCompanies().select_company());
+        tbl_customers.setItems(new CST_Individual().select_customers());
+        tbl_companies.setItems(new CST_Companies().select_company());
          
             TableColumn[] customer_columns = {Col_cust_CustomerID,Col_cust_Firstname,
             Col_cust_Lastname,Col_cust_sex,Col_cust_address,Col_cust_zipcode,Col_cust_city,

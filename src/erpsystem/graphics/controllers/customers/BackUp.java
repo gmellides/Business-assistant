@@ -5,7 +5,7 @@
  */
 package erpsystem.graphics.controllers.customers;
 
-import erpsystem.database.customers.CustomersDatabase;
+import erpsystem.database.customers.CST_Database;
 import erpsystem.util.export.csv.customers.CustomersCSV;
 import erpsystem.util.importcsv.ImportCustomers;
 import erpsystem.util.system.Dimension;
@@ -59,7 +59,7 @@ public class BackUp implements Initializable {
     private void btn_ExportCSV_Action(ActionEvent event) {
         if(new CustomersCSV()
            .export_csv(default_strings,
-                       new CustomersDatabase().select_customersBackUp())){
+                       new CST_Database().select_customersBackUp())){
             Alert_dialog(AlertType.INFORMATION,
                         "dlg_CSV_title",
                         "dlg_customersCSV_title",

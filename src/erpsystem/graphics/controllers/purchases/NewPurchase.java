@@ -5,7 +5,7 @@
  */
 package erpsystem.graphics.controllers.purchases;
 
-import erpsystem.database.suppliers.SuppliersPurchases;
+import erpsystem.database.suppliers.SPL_Purchases;
 import erpsystem.financial.BasicCalculations;
 import erpsystem.util.system.Dimension;
 import erpsystem.util.xml.read.PurchaseCategoryParser;
@@ -78,9 +78,9 @@ public class NewPurchase implements Initializable {
     @FXML
     private void chk_Company_Toggle(ActionEvent event) {
         if (chk_companyToggle.isSelected()){
-            cmb_Supplier.setItems(new SuppliersPurchases().select_Companies_combobox());
+            cmb_Supplier.setItems(new SPL_Purchases().select_Companies_combobox());
          }else{
-            cmb_Supplier.setItems(new SuppliersPurchases().select_Indevidual_combobox());
+            cmb_Supplier.setItems(new SPL_Purchases().select_Indevidual_combobox());
         }
     }
     @FXML
@@ -125,7 +125,7 @@ public class NewPurchase implements Initializable {
     private void init_window(){
         try {
             cmb_category.setItems(new PurchaseCategoryParser().get_categories());
-            cmb_Supplier.setItems(new SuppliersPurchases().select_Indevidual_combobox());
+            cmb_Supplier.setItems(new SPL_Purchases().select_Indevidual_combobox());
         } catch (Exception ex) {
            ex.printStackTrace();
         }       

@@ -5,9 +5,9 @@
  */
 package erpsystem.util.importcsv;
 
-import erpsystem.database.suppliers.SupplierCompanies;
-import erpsystem.database.suppliers.SupplierIndividual;
-import erpsystem.database.suppliers.SuppliersDatabase;
+import erpsystem.database.suppliers.SPL_Companies;
+import erpsystem.database.suppliers.SPL_Individual;
+import erpsystem.database.suppliers.SPL_Database;
 import erpsystem.entities.corpotations.SupplierCompany;
 import erpsystem.entities.people.Supplier;
 import java.io.BufferedReader;
@@ -16,7 +16,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class ImportSuppliers {
-    SuppliersDatabase spl_db;
+    SPL_Database spl_db;
     BufferedReader reader;
     public boolean import_csv(boolean isCompany,String file_path){
         if(isCompany){
@@ -28,7 +28,7 @@ public class ImportSuppliers {
     }
     
     private void import_company(String file_path){
-        spl_db = new SuppliersDatabase();
+        spl_db = new SPL_Database();
         String csv_line = null;
         try{
             reader = new BufferedReader(new FileReader(file_path));
@@ -38,7 +38,7 @@ public class ImportSuppliers {
                 String[] val = csv_line.split(",");
                     SupplierCompany csv_spl = new SupplierCompany();
                     
-                new SupplierCompanies().insert_supplier(csv_spl);
+                new SPL_Companies().insert_supplier(csv_spl);
             }
         }catch(FileNotFoundException e){
             e.printStackTrace();
@@ -47,7 +47,7 @@ public class ImportSuppliers {
         }
     }
     private void import_person(String file_path){
-        spl_db = new SuppliersDatabase();
+        spl_db = new SPL_Database();
         String csv_line = null;
         try{
             reader = new BufferedReader(new FileReader(file_path));
@@ -59,7 +59,7 @@ public class ImportSuppliers {
                     spl.setFirstName(val[0]);
                     spl.setLastName(val[1]);
                     
-                new SupplierIndividual().insert_supplier(spl);
+                new SPL_Individual().insert_supplier(spl);
             }
         }catch(FileNotFoundException e){
             e.printStackTrace();

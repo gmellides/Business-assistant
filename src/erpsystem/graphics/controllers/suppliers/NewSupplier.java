@@ -5,8 +5,8 @@
  */
 package erpsystem.graphics.controllers.suppliers;
 
-import erpsystem.database.suppliers.SupplierCompanies;
-import erpsystem.database.suppliers.SupplierIndividual;
+import erpsystem.database.suppliers.SPL_Companies;
+import erpsystem.database.suppliers.SPL_Individual;
 import erpsystem.entities.corpotations.SupplierCompany;
 import erpsystem.entities.people.Supplier;
 import erpsystem.util.system.Dimension;
@@ -56,14 +56,14 @@ public class NewSupplier implements Initializable {
         @FXML
         private void btn_Save_Action(ActionEvent event) {
             if (isBusiness){    
-                new SupplierCompanies().insert_supplier(get_cmp_obj());
+                new SPL_Companies().insert_supplier(get_cmp_obj());
                 Alert_dialog(AlertType.INFORMATION,
                              "dlg_supplierSaved_title",
                              "dlg_supplierSaved_header",
                              "dlg_supplierSaved_message");
                 close_window();
             }else{  
-                new SupplierIndividual().insert_supplier(get_spl_obj());
+                new SPL_Individual().insert_supplier(get_spl_obj());
                 Alert_dialog(AlertType.INFORMATION,
                              "dlg_supplierSaved_title",
                              "dlg_supplierSaved_header",

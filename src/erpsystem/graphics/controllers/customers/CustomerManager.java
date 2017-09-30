@@ -5,9 +5,9 @@
  */
 package erpsystem.graphics.controllers.customers;
 
-import erpsystem.database.customers.CustomerCompanies;
-import erpsystem.database.customers.CustomerIndividual;
-import erpsystem.database.customers.CustomersDatabase;
+import erpsystem.database.customers.CST_Companies;
+import erpsystem.database.customers.CST_Individual;
+import erpsystem.database.customers.CST_Database;
 import erpsystem.util.export.pdf.customers.CustomersTablePDF;
 import erpsystem.util.system.Dimension;
 import erpsystem.util.system.FileManager;
@@ -83,8 +83,8 @@ public class CustomerManager implements Initializable {
         @FXML
         private void btn_ExportCustomers_Action(ActionEvent event) {
             if(new CustomersTablePDF().save_file(default_strings,
-                                                 new CustomerIndividual().select_customers(),
-                                                 new CustomerCompanies().select_company())){
+                                                 new CST_Individual().select_customers(),
+                                                 new CST_Companies().select_company())){
                 try{
                     File pdf_file = new File(new FileManager().getDocuments_root());
                     Desktop desktop = Desktop.getDesktop();
@@ -115,7 +115,7 @@ public class CustomerManager implements Initializable {
         btn_backUp.setDisable(true);
         btn_viewCustomer.setDisable(true);
         btn_ExportPDF.setDisable(true);
-        int[] number_of_records = new CustomersDatabase().count_customers();
+        int[] number_of_records = new CST_Database().count_customers();
             lbl_Customers.setText(String.valueOf(number_of_records[0]));
             lbl_Companies.setText(String.valueOf(number_of_records[1]));
             lbl_Summary.setText(String.valueOf(number_of_records[2]));      

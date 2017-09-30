@@ -19,10 +19,8 @@ import javafx.collections.ObservableList;
 public class StorageDatabase {
     
     private final String database_driver = "jdbc:ucanaccess://";
-    private final String database_path = new File("databases/data.accdb").getAbsolutePath();
-    
-    private final String COUNT_PROD_QUERY = "SELECT COUNT(*) FROM Products;";
-    
+    private final String database_path = new File("databases/app_data.accdb").getAbsolutePath();
+
     protected Connection connection;
     protected Statement statement;
     protected ResultSet results;
@@ -40,7 +38,7 @@ public class StorageDatabase {
             try{
                 Connect();
                 statement = connection.createStatement();
-                results = statement.executeQuery(COUNT_PROD_QUERY);
+                results = statement.executeQuery("SELECT COUNT(*) FROM products;");
                 while(results.next()){
                     Products = results.getInt(1);
                 }
@@ -54,7 +52,7 @@ public class StorageDatabase {
             try{
                     Connect();
                     statement = connection.createStatement();
-                    results = statement.executeQuery("SELECT prd_name,prd_quantity FROM Product WHERE prd_quantity >0");
+                    results = statement.executeQuery("SELECT prd_name,prd_quantity FROM product WHERE prd_quantity >0");
                     int i = 0;
                     while (results.next()){
                         Map<String,String> row = new HashMap<>();

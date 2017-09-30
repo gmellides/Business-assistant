@@ -14,7 +14,7 @@ import java.util.Map;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class CustomerCompanies extends CustomersDatabase {
+public class CST_Companies extends CST_Database {
     
     private final String COMP_QUERY = "SELECT * FROM customer WHERE cst_isCompany = -1;";
     

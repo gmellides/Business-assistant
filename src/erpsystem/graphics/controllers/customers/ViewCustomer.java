@@ -5,7 +5,7 @@
  */
 package erpsystem.graphics.controllers.customers;
 
-import erpsystem.database.customers.CustomerView;
+import erpsystem.database.customers.CST_View;
 import erpsystem.entities.corpotations.CustomerCompany;
 import erpsystem.entities.people.Customer;
 import erpsystem.util.export.pdf.customers.CustomerPDF;
@@ -78,19 +78,19 @@ public class ViewCustomer implements Initializable {
      */
         @FXML
         private void btn_Delete_Action(ActionEvent event) {
-            if (new CustomerView().delete_customer(isCompany,customerID)){
+            if (new CST_View().delete_customer(isCompany,customerID)){
                 //Alert_dialog();
             }
         }
         @FXML
         private void btn_SaveEdited_Action(ActionEvent event) {
            if (!isCompany){
-               if (new CustomerView().update_customer_individual(customerID, get_cst_obj())){
+               if (new CST_View().update_customer_individual(customerID, get_cst_obj())){
                    // alert
                    close_window();
                }
            }else{
-               if (new CustomerView().update_customer_company(customerID, get_cmp_obj())){
+               if (new CST_View().update_customer_company(customerID, get_cmp_obj())){
                    // alert
                    close_window();
                }

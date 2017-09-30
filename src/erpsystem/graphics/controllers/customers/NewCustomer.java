@@ -5,8 +5,8 @@
  */
 package erpsystem.graphics.controllers.customers;
 
-import erpsystem.database.customers.CustomerCompanies;
-import erpsystem.database.customers.CustomerIndividual;
+import erpsystem.database.customers.CST_Companies;
+import erpsystem.database.customers.CST_Individual;
 import erpsystem.entities.corpotations.CustomerCompany;
 import erpsystem.entities.people.Customer;
 import erpsystem.util.system.Dimension;
@@ -169,7 +169,7 @@ public class NewCustomer implements Initializable {
                         input.setMail(txt_mail.getText());
                         input.setFax(txt_fax.getText());
                         input.setCountry(cmb_country.getSelectionModel().getSelectedItem());
-                    new CustomerCompanies().insert_company(input);
+                    new CST_Companies().insert_company(input);
                     Alert_dialog(Alert.AlertType.INFORMATION,
                                  "dlg_customerSaved_title",
                                  "dlg_customerSaved_header",
@@ -190,7 +190,7 @@ public class NewCustomer implements Initializable {
                         input.setPhone(txt_phone.getText());
                         input.setFax(txt_fax.getText());
                         input.setMail(txt_mail.getText());
-                    new CustomerIndividual().insert_customer(input);
+                    new CST_Individual().insert_customer(input);
                     Alert_dialog(Alert.AlertType.INFORMATION,
                                  "dlg_customerSaved_title",
                                  "dlg_customerSaved_header",

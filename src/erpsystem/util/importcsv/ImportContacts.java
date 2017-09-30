@@ -1,6 +1,6 @@
 package erpsystem.util.importcsv;
 
-import erpsystem.database.contacts.ContactsDatabase;
+import erpsystem.database.contacts.CNT_Database;
 import erpsystem.entities.people.Contact;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -10,10 +10,10 @@ import java.io.IOException;
 public class ImportContacts {
     
     private BufferedReader reader;
-    private ContactsDatabase contacts_db;
+    private CNT_Database contacts_db;
     
     public boolean import_csv(String file_path){
-        contacts_db = new ContactsDatabase();
+        contacts_db = new CNT_Database();
         String csv_line = null;
         try{
             reader = new BufferedReader(new FileReader(file_path));

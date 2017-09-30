@@ -3,12 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package erpsystem.entities.product;
+package erpsystem.database.products;
 
-/**
- *
- * @author gabri
- */
-public class Service {
-    
+public class ProductPurchase extends ProductsDatabase{
+    public void insert_product(){
+        
+    }
 }

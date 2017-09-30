@@ -17,7 +17,7 @@ import java.sql.Statement;
 public class ProductsDatabase {
     
     private final String database_driver = "jdbc:ucanaccess://";
-    private final String database_path = new File("databases/data.accdb").getAbsolutePath();
+    private final String database_path = new File("databases/app_data.accdb").getAbsolutePath();
     
     protected Connection connection;
     protected Statement statement;

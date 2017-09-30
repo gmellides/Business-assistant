@@ -17,7 +17,7 @@ import java.util.Map;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class CustomersDatabase {
+public class CST_Database {
     
     private final String database_driver = "jdbc:ucanaccess://";
     private final String database_path = new File("databases/app_data.accdb").getAbsolutePath();

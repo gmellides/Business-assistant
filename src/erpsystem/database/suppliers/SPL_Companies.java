@@ -14,7 +14,7 @@ import java.util.Map;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class SupplierCompanies extends SuppliersDatabase{
+public class SPL_Companies extends SPL_Database{
     
     private final String SELECT_COMP_QUERY = "SELECT * FROM supplier WHERE spl_isCompany = -1;";
     private final String INSERT_COMP_QUERY = "INSERT INTO supplier(spl_id,spl_isCompany,spl_name,spl_lastname," +

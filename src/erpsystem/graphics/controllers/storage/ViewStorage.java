@@ -28,7 +28,6 @@ public class ViewStorage implements Initializable {
     private Label lbl_productName,lbl_description,lbl_quantity,lbl_category,
                   lbl_purchasePrice,lbl_sellPrice;
 
-
     /**
      * Initializes the controller class.
      */

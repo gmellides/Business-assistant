@@ -24,7 +24,7 @@
                </font>
             </Label>
             <Line endX="257.0" layoutX="243.0" layoutY="84.0" startX="-100.0" />
-            <ComboBox fx:id="cmb_customer_select" layoutX="143.0" layoutY="157.0" prefHeight="25.0" prefWidth="381.0" promptText="%gnr_cmb_select" />
+            <ComboBox fx:id="cmb_customer_select" layoutX="143.0" layoutY="157.0" onAction="#cmb_selectedCustomer_Action" prefHeight="25.0" prefWidth="381.0" promptText="%gnr_cmb_select" />
             <Label layoutX="40.0" layoutY="161.0" prefHeight="17.0" prefWidth="87.0" text="%lbl_Customer_cmb" />
             <Label layoutX="238.0" layoutY="93.0" text="%lbl_CustomerSubTitle">
                <font>
@@ -39,11 +39,9 @@
                </font></Label>
             <Label layoutX="38.0" layoutY="239.0" text="%lbl_product_cmb" />
             <Label layoutX="36.0" layoutY="303.0" text="%lbl_Quantity" />
-            <Label layoutX="381.0" layoutY="303.0" prefHeight="17.0" prefWidth="116.0" text="kokoko" />
-            <Label layoutX="38.0" layoutY="338.0" text="%lbl_Summary" />
+            <Label layoutX="38.0" layoutY="338.0" text="%lbl_cost" />
             <Label fx:id="lbl_product_cost" layoutX="143.0" layoutY="338.0" text="5.0 EURO " />
             <TextField fx:id="txt_Quantity" layoutX="143.0" layoutY="299.0" onKeyReleased="#txt_Quantity_Action" prefHeight="25.0" prefWidth="116.0" />
-            <Label layoutX="325.0" layoutY="303.0" text="Label" />
             <CheckBox fx:id="chk_Receipt" layoutX="275.0" layoutY="588.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="150.0" text="%chk_Recipt" />
             <CheckBox fx:id="chk_Company" layoutX="439.0" layoutY="128.0" mnemonicParsing="false" onAction="#chk_Company_Toggle" text="%company_checkbox" />
             <Button layoutX="25.0" layoutY="584.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="104.0" text="%gnr_btn_Close" />
@@ -51,19 +49,25 @@
                <font>
                   <Font size="19.0" />
                </font></Label>
-            <TableView layoutX="9.0" layoutY="399.0" prefHeight="151.0" prefWidth="530.0">
+            <TableView fx:id="basket_table" layoutX="9.0" layoutY="399.0" prefHeight="151.0" prefWidth="530.0">
               <columns>
-                <TableColumn prefWidth="340.0" text="product" />
-                <TableColumn minWidth="0.0" prefWidth="67.0" text="quantity" />
-                  <TableColumn prefWidth="121.0" text="sum" />
+                  <TableColumn fx:id="col_id" prefWidth="43.0" text="id" />
+                <TableColumn fx:id="col_productName" maxWidth="298.0" prefWidth="298.0" text="product" />
+                <TableColumn fx:id="col_quantity" minWidth="0.0" prefWidth="75.0" text="quantity" />
+                  <TableColumn fx:id="col_price" prefWidth="112.0" text="sum" />
               </columns>
             </TableView>
             <Button layoutX="324.0" layoutY="334.0" mnemonicParsing="false" onAction="#btn_addToBasket_Action" prefHeight="25.0" prefWidth="205.0" text="%btn_addProduct" />
-            <Label layoutX="38.0" layoutY="272.0" text="Label" />
+            <Label layoutX="38.0" layoutY="272.0" text="%lbl_productPrice" />
             <Label fx:id="lbl_sellPrice" layoutX="143.0" layoutY="272.0" onMouseReleased="#cmb_selectedProduct_Action" prefHeight="17.0" prefWidth="62.0" text="Label" />
-            <Label layoutX="274.0" layoutY="272.0" prefHeight="17.0" prefWidth="38.0" text="Label" />
-            <Label layoutX="353.0" layoutY="559.0" styleClass="background_panel" text="Label" />
-            <Label layoutX="432.0" layoutY="559.0" prefHeight="17.0" prefWidth="94.0" text="Label" />
+            <Label layoutX="350.0" layoutY="272.0" prefHeight="17.0" prefWidth="140.0" text="%lbl_paymentMethod" />
+            <Label layoutX="319.0" layoutY="559.0" styleClass="background_panel" text="%lbl_Summary" />
+            <Label fx:id="lbl_finalPrice" layoutX="432.0" layoutY="559.0" prefHeight="17.0" prefWidth="94.0" text="Label" />
+            <RadioButton fx:id="rdb_credit" layoutX="432.0" layoutY="303.0" mnemonicParsing="false" onAction="#rbtn_Credit_Action" text="%rbtn_credit">
+               <toggleGroup>
+                  <ToggleGroup fx:id="payment_method" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="rdb_debit" layoutX="302.0" layoutY="303.0" mnemonicParsing="false" onAction="#rbtn_Debit_Action" text="%rbtn_Debit" toggleGroup="$payment_method" />
          </children>
       </Pane>
    </children>

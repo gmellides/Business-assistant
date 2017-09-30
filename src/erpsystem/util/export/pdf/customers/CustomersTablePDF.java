@@ -74,7 +74,7 @@ public class CustomersTablePDF {
                 content.newLineAtOffset(250, y);
                 content.showText(bundle.getString("filename_customerTable_pdf"));
                 content.endText();
-                y -= 30; //  new line
+                y -= 40; //  new line
                 // Date
                 content.setFont(roboto_reg,9);
                 content.beginText();

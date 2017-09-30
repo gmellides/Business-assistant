@@ -14,7 +14,7 @@ import java.util.Map;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class CustomerIndividual extends CustomersDatabase{
+public class CST_Individual extends CST_Database{
     
     private final String INSERT_CUSTOMER = "INSERT INTO customer(cst_id,cst_isCompany,cst_name,cst_lastname,cst_sex,"+
                                            "cst_address,cst_zipcode,cst_city,cst_state,cst_country,"+

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package erpsystem.database.sales;
+package erpsystem.database.purchases;
 
 import java.io.File;
 import java.sql.Connection;
@@ -13,8 +13,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class SalesDatabase {
-    
+
+public class PRC_Database {
     private final String database_driver = "jdbc:ucanaccess://";
     private final String database_path = new File("databases/app_data.accdb").getAbsolutePath();
     private final String Username = null;
@@ -25,7 +25,7 @@ public class SalesDatabase {
     protected ResultSet rs;
     protected PreparedStatement prepared_statement;
     
-    protected void Connect(){
+    private void Connect(){
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             connection = DriverManager.getConnection(database_driver+database_path);
@@ -33,27 +33,22 @@ public class SalesDatabase {
             e.printStackTrace();
         }
     }
-        /**
-         * Counts the Sales (used on finance window)
-         * @return 
-         */
-        public int count_sales(){
-            int sales = 0;
+        public int count_purchases(){
+            int purchases = 0;
              try{
                 Connect();
                 statement = connection.createStatement();
-                rs = statement.executeQuery("SELECT COUNT(*) FROM sales");
+                rs = statement.executeQuery("SELECT COUNT(*) FROM purchases;");
                 while(rs.next()){
-                    sales = rs.getInt(1);
+                    purchases = rs.getInt(1);
                 }
-                Disconnect();
              }catch(SQLException e){
                  e.printStackTrace();
              }
-            return sales;
+            return purchases;
         }
-    protected void Disconnect() throws SQLException{
-        if (connection != null)
+    private void Disconnect() throws SQLException{
+         if (connection != null)
             connection.close();
         
         if (prepared_statement !=null)

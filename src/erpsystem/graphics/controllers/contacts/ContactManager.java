@@ -5,7 +5,7 @@
  */
 package erpsystem.graphics.controllers.contacts;
 
-import erpsystem.database.contacts.ContactsDatabase;
+import erpsystem.database.contacts.CNT_Database;
 import erpsystem.util.export.pdf.contacts.ContactsTablePDF;
 import erpsystem.util.system.Dimension;
 import erpsystem.util.system.FileManager;
@@ -84,7 +84,7 @@ public class ContactManager implements Initializable {
         @FXML
         private void btn_ExportContacts_Action(ActionEvent event) {
            if(new ContactsTablePDF().save_file(default_strings, 
-              new ContactsDatabase().select_contacts())){
+              new CNT_Database().select_contacts())){
                try{
                     File pdf_file = new File(new FileManager().getDocuments_root());
                     Desktop desktop = Desktop.getDesktop();
@@ -116,7 +116,7 @@ public class ContactManager implements Initializable {
 
         public void init_window(){
            icn_contactManager.setImage(new Image(new File("resources/images/contacts/contact_manager.png").toURI().toString()));
-           Saved_contacts.setText(String.valueOf(new ContactsDatabase().count_contacts()));
+           Saved_contacts.setText(String.valueOf(new CNT_Database().count_contacts()));
         }       
         
         private void OpenWindow(String WindowPath,

@@ -8,7 +8,7 @@ package erpsystem.database.contacts;
 import erpsystem.entities.people.Contact;
 import java.sql.SQLException;
 
-public class ContactsView extends ContactsDatabase {
+public class CNT_View extends CNT_Database {
     
     private final String UPDATE_QUERY = "UPDATE Contacts "
                                         +"SET firstname = ?,"

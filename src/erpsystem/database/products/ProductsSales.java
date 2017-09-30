@@ -13,7 +13,7 @@ public class ProductsSales extends ProductsDatabase{
              try{
                 Connect();
                     statement = connection.createStatement();
-                    rs = statement.executeQuery("SELECT prd_id,prd_name,prd_category,prd_quantity from Product;");
+                    rs = statement.executeQuery("SELECT prd_id,prd_name,prd_category,prd_quantity from product;");
                     while (rs.next()){
                         data.add(String.valueOf(rs.getInt("prd_id"))+" "+
                                                 rs.getString("prd_name")+" ("+
@@ -33,7 +33,7 @@ public class ProductsSales extends ProductsDatabase{
             try{
                 Connect();
                 statement = connection.createStatement();
-                rs = statement.executeQuery("SELECT prd_id,prd_sellPrice FROM Product;");
+                rs = statement.executeQuery("SELECT prd_id,prd_sellPrice FROM product;");
                 while (rs.next()){
                      prices.put(rs.getInt("prd_id"),String.valueOf(rs.getFloat("prd_sellPrice")));
                 }
@@ -49,7 +49,7 @@ public class ProductsSales extends ProductsDatabase{
             try{
                 Connect();
                 statement = connection.createStatement();
-                rs = statement.executeQuery("SELECT prd_id,prd_quantity FROM Product;");
+                rs = statement.executeQuery("SELECT prd_id,prd_quantity FROM product;");
                 while (rs.next()){
                      quantity.put(rs.getInt("prd_id"),String.valueOf(rs.getInt("prd_quantity")));
                 }

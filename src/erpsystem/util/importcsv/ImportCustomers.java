@@ -5,8 +5,8 @@
  */
 package erpsystem.util.importcsv;
 
-import erpsystem.database.customers.CustomerCompanies;
-import erpsystem.database.customers.CustomerIndividual;
+import erpsystem.database.customers.CST_Companies;
+import erpsystem.database.customers.CST_Individual;
 import erpsystem.entities.corpotations.CustomerCompany;
 import erpsystem.entities.people.Customer;
 import java.io.BufferedReader;
@@ -48,7 +48,7 @@ public class ImportCustomers {
                        cst.setPhone(line[9]);
                        cst.setFax(line[10]);
                        cst.setMail(line[11]);
-                    new CustomerIndividual().insert_customer(cst);
+                    new CST_Individual().insert_customer(cst);
                 }
         }catch(FileNotFoundException e){
             e.printStackTrace();
@@ -74,7 +74,7 @@ public class ImportCustomers {
                         cst.setPhone(line[7]);
                         cst.setFax(line[8]);
                         cst.setMail(line[9]);
-                    new CustomerCompanies().insert_company(cst);
+                    new CST_Companies().insert_company(cst);
                 }
         }catch(FileNotFoundException e){
             e.printStackTrace();

@@ -5,7 +5,7 @@
  */
 package erpsystem.graphics.controllers.contacts;
 
-import erpsystem.database.contacts.ContactsView;
+import erpsystem.database.contacts.CNT_View;
 import erpsystem.entities.people.Contact;
 import erpsystem.util.export.pdf.contacts.ContactPDF;
 import erpsystem.util.xml.read.ComboBoxDataParser;
@@ -120,7 +120,7 @@ public class ViewContact implements Initializable {
         @FXML
         private void btn_Delete_Action(ActionEvent event) {
             int id = Integer.parseInt((String) clicked_row.get("contact_id"));
-            if(new ContactsView().delete_contact(id)){
+            if(new CNT_View().delete_contact(id)){
                 Alert_dialog(Alert.AlertType.INFORMATION,
                             "dlg_contactDelete_title",
                             "dlg_contactDelete_header",
@@ -131,7 +131,7 @@ public class ViewContact implements Initializable {
         @FXML
         private void btn_Update_Action(ActionEvent event) {
             int id = Integer.parseInt((String) clicked_row.get("contact_id"));
-            if(new ContactsView().update_contact(id, edited_object())){
+            if(new CNT_View().update_contact(id, edited_object())){
                 Alert_dialog(Alert.AlertType.INFORMATION,
                             "dlg_contactUpdated_title",
                             "dlg_contactUpdated_header",

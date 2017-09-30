@@ -5,7 +5,7 @@
  */
 package erpsystem.graphics.controllers.contacts;
 
-import erpsystem.database.contacts.ContactsDatabase;
+import erpsystem.database.contacts.CNT_Database;
 import erpsystem.util.export.csv.contacts.ContactsExport;
 import erpsystem.util.importcsv.ImportContacts;
 import erpsystem.util.system.Dimension;
@@ -50,7 +50,7 @@ public class BackUp implements Initializable {
     // ===== FXML Buttons Action =====
         @FXML
         private void btn_ExportCSV_Action(ActionEvent event) {
-            if (new ContactsExport().export_file(default_strings, new ContactsDatabase().select_contacts())){
+            if (new ContactsExport().export_file(default_strings, new CNT_Database().select_contacts())){
                 Alert_dialog(AlertType.INFORMATION,
                             "dlg_CSV_title",
                             "dlg_contactsCSV_header",

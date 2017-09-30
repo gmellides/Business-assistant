@@ -5,7 +5,7 @@
  */
 package erpsystem.graphics.controllers.contacts;
 
-import erpsystem.database.contacts.ContactsDatabase;
+import erpsystem.database.contacts.CNT_Database;
 import erpsystem.entities.people.Contact;
 import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
@@ -50,7 +50,7 @@ public class NewContact implements Initializable {
     
    private final WindowsManager window_check = new WindowsManager();
    private ComboBoxDataParser combodata_xml;
-   private ContactsDatabase database;
+   private CNT_Database database;
    private ResourceBundle default_strings;
     
     @Override
@@ -65,7 +65,7 @@ public class NewContact implements Initializable {
         private void btnSave_Action(ActionEvent event) {  
             Contact obj = new Contact();
              data_to_obj(obj);                 
-             database = new ContactsDatabase();
+             database = new CNT_Database();
             if(!database.insert_contact(obj)){
                 Alert succed_dialog = new Alert(Alert.AlertType.INFORMATION);
                 succed_dialog.setTitle(default_strings.getString("dlg_contactSaved_title"));

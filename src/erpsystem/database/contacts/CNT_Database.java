@@ -20,7 +20,7 @@ import java.util.Map;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class ContactsDatabase {
+public class CNT_Database {
     
     private final String INSERT_QUERY = "INSERT INTO Contacts(contact_id,firstname,lastname,sex,address,zipcode,"
                                         + "country,greek_state,city,mail,phone1,phone1_type,phone2,"

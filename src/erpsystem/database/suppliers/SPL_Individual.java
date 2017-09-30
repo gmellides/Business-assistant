@@ -14,7 +14,7 @@ import java.util.Map;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class SupplierIndividual extends SuppliersDatabase{
+public class SPL_Individual extends SPL_Database{
     
     private final String INSERT_SUPP_QUERY = "INSERT INTO supplier(spl_id,spl_isCompany,spl_name,spl_lastname," +
                                              "spl_sex,spl_address,spl_zipcode,spl_city,spl_state," +

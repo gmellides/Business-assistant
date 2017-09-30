@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class SuppliersPurchases extends SuppliersDatabase{
+public class SPL_Purchases extends SPL_Database{
     public ObservableList<String> select_Indevidual_combobox(){
         ObservableList<String> data = FXCollections.observableArrayList();
             try{ 
