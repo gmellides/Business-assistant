@@ -23,7 +23,7 @@
                   <Font size="26.0" />
                </font>
             </Label>
-            <ImageView fitHeight="119.0" fitWidth="150.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="new_spl_img" fitHeight="119.0" fitWidth="150.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <Line endX="421.0" layoutX="305.0" layoutY="74.0" startX="-100.0" />
             <CheckBox fx:id="business_toggle" layoutX="205.0" layoutY="106.0" mnemonicParsing="false" onAction="#isBusiness_Action" text="%company_checkbox" />
             <Label fx:id="lbl_name" layoutX="36.0" layoutY="161.0" text="%gnr_lbl_firstname" />

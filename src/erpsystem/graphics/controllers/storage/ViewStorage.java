@@ -27,13 +27,17 @@ public class ViewStorage implements Initializable {
     @FXML
     private Label lbl_productName,lbl_description,lbl_quantity,lbl_category,
                   lbl_purchasePrice,lbl_sellPrice;
+    @FXML
+    private Label lbl_state;
 
+    private ResourceBundle default_strings;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
        ProductList.setItems(new StorageView().select_product_list());
+       default_strings = rb;
     }    
 
     @FXML
@@ -50,14 +54,16 @@ public class ViewStorage implements Initializable {
             lbl.setText((String) item.get(map_keys[i]));
             i++;
         }
-        
+        if(Integer.parseInt((String) item.get("prd_quantity"))>10){
+            lbl_state.setText(default_strings.getString("lbl_prdState_available"));
+        }else{
+            lbl_state.setText(default_strings.getString("lbl_prdState_lowQuantity"));
+        }
     }
-
     @FXML
     private void btn_Close_Action(ActionEvent event) {
         close_window();
     }
-    
     private void close_window(){
         Stage win = (Stage) ProductInfo.getScene().getWindow();
         win.close();

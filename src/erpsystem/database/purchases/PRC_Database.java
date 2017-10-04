@@ -13,7 +13,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
 public class PRC_Database {
     private final String database_driver = "jdbc:ucanaccess://";
     private final String database_path = new File("databases/app_data.accdb").getAbsolutePath();

@@ -89,8 +89,7 @@ public class BackUp implements Initializable {
     }
     @FXML
     private void btn_importCSV_Action(ActionEvent event) {
-   //     new ImportCustomers().import_csv(backup_option.getSelectedToggle().equals(rdb_Companies),
-     //                                    txt_Path.getText());
+        new ImportCustomers().import_csv(txt_Path.getText());
             Alert_dialog(AlertType.INFORMATION,
                          "dlg_importCSV_title",
                          "dlg_importCSV_header",

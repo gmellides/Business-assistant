@@ -71,7 +71,7 @@ public class SPL_Individual extends SPL_Database{
                     row.put("spl_fax", rs.getString("spl_fax"));
                     row.put("spl_bank", rs.getString("spl_bank"));
                     row.put("spl_iban", rs.getString("spl_iban"));
-                    row.put("spl_date",String.valueOf(rs.getDate("spl_date")));
+                    row.put("spl_date",String.valueOf(rs.getTimestamp("spl_date")));
                 ret.add(row);
             }
             Disconnect();

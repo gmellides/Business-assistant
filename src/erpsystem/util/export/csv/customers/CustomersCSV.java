@@ -23,7 +23,7 @@ public class CustomersCSV {
     public boolean export_csv(ResourceBundle default_strings,
                               ObservableList<Map> data){
         boolean flag = false;
-            csv_file = new File(new FileManager().getDocuments_BackUp_folder()+"/"+default_strings.getString("filename_customersCompanies_csv")+".csv");
+            csv_file = new File(new FileManager().getDocuments_BackUp_folder()+"/"+default_strings.getString("filename_customers_csv")+".csv");
             if (csv_file.exists()){
                 csv_file.delete();
                 flag = create_file(data);

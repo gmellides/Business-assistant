@@ -222,7 +222,7 @@ public class NewCustomer implements Initializable {
                 }catch(Exception e){
                     e.printStackTrace();
                 }
-            img_newContact.setImage(new Image(new File("resources/images/contacts/new_contact.png").toURI().toString()));
+            img_newContact.setImage(new Image(new File("resources/images/customers/new_customer.png").toURI().toString()));
         }
         private void close_window(){
             new WindowsManager().NewCustomer_toggle(false);

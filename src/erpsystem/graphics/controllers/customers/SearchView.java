@@ -9,6 +9,7 @@ import erpsystem.database.customers.CST_Companies;
 import erpsystem.database.customers.CST_Individual;
 import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
@@ -27,6 +28,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.MapValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -49,6 +51,9 @@ public class SearchView implements Initializable {
                         col_comp_zipcode,col_comp_city,col_comp_state,col_comp_country,
                         col_comp_customerType,col_comp_phone,col_comp_fax,col_comp_mail,
                         col_comp_importDate;
+    @FXML
+    private ImageView search_view_img;
+    
     private static boolean isCompany;
     private ResourceBundle default_strings;
     
@@ -86,6 +91,7 @@ public class SearchView implements Initializable {
     }
         
     private void init_window(){
+        search_view_img.setImage(new Image(new File("resources/images/customers/search_view.png").toURI().toString()));
         if(isTableFiled())
             tbl_companies.setVisible(false);
         isCompany = false;

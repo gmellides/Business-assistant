@@ -66,12 +66,12 @@ public class StorageDatabase {
                 }
             return data;
         }
-    protected void Disconnect(){
-        try{
+    protected void Disconnect() throws SQLException{        
         if (connection != null)
-            connection.close();
-        }catch(SQLException e){
-            e.printStackTrace();
-        }
+           connection.close();
+        if (statement != null)
+           statement.close();
+        if (results != null)
+           results.close();
     }
 }

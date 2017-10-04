@@ -41,6 +41,7 @@ public class Launcher implements Initializable {
         private Button btn_Exit,btn_Contact,btn_Storage,btn_Customers,
         btn_Suppliers,btn_Finance,btn_Sales,btn_Purchases;
     // ==============================        
+        
     private Timer DateTimeUpdater; 
     private ResourceBundle default_strings;     
     private final WindowsManager window_check = new WindowsManager();    

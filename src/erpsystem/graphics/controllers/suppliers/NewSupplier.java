@@ -12,6 +12,7 @@ import erpsystem.entities.people.Supplier;
 import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
 import erpsystem.util.xml.read.ComboBoxDataParser;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,6 +29,8 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -42,6 +45,8 @@ public class NewSupplier implements Initializable {
     private ComboBox<String> cmbSex,cmbCountry,cmbState,cmbCity,cmbSupplierType;
     @FXML
     private CheckBox business_toggle;
+    @FXML
+    private ImageView new_spl_img;
     
     private ResourceBundle default_strings;
     private boolean isBusiness;
@@ -93,6 +98,7 @@ public class NewSupplier implements Initializable {
     private void init_window(ResourceBundle rb){
         isBusiness = false;
         default_strings = rb;
+        new_spl_img.setImage(new Image(new File("resources/images/suppliers/new_supplier.png").toURI().toString()));
         try{
             cmbSex.setItems(new ComboBoxDataParser().get_sex());
             cmbCountry.setItems(new ComboBoxDataParser().get_countries());
@@ -103,6 +109,7 @@ public class NewSupplier implements Initializable {
             e.printStackTrace();
         }
         // image 
+        
     }
     private void close_window(){
         // window manager toggle

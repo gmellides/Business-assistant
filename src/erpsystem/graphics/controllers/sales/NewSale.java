@@ -10,6 +10,7 @@ import erpsystem.database.products.ProductsSales;
 import erpsystem.database.sales.NewSaleDatabase;
 import erpsystem.entities.actions.Sale;
 import erpsystem.util.export.pdf.sales.ReceiptPDF;
+import java.io.File;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -29,6 +30,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.MapValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -51,6 +54,8 @@ public class NewSale implements Initializable {
     private TableView<Map> basket_table;
     @FXML
     private RadioButton rdb_credit,rdb_debit;
+    @FXML
+    private ImageView newSale_img;
     
     private ResourceBundle default_strings;
     // Product Sell Price 
@@ -65,6 +70,7 @@ public class NewSale implements Initializable {
     private Sale new_sale;
     private int prd_id;
     float final_price;
+    
 
     /**
      * Initializes the controller class.
@@ -231,6 +237,7 @@ public class NewSale implements Initializable {
      * Init Window Method 
      */    
     private void init_window(){
+        newSale_img.setImage(new Image(new File("resources/images/sales/sales.png").toURI().toString()));
         new_sale = new Sale();
         final_price = 0;
         basket = FXCollections.observableArrayList();

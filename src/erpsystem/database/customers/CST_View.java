@@ -10,7 +10,6 @@ import erpsystem.entities.people.Customer;
 import java.sql.SQLException;
 
 public class CST_View extends CST_Database{
-
     public boolean update_customer_individual(int id,Customer input){
         String UPDATE_QUERY = "UPDATE customer "
                              +"SET cst_name = ?,"

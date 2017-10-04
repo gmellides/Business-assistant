@@ -47,7 +47,7 @@ public class CustomerPDF {
         String[] mapID = {"cst_name","cst_lastname","cst_sex","cst_country",
                           "cst_address","cst_state","cst_city","cst_zipcode","cst_customerType","cst_phone",
                           "cst_fax","cst_mail","cst_date"};
-        File pdf_file = new File(new FileManager().getDocuments_Customer_data()+"/"+data.get("firstname")+" "+data.get("lastname")+".pdf");
+        File pdf_file = new File(new FileManager().getDocuments_Customer_data()+"/"+data.get("cst_name")+" "+data.get("cst_lastname")+".pdf");
         try{
             PDDocument pdf_doc = PDDocument.load(pdf_file);
             PDPage doc_page = pdf_doc.getPage(0);

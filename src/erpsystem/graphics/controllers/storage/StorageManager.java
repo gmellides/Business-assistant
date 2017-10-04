@@ -29,13 +29,14 @@ import javafx.stage.WindowEvent;
 
 public class StorageManager implements Initializable {
 
-    private ResourceBundle default_strings;
     @FXML
     private PieChart StoragePie;
     @FXML
     private ImageView img_storageManager;
     @FXML
     private Label lbl_noData;
+    
+    private ResourceBundle default_strings;
     
     /**
      * Initializes the controller class.

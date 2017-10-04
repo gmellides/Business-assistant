@@ -22,13 +22,13 @@
                   <Font size="41.0" />
                </font>
             </Label>
-            <ImageView fitHeight="97.0" fitWidth="156.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="search_view_img" fitHeight="94.0" fitWidth="136.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <ToggleButton fx:id="btn_ToggleData" layoutX="302.0" layoutY="536.0" mnemonicParsing="false" onAction="#btn_toggleCustomers_Action" prefHeight="25.0" prefWidth="128.0" selected="true" text="%btn_customers">
                <toggleGroup>
                   <ToggleGroup fx:id="view_group" />
                </toggleGroup></ToggleButton>
             <ToggleButton layoutX="461.0" layoutY="536.0" mnemonicParsing="false" onAction="#btn_toggleBusiness_Action" prefHeight="25.0" prefWidth="128.0" text="%btn_companies" toggleGroup="$view_group" />
-            <TableView fx:id="tbl_customers" layoutX="3.0" layoutY="101.0" prefHeight="425.0" prefWidth="841.0">
+            <TableView fx:id="tbl_customers" layoutX="3.0" layoutY="111.0" prefHeight="415.0" prefWidth="841.0">
               <columns>
                   <TableColumn fx:id="Col_cust_CustomerID" prefWidth="75.0" text="customerID" visible="false" />
                   <TableColumn fx:id="Col_cust_Firstname" prefWidth="90.0" text="%col_firstname" />
@@ -46,7 +46,7 @@
                   <TableColumn fx:id="Col_cust_importDate" prefWidth="75.0" text="import_date" visible="false" />
               </columns>
             </TableView>
-            <TableView fx:id="tbl_companies" layoutX="3.0" layoutY="101.0" prefHeight="425.0" prefWidth="853.0" visible="false">
+            <TableView fx:id="tbl_companies" layoutX="3.0" layoutY="111.0" prefHeight="415.0" prefWidth="853.0" visible="false">
                <columns>
                   <TableColumn fx:id="col_comp_companyID" prefWidth="75.0" text="companyID" visible="false" />
                   <TableColumn fx:id="col_comp_BusinessName" prefWidth="133.0" text="%col_bName" />

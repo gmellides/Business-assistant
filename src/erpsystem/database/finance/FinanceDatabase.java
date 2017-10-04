@@ -13,7 +13,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
 public class FinanceDatabase {
     private final String database_driver = "jdbc:ucanaccess://";
     private final String database_path = new File("databases/app_data.accdb").getAbsolutePath();
@@ -42,7 +41,6 @@ public class FinanceDatabase {
                 while (rs.next()){
                     outcomes = rs.getInt(1);
                 }
-                
                 Disconnect();
             }catch(SQLException e){
                 e.printStackTrace();
@@ -58,7 +56,6 @@ public class FinanceDatabase {
                 while (rs.next()){
                     incomes = rs.getInt(1);
                 }
-                
                 Disconnect();
             }catch(SQLException e){
                 e.printStackTrace();

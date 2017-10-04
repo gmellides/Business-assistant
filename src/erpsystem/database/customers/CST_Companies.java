@@ -17,7 +17,6 @@ import javafx.collections.ObservableList;
 public class CST_Companies extends CST_Database {
     
     private final String COMP_QUERY = "SELECT * FROM customer WHERE cst_isCompany = -1;";
-    
     private final String INSERT_COMPANY = "INSERT INTO customer(cst_id,cst_isCompany,cst_name,cst_lastname,cst_sex,"+
                                           "cst_address,cst_zipcode,cst_city,cst_state,cst_country,"+
                                           "cst_customerType,cst_phone,cst_fax,cst_mail,cst_date) "+

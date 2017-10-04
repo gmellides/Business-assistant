@@ -10,6 +10,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class CST_Sales extends CST_Database{
+    /**
+     * Data from database for ComboBox on Sales Window. 
+     * For Customers.
+     * @return 
+     */
     public ObservableList<String> select_cst_individual(){
         ObservableList<String> data = FXCollections.observableArrayList();
             try{
@@ -33,6 +38,11 @@ public class CST_Sales extends CST_Database{
             }
         return data;
     }
+    /**
+     * Data from database for ComboBox on Sales Window. 
+     * For Customers Companies.
+     * @return 
+     */
     public ObservableList<String> select_cst_companies(){
         ObservableList<String> data = FXCollections.observableArrayList();
             try{

@@ -34,8 +34,8 @@
                   <Label fx:id="lbl_category" layoutX="159.0" layoutY="99.0" text="Label" />
                   <Label fx:id="lbl_purchasePrice" layoutX="159.0" layoutY="192.0" text="Label" />
                   <Label fx:id="lbl_sellPrice" layoutX="159.0" layoutY="229.0" text="Label" />
-                  <Label layoutX="257.0" layoutY="154.0" text="lbl stte " />
-                  <Label layoutX="375.0" layoutY="155.0" text="Label" />
+                  <Label layoutX="257.0" layoutY="154.0" text="%lbl_prdState" />
+                  <Label fx:id="lbl_state" layoutX="375.0" layoutY="155.0" text="Label" />
                   <Label layoutX="257.0" layoutY="192.0" text="kerdos ana proion" />
                   <Label layoutX="375.0" layoutY="192.0" text="Label" />
                   <Label layoutX="257.0" layoutY="229.0" text="sum kerdos " />

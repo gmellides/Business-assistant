@@ -46,13 +46,13 @@ public class ViewCustomer implements Initializable {
     private Pane View_Panel,Edit_Panel;
     @FXML
     private ToggleButton btn_editToggle;
+    @FXML
+    private ImageView viewCustomer_icon;
     
     private Map clicked_row;
     private ResourceBundle default_strings;
     private int customerID;
     private boolean isCompany;
-    @FXML
-    private ImageView viewCustomer_icon;
  
     /**
      * Initializes the controller class.
@@ -70,7 +70,7 @@ public class ViewCustomer implements Initializable {
         }catch(Exception e){
             e.printStackTrace();
         }
-        viewCustomer_icon.setImage(new Image(new File("resources/images/customers/customer_manager.png").toURI().toString()));
+        viewCustomer_icon.setImage(new Image(new File("resources/images/customers/customer_info.png").toURI().toString()));
     }
     /**
      * Component event Methods

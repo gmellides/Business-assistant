@@ -17,7 +17,7 @@
    <children>
       <Pane prefHeight="623.0" prefWidth="549.0" styleClass="background_panel">
          <children>
-            <ImageView fitHeight="93.0" fitWidth="104.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="newSale_img" fitHeight="115.0" fitWidth="129.0" layoutX="13.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="166.0" layoutY="24.0" text="%newSale_windowName">
                <font>
                   <Font size="32.0" />
@@ -59,10 +59,10 @@
             </TableView>
             <Button layoutX="324.0" layoutY="334.0" mnemonicParsing="false" onAction="#btn_addToBasket_Action" prefHeight="25.0" prefWidth="205.0" text="%btn_addProduct" />
             <Label layoutX="38.0" layoutY="272.0" text="%lbl_productPrice" />
-            <Label fx:id="lbl_sellPrice" layoutX="143.0" layoutY="272.0" onMouseReleased="#cmb_selectedProduct_Action" prefHeight="17.0" prefWidth="62.0" text="Label" />
+            <Label fx:id="lbl_sellPrice" layoutX="143.0" layoutY="272.0" onMouseReleased="#cmb_selectedProduct_Action" prefHeight="17.0" prefWidth="62.0" text="-----" />
             <Label layoutX="350.0" layoutY="272.0" prefHeight="17.0" prefWidth="140.0" text="%lbl_paymentMethod" />
             <Label layoutX="319.0" layoutY="559.0" styleClass="background_panel" text="%lbl_Summary" />
-            <Label fx:id="lbl_finalPrice" layoutX="432.0" layoutY="559.0" prefHeight="17.0" prefWidth="94.0" text="Label" />
+            <Label fx:id="lbl_finalPrice" layoutX="432.0" layoutY="559.0" prefHeight="17.0" prefWidth="94.0" text="0.00 " />
             <RadioButton fx:id="rdb_credit" layoutX="432.0" layoutY="303.0" mnemonicParsing="false" onAction="#rbtn_Credit_Action" text="%rbtn_credit">
                <toggleGroup>
                   <ToggleGroup fx:id="payment_method" />

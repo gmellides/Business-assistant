@@ -16,7 +16,7 @@
    <children>
       <Pane prefHeight="573.0" prefWidth="854.0" styleClass="background_panel">
          <children>
-            <ImageView fitHeight="86.0" fitWidth="124.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="search_supplier_img" fitHeight="93.0" fitWidth="139.0" layoutX="6.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="255.0" layoutY="25.0" text="%viewSuppliers_title">
                <font>
                   <Font size="29.0" />

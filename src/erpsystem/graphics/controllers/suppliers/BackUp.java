@@ -5,6 +5,8 @@
  */
 package erpsystem.graphics.controllers.suppliers;
 
+import erpsystem.database.suppliers.SPL_Database;
+import erpsystem.util.export.csv.suppliers.SuppliersCSV;
 import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
 import java.io.IOException;
@@ -43,7 +45,7 @@ public class BackUp implements Initializable {
 
     @FXML
     private void btn_ExportCSV_Action(ActionEvent event) {
-        
+        new SuppliersCSV().export_file(default_strings, new SPL_Database().select_suppliersBackUp());
     }
 
     @FXML

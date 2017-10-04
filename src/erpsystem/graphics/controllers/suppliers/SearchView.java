@@ -9,6 +9,7 @@ import erpsystem.database.suppliers.SPL_Companies;
 import erpsystem.database.suppliers.SPL_Individual;
 import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
@@ -26,6 +27,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.cell.MapValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -47,6 +49,8 @@ public class SearchView implements Initializable {
     
     private static boolean isCompany;
     private ResourceBundle default_strings;
+    @FXML
+    private ImageView search_supplier_img;
     
     /**
      * Initializes the controller class.
@@ -58,6 +62,7 @@ public class SearchView implements Initializable {
             default_strings = rb;
             Suppliers_Companies.setVisible(false);
         }
+        search_supplier_img.setImage(new Image(new File("resources/images/suppliers/search_suppliers.png").toURI().toString()));
     }    
     
         @FXML
@@ -103,7 +108,9 @@ public class SearchView implements Initializable {
                         if (! row.isEmpty() && event.getButton()== MouseButton.PRIMARY 
                                             && event.getClickCount() == 2) {
                                 Map clickedRow = row.getItem();
-                                OpenWindow(724,490,clickedRow);
+                                OpenWindow(new Dimension().ViewEntry_window_widht,
+                                           new Dimension().ViewEntry_window_height,
+                                           clickedRow);
                             }
                         });
                     return row 

@@ -20,12 +20,10 @@ public class Person {
     public void setSex(String Sex) {
         this.Sex = Sex;
     }
-
     public void setBirthdate(LocalDate Birthdate) {
         this.Birthdate = Birthdate;
     }
 
-    
     // ----- Get Methods
     public String getFirstName() {
         return FirstName;
@@ -35,17 +33,14 @@ public class Person {
     }
     public String getSex() {
         return Sex;
-    }
-
+    }    
     public LocalDate getBirthdate() {
         return Birthdate;
     }
 
-    
     // ----- Class Fields
     private String FirstName;
     private String LastName;
     private String Sex;
     private LocalDate Birthdate;
-
 }

@@ -36,6 +36,11 @@ public class FinanceWindow implements Initializable {
     private Label lbl_sales,lbl_purchases;
     
     private ResourceBundle default_strings;
+    @FXML
+    private Label lbl_incomes,lbl_outcomes,lbl_incomeP_income,lbl_incomeP_debit,
+    lbl_incomeP_credit,lbl_outcomeP_credit,lbl_outcomeP_debit,lbl_outcomeP_outcomes;
+    
+    float incomes,outcomes;
 
     /**
      * Initializes the controller class.
@@ -56,6 +61,8 @@ public class FinanceWindow implements Initializable {
        btn_basicInfo.setSelected(true);
        btn_IncomePanel.setSelected(false);
        btn_Outcomes.setSelected(false);
+       incomes = new FinanceDatabase().get_incomes();
+       outcomes = new FinanceDatabase().get_oucomes();
        basic_panelInit();
        income_panelInit();
        outcome_panelInit();
@@ -93,29 +100,40 @@ public class FinanceWindow implements Initializable {
        IncomePanel.setVisible(false);
        OutcomePanel.setVisible(true);
     }
-    
-    
+
     private void basic_panelInit(){
         lbl_sales.setText(String.valueOf(new SalesDatabase().count_sales()));
         lbl_purchases.setText(String.valueOf(new PRC_Database().count_purchases()));
         // Pie Init 
-        PieChart.Data income = new PieChart.Data(default_strings.getString("btn_Incomes"), new FinanceDatabase().get_incomes());
-        PieChart.Data outcome = new PieChart.Data(default_strings.getString("btn_Outcomes"), new FinanceDatabase().get_oucomes());
+        PieChart.Data income = new PieChart.Data(default_strings.getString("btn_Incomes"), incomes);
+        PieChart.Data outcome = new PieChart.Data(default_strings.getString("btn_Outcomes"), outcomes);
         IncomeOutcomeChart.getData().add(income);
         IncomeOutcomeChart.getData().add(outcome);
+        lbl_incomes.setText(String.valueOf(incomes+"€"));
+        lbl_outcomes.setText(String.valueOf(outcomes+"€"));
     }
     private void income_panelInit(){
         // Pie Init
-        PieChart.Data credit = new PieChart.Data(default_strings.getString("rbtn_credit"), new FinanceDatabase().get_incomes_credit());
-        PieChart.Data debit = new PieChart.Data(default_strings.getString("rbtn_Debit"), new FinanceDatabase().get_incomes_debit());
+        float credit_val = new FinanceDatabase().get_incomes_credit();
+        float debit_val = new FinanceDatabase().get_incomes_debit();
+        PieChart.Data credit = new PieChart.Data(default_strings.getString("rbtn_credit"), credit_val);
+        PieChart.Data debit = new PieChart.Data(default_strings.getString("rbtn_Debit"), debit_val);
         IncomeChart.getData().add(credit);
         IncomeChart.getData().add(debit);
+        lbl_incomeP_income.setText(String.valueOf(incomes)+"€");
+        lbl_incomeP_debit.setText(String.valueOf(credit_val)+"€");
+        lbl_incomeP_credit.setText(String.valueOf(debit_val)+"€");
     }
     private void outcome_panelInit(){
         // Pie Init
-        PieChart.Data credit = new PieChart.Data(default_strings.getString("rbtn_credit"), new FinanceDatabase().get_outcomes_credit());
-        PieChart.Data debit = new PieChart.Data(default_strings.getString("rbtn_Debit"), new FinanceDatabase().get_outcomes_debit());
+        float credit_val =  new FinanceDatabase().get_outcomes_credit();
+        float debit_val = new FinanceDatabase().get_outcomes_debit();
+        PieChart.Data credit = new PieChart.Data(default_strings.getString("rbtn_credit"), credit_val);
+        PieChart.Data debit = new PieChart.Data(default_strings.getString("rbtn_Debit"), debit_val);
         OutcomeChart.getData().add(credit);
         OutcomeChart.getData().add(debit);
+        lbl_outcomeP_outcomes.setText(String.valueOf(outcomes+"€"));
+        lbl_outcomeP_credit.setText(String.valueOf(credit_val)+"€");
+        lbl_outcomeP_debit.setText(String.valueOf(debit_val)+"€");
     }
 }

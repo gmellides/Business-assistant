@@ -19,6 +19,7 @@ public class ContactsTablePDF {
     private FileManager workspace;
     private String file_name;
     PDFont roboto_reg,roboto_bold,roboto_italic;
+    
     public boolean save_file(ResourceBundle bundle,ObservableList<Map> input){
         file_name = bundle.getString("filename_contactTable_pdf");
         create_file(bundle);
