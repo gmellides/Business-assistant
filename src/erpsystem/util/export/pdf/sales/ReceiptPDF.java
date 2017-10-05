@@ -32,7 +32,7 @@ public class ReceiptPDF {
             PDDocument doc = new PDDocument();
             PDPage page = new PDPage();
             PDDocumentInformation doc_info = new PDDocumentInformation();
-            doc_info.setTitle("apodeiksi agorias - date");
+            doc_info.setTitle(bundle.getString("filename_receipt_pdf"));
             doc_info.setAuthor(bundle.getString("pdf_author"));
             doc.addPage(page);
             doc.save(new FileManager().getDocuments_root()+"/"+file_name+".pdf");
