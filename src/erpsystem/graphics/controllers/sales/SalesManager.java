@@ -48,6 +48,14 @@ public class SalesManager implements Initializable {
         }
         @FXML
         private void btn_ShowSales_Action(ActionEvent event) {
+            try{
+                OpenWindow("sales/ViewSales.fxml",
+                           new Dimension().SearchView_window_width,
+                           new Dimension().SearchView_window_height,
+                           default_strings.getString("window_newSale"));
+            }catch(IOException e){
+                e.printStackTrace();
+            }
         }
         @FXML
         private void btn_Close_Action(ActionEvent event) {

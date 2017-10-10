@@ -18,18 +18,18 @@
       <Pane prefHeight="400.0" prefWidth="600.0" styleClass="background_panel">
          <children>
             <Button fx:id="btn_Close" layoutX="475.0" layoutY="350.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="102.0" text="%gnr_btn_Close" />
-            <Button layoutX="293.0" layoutY="262.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="213.0" text="%gnr_btn_backUp" />
+            <Button disable="true" layoutX="293.0" layoutY="262.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="213.0" text="%gnr_btn_backUp" />
             <Button layoutX="73.0" layoutY="262.0" mnemonicParsing="false" onAction="#btn_NewSale_Action" prefHeight="25.0" prefWidth="213.0" text="%newSale_windowName" />
-            <Button layoutX="73.0" layoutY="298.0" mnemonicParsing="false" onAction="#btn_ShowSales_Action" prefHeight="25.0" prefWidth="213.0" text="View Sales" />
-            <Button layoutX="293.0" layoutY="298.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="213.0" text="Button" />
+            <Button layoutX="73.0" layoutY="298.0" mnemonicParsing="false" onAction="#btn_ShowSales_Action" prefHeight="25.0" prefWidth="213.0" text="%btn_showSales" />
+            <Button layoutX="293.0" layoutY="298.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnExportPDF" />
             <ImageView fitHeight="107.0" fitWidth="132.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="275.0" layoutY="14.0" text="Label">
+            <Label layoutX="180.0" layoutY="20.0" text="%window_sales_manager">
                <font>
-                  <Font size="20.0" />
+                  <Font size="24.0" />
                </font>
             </Label>
             <Line endX="333.0" layoutX="256.0" layoutY="68.0" startX="-100.0" />
-            <Label layoutX="118.0" layoutY="129.0" text="Label" />
+            <Label layoutX="286.0" layoutY="121.0" text="Label" />
          </children>
       </Pane>
    </children>

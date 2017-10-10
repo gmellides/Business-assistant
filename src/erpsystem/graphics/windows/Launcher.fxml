@@ -43,7 +43,7 @@
             <Button fx:id="btn_Suppliers" layoutX="31.0" layoutY="201.0" mnemonicParsing="false" onAction="#btn_Suppliers_Action" onMouseEntered="#btn_supplier_Entered" onMouseExited="#btn_supplier_Exited" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnSuppliers" />
             <Button fx:id="btn_Finance" layoutX="31.0" layoutY="313.0" mnemonicParsing="false" onAction="#btn_Finance_Action" onMouseEntered="#btn_finance_Entered" onMouseExited="#btn_finance_Exited" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnFinance" />
             <Label fx:id="lcn_lblDateTime" alignment="CENTER" layoutX="190.0" layoutY="379.0" prefHeight="17.0" prefWidth="379.0" styleClass="date_time" text="Sunday 14, April 2017 04:20:30" textAlignment="CENTER" />
-            <Button fx:id="btn_Sales" layoutX="586.0" layoutY="201.0" mnemonicParsing="false" onAction="#btnSales_Action" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnSalesManager" />
+            <Button fx:id="btn_Sales" layoutX="586.0" layoutY="201.0" mnemonicParsing="false" onAction="#btnSales_Action" onMouseEntered="#btn_sales_entered" onMouseExited="#btn_sales_exited" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnSalesManager" />
             <Button fx:id="btn_Purchases" layoutX="586.0" layoutY="260.0" mnemonicParsing="false" onAction="#btnPurchases_Action" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnPurchaseManager" />
             <MenuBar layoutX="-1.0" prefHeight="25.0" prefWidth="767.0">
               <menus>

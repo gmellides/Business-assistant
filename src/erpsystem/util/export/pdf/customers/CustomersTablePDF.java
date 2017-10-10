@@ -37,7 +37,6 @@ public class CustomersTablePDF {
     }
       
         private void create_file(ResourceBundle bundle){
-          
             try{
                 PDDocument doc = new PDDocument();
                 PDPage page = new PDPage();

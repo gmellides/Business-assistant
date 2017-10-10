@@ -153,7 +153,4 @@ public class NewPurchase implements Initializable {
         txt_SellPrice.setText(String.valueOf(new BasicCalculations().calc_sell_price(VAT, PurchasePrice, PreferedProfit)));
     }
 
-    
-
-    
 }

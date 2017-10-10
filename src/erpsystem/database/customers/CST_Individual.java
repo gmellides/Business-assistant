@@ -70,9 +70,9 @@ public class CST_Individual extends CST_Database{
                     Row_Data.put("cst_phone", rs.getString("cst_phone"));
                     Row_Data.put("cst_fax", rs.getString("cst_fax"));
                     Row_Data.put("cst_mail", rs.getString("cst_mail"));
-                    Row_Data.put("cst_date", String.valueOf(rs.getDate("cst_date")));
-                    table_data.add(Row_Data);
-                }
+                    Row_Data.put("cst_date", String.valueOf(rs.getTimestamp("cst_date")));
+                table_data.add(Row_Data);
+            }
             Disconnect();
         }catch(SQLException e){
             e.printStackTrace();

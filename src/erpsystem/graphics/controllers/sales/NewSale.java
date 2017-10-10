@@ -62,16 +62,14 @@ public class NewSale implements Initializable {
     private float productPrice;
     private int productQuantity; 
     // List with IDs and available Quantity.(Data from Database)
-    private HashMap<Integer,String> quantityList;
     // List with IDs and sell price for each product
-    private HashMap<Integer,String> priceList;
+    private HashMap<Integer,String> quantityList,priceList;
     // Basket Table 
     private ObservableList<Map> basket;
     private Sale new_sale;
     private int prd_id;
     float final_price;
     
-
     /**
      * Initializes the controller class.
      */
@@ -210,7 +208,8 @@ public class NewSale implements Initializable {
                     new_sale.setPrice(price);
                     new NewSaleDatabase().insert_sale(new_sale);
             if (chk_Receipt.isSelected()){
-                new ReceiptPDF().save_receipt(default_strings);
+                int SaleId = new NewSaleDatabase().get_id();
+                new ReceiptPDF().save_receipt(default_strings,SaleId);
             }
                 close_window();
             }else{

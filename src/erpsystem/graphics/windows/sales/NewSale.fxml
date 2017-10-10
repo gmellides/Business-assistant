@@ -51,10 +51,10 @@
                </font></Label>
             <TableView fx:id="basket_table" layoutX="9.0" layoutY="399.0" prefHeight="151.0" prefWidth="530.0">
               <columns>
-                  <TableColumn fx:id="col_id" prefWidth="43.0" text="id" />
-                <TableColumn fx:id="col_productName" maxWidth="298.0" prefWidth="298.0" text="product" />
-                <TableColumn fx:id="col_quantity" minWidth="0.0" prefWidth="75.0" text="quantity" />
-                  <TableColumn fx:id="col_price" prefWidth="112.0" text="sum" />
+                  <TableColumn fx:id="col_id" prefWidth="43.0" text="%col_sale_id" />
+                <TableColumn fx:id="col_productName" maxWidth="298.0" prefWidth="298.0" text="%col_sale_prdName" />
+                <TableColumn fx:id="col_quantity" minWidth="0.0" prefWidth="75.0" text="%col_sale_saleQuantity" />
+                  <TableColumn fx:id="col_price" prefWidth="112.0" text="%col_sale_salePrice" />
               </columns>
             </TableView>
             <Button layoutX="324.0" layoutY="334.0" mnemonicParsing="false" onAction="#btn_addToBasket_Action" prefHeight="25.0" prefWidth="205.0" text="%btn_addProduct" />

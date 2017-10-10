@@ -85,8 +85,7 @@ public class View_BusinessData implements Initializable {
                             "dlg_businessData_exportpdf_header",
                             "dlg_businessData_exportpdf_message");
             }
-        }
-        
+        }       
         @FXML
         private void btn_Close_Action(ActionEvent event) {
             new WindowsManager().ViewBusiness_toggle(false);
@@ -155,8 +154,7 @@ public class View_BusinessData implements Initializable {
                     Image logo_img= new Image(default_logo.toURI().toString());
                     b_logo.setImage(logo_img);
                 }    
-        }
-        
+        }      
         private void set_data(ResourceBundle bundle,File business_file){
             BusinessDataParser file_reader = new BusinessDataParser(business_file);
             business = file_reader.getData();

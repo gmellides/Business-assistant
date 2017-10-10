@@ -3,10 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package erpsystem.database.products;
+package erpsystem.database.purchases;
 
-public class ProductPurchase extends PRD_Database{
-    public void insert_product(){
-        
-    }
+public class PRC_NewPurchase {
+    
 }

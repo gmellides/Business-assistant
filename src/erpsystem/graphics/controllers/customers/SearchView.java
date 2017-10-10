@@ -98,7 +98,6 @@ public class SearchView implements Initializable {
     }
     
     private void close_window(){
-        // window toogle 
         Stage this_window = (Stage) btn_ToggleData.getScene().getWindow();
         this_window.close();
     }
@@ -159,7 +158,6 @@ public class SearchView implements Initializable {
             
         return flag;
     }
-   
     // View Window
     private void OpenViewCustomerWindow(int Width,
                                         int Height,

@@ -36,7 +36,7 @@ public class NewSaleDatabase extends SalesDatabase{
                 e.printStackTrace();
             }
         }
-        private int get_id(){
+        public int get_id(){
             int sales = 0;
              try{
                 Connect();
@@ -89,7 +89,7 @@ public class NewSaleDatabase extends SalesDatabase{
             e.printStackTrace();
         }        
     }
-        private void update_finance(Sale obj){
+    private void update_finance(Sale obj){
         String DebitQuery = "UPDATE finance SET fin_incomes = fin_incomes + ?, fin_in_debit = fin_in_debit + ?;";
         String CreditQuery = "UPDATE finance SET fin_incomes = fin_incomes + ?, fin_in_credit = fin_in_credit + ?;";
         try{
@@ -108,5 +108,41 @@ public class NewSaleDatabase extends SalesDatabase{
         }catch(SQLException e){
             e.printStackTrace();
         }
+     }
+    // income , income_credit , income_debit, outcome
+    private float[] sum_incomes(){
+        float[] value = null;
+        try{
+            Connect();
+            statement = connection.createStatement();
+            rs = statement.executeQuery("SELECT SUM(sal_finalPrice) FROM sales;");
+            while(rs.next()){
+                value[0] = rs.getFloat(1);
+            }
+            rs = statement.executeQuery("SELECT SUM(sal_finalPrice) FROM sales WHERE sal_paymentMethod = 'credit';");
+            while(rs.next()){
+                value[1] = rs.getFloat(1);
+            }
+            rs = statement.executeQuery("SELECT SUM(sal_finalPrice) FROM sales WHERE sal_paymentMethod = 'debit';");
+            while(rs.next()){
+                value[2] = rs.getFloat(1);
+            }
+               rs = statement.executeQuery("SELECT SUM() FROM sales;");
+            while(rs.next()){
+                value[4] = rs.getFloat(1);
+            }
+            rs = statement.executeQuery("SELECT SUM() FROM sales WHERE sal_paymentMethod = 'credit';");
+            while(rs.next()){
+                value[5] = rs.getFloat(1);
+            }
+            rs = statement.executeQuery("SELECT SUM() FROM sales WHERE sal_paymentMethod = 'debit';");
+            while(rs.next()){
+                value[6] = rs.getFloat(1);
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return value;
     }
+
 }

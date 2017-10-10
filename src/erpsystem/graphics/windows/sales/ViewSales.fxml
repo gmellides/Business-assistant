@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
@@ -7,8 +10,44 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="505.0" prefWidth="715.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="erpsystem.graphics.controllers.sales.ViewSales">
+<AnchorPane id="AnchorPane" prefHeight="573.0" prefWidth="854.0" styleClass="background_panel" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.sales.ViewSales">
     <stylesheets>
         <URL value="@/erpsystem/graphics/CSS/style.css" />
     </stylesheets>
+   <children>
+      <Label layoutX="226.0" layoutY="35.0" text="%btn_showSales">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="102.0" fitWidth="139.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <Line endX="540.0" layoutX="299.0" layoutY="89.0" startX="-100.0" />
+      <Button layoutX="746.0" layoutY="534.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="94.0" text="%gnr_btn_Close" />
+      <TableView fx:id="tbl_sales_cmp" layoutX="8.0" layoutY="126.0" prefHeight="398.0" prefWidth="838.0" visible="false">
+        <columns>
+          <TableColumn fx:id="col_cmp_ID" prefWidth="43.0" text="%col_sale_id" />
+          <TableColumn fx:id="col_cmp_Name" prefWidth="183.0" text="%col_sale_cName" />
+            <TableColumn fx:id="col_cmp_Phone" minWidth="0.0" prefWidth="136.0" text="%col_phone" />
+            <TableColumn fx:id="col_cmp_Payment" prefWidth="153.0" text="%col_sale_paymentMethod" />
+            <TableColumn fx:id="col_cmp_Price" prefWidth="131.0" text="%col_sale_salePrice" />
+            <TableColumn fx:id="col_cmp_Date" prefWidth="190.0" text="%col_sale_dateTime" />
+        </columns>
+      </TableView>
+      <TableView fx:id="tbl_sales_ind" layoutX="8.0" layoutY="126.0" prefHeight="398.0" prefWidth="838.0">
+        <columns>
+          <TableColumn fx:id="col_ind_ID" prefWidth="58.0" text="%col_sale_id" />
+          <TableColumn fx:id="col_ind_Name" prefWidth="144.0" text="%col_firstname" />
+            <TableColumn fx:id="col_ind_Lastname" prefWidth="143.0" text="%col_lastname" />
+            <TableColumn fx:id="col_ind_Payment" prefWidth="127.0" text="%col_sale_paymentMethod" />
+            <TableColumn fx:id="col_ind_Phone" prefWidth="126.0" text="%col_phone" />
+            <TableColumn fx:id="col_ind_Price" minWidth="0.0" prefWidth="68.0" text="%col_sale_salePrice" />
+            <TableColumn fx:id="col_ind_Date" prefWidth="169.0" text="%col_sale_dateTime" />
+        </columns>
+      </TableView>
+      <ToggleButton layoutX="314.0" layoutY="534.0" mnemonicParsing="false" onAction="#btn_Sales_ind_Action" selected="true" text="%btn_customers">
+         <toggleGroup>
+            <ToggleGroup fx:id="ViewGroup" />
+         </toggleGroup></ToggleButton>
+      <ToggleButton layoutX="463.0" layoutY="534.0" mnemonicParsing="false" onAction="#btn_Sales_cmp_Action" prefHeight="25.0" prefWidth="113.0" text="%btn_companies" toggleGroup="$ViewGroup" />
+   </children>
 </AnchorPane>

@@ -211,6 +211,14 @@ public class Launcher implements Initializable {
                 img_logo.setImage(new Image(new File("resources/images/suppliers/supplier_manager.png").toURI().toString()));
             }
             @FXML
+            private void btn_sales_exited(MouseEvent event) {
+                 img_logo.setImage(new Image(new File("resources/logo/icon.png").toURI().toString()));
+            }
+            @FXML
+            private void btn_sales_entered(MouseEvent event) {
+                 img_logo.setImage(new Image(new File("resources/images/sales/sales.png").toURI().toString()));
+            }
+            @FXML
             private void btn_finance_Exited(MouseEvent event) {
                 img_logo.setImage(new Image(new File("resources/logo/icon.png").toURI().toString()));
             }
@@ -331,4 +339,6 @@ public class Launcher implements Initializable {
             stage.show();
         }
     // ==== END OF METHODS ===
+
+    
 }

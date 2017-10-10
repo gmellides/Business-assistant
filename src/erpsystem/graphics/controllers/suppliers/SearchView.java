@@ -25,6 +25,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.MapValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -51,6 +52,8 @@ public class SearchView implements Initializable {
     private ResourceBundle default_strings;
     @FXML
     private ImageView search_supplier_img;
+    @FXML
+    private ToggleGroup view_group;
     
     /**
      * Initializes the controller class.
@@ -83,6 +86,7 @@ public class SearchView implements Initializable {
             isCompany = true;
             if (Suppliers_Person.isVisible())
                 Suppliers_Person.setVisible(false);
+                
             if (!Suppliers_Companies.isVisible())
                 Suppliers_Companies.setVisible(true);
         }

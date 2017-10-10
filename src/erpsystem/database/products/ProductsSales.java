@@ -6,7 +6,7 @@ import java.util.HashMap;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class ProductsSales extends ProductsDatabase{
+public class ProductsSales extends PRD_Database{
     
     public ObservableList<String> getproducts(){
         ObservableList<String> data = FXCollections.observableArrayList();
