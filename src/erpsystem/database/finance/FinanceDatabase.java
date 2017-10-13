@@ -126,6 +126,54 @@ public class FinanceDatabase {
             }
             return incomes;
         }
+        public int[] count_sales_paymentMethod(){
+            int cred = 0;
+            int deb = 0;
+                try{
+                Connect();
+                statement = connection.createStatement();
+                rs = statement.executeQuery("SELECT COUNT(*) FROM sales WHERE sal_paymentMethod = 'debit';");
+                while (rs.next()){
+                    deb = rs.getInt(1);
+                }
+                rs = statement.executeQuery("SELECT COUNT(*) FROM sales WHERE sal_paymentMethod = 'credit';");
+                while (rs.next()){
+                    cred = rs.getInt(1);
+                }
+                Disconnect();
+            }catch(SQLException e){
+                e.printStackTrace();
+            }
+            int[] data = {deb,cred};
+            return data;
+        }
+        public int[] count_sales_customers(){
+            int individual = 0;
+            int companies = 0; 
+            try{
+                Connect();
+                statement = connection.createStatement();
+                rs = statement.executeQuery("SELECT COUNT(*) "
+                                            + "FROM [sales]"
+                                            + "INNER JOIN [customer] ON sales.cst_id=customer.cst_id "
+                                            + "WHERE customer.cst_isCompany=0;");
+                while (rs.next()){
+                    individual = rs.getInt(1);
+                }
+                rs = statement.executeQuery("SELECT COUNT(*) "
+                                            + "FROM [sales] "
+                                            + "INNER JOIN [customer] ON sales.cst_id=customer.cst_id "
+                                            + "WHERE customer.cst_isCompany= -1;");
+                while (rs.next()){
+                    companies = rs.getInt(1);
+                }
+                Disconnect();
+            }catch(SQLException e){
+                e.printStackTrace();
+            }
+            int[] data = {individual,companies};
+            return data;
+        }
     protected void Disconnect() throws SQLException{
         if (connection != null)
             connection.close();

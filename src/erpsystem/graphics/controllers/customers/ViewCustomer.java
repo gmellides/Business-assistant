@@ -107,13 +107,12 @@ public class ViewCustomer implements Initializable {
             close_window();
         }
         /**
-     * Toggle Button about edit and view panels.
-     * @param event 
-     */
+        * Toggle Button about edit and view panels.
+        * @param event 
+        */
         @FXML
         private void btn_Edit_Action(ActionEvent event) {
-            boolean flag = btn_editToggle.isSelected();
-            if (flag){
+            if (btn_editToggle.isSelected()){
                 btn_Delete.setVisible(true);
                 btn_SaveEdited.setVisible(true);
                 btnClose.setVisible(false);

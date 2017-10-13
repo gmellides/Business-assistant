@@ -42,7 +42,7 @@ public class ReceiptDatabase extends SalesDatabase{
                         + " WHERE sales.sale_id = "+sale_id);
                 while(rs.next()){
                     Map<String,String> row = new HashMap<>(); 
-                        row.put("cst_name" , rs.getString("cst_name"));
+                        row.put("cst_name", rs.getString("cst_name"));
                         row.put("cst_lastname", rs.getString("cst_lastname"));
                         row.put("cst_address", rs.getString("cst_address"));
                         row.put("cst_zipcode",String.valueOf(rs.getInt("cst_zipcode")));
@@ -65,12 +65,13 @@ public class ReceiptDatabase extends SalesDatabase{
             try{
                 Connect();
                 statement = connection.createStatement();
-                rs = statement.executeQuery("SELECT product.[prd_name],product.[prd_category],"
+                rs = statement.executeQuery("SELECT product.[prd_id],product.[prd_name],product.[prd_category],"
                         + "sal_prd.[sal_quantity],product.[prd_sellPrice],sal_prd.[sal_price]"
                         + " FROM sal_prd INNER JOIN product ON sal_prd.prd_id = product.prd_id"
                         + " WHERE sale_id = "+sale_id);
                 while(rs.next()){
                     Map<String,String> row = new HashMap<>(); 
+                        row.put("prd_id",String.valueOf(rs.getInt("prd_id")));                             
                         row.put("prd_name", rs.getString("prd_name"));
                         row.put("prd_category", rs.getString("prd_category"));
                         row.put("sal_quantity", String.valueOf(rs.getInt("sal_quantity")));

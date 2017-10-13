@@ -101,7 +101,7 @@ public class ReceiptPDF {
                            +" "+bundle.getString("gnr_lbl_fax")+bsn_data.getFax());
             layout_y -=25;
                 write_line(content,roboto_bold,14,layout_x,
-                           layout_y,"Αριθμός Παραγγελίας: "+ID);
+                           layout_y,bundle.getString("receipt_pdf_saleID")+" "+ID);
         }
         private void customer_info(PDPageContentStream content) throws IOException{
             ObservableList<Map> cst_data = new ReceiptDatabase().get_cstInfo(ID);
