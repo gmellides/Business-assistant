@@ -30,7 +30,7 @@ public class ViewSupplier implements Initializable {
     lbl_address,lbl_zipcode,lbl_country,lbl_state,lbl_city,lbl_phone,lbl_IBAN,
     lbl_ImportDate,lbl_fax,lbl_mail,lbl_edt_sex,lbl_edt_lastname;
     @FXML
-    private Button btn_Save,btn_close;
+    private Button btn_Save,btn_close,btn_Delete,btn_Export;
     @FXML
     private ImageView view_spl_img;
     @FXML
@@ -46,6 +46,7 @@ public class ViewSupplier implements Initializable {
     
     private ResourceBundle default_strings;
     private Map clicked_row;
+    
     
     /**
      * Initializes the controller class.
@@ -75,13 +76,21 @@ public class ViewSupplier implements Initializable {
     @FXML
     private void btn_EditView_Toogle(ActionEvent event) {
         if (btn_toggle.isSelected()){
-            ViewPanel.setVisible(false);
-            EditPanel.setVisible(true);
-            btn_toggle.setText(default_strings.getString("gnr_btn_view"));
-        }else{
             ViewPanel.setVisible(true);
             EditPanel.setVisible(false);
+            btn_close.setVisible(true);
+            btn_Save.setVisible(false);
+            btn_Delete.setVisible(false);
+            btn_Export.setVisible(true);
             btn_toggle.setText(default_strings.getString("gnr_btn_edit"));
+        }else{
+            ViewPanel.setVisible(false);
+            EditPanel.setVisible(true);
+            btn_close.setVisible(false);
+            btn_Save.setVisible(true);
+            btn_Delete.setVisible(true);
+            btn_Export.setVisible(false);
+            btn_toggle.setText(default_strings.getString("gnr_btn_view")); 
         }
     }
         private void set_splIndividual_View(){

@@ -76,9 +76,9 @@
             <ImageView fx:id="view_spl_img" fitHeight="153.0" fitWidth="142.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <Line endX="450.0" layoutX="264.0" layoutY="76.0" startX="-100.0" />
             <Button fx:id="btn_close" layoutX="588.0" layoutY="420.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="122.0" text="%gnr_btn_Close" />
-            <Button fx:id="btn_Save" layoutX="616.0" layoutY="395.0" mnemonicParsing="false" onAction="#btn_SaveEdited_Action" prefHeight="25.0" prefWidth="100.0" text="%gnr_btn_Save" visible="false" />
-            <Button layoutX="142.0" layoutY="420.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="122.0" text="%gnr_btn_delete" visible="false" />
-            <Button layoutX="142.0" layoutY="420.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="122.0" text="%gnr_btn_ExportPDF" />
+            <Button fx:id="btn_Save" layoutX="587.0" layoutY="417.0" mnemonicParsing="false" onAction="#btn_SaveEdited_Action" prefHeight="31.0" prefWidth="122.0" text="%gnr_btn_Save" visible="false" />
+            <Button fx:id="btn_Delete" layoutX="142.0" layoutY="420.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="129.0" text="%gnr_btn_delete" visible="false" />
+            <Button fx:id="btn_Export" layoutX="142.0" layoutY="420.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="129.0" text="%gnr_btn_ExportPDF" />
             <ToggleButton fx:id="btn_toggle" layoutX="22.0" layoutY="420.0" mnemonicParsing="false" onAction="#btn_EditView_Toogle" prefHeight="25.0" prefWidth="100.0" text="%gnr_btn_edit" />
          </children>
       </Pane>

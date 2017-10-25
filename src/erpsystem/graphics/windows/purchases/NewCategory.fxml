@@ -13,16 +13,16 @@
         <URL value="@/erpsystem/graphics/CSS/style.css" />
     </stylesheets>
    <children>
-      <Pane prefHeight="190.0" prefWidth="368.0">
+      <Pane prefHeight="190.0" prefWidth="368.0" styleClass="background_panel">
          <children>
-            <Button layoutX="254.0" layoutY="151.0" mnemonicParsing="false" onAction="#btn_saveCategory_Action" prefHeight="25.0" prefWidth="100.0" text="Create" />
-            <Label layoutX="155.0" layoutY="14.0" text="Label">
+            <Button layoutX="240.0" layoutY="151.0" mnemonicParsing="false" onAction="#btn_saveCategory_Action" prefHeight="25.0" prefWidth="114.0" text="%gnr_btn_Save" />
+            <Label layoutX="76.0" layoutY="14.0" text="%lbl_newCategoryTitle">
                <font>
                   <Font size="25.0" />
                </font>
             </Label>
-            <Label layoutX="21.0" layoutY="87.0" text="Label" />
-            <TextField fx:id="txt_category" layoutX="96.0" layoutY="83.0" prefHeight="25.0" prefWidth="252.0" />
+            <Label layoutX="21.0" layoutY="87.0" text="%lbl_catName" />
+            <TextField fx:id="txt_category" layoutX="130.0" layoutY="83.0" prefHeight="25.0" prefWidth="218.0" />
          </children>
       </Pane>
    </children>

@@ -20,7 +20,7 @@
             <Font size="27.0" />
          </font>
       </Label>
-      <ImageView fitHeight="102.0" fitWidth="139.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="show_sales_img" fitHeight="102.0" fitWidth="139.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
       <Line endX="540.0" layoutX="299.0" layoutY="89.0" startX="-100.0" />
       <Button layoutX="746.0" layoutY="534.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="94.0" text="%gnr_btn_Close" />
       <TableView fx:id="tbl_sales_cmp" layoutX="8.0" layoutY="126.0" prefHeight="398.0" prefWidth="838.0" visible="false">

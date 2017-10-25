@@ -10,7 +10,9 @@ import erpsystem.database.suppliers.SPL_Individual;
 import erpsystem.database.suppliers.SPL_Database;
 import erpsystem.util.export.pdf.suppliers.SuppliersTablePDF;
 import erpsystem.util.system.Dimension;
+import erpsystem.util.system.FileManager;
 import erpsystem.util.system.WindowsManager;
+import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -22,6 +24,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -91,7 +94,24 @@ public class SupplierManager implements Initializable {
         private void btn_Close_Action(ActionEvent event) {
             close_window();
         }
-    
+        @FXML
+        private void btn_ExportPDF_Action(ActionEvent event) {
+            if (new SuppliersTablePDF().save_file(default_strings, 
+                                                  new SPL_Individual().select_suppliers(),
+                                                  new SPL_Companies().select_suppliers())){
+                    Alert_dialog(Alert.AlertType.INFORMATION,
+                                "dlg_supplierTableSaved_title",
+                                "dlg_supplierTableSaved_header",
+                                "dlg_supplierTableSaved_message");
+                    try{
+                        File pdf_file = new File(new FileManager().getDocuments_root());
+                        Desktop desktop = Desktop.getDesktop();
+                        desktop.open(pdf_file);
+                    }catch(IOException e){
+                        e.printStackTrace();
+                    }
+            }
+        }
     private void close_window(){
         new WindowsManager().SupplierManager_toggle(false);
         Stage window = (Stage) lbl_suppl_sum.getScene().getWindow();
@@ -107,7 +127,7 @@ public class SupplierManager implements Initializable {
         lbl_suppl_sum.setText(String.valueOf(data[2]));
        //Set Icon on Imageview
        img_supplierManager.setImage(new Image(new File("resources/images/suppliers/supplier_manager.png").toURI().toString()));
-        // CODE TODO 
+        
     }    
     private void OpenWindow(String WindowPath,
                             int Width,
@@ -144,12 +164,15 @@ public class SupplierManager implements Initializable {
          stage.show();
     }
 
-    @FXML
-    private void btn_ExportPDF_Action(ActionEvent event) {
-        if (new SuppliersTablePDF().save_file(default_strings, 
-                                              new SPL_Individual().select_suppliers(),
-                                              new SPL_Companies().select_suppliers())){
-            
-        }
+    
+    private void Alert_dialog(Alert.AlertType type,
+                                  String Title,
+                                  String Header,
+                                  String Message){
+        Alert succed_dialog = new Alert(type);
+        succed_dialog.setTitle(default_strings.getString(Title));
+        succed_dialog.setHeaderText(default_strings.getString(Header));
+        succed_dialog.setContentText(default_strings.getString(Message));
+        succed_dialog.showAndWait();   
     }
 }

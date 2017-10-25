@@ -236,7 +236,7 @@ public class NewSale implements Initializable {
      * Init Window Method 
      */    
     private void init_window(){
-        newSale_img.setImage(new Image(new File("resources/images/sales/sales.png").toURI().toString()));
+        newSale_img.setImage(new Image(new File("resources/images/sales/new_sale.png").toURI().toString()));
         new_sale = new Sale();
         final_price = 0;
         basket = FXCollections.observableArrayList();

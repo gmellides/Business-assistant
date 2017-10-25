@@ -13,9 +13,6 @@ public class Purchase {
     public void setProductID(int ProductID) {
         this.ProductID = ProductID;
     }
-    public void setQuantity(int Quantity) {
-        this.Quantity = Quantity;
-    }
     public void setPurchasePrice(float PurchasePrice) {
         this.PurchasePrice = PurchasePrice;
     }
@@ -29,9 +26,6 @@ public class Purchase {
     public int getProductID() {
         return ProductID;
     }
-    public int getQuantity() {
-        return Quantity;
-    }
     public float getPurchasePrice() {
         return PurchasePrice;
     }
@@ -41,7 +35,6 @@ public class Purchase {
    
     private int SupplierID;
     private int ProductID;
-    private int Quantity;
     private float PurchasePrice;
     private String PaymentMethod;
 }

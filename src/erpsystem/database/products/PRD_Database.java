@@ -5,7 +5,6 @@
  */
 package erpsystem.database.products;
 
-import erpsystem.entities.product.Product;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -22,7 +21,7 @@ public class PRD_Database {
     protected Connection connection;
     protected Statement statement;
     protected ResultSet rs;
-    protected PreparedStatement prepered_stm;
+    protected PreparedStatement prepared_statement;
     
     protected void Connect(){
         try{
@@ -32,12 +31,6 @@ public class PRD_Database {
             e.printStackTrace();
         }       
     }
-        public void insert_product(Product input){
-            
-        }
-        public void select_products(){
-            
-        }
         public int[] count_products(){
             int[] values = null;
                 try{
@@ -67,8 +60,8 @@ public class PRD_Database {
         if (connection != null)
             connection.close();
         
-        if (prepered_stm !=null)
-            prepered_stm.close();
+        if (prepared_statement !=null)
+            prepared_statement.close();
         
         if (statement != null)
             statement.close();

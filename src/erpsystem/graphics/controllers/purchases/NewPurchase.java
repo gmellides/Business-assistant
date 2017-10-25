@@ -6,6 +6,7 @@
 package erpsystem.graphics.controllers.purchases;
 
 import erpsystem.database.suppliers.SPL_Purchases;
+import erpsystem.entities.product.Product;
 import erpsystem.financial.BasicCalculations;
 import erpsystem.util.system.Dimension;
 import erpsystem.util.xml.read.PurchaseCategoryParser;
@@ -22,6 +23,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
@@ -41,7 +43,9 @@ public class NewPurchase implements Initializable {
     private ToggleGroup payment_method;
     @FXML
     private TextField txt_Quantity,txt_PurchasePrice,txt_SellPrice,txt_VAT,
-                      txt_PreferedProfit;
+                      txt_PreferedProfit,txt_ProductName;
+    @FXML
+    private TextArea txt_ProductDesc;
     @FXML
     private Label lbl_PurchaseCost;
      
@@ -49,6 +53,8 @@ public class NewPurchase implements Initializable {
     private float PurchasePrice;
     private float PreferedProfit;
     private int VAT;
+
+    
     /**
      * Initializes the controller class.
      * @param url
@@ -93,7 +99,32 @@ public class NewPurchase implements Initializable {
         PurchasePrice = Float.parseFloat(txt_PurchasePrice.getText());
         lbl_PurchaseCost.setText(String.valueOf(new BasicCalculations().calc_purchase_cost(Quantity,PurchasePrice))+"€");
     }
-    
+       @FXML
+    private void txt_VAT_KeyReleased(KeyEvent event) {
+        VAT = Integer.parseInt(txt_VAT.getText());
+        txt_SellPrice.setText(String.valueOf(new BasicCalculations().calc_sell_price(VAT, PurchasePrice, PreferedProfit)));
+    }
+
+    @FXML
+    private void txt_PreferedProfit_KeyReleased(KeyEvent event) {
+        VAT = Integer.parseInt(txt_VAT.getText());
+        PreferedProfit = Float.parseFloat(txt_PreferedProfit.getText());
+        txt_SellPrice.setText(String.valueOf(new BasicCalculations().calc_sell_price(VAT, PurchasePrice, PreferedProfit)));
+    }
+
+    @FXML
+    private void btn_confirmSale_Action(ActionEvent event) {
+        // if (){}else{}
+        new Product(txt_ProductName.getText(),
+                    txt_ProductDesc.getText(),
+                    cmb_category.getSelectionModel().getSelectedItem(),
+                    Integer.parseInt(txt_Quantity.getText()),
+                    Float.parseFloat(txt_PurchasePrice.getText()),
+                    Integer.parseInt(txt_VAT.getText()),
+                    Float.parseFloat(txt_PreferedProfit.getText()),
+                    Float.parseFloat(txt_SellPrice.getText()));
+        
+    }
     private void close_window(){
         Stage win = (Stage) cmb_Supplier.getScene().getWindow();
         win.close();
@@ -140,17 +171,6 @@ public class NewPurchase implements Initializable {
         }
     }
 
-    @FXML
-    private void txt_VAT_KeyReleased(KeyEvent event) {
-        VAT = Integer.parseInt(txt_VAT.getText());
-        txt_SellPrice.setText(String.valueOf(new BasicCalculations().calc_sell_price(VAT, PurchasePrice, PreferedProfit)));
-    }
-
-    @FXML
-    private void txt_PreferedProfit_KeyReleased(KeyEvent event) {
-        VAT = Integer.parseInt(txt_VAT.getText());
-        PreferedProfit = Float.parseFloat(txt_PreferedProfit.getText());
-        txt_SellPrice.setText(String.valueOf(new BasicCalculations().calc_sell_price(VAT, PurchasePrice, PreferedProfit)));
-    }
+ 
 
 }

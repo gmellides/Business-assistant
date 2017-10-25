@@ -5,7 +5,9 @@
  */
 package erpsystem.graphics.controllers.sales;
 
+import erpsystem.database.finance.FinanceDatabase;
 import erpsystem.util.system.Dimension;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,7 +19,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -27,6 +31,11 @@ public class SalesManager implements Initializable {
     private Button btn_Close;
     
     private ResourceBundle default_strings;
+    @FXML
+    private ImageView saleManager_img;
+    @FXML
+    private Label lbl_individual,lbl_companies;
+
     /**
      * Initializes the controller class.
      */
@@ -63,7 +72,10 @@ public class SalesManager implements Initializable {
         }
     
     private void init_window(){
-        
+        saleManager_img.setImage(new Image(new File("resources/images/sales/sales.png").toURI().toString()));
+        int[] data = new FinanceDatabase().count_sales_customers();
+            lbl_individual.setText(String.valueOf(data[0]));
+            lbl_companies.setText(String.valueOf(data[1]));
     }
     private void close_window(){
         Stage win = (Stage) btn_Close.getScene().getWindow();

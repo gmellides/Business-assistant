@@ -156,15 +156,15 @@ public class Launcher implements Initializable {
         }
         @FXML
         private void btnStorage_Action(ActionEvent event) throws IOException {    
-                    try{
-                        OpenWindow("storage/StorageManager.fxml",
-                                   new Dimension().Manager_window_width,
-                                   new Dimension().Manager_window_height,
-                                   default_strings.getString("window_storage_manager"));
-                    }catch(IOException e){
-                        e.printStackTrace();
-                    }
-             } 
+            try{
+                OpenWindow("storage/StorageManager.fxml",
+                           new Dimension().Manager_window_width,
+                           new Dimension().Manager_window_height,
+                           default_strings.getString("window_storage_manager"));
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+        } 
         @FXML
         private void btnContactManagerAction(ActionEvent event){
                 if (!window_check.ContactManager_isOpen()){
@@ -339,6 +339,4 @@ public class Launcher implements Initializable {
             stage.show();
         }
     // ==== END OF METHODS ===
-
-    
 }

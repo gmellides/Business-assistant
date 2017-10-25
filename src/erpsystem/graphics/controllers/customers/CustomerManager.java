@@ -24,6 +24,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -85,6 +86,10 @@ public class CustomerManager implements Initializable {
             if(new CustomersTablePDF().save_file(default_strings,
                                                  new CST_Individual().select_customers(),
                                                  new CST_Companies().select_company())){
+                Alert_dialog(Alert.AlertType.INFORMATION,
+                        "dlg_customerTableSaved_title",
+                        "dlg_customerTableSaved_header",
+                        "dlg_customerTableSaved_message");
                 try{
                     File pdf_file = new File(new FileManager().getDocuments_root());
                     Desktop desktop = Desktop.getDesktop();
@@ -165,4 +170,14 @@ public class CustomerManager implements Initializable {
          stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
          stage.show();
     } 
+    private void Alert_dialog(Alert.AlertType type,
+                                  String Title,
+                                  String Header,
+                                  String Message){
+        Alert succed_dialog = new Alert(type);
+        succed_dialog.setTitle(default_strings.getString(Title));
+        succed_dialog.setHeaderText(default_strings.getString(Header));
+        succed_dialog.setContentText(default_strings.getString(Message));
+        succed_dialog.showAndWait();   
+    }
 }

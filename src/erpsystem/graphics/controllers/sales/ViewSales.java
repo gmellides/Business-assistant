@@ -7,6 +7,7 @@ package erpsystem.graphics.controllers.sales;
 
 import erpsystem.database.sales.SAL_View;
 import erpsystem.util.system.Dimension;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
@@ -24,6 +25,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.MapValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -42,6 +44,8 @@ public class ViewSales implements Initializable {
     private ToggleGroup ViewGroup;
 
     private ResourceBundle default_strings;
+    @FXML
+    private ImageView show_sales_img;
     
     /**
      * Initializes the controller class.
@@ -50,6 +54,7 @@ public class ViewSales implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         default_strings = rb;
         table_fill();
+        show_sales_img.setImage(new Image(new File("resources/images/sales/show_sale.png").toURI().toString()));
     }    
         @FXML
     private void btn_Sales_ind_Action(ActionEvent event) {

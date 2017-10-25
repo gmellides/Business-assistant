@@ -86,7 +86,6 @@ public class SearchView implements Initializable {
             isCompany = true;
             if (Suppliers_Person.isVisible())
                 Suppliers_Person.setVisible(false);
-                
             if (!Suppliers_Companies.isVisible())
                 Suppliers_Companies.setVisible(true);
         }
@@ -167,8 +166,7 @@ public class SearchView implements Initializable {
             stage.setTitle(default_strings.getString("window_viewSupplier"));
             stage.setScene(scene);
             stage.setResizable(false);
-         // Image icon = new Image(getClass().getResource("icon.png").toExternalForm());
-         // stage.getIcons().add(icon);
+            stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
             stage.show();
         }catch(IOException e){
             e.printStackTrace();

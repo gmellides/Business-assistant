@@ -37,7 +37,8 @@ public class StorageView extends StorageDatabase{
                                                 + "prd_Category,"
                                                 + "prd_quantity,"
                                                 + "prd_prcPrice,"
-                                                + "prd_sellPrice"
+                                                + "prd_sellPrice,"
+                                                + "prd_VAT"
                                                 + " FROM product "
                                                 + "WHERE prd_quantity>0 AND prd_id = "+id);
                 while (results.next()){
@@ -47,6 +48,7 @@ public class StorageView extends StorageDatabase{
                     prd_data.put("prd_quantity",String.valueOf(results.getInt("prd_quantity")));
                     prd_data.put("prd_purchasePrice",String.valueOf(results.getFloat("prd_prcPrice")));
                     prd_data.put("prd_sellPrice",String.valueOf(results.getFloat("prd_sellPrice")));   
+                    prd_data.put("prd_VAT", String.valueOf(results.getInt("prd_VAT")));
                 }
             Disconnect();
         }catch(SQLException e){

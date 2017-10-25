@@ -19,32 +19,55 @@
          <children>
             <ListView fx:id="ProductList" layoutX="14.0" layoutY="115.0" onMouseReleased="#SelectedProduct_Action" prefHeight="325.0" prefWidth="175.0" />
             <Button layoutX="562.0" layoutY="427.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="121.0" text="%gnr_btn_Close" />
-            <ImageView fitHeight="92.0" fitWidth="121.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <Pane fx:id="ProductInfo" layoutX="192.0" layoutY="95.0" prefHeight="325.0" prefWidth="497.0">
+            <ImageView fx:id="storage_img" fitHeight="97.0" fitWidth="121.0" layoutX="25.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="lbl_noProductSelected" layoutX="241.0" layoutY="167.0" prefHeight="183.0" prefWidth="352.0" text="%lbl_noSelectedProduct" wrapText="true">
+               <font>
+                  <Font size="31.0" />
+               </font>
+            </Label>
+            <Pane fx:id="ProductInfo" layoutX="192.0" layoutY="95.0" prefHeight="325.0" prefWidth="497.0" visible="false">
                <children>
-                  <Label layoutX="36.0" layoutY="26.0" text="%lbl_productName" />
-                  <Label fx:id="lbl_productName" layoutX="159.0" layoutY="26.0" text="Label" />
-                  <Label layoutX="36.0" layoutY="61.0" text="%lbl_productDescription" />
-                  <Label fx:id="lbl_description" layoutX="159.0" layoutY="61.0" text="Label" />
+                  <Label layoutX="38.0" layoutY="14.0" text="%lbl_productName">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font></Label>
+                  <Label fx:id="lbl_productName" layoutX="202.0" layoutY="14.0" text="Label">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font></Label>
+                  <Label layoutX="36.0" layoutY="61.0" text="%lbl_productDescription">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="lbl_description" layoutX="159.0" layoutY="61.0" text="Label">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font></Label>
                   <Label layoutX="34.0" layoutY="155.0" text="%lbl_quantity" />
-                  <Label layoutX="35.0" layoutY="99.0" text="%lbl_productCategory" />
+                  <Label layoutX="35.0" layoutY="99.0" text="%lbl_productCategory">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font></Label>
                   <Label layoutX="36.0" layoutY="192.0" text="%lbl_purchasePrice" />
                   <Label layoutX="35.0" layoutY="229.0" text="%lbl_sellPrice" />
                   <Label fx:id="lbl_quantity" layoutX="159.0" layoutY="155.0" text="Label" />
-                  <Label fx:id="lbl_category" layoutX="159.0" layoutY="99.0" text="Label" />
+                  <Label fx:id="lbl_category" layoutX="159.0" layoutY="99.0" text="Label">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font></Label>
                   <Label fx:id="lbl_purchasePrice" layoutX="159.0" layoutY="192.0" text="Label" />
                   <Label fx:id="lbl_sellPrice" layoutX="159.0" layoutY="229.0" text="Label" />
                   <Label layoutX="257.0" layoutY="154.0" text="%lbl_prdState" />
                   <Label fx:id="lbl_state" layoutX="375.0" layoutY="155.0" text="Label" />
-                  <Label layoutX="257.0" layoutY="192.0" text="kerdos ana proion" />
-                  <Label layoutX="375.0" layoutY="192.0" text="Label" />
-                  <Label layoutX="257.0" layoutY="229.0" text="sum kerdos " />
-                  <Label layoutX="375.0" layoutY="229.0" text="Label" />
-                  <Label layoutX="36.0" layoutY="274.0" text="foros" />
-                  <Label layoutX="159.0" layoutY="274.0" text="Label" />
+                  <Label layoutX="257.0" layoutY="192.0" text="%lbl_profitOnProd" />
+                  <Label fx:id="lbl_Profit" layoutX="375.0" layoutY="192.0" text="Label" />
+                  <Label layoutX="257.0" layoutY="229.0" text="%lbl_sumProfit" />
+                  <Label fx:id="lbl_SumProfit" layoutX="375.0" layoutY="229.0" text="Label" />
+                  <Label layoutX="36.0" layoutY="274.0" text="%lbl_vat" />
+                  <Label fx:id="lbl_VAT" layoutX="159.0" layoutY="274.0" text="Label" />
                </children>
             </Pane>
-            <Label layoutX="247.0" layoutY="14.0" text="APOTHIKI ">
+            <Label layoutX="247.0" layoutY="14.0" text="%btn_viewStorage">
                <font>
                   <Font size="24.0" />
                </font>

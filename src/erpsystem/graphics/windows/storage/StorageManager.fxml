@@ -23,7 +23,7 @@
             <Button layoutX="475.0" layoutY="350.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="102.0" text="%gnr_btn_Close" />
             <Button layoutX="73.0" layoutY="262.0" mnemonicParsing="false" onAction="#btn_NewProduct_Action" prefHeight="25.0" prefWidth="213.0" text="%btn_newProduct" />
             <Button layoutX="73.0" layoutY="298.0" mnemonicParsing="false" onAction="#btn_ShowStorage_Action" prefHeight="25.0" prefWidth="213.0" text="%btn_viewStorage" />
-            <Button layoutX="293.0" layoutY="262.0" mnemonicParsing="false" onAction="#btn_BackUp_Action" prefHeight="25.0" prefWidth="213.0" text="%gnr_btn_backUp" />
+            <Button disable="true" layoutX="293.0" layoutY="262.0" mnemonicParsing="false" onAction="#btn_BackUp_Action" prefHeight="25.0" prefWidth="213.0" text="%gnr_btn_backUp" />
             <Button layoutX="293.0" layoutY="298.0" mnemonicParsing="false" onAction="#btn_ExportPDF_Action" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnExportPDF" />
             <ImageView fx:id="img_storageManager" fitHeight="117.0" fitWidth="128.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="182.0" layoutY="14.0" prefHeight="58.0" prefWidth="358.0" text="%window_storage_manager">

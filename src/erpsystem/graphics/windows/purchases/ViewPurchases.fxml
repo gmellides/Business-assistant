@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="573.0" prefWidth="854.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="erpsystem.graphics.controllers.purchases.ViewPurchases">
+    <stylesheets>
+        <URL value="@/erpsystem/graphics/CSS/style.css" />
+    </stylesheets>
+   <children>
+      <Pane prefHeight="573.0" prefWidth="854.0">
+         <children>
+            <Label layoutX="243.0" layoutY="26.0" text="Label">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="117.0" fitWidth="172.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <Line endX="540.0" layoutX="302.0" layoutY="82.0" startX="-100.0" />
+            <TableView layoutX="14.0" layoutY="139.0" prefHeight="380.0" prefWidth="829.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
+            <Button layoutX="727.0" layoutY="535.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="109.0" text="%gnr_btn_Close" />
+            <ToggleButton layoutX="287.0" layoutY="535.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="ToggleButton" />
+            <ToggleButton layoutX="419.0" layoutY="535.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="ToggleButton" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
