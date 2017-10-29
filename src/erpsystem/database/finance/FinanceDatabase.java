@@ -119,7 +119,6 @@ public class FinanceDatabase {
                 while (rs.next()){
                     incomes = rs.getInt(1);
                 }
-                
                 Disconnect();
             }catch(SQLException e){
                 e.printStackTrace();

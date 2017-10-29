@@ -24,7 +24,7 @@ public class PRC_Database {
     protected ResultSet rs;
     protected PreparedStatement prepared_statement;
     
-    private void Connect(){
+    public void Connect(){
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             connection = DriverManager.getConnection(database_driver+database_path);
@@ -46,7 +46,7 @@ public class PRC_Database {
              }
             return purchases;
         }
-    private void Disconnect() throws SQLException{
+    public void Disconnect() throws SQLException{
          if (connection != null)
             connection.close();
         

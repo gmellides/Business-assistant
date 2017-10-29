@@ -5,6 +5,7 @@
  */
 package erpsystem.graphics.controllers.sales;
 
+import erpsystem.database.finance.FinanceSale;
 import erpsystem.database.sales.ReceiptDatabase;
 import erpsystem.database.sales.SAL_View;
 import erpsystem.util.export.pdf.sales.ReceiptPDF;
@@ -14,6 +15,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -33,6 +35,8 @@ public class SaleInfo implements Initializable {
     
     private ResourceBundle bundle;
     private int Id;
+    @FXML
+    private Button btn_Paid;
 
     /**
      * Initializes the controller class.
@@ -44,7 +48,6 @@ public class SaleInfo implements Initializable {
     
     public void init_window(int saleID){
         this.Id = saleID;
-        // SetCustomerData
         Map<String,String> data = new SAL_View().select_specific_sale(saleID).get(0);
         Label[] component = {lbl_saleID,lbl_cstName,lbl_cstLastname,lbl_cstSex,
             lbl_cstCustomerType,lbl_cstAddress,lbl_cstZipcode,lbl_cstCity,lbl_cstState,
@@ -59,6 +62,7 @@ public class SaleInfo implements Initializable {
         }
         if (data.get("sal_paymentMethod").equals("credit")){
             lbl_paymentType.setText(bundle.getString("rbtn_credit"));
+            btn_Paid.setVisible(true);
         }else{
             lbl_paymentType.setText(bundle.getString("rbtn_Debit"));
         }
@@ -75,19 +79,24 @@ public class SaleInfo implements Initializable {
             index++;
         }
     }
-
+    @FXML
+    private void btn_Paid_Action(ActionEvent event) {
+        new FinanceSale().change_status(Id);
+    }
     @FXML
     private void btn_close_Action(ActionEvent event) {
         close_window();
     }
+    
     private void close_window(){
         Stage win = (Stage) tbl_products.getScene().getWindow();
         win.close();
     }
-
     @FXML
     private void btn_receipt_Action(ActionEvent event) {
         new ReceiptPDF().save_receipt(bundle, Id);
         // alert 
     }
+
+   
 }

@@ -22,13 +22,13 @@
             <Button layoutX="73.0" layoutY="298.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="213.0" text="%btn_showPurchases" />
             <Button fx:id="btn_BackUp" disable="true" layoutX="293.0" layoutY="262.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="213.0" text="%gnr_btn_backUp" />
             <Button fx:id="btn_ExportPDF" layoutX="293.0" layoutY="298.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnExportPDF" />
-            <Label layoutX="199.0" layoutY="14.0" text="Label">
+            <Label layoutX="180.0" layoutY="14.0" text="%window_purchase_manager">
                <font>
                   <Font size="26.0" />
                </font>
             </Label>
             <ImageView fitHeight="127.0" fitWidth="135.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="272.0" layoutY="133.0" text="Label" />
+            <Label layoutX="279.0" layoutY="100.0" text="Label" />
             <Line endX="320.0" layoutX="259.0" layoutY="60.0" startX="-100.0" />
          </children>
       </Pane>

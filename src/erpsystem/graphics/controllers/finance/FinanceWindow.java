@@ -39,15 +39,10 @@ public class FinanceWindow implements Initializable {
     @FXML
     private Label lbl_incomes,lbl_outcomes,lbl_incomeP_income,lbl_incomeP_debit,
     lbl_incomeP_credit,lbl_outcomeP_credit,lbl_outcomeP_debit,lbl_outcomeP_outcomes,
-    lbl_countSal_debit,lbl_countSal_credit ;
+    lbl_countSal_debit,lbl_countSal_credit,lbl_sales_ind,lbl_sales_cmp ;
     
     float incomes,outcomes;
-    @FXML
-    private Label lbl_sales_ind;
-    @FXML
-    private Label lbl_sales_cmp;
- 
-
+    
     /**
      * Initializes the controller class.
      */
@@ -127,8 +122,8 @@ public class FinanceWindow implements Initializable {
         IncomeChart.getData().add(credit);
         IncomeChart.getData().add(debit);
         lbl_incomeP_income.setText(String.valueOf(incomes)+"€");
-        lbl_incomeP_debit.setText(String.valueOf(credit_val)+"€");
-        lbl_incomeP_credit.setText(String.valueOf(debit_val)+"€");
+        lbl_incomeP_debit.setText(String.valueOf(debit_val)+"€");
+        lbl_incomeP_credit.setText(String.valueOf(credit_val)+"€");
         int[] data = new FinanceDatabase().count_sales_paymentMethod();
         lbl_countSal_debit.setText(String.valueOf(data[0]));
         lbl_countSal_credit.setText(String.valueOf(data[1]));

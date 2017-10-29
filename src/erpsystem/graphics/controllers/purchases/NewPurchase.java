@@ -5,7 +5,10 @@
  */
 package erpsystem.graphics.controllers.purchases;
 
+import erpsystem.database.products.PRD_Purchase;
+import erpsystem.database.purchases.PRC_NewPurchase;
 import erpsystem.database.suppliers.SPL_Purchases;
+import erpsystem.entities.actions.Purchase;
 import erpsystem.entities.product.Product;
 import erpsystem.financial.BasicCalculations;
 import erpsystem.util.system.Dimension;
@@ -23,6 +26,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
@@ -53,8 +57,10 @@ public class NewPurchase implements Initializable {
     private float PurchasePrice;
     private float PreferedProfit;
     private int VAT;
+    @FXML
+    private RadioButton rbtn_debit,rbtn_credit;
+   
 
-    
     /**
      * Initializes the controller class.
      * @param url
@@ -68,6 +74,7 @@ public class NewPurchase implements Initializable {
 
     @FXML
     private void btn_NewCategory_Action(ActionEvent event) {
+        close_window();
         try{
             OpenWindow("purchases/NewCategory.fxml",
                         new Dimension().NewCategory_window_width,
@@ -85,7 +92,7 @@ public class NewPurchase implements Initializable {
     private void chk_Company_Toggle(ActionEvent event) {
         if (chk_companyToggle.isSelected()){
             cmb_Supplier.setItems(new SPL_Purchases().select_Companies_combobox());
-         }else{
+        }else{
             cmb_Supplier.setItems(new SPL_Purchases().select_Indevidual_combobox());
         }
     }
@@ -99,7 +106,7 @@ public class NewPurchase implements Initializable {
         PurchasePrice = Float.parseFloat(txt_PurchasePrice.getText());
         lbl_PurchaseCost.setText(String.valueOf(new BasicCalculations().calc_purchase_cost(Quantity,PurchasePrice))+"€");
     }
-       @FXML
+    @FXML
     private void txt_VAT_KeyReleased(KeyEvent event) {
         VAT = Integer.parseInt(txt_VAT.getText());
         txt_SellPrice.setText(String.valueOf(new BasicCalculations().calc_sell_price(VAT, PurchasePrice, PreferedProfit)));
@@ -114,16 +121,29 @@ public class NewPurchase implements Initializable {
 
     @FXML
     private void btn_confirmSale_Action(ActionEvent event) {
-        // if (){}else{}
-        new Product(txt_ProductName.getText(),
-                    txt_ProductDesc.getText(),
-                    cmb_category.getSelectionModel().getSelectedItem(),
-                    Integer.parseInt(txt_Quantity.getText()),
-                    Float.parseFloat(txt_PurchasePrice.getText()),
-                    Integer.parseInt(txt_VAT.getText()),
-                    Float.parseFloat(txt_PreferedProfit.getText()),
-                    Float.parseFloat(txt_SellPrice.getText()));
-        
+        Purchase prc = new Purchase();
+        String[] spl_str = cmb_Supplier.getSelectionModel().getSelectedItem().split(" ");
+        prc.setSupplierID(Integer.parseInt(spl_str[0]));
+        prc.setPurchasePrice(PurchasePrice);
+        if (rbtn_debit.isSelected()){
+            prc.setPaymentMethod("debit");
+        }else if (rbtn_credit.isSelected()){
+            prc.setPaymentMethod("credit");
+        }
+        Product prd = new Product(txt_ProductName.getText(),
+                                  txt_ProductDesc.getText(),
+                                  cmb_category.getSelectionModel().getSelectedItem(),
+                                  Integer.parseInt(txt_Quantity.getText()),
+                                  Float.parseFloat(txt_PurchasePrice.getText()),
+                                  Integer.parseInt(txt_VAT.getText()),
+                                  Float.parseFloat(txt_PreferedProfit.getText()),
+                                  Float.parseFloat(txt_SellPrice.getText()));
+        // add product to database 
+        new PRD_Purchase().insert_product(prd);
+        prc.setProductID(new PRD_Purchase().get_productID());
+        //
+        new PRC_NewPurchase().insert_purchase(prc);
+        // Alert Dialog
     }
     private void close_window(){
         Stage win = (Stage) cmb_Supplier.getScene().getWindow();
@@ -161,16 +181,4 @@ public class NewPurchase implements Initializable {
            ex.printStackTrace();
         }       
     }
-
-    public void assign_combobox(String new_category){
-        try{
-            cmb_category.setItems(new PurchaseCategoryParser().get_categories());
-            cmb_category.getSelectionModel().select(new_category);
-        } catch (Exception ex) {
-           ex.printStackTrace();
-        }
-    }
-
- 
-
 }

@@ -17,7 +17,7 @@
    <children>
       <Pane prefHeight="467.0" prefWidth="724.0" styleClass="background_panel">
          <children>
-            <Label layoutX="263.0" layoutY="14.0" text="Plirofories agoras">
+            <Label layoutX="249.0" layoutY="21.0" text="%lbl_saleInfo_winName">
                <font>
                   <Font size="23.0" />
                </font>
@@ -38,7 +38,7 @@
                <font>
                   <Font name="System Bold" size="15.0" />
                </font></Label>
-            <Label layoutX="329.0" layoutY="234.0" text="%receipt_pdf_prdLbl">
+            <Label layoutX="325.0" layoutY="229.0" text="%receipt_pdf_prdLbl">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font></Label>
@@ -75,6 +75,7 @@
             <Label fx:id="lbl_salDate" layoutX="609.0" layoutY="404.0" text="Label" />
             <Label layoutX="495.0" layoutY="404.0" text="%lbl_Summary" />
             <Label fx:id="lbl_finalPrice" layoutX="128.0" layoutY="404.0" text="Label" />
+            <Button fx:id="btn_Paid" layoutX="196.0" layoutY="428.0" mnemonicParsing="false" onAction="#btn_Paid_Action" prefHeight="25.0" prefWidth="107.0" text="%lbl_salePaid" visible="false" />
          </children>
       </Pane>
    </children>

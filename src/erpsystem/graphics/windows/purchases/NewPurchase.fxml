@@ -63,11 +63,11 @@
             <Label fx:id="lbl_PurchaseCost" layoutX="399.0" layoutY="530.0" prefHeight="17.0" prefWidth="72.0" text="Label" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="35.0" layoutX="22.0" layoutY="360.0" stroke="BLACK" strokeType="INSIDE" width="334.0" />
             <Label layoutX="29.0" layoutY="369.0" text="%lbl_paymentMethod" />
-            <RadioButton layoutX="162.0" layoutY="369.0" mnemonicParsing="false" text="%rbtn_Debit">
+            <RadioButton fx:id="rbtn_debit" layoutX="162.0" layoutY="369.0" mnemonicParsing="false" text="%rbtn_Debit">
                <toggleGroup>
                   <ToggleGroup fx:id="payment_method" />
                </toggleGroup></RadioButton>
-            <RadioButton layoutX="256.0" layoutY="369.0" mnemonicParsing="false" text="%rbtn_credit" toggleGroup="$payment_method" />
+            <RadioButton fx:id="rbtn_credit" layoutX="256.0" layoutY="369.0" mnemonicParsing="false" text="%rbtn_credit" toggleGroup="$payment_method" />
          </children>
       </Pane>
    </children>
