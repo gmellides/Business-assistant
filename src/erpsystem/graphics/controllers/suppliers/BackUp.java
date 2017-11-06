@@ -9,6 +9,7 @@ import erpsystem.database.suppliers.SPL_Database;
 import erpsystem.util.export.csv.suppliers.SuppliersCSV;
 import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,6 +24,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -56,6 +58,19 @@ public class BackUp implements Initializable {
 
     @FXML
     private void btn_SelectFile_Action(ActionEvent event) {
+         Stage this_stage = (Stage) btn_SelectFile.getScene().getWindow();
+            FileChooser csv_chooser = new FileChooser();
+            csv_chooser.setTitle(default_strings.getString("window_fileChooser_CSV"));
+            csv_chooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("CSV", "*.csv")
+            );
+            File csv_file_chooser = csv_chooser.showOpenDialog(this_stage);
+            btn_Import.setDisable(false);
+            if (csv_file_chooser == null){
+                btn_Import.setDisable(true);
+            }else{
+                txt_Path.setText(csv_file_chooser.getAbsolutePath().toString());
+            }
     }
 
     @FXML

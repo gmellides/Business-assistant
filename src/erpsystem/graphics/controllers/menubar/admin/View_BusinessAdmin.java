@@ -70,7 +70,7 @@ public class View_BusinessAdmin implements Initializable {
     @FXML
     private void btnExportCard_Action(ActionEvent event) {
         if (new AdminCard().save_card(default_strings, adminData)){
-            System.out.println("ok");
+            // No 
         }
     }
 

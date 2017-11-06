@@ -5,9 +5,16 @@
  */
 package erpsystem.graphics.controllers.storage;
 
+import erpsystem.database.customers.CST_Companies;
+import erpsystem.database.customers.CST_Individual;
 import erpsystem.database.storage.StorageDatabase;
+import erpsystem.database.storage.StorageView;
+import erpsystem.util.export.pdf.customers.CustomersTablePDF;
+import erpsystem.util.export.pdf.storage.StorageTablePDF;
 import erpsystem.util.system.Dimension;
+import erpsystem.util.system.FileManager;
 import erpsystem.util.system.WindowsManager;
+import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -21,6 +28,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -73,6 +81,20 @@ public class StorageManager implements Initializable {
         }
         @FXML
         private void btn_ExportPDF_Action(ActionEvent event) {
+            if(new StorageTablePDF().save_file(default_strings,
+                                                new StorageView().select_products())){
+                Alert_dialog(Alert.AlertType.INFORMATION,
+                        "dlg_customerTableSaved_title",
+                        "dlg_customerTableSaved_header",
+                        "dlg_customerTableSaved_message");
+                try{
+                    File pdf_file = new File(new FileManager().getDocuments_root());
+                    Desktop desktop = Desktop.getDesktop();
+                    desktop.open(pdf_file);
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
+            }
         }
         @FXML
         private void btn_ShowStorage_Action(ActionEvent event) {
@@ -137,4 +159,14 @@ public class StorageManager implements Initializable {
          stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
          stage.show();
     } 
+    private void Alert_dialog(Alert.AlertType type,
+                                  String Title,
+                                  String Header,
+                                  String Message){
+        Alert succed_dialog = new Alert(type);
+        succed_dialog.setTitle(default_strings.getString(Title));
+        succed_dialog.setHeaderText(default_strings.getString(Header));
+        succed_dialog.setContentText(default_strings.getString(Message));
+        succed_dialog.showAndWait();   
+    }
 }

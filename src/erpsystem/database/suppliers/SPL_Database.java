@@ -79,7 +79,7 @@ public class SPL_Database {
                             row.put("spl_mail", rs.getString("spl_mail"));
                             row.put("spl_fax", rs.getString("spl_fax"));
                             row.put("spl_bank", rs.getString("spl_bank"));
-                            row.put("spl_iban", rs.getString("spl_iban"));
+                            row.put("spl_IBAN", rs.getString("spl_IBAN"));
                         ret.add(row);
                      }
                 }catch(SQLException e){

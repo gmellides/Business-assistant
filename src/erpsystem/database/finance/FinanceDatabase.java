@@ -39,7 +39,7 @@ public class FinanceDatabase {
                 statement = connection.createStatement();
                 rs = statement.executeQuery("SELECT fin_outcomes FROM finance;");
                 while (rs.next()){
-                    outcomes = rs.getInt(1);
+                    outcomes = rs.getFloat(1);
                 }
                 Disconnect();
             }catch(SQLException e){
@@ -54,7 +54,7 @@ public class FinanceDatabase {
                 statement = connection.createStatement();
                 rs = statement.executeQuery("SELECT fin_incomes FROM finance;");
                 while (rs.next()){
-                    incomes = rs.getInt(1);
+                    incomes = rs.getFloat(1);
                 }
                 Disconnect();
             }catch(SQLException e){
@@ -69,7 +69,7 @@ public class FinanceDatabase {
                 statement = connection.createStatement();
                 rs = statement.executeQuery("SELECT fin_out_credit FROM finance;");
                 while (rs.next()){
-                    outcomes = rs.getInt(1);
+                    outcomes = rs.getFloat(1);
                 }
                 
                 Disconnect();
@@ -85,7 +85,7 @@ public class FinanceDatabase {
                 statement = connection.createStatement();
                 rs = statement.executeQuery("SELECT fin_in_credit FROM finance;");
                 while (rs.next()){
-                    incomes = rs.getInt(1);
+                    incomes = rs.getFloat(1);
                 }
                 
                 Disconnect();
@@ -101,7 +101,7 @@ public class FinanceDatabase {
                 statement = connection.createStatement();
                 rs = statement.executeQuery("SELECT fin_out_debit FROM finance;");
                 while (rs.next()){
-                    outcomes = rs.getInt(1);
+                    outcomes = rs.getFloat(1);
                 }
                 
                 Disconnect();
@@ -117,7 +117,7 @@ public class FinanceDatabase {
                 statement = connection.createStatement();
                 rs = statement.executeQuery("SELECT fin_in_debit FROM finance;");
                 while (rs.next()){
-                    incomes = rs.getInt(1);
+                    incomes = rs.getFloat(1);
                 }
                 Disconnect();
             }catch(SQLException e){

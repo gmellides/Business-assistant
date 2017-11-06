@@ -146,7 +146,7 @@ public class Launcher implements Initializable {
         @FXML
         private void btn_mail_Action(ActionEvent event) {
             try{
-                OpenWindow("mail/MailManager.fxml",
+                OpenWindow("pdf/PDFManager.fxml",
                            new Dimension().MailManager_window_width,
                            new Dimension().MailManager_window_height,
                            default_strings.getString("window_customer_manager"));
@@ -233,6 +233,15 @@ public class Launcher implements Initializable {
             @FXML
             private void btn_Storage_Entered(MouseEvent event) {
                 img_logo.setImage(new Image(new File("resources/images/storage/storage_manager.png").toURI().toString()));
+            }
+            @FXML
+            private void btn_pdf_Exited(MouseEvent event) {
+                img_logo.setImage(new Image(new File("resources/logo/icon.png").toURI().toString()));
+            }
+
+            @FXML
+            private void btn_pdf_Entered(MouseEvent event) {
+                img_logo.setImage(new Image(new File("resources/images/pdf/pdf_manager.png").toURI().toString()));
             }
         // ====== Menu Items Action ======
             // File > View Business data

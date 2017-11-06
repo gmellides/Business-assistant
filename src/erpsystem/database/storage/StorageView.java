@@ -61,7 +61,7 @@ public class StorageView extends StorageDatabase{
             try{
                 Connect();
                 statement = connection.createStatement();
-                results = statement.executeQuery("SELECT * FROM products WHERE prd_quantity>0");
+                results = statement.executeQuery("SELECT * FROM product WHERE prd_quantity>0");
                 while (results.next()){
                     Map<String,String> row = new HashMap();
                         row.put("prd_id",String.valueOf(results.getInt("prd_id")));
@@ -69,9 +69,8 @@ public class StorageView extends StorageDatabase{
                         row.put("prd_description",results.getString("prd_description"));
                         row.put("prd_Category",results.getString("prd_Category"));
                         row.put("prd_quantity",results.getString("prd_quantity"));
-                        row.put("prd_purchasePrice",results.getString("prd_purchasePrice"));
-                        row.put("prd_sellPrice",results.getString("prd_sellPrice"));
-                        row.put("prd_importDate",results.getString("prd_importDate"));
+                        row.put("prd_purchasePrice",results.getString("prd_prcPrice"));
+                        row.put("prd_sellPrice",String.valueOf(results.getFloat("prd_sellPrice")));
                     table_data.add(row);
                 }
                 Disconnect();
