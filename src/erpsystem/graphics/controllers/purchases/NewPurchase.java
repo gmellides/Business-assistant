@@ -13,6 +13,7 @@ import erpsystem.entities.product.Product;
 import erpsystem.financial.BasicCalculations;
 import erpsystem.util.system.Dimension;
 import erpsystem.util.xml.read.PurchaseCategoryParser;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,6 +24,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -31,6 +33,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -39,8 +42,6 @@ public class NewPurchase implements Initializable {
 
     @FXML
     private ComboBox<String> cmb_Supplier,cmb_category;
-    
-    private ResourceBundle default_strings;
     @FXML
     private CheckBox chk_companyToggle;
     @FXML
@@ -52,14 +53,16 @@ public class NewPurchase implements Initializable {
     private TextArea txt_ProductDesc;
     @FXML
     private Label lbl_PurchaseCost;
-     
+    @FXML
+    private RadioButton rbtn_debit,rbtn_credit;
+    
+    private ResourceBundle default_strings;
     private int Quantity;
     private float PurchasePrice;
     private float PreferedProfit;
     private int VAT;
     @FXML
-    private RadioButton rbtn_debit,rbtn_credit;
-   
+    private ImageView newPrc_img;
 
     /**
      * Initializes the controller class.
@@ -121,30 +124,58 @@ public class NewPurchase implements Initializable {
 
     @FXML
     private void btn_confirmSale_Action(ActionEvent event) {
-        Purchase prc = new Purchase();
-        String[] spl_str = cmb_Supplier.getSelectionModel().getSelectedItem().split(" ");
-        prc.setSupplierID(Integer.parseInt(spl_str[0]));
-        prc.setPurchasePrice(PurchasePrice);
-        if (rbtn_debit.isSelected()){
-            prc.setPaymentMethod("debit");
-        }else if (rbtn_credit.isSelected()){
-            prc.setPaymentMethod("credit");
+        if (check_null_fields()){
+            Purchase prc = new Purchase();
+            String[] spl_str = cmb_Supplier.getSelectionModel().getSelectedItem().split(" ");
+            prc.setSupplierID(Integer.parseInt(spl_str[0]));
+            prc.setPurchasePrice(Integer.parseInt(txt_Quantity.getText()) * Float.parseFloat(txt_PurchasePrice.getText()));
+            if (rbtn_debit.isSelected()){
+                prc.setPaymentMethod("debit");
+            }else if (rbtn_credit.isSelected()){
+                prc.setPaymentMethod("credit");
+            }
+            prc.setPrc_quantity(Integer.parseInt(txt_Quantity.getText()));
+            Product prd = new Product(txt_ProductName.getText(),
+                                      txt_ProductDesc.getText(),
+                                      cmb_category.getSelectionModel().getSelectedItem(),
+                                      Integer.parseInt(txt_Quantity.getText()),
+                                      Float.parseFloat(txt_PurchasePrice.getText()),
+                                      Integer.parseInt(txt_VAT.getText()),
+                                      Float.parseFloat(txt_PreferedProfit.getText()),
+                                      Float.parseFloat(txt_SellPrice.getText()));
+            // add product to database 
+            new PRD_Purchase().insert_product(prd);
+            prc.setProductID(new PRD_Purchase().get_productID());
+            new PRC_NewPurchase().insert_purchase(prc);
+            Alert_dialog(Alert.AlertType.INFORMATION,
+                         "dlg_purchaseSuccess_title",
+                         "dlg_purchaseSuccess_header",
+                         "dlg_purchaseSuccess_message"); 
+            close_window();
+        }else{
+            Alert_dialog(Alert.AlertType.ERROR,
+                         "dlg_purchaseError_title",
+                         "dlg_purchaseError_header",
+                         "dlg_purchaseError_message"); 
         }
-        Product prd = new Product(txt_ProductName.getText(),
-                                  txt_ProductDesc.getText(),
-                                  cmb_category.getSelectionModel().getSelectedItem(),
-                                  Integer.parseInt(txt_Quantity.getText()),
-                                  Float.parseFloat(txt_PurchasePrice.getText()),
-                                  Integer.parseInt(txt_VAT.getText()),
-                                  Float.parseFloat(txt_PreferedProfit.getText()),
-                                  Float.parseFloat(txt_SellPrice.getText()));
-        // add product to database 
-        new PRD_Purchase().insert_product(prd);
-        prc.setProductID(new PRD_Purchase().get_productID());
-        //
-        new PRC_NewPurchase().insert_purchase(prc);
-        // Alert Dialog
     }
+    
+    private boolean check_null_fields(){
+        boolean flag = false;
+        if (txt_ProductName.getText().isEmpty()||txt_ProductDesc.getText().isEmpty()
+            || txt_Quantity.getText().isEmpty()||txt_PurchasePrice.getText().isEmpty()
+            || txt_VAT.getText().isEmpty() || txt_PreferedProfit.getText().isEmpty()
+            || txt_SellPrice.getText().isEmpty()){
+            flag = false;
+        }else{
+            flag = true;
+        }
+        if (flag && ! cmb_category.getSelectionModel().getSelectedItem().isEmpty()){
+            flag = true;
+        }
+        return flag; 
+    }
+    
     private void close_window(){
         Stage win = (Stage) cmb_Supplier.getScene().getWindow();
         win.close();
@@ -163,7 +194,6 @@ public class NewPurchase implements Initializable {
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent we) {
-            //  window_check.toggle_window(WindowPath);
                 stage.close();
             }
         });
@@ -173,11 +203,22 @@ public class NewPurchase implements Initializable {
         stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
         stage.show();
     }
+    private void Alert_dialog(Alert.AlertType type,
+                                  String Title,
+                                  String Header,
+                                  String Message){
+        Alert succed_dialog = new Alert(type);
+        succed_dialog.setTitle(default_strings.getString(Title));
+        succed_dialog.setHeaderText(default_strings.getString(Header));
+        succed_dialog.setContentText(default_strings.getString(Message));
+        succed_dialog.showAndWait();   
+    }
     private void init_window(){
-        try {
+        newPrc_img.setImage(new Image(new File("resources/images/purchases/new_purchase.png").toURI().toString()));
+        try{
             cmb_category.setItems(new PurchaseCategoryParser().get_categories());
             cmb_Supplier.setItems(new SPL_Purchases().select_Indevidual_combobox());
-        } catch (Exception ex) {
+        }catch(Exception ex){
            ex.printStackTrace();
         }       
     }

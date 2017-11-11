@@ -10,29 +10,39 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="573.0" prefWidth="854.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="erpsystem.graphics.controllers.purchases.ViewPurchases">
+<AnchorPane id="AnchorPane" prefHeight="573.0" prefWidth="854.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.purchases.ViewPurchases">
     <stylesheets>
         <URL value="@/erpsystem/graphics/CSS/style.css" />
     </stylesheets>
    <children>
-      <Pane prefHeight="573.0" prefWidth="854.0">
+      <Pane prefHeight="573.0" prefWidth="854.0" styleClass="background_panel">
          <children>
             <Label layoutX="243.0" layoutY="26.0" text="Label">
                <font>
                   <Font size="25.0" />
                </font>
             </Label>
-            <ImageView fitHeight="117.0" fitWidth="172.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="viewPrc_img" fitHeight="117.0" fitWidth="172.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <Line endX="540.0" layoutX="302.0" layoutY="82.0" startX="-100.0" />
-            <TableView layoutX="14.0" layoutY="139.0" prefHeight="380.0" prefWidth="829.0">
+            <TableView fx:id="tbl_purchases_ind" layoutX="14.0" layoutY="139.0" prefHeight="380.0" prefWidth="829.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="col_ind_id" prefWidth="75.0" text="%col_sale_id" />
+                <TableColumn fx:id="col_ind_name" prefWidth="99.0" text="%col_firstname" />
+                  <TableColumn fx:id="col_ind_lastname" prefWidth="93.0" text="%col_lastname" />
+                  <TableColumn fx:id="col_ind_address" prefWidth="116.0" text="%col_address" />
+                  <TableColumn fx:id="col_ind_zipcode" prefWidth="75.0" text="%col_zipcode" />
+                  <TableColumn fx:id="col_ind_city" prefWidth="75.0" text="%col_city" />
+                  <TableColumn fx:id="col_ind_phone" prefWidth="85.0" text="%col_phone" />
+                  <TableColumn fx:id="col_ind_paymentMethod" minWidth="28.0" prefWidth="121.0" text="%col_sale_paymentMethod" />
+                  <TableColumn fx:id="col_ind_finalPrice" prefWidth="88.0" text="%col_pdf_finalPrice" />
               </columns>
             </TableView>
-            <Button layoutX="727.0" layoutY="535.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="109.0" text="%gnr_btn_Close" />
-            <ToggleButton layoutX="287.0" layoutY="535.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="ToggleButton" />
-            <ToggleButton layoutX="419.0" layoutY="535.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="ToggleButton" />
+            <Button layoutX="727.0" layoutY="535.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="109.0" styleClass="exit_btn" text="%gnr_btn_Close" />
+            <ToggleButton layoutX="287.0" layoutY="535.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="%btn_customers">
+               <toggleGroup>
+                  <ToggleGroup fx:id="view_group" />
+               </toggleGroup></ToggleButton>
+            <ToggleButton layoutX="444.0" layoutY="535.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="%btn_companies" toggleGroup="$view_group" />
          </children>
       </Pane>
    </children>

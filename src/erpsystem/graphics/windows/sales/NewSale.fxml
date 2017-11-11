@@ -24,14 +24,14 @@
                </font>
             </Label>
             <Line endX="257.0" layoutX="243.0" layoutY="84.0" startX="-100.0" />
-            <ComboBox fx:id="cmb_customer_select" layoutX="143.0" layoutY="157.0" onAction="#cmb_selectedCustomer_Action" prefHeight="25.0" prefWidth="381.0" promptText="%gnr_cmb_select" />
+            <ComboBox fx:id="cmb_customer_select" layoutX="143.0" layoutY="157.0" onAction="#cmb_selectedCustomer_Action" prefHeight="25.0" prefWidth="381.0" promptText="%gnr_cmb_select" styleClass="simple_btn" />
             <Label layoutX="40.0" layoutY="161.0" prefHeight="17.0" prefWidth="87.0" text="%lbl_Customer_cmb" />
             <Label layoutX="238.0" layoutY="93.0" text="%lbl_CustomerSubTitle">
                <font>
                   <Font size="19.0" />
                </font></Label>
             <Button layoutX="435.0" layoutY="584.0" mnemonicParsing="false" onAction="#btn_ConfirmSale_Action" prefHeight="25.0" prefWidth="104.0" text="%btn_Confirm" />
-            <ComboBox fx:id="cmb_product_select" layoutX="143.0" layoutY="235.0" onAction="#cmb_selectedProduct_Action" prefHeight="25.0" prefWidth="381.0" promptText="%gnr_cmb_select" />
+            <ComboBox fx:id="cmb_product_select" layoutX="143.0" layoutY="235.0" onAction="#cmb_selectedProduct_Action" prefHeight="25.0" prefWidth="381.0" promptText="%gnr_cmb_select" styleClass="simple_btn" />
             <Line endX="420.0" layoutX="115.0" layoutY="197.0" startX="-100.0" />
             <Label layoutX="238.0" layoutY="207.0" text="%lbl_ProductSubTitle">
                <font>
@@ -44,7 +44,7 @@
             <TextField fx:id="txt_Quantity" layoutX="143.0" layoutY="299.0" onKeyReleased="#txt_Quantity_Action" prefHeight="25.0" prefWidth="116.0" />
             <CheckBox fx:id="chk_Receipt" layoutX="275.0" layoutY="588.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="150.0" text="%chk_Recipt" />
             <CheckBox fx:id="chk_Company" layoutX="439.0" layoutY="128.0" mnemonicParsing="false" onAction="#chk_Company_Toggle" text="%company_checkbox" />
-            <Button layoutX="25.0" layoutY="584.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="104.0" text="%gnr_btn_Close" />
+            <Button layoutX="25.0" layoutY="584.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="104.0" styleClass="exit_btn" text="%gnr_btn_Close" />
             <Label layoutX="199.0" layoutY="371.0" text="%lbl_Basket">
                <font>
                   <Font size="19.0" />
@@ -57,7 +57,7 @@
                   <TableColumn fx:id="col_price" prefWidth="112.0" text="%col_sale_salePrice" />
               </columns>
             </TableView>
-            <Button layoutX="324.0" layoutY="334.0" mnemonicParsing="false" onAction="#btn_addToBasket_Action" prefHeight="25.0" prefWidth="205.0" text="%btn_addProduct" />
+            <Button layoutX="324.0" layoutY="334.0" mnemonicParsing="false" onAction="#btn_addToBasket_Action" prefHeight="25.0" prefWidth="205.0" styleClass="simple_btn" text="%btn_addProduct" />
             <Label layoutX="38.0" layoutY="272.0" text="%lbl_productPrice" />
             <Label fx:id="lbl_sellPrice" layoutX="143.0" layoutY="272.0" onMouseReleased="#cmb_selectedProduct_Action" prefHeight="17.0" prefWidth="62.0" text="-----" />
             <Label layoutX="350.0" layoutY="272.0" prefHeight="17.0" prefWidth="140.0" text="%lbl_paymentMethod" />

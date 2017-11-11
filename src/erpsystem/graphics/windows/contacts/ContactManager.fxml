@@ -17,29 +17,29 @@
    <children>
       <Pane layoutY="1.0" prefHeight="400.0" prefWidth="600.0" styleClass="background_panel">
          <children>
-            <Button layoutX="475.0" layoutY="350.0" mnemonicParsing="false" onAction="#btnExit_Action" prefHeight="25.0" prefWidth="102.0" text="%gnr_btn_Close" />
-            <Button layoutX="293.0" layoutY="262.0" mnemonicParsing="false" onAction="#btn_BackUp_Action" prefHeight="25.0" prefWidth="213.0" text="%gnr_btn_backUp" />
-            <Button layoutX="73.0" layoutY="298.0" mnemonicParsing="false" onAction="#btnSearchView_Action" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnViewContacts" />
-            <Button fx:id="btnNewContact" layoutX="73.0" layoutY="262.0"  mnemonicParsing="false" onAction="#btnNewContactsAction" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnNewContact" />
+            <Button layoutX="475.0" layoutY="350.0" mnemonicParsing="false" onAction="#btnExit_Action" prefHeight="25.0" prefWidth="102.0" styleClass="exit_btn" text="%gnr_btn_Close" />
+            <Button layoutX="293.0" layoutY="262.0" mnemonicParsing="false" onAction="#btn_BackUp_Action" prefHeight="25.0" prefWidth="213.0" styleClass="simple_btn" text="%gnr_btn_backUp" />
+            <Button layoutX="73.0" layoutY="298.0" mnemonicParsing="false" onAction="#btnSearchView_Action" prefHeight="25.0" prefWidth="213.0" styleClass="simple_btn" text="%window_showContacts" />
+            <Button fx:id="btnNewContact" layoutX="73.0" layoutY="262.0" mnemonicParsing="false" onAction="#btnNewContactsAction" prefHeight="25.0" prefWidth="213.0" styleClass="simple_btn" text="%cmgr_btnNewContact" />
             <Line endX="300.0" layoutX="283.0" layoutY="69.0" startX="-100.0" />
             <Label layoutX="178.0" layoutY="24.0" prefHeight="35.0" prefWidth="267.0" text="%cmgr_lbltitle" wrapText="true">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label layoutX="43.0" layoutY="138.0" text="%cmgr_lblinfo">
+            <Label layoutX="233.0" layoutY="125.0" text="%cmgr_lblinfo">
                <font>
-                  <Font size="19.0" />
+                  <Font size="14.0" />
                </font></Label>
-            <Label layoutX="86.0" layoutY="176.0" text="%cmgr_lblsummary">
+            <Label layoutX="156.0" layoutY="176.0" text="%cmgr_lblsummary">
                <font>
-                  <Font size="16.0" />
+                  <Font size="14.0" />
                </font></Label>
             <Label fx:id="Saved_contacts" layoutX="331.0" layoutY="176.0" text="Label">
                <font>
-                  <Font size="16.0" />
+                  <Font size="14.0" />
                </font></Label>
-            <Button layoutX="293.0" layoutY="298.0" mnemonicParsing="false" onAction="#btn_ExportContacts_Action" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnExportPDF" />
+            <Button layoutX="293.0" layoutY="298.0" mnemonicParsing="false" onAction="#btn_ExportContacts_Action" prefHeight="25.0" prefWidth="213.0" styleClass="simple_btn" text="%cmgr_btnExportPDF" />
             <ImageView fx:id="icn_contactManager" fitHeight="121.0" fitWidth="152.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>

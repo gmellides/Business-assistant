@@ -15,14 +15,16 @@ and open the template in the editor.
 /* Button Style & Hover Effect*/
     .simple_btn{
         -fx-background-color: white;
-        -fx-border-color: #006699;
-        -fx-border-width: 3px;
+        /* -fx-border-color: #006699; */
+        -fx-border-color: #2098A4;
+        -fx-border-width: 2px;
         -fx-border-radius: 10px;
     }
     .simple_btn:hover{   
         -fx-background-color: white;
-        -fx-border-color: #ff9933;
-        -fx-border-width: 3px;
+        /* -fx-border-color: #ff9933; */
+        -fx-border-color: #006699; 
+        -fx-border-width: 2px;
         -fx-border-radius: 10px;
     }
     .delete_button{
@@ -56,20 +58,21 @@ and open the template in the editor.
     .exit_btn{
         -fx-background-color: white;
         -fx-border-color: #ff0033;
-        -fx-border-width: 3px;
+        -fx-border-width: 1px;
         -fx-border-radius: 10px;  
     }
     .exit_btn:hover{
-        -fx-background-color:#ff3333;
-        -fx-text-fill: #FFFFFF;
+        -fx-text-fill: black;
+        -fx-border-width: 3px;
+        -fx-border-radius: 10px;
     }
 /* Launcher Screen Labels */
     .app_title{
-        -fx-text-fill: gray;
+        -fx-text-fill: black;
        /* -fx-effect: dropshadow(one-pass-box,black,10,0,0,0); */
     }
     .date_time{
-        -fx-text-fill: gray;
+        -fx-text-fill: black;
        /* -fx-effect: dropshadow(three-pass-box,black,10,0,0,0); */
     }
 /* ------------------------------------ */  

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.image.*?>
@@ -24,12 +25,15 @@
                </font>
             </Label>
             <Label layoutX="27.0" layoutY="136.0" text="%import_csv_label" />
-            <Button layoutX="328.0" layoutY="95.0" mnemonicParsing="false" onAction="#btn_ExportCSV_Action" prefHeight="25.0" prefWidth="194.0" text="%export_csv_button" />
-            <Button fx:id="btnClose" layoutX="406.0" layoutY="186.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="116.0" text="%gnr_btn_Close" />
-            <Button fx:id="btn_SelectFile" layoutX="400.0" layoutY="132.0" mnemonicParsing="false" onAction="#btn_SelectFile_Action" prefHeight="25.0" prefWidth="122.0" text="%edt_bus_btnSearch" />
+            <Button layoutX="328.0" layoutY="95.0" mnemonicParsing="false" onAction="#btn_ExportCSV_Action" prefHeight="25.0" prefWidth="194.0" styleClass="simple_btn" text="%export_csv_button" />
+            <Button fx:id="btnClose" layoutX="406.0" layoutY="186.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="116.0" styleClass="exit_btn" text="%gnr_btn_Close" />
+            <Button fx:id="btn_SelectFile" layoutX="400.0" layoutY="132.0" mnemonicParsing="false" onAction="#btn_SelectFile_Action" prefHeight="25.0" prefWidth="122.0" styleClass="simple_btn" text="%edt_bus_btnSearch" />
             <TextField fx:id="txt_Path" editable="false" layoutX="112.0" layoutY="132.0" prefHeight="25.0" prefWidth="274.0" />
             <Label layoutX="27.0" layoutY="99.0" prefHeight="17.0" prefWidth="136.0" text="%export_csv_label" />
-            <Button fx:id="btn_Import" disable="true" layoutX="22.0" layoutY="186.0" mnemonicParsing="false" onAction="#btn_Import_Action" prefHeight="25.0" prefWidth="116.0" text="%gnr_btn_ImportCSV" />
+            <Button fx:id="btn_Import" disable="true" layoutX="22.0" layoutY="186.0" mnemonicParsing="false" onAction="#btn_Import_Action" prefHeight="25.0" prefWidth="116.0" styleClass="simple_btn" text="%gnr_btn_ImportCSV">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets></Button>
             <Line endX="400.0" layoutX="128.0" layoutY="75.0" startX="-100.0" />
          </children>
       </Pane>

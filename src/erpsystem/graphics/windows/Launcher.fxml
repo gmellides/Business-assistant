@@ -32,7 +32,7 @@
             <Button fx:id="btn_mail" layoutX="31.0" layoutY="260.0" mnemonicParsing="false" onAction="#btn_mail_Action" onMouseEntered="#btn_pdf_Entered" onMouseExited="#btn_pdf_Exited" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnMailManager" />
             <Button fx:id="btn_Contact" layoutX="586.0" layoutY="313.0" mnemonicParsing="false" onAction="#btnContactManagerAction" onMouseEntered="#btn_contacts_Entered" onMouseExited="#btn_contects_Exited" prefHeight="43.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnContactManager" />
             <Button fx:id="btn_Storage" layoutX="586.0" layoutY="131.0" mnemonicParsing="false" onAction="#btnStorage_Action" onMouseEntered="#btn_Storage_Entered" onMouseExited="#btn_Storage_Exited" prefHeight="43.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnStorageManager" />
-            <Label alignment="CENTER" layoutX="187.0" layoutY="60.0" prefHeight="43.0" prefWidth="379.0" styleClass="app_title" text="%AppName" textAlignment="CENTER">
+            <Label alignment="CENTER" layoutX="184.0" layoutY="52.0" prefHeight="43.0" prefWidth="379.0" styleClass="app_title" text="%AppName" textAlignment="CENTER">
                <font>
                   <Font size="29.0" />
                </font>
@@ -42,9 +42,9 @@
             <Button fx:id="btn_Customers" layoutX="31.0" layoutY="131.0" mnemonicParsing="false" onAction="#btn_Customers_Action" onMouseEntered="#btn_customers_entered" onMouseExited="#btn_customers_exited" prefHeight="43.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnCostumers" />
             <Button fx:id="btn_Suppliers" layoutX="31.0" layoutY="201.0" mnemonicParsing="false" onAction="#btn_Suppliers_Action" onMouseEntered="#btn_supplier_Entered" onMouseExited="#btn_supplier_Exited" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnSuppliers" />
             <Button fx:id="btn_Finance" layoutX="31.0" layoutY="313.0" mnemonicParsing="false" onAction="#btn_Finance_Action" onMouseEntered="#btn_finance_Entered" onMouseExited="#btn_finance_Exited" prefHeight="43.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnFinance" />
-            <Label fx:id="lcn_lblDateTime" alignment="CENTER" layoutX="190.0" layoutY="379.0" prefHeight="17.0" prefWidth="379.0" styleClass="date_time" text="Sunday 14, April 2017 04:20:30" textAlignment="CENTER" />
+            <Label fx:id="lcn_lblDateTime" alignment="CENTER" layoutX="184.0" layoutY="387.0" prefHeight="17.0" prefWidth="379.0" styleClass="date_time" text="Sunday 14, April 2017 04:20:30" textAlignment="CENTER" />
             <Button fx:id="btn_Sales" layoutX="586.0" layoutY="201.0" mnemonicParsing="false" onAction="#btnSales_Action" onMouseEntered="#btn_sales_entered" onMouseExited="#btn_sales_exited" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnSalesManager" />
-            <Button fx:id="btn_Purchases" layoutX="586.0" layoutY="260.0" mnemonicParsing="false" onAction="#btnPurchases_Action" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnPurchaseManager" />
+            <Button fx:id="btn_Purchases" layoutX="586.0" layoutY="260.0" mnemonicParsing="false" onAction="#btnPurchases_Action" onMouseEntered="#btn_purchase_entered" onMouseExited="#btn_purchase_exited" prefHeight="25.0" prefWidth="138.0" styleClass="simple_btn" text="%lnc_btnPurchaseManager" />
             <MenuBar layoutX="-1.0" prefHeight="25.0" prefWidth="767.0">
               <menus>
                 <Menu mnemonicParsing="false" text="%lnc_MenuFile">
@@ -63,8 +63,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="%lnc_MenuHelp">
                   <items>
-                        <MenuItem mnemonicParsing="false" text="Unspecified Action" />
-                    <MenuItem mnemonicParsing="false" text="%lnc_MenuHelpAbout" />
+                    <MenuItem mnemonicParsing="false" onAction="#mnu_About_Action" text="%lnc_MenuHelpAbout" />
                   </items>
                 </Menu>
               </menus>

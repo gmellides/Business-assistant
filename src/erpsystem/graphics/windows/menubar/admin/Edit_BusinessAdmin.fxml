@@ -16,8 +16,8 @@
    <children>
       <Pane fx:id="background_pane" prefHeight="402.0" prefWidth="802.0" styleClass="background_panel">
          <children>
-            <Button layoutX="22.0" layoutY="356.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="77.0" text="%gnr_btn_Close" />
-            <Button layoutX="674.0" layoutY="356.0" mnemonicParsing="false" onAction="#btn_Save_Action" prefHeight="25.0" prefWidth="95.0" text="%gnr_btn_Save" />
+            <Button layoutX="22.0" layoutY="353.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="31.0" prefWidth="122.0" styleClass="exit_btn" text="%gnr_btn_Close" />
+            <Button layoutX="647.0" layoutY="353.0" mnemonicParsing="false" onAction="#btn_Save_Action" prefHeight="31.0" prefWidth="122.0" text="%gnr_btn_Save" />
             <Label layoutX="231.0" layoutY="47.0" text="%edt_admin_lblTitle">
                <font>
                   <Font size="29.0" />

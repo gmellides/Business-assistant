@@ -61,7 +61,7 @@ public class SalesManager implements Initializable {
                 OpenWindow("sales/ViewSales.fxml",
                            new Dimension().SearchView_window_width,
                            new Dimension().SearchView_window_height,
-                           default_strings.getString("window_newSale"));
+                           default_strings.getString("btn_showSales"));
             }catch(IOException e){
                 e.printStackTrace();
             }

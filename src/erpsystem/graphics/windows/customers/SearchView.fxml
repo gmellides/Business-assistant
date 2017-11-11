@@ -16,18 +16,18 @@
    <children>
       <Pane prefHeight="570.0" prefWidth="850.0" styleClass="background_panel">
          <children>
-            <Button layoutX="708.0" layoutY="536.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="136.0" text="%gnr_btn_Close" />
+            <Button layoutX="708.0" layoutY="536.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="136.0" styleClass="exit_btn" text="%gnr_btn_Close" />
             <Label layoutX="302.0" layoutY="22.0" text="%Window_Title">
                <font>
                   <Font size="41.0" />
                </font>
             </Label>
             <ImageView fx:id="search_view_img" fitHeight="94.0" fitWidth="136.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <ToggleButton fx:id="btn_ToggleData" layoutX="302.0" layoutY="536.0" mnemonicParsing="false" onAction="#btn_toggleCustomers_Action" prefHeight="25.0" prefWidth="128.0" selected="true" text="%btn_customers">
+            <ToggleButton fx:id="btn_ToggleData" layoutX="302.0" layoutY="536.0" mnemonicParsing="false" onAction="#btn_toggleCustomers_Action" prefHeight="25.0" prefWidth="128.0" selected="true" styleClass="simple_btn" text="%btn_customers">
                <toggleGroup>
                   <ToggleGroup fx:id="view_group" />
                </toggleGroup></ToggleButton>
-            <ToggleButton layoutX="461.0" layoutY="536.0" mnemonicParsing="false" onAction="#btn_toggleBusiness_Action" prefHeight="25.0" prefWidth="128.0" text="%btn_companies" toggleGroup="$view_group" />
+            <ToggleButton layoutX="461.0" layoutY="536.0" mnemonicParsing="false" onAction="#btn_toggleBusiness_Action" prefHeight="25.0" prefWidth="128.0" styleClass="simple_btn" text="%btn_companies" toggleGroup="$view_group" />
             <TableView fx:id="tbl_customers" layoutX="3.0" layoutY="111.0" prefHeight="415.0" prefWidth="841.0">
               <columns>
                   <TableColumn fx:id="Col_cust_CustomerID" prefWidth="75.0" text="customerID" visible="false" />

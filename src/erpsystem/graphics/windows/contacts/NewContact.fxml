@@ -18,7 +18,7 @@
       <Pane prefHeight="389.0" prefWidth="766.0" styleClass="background_panel">
          <children>
             <Button fx:id="btnSave" layoutX="654.0" layoutY="350.0" mnemonicParsing="false" onAction="#btnSave_Action" prefHeight="25.0" prefWidth="91.0" styleClass="button-normal" text="%gnr_btn_Save" />
-            <Button fx:id="btnClose" layoutX="21.0" layoutY="350.0" mnemonicParsing="false" onAction="#btnClose_Action" text="%gnr_btn_Close" />
+            <Button fx:id="btnClose" layoutX="21.0" layoutY="350.0" mnemonicParsing="false" onAction="#btnClose_Action" styleClass="exit_btn" text="%gnr_btn_Close" />
             <Line endX="190.0" layoutX="137.0" layoutY="194.0" rotate="90.0" startX="-100.0" />
             <Label layoutX="197.0" layoutY="58.0" text="%gnr_lbl_firstname" />
             <Label layoutX="197.0" layoutY="93.0" text="%gnr_lbl_lastname" />

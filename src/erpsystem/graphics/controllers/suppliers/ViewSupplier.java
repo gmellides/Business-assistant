@@ -35,7 +35,7 @@ public class ViewSupplier implements Initializable {
     private ImageView view_spl_img;
     @FXML
     private TextField txt_edt_name,txt_edt_lastname,txt_edt_address,txt_edt_zipcode,
-                   txt_edt_phone,txt_edt_fax,txt_edt_mail,txt_edt_bank,txt_edt_IBAN;
+                      txt_edt_phone,txt_edt_fax,txt_edt_mail,txt_edt_bank,txt_edt_IBAN;
     @FXML
     private ComboBox<String> cmb_edt_sex,cmb_edt_state,cmb_edt_city,cmb_edt_splType,
                              cmb_edt_country;
@@ -46,7 +46,6 @@ public class ViewSupplier implements Initializable {
     
     private ResourceBundle default_strings;
     private Map clicked_row;
-    
     
     /**
      * Initializes the controller class.
@@ -76,21 +75,21 @@ public class ViewSupplier implements Initializable {
     @FXML
     private void btn_EditView_Toogle(ActionEvent event) {
         if (btn_toggle.isSelected()){
-            ViewPanel.setVisible(true);
-            EditPanel.setVisible(false);
-            btn_close.setVisible(true);
-            btn_Save.setVisible(false);
-            btn_Delete.setVisible(false);
-            btn_Export.setVisible(true);
-            btn_toggle.setText(default_strings.getString("gnr_btn_edit"));
-        }else{
-            ViewPanel.setVisible(false);
-            EditPanel.setVisible(true);
-            btn_close.setVisible(false);
-            btn_Save.setVisible(true);
             btn_Delete.setVisible(true);
-            btn_Export.setVisible(false);
-            btn_toggle.setText(default_strings.getString("gnr_btn_view")); 
+                btn_Save.setVisible(true);
+                btn_close.setVisible(false);
+                btn_Export.setVisible(false);
+                ViewPanel.setVisible(false);
+                EditPanel.setVisible(true);
+            btn_toggle.setText(default_strings.getString("gnr_btn_view"));
+        }else{
+            btn_Delete.setVisible(false);
+                btn_Save.setVisible(false);
+                btn_close.setVisible(true);
+                btn_Export.setVisible(true);
+                ViewPanel.setVisible(true);
+                EditPanel.setVisible(false);
+            btn_toggle.setText(default_strings.getString("gnr_btn_edit")); 
         }
     }
         private void set_splIndividual_View(){

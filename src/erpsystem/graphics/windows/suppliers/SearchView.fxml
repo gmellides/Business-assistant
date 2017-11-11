@@ -60,7 +60,7 @@
                   <TableColumn fx:id="Col_c_import_date" prefWidth="75.0" text="date" visible="false" />
               </columns>
             </TableView>
-            <Button layoutX="732.0" layoutY="536.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="113.0" text="%gnr_btn_Close" />
+            <Button layoutX="732.0" layoutY="536.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="113.0" styleClass="exit_btn" text="%gnr_btn_Close" />
             <ToggleButton fx:id="Person_toggle" layoutX="324.0" layoutY="536.0" mnemonicParsing="false" onAction="#btn_togglePerson_Action" selected="true" text="%btn_customers">
                <toggleGroup>
                   <ToggleGroup fx:id="view_group" />

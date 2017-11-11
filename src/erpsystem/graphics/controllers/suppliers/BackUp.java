@@ -7,6 +7,7 @@ package erpsystem.graphics.controllers.suppliers;
 
 import erpsystem.database.suppliers.SPL_Database;
 import erpsystem.util.export.csv.suppliers.SuppliersCSV;
+import erpsystem.util.importcsv.ImportSuppliers;
 import erpsystem.util.system.Dimension;
 import erpsystem.util.system.WindowsManager;
 import java.io.File;
@@ -47,7 +48,13 @@ public class BackUp implements Initializable {
 
     @FXML
     private void btn_ExportCSV_Action(ActionEvent event) {
-        new SuppliersCSV().export_file(default_strings, new SPL_Database().select_suppliersBackUp());
+        if(new SuppliersCSV().export_file(default_strings, 
+                new SPL_Database().select_suppliersBackUp())){
+            Alert_dialog(Alert.AlertType.INFORMATION,
+                            "dlg_CSV_title",
+                            "dlg_contactsCSV_header",
+                            "dlg_contactsCSV_message");
+        }
     }
 
     @FXML
@@ -75,9 +82,14 @@ public class BackUp implements Initializable {
 
     @FXML
     private void btn_Import_Action(ActionEvent event) {
+        if(new ImportSuppliers().import_csv(txt_Path.getText())){
+            Alert_dialog(Alert.AlertType.INFORMATION,
+                            "dlg_CSV_title",
+                            "dlg_contactsCSV_header",
+                            "dlg_contactsCSV_message");
+        }
     }
-    
-    
+
     private void OpenManager() {
         try{
             FXMLLoader fxml_loader = new FXMLLoader();

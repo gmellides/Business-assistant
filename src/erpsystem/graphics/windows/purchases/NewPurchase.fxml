@@ -18,9 +18,8 @@
       <Pane prefHeight="596.0" prefWidth="485.0" styleClass="background_panel">
          <children>
             <Button layoutX="383.0" layoutY="557.0" mnemonicParsing="false" onAction="#btn_confirmSale_Action" prefHeight="25.0" prefWidth="91.0" text="%btn_Confirm" />
-            <Button layoutX="14.0" layoutY="557.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="91.0" text="%gnr_btn_Close" />
-            <CheckBox layoutX="292.0" layoutY="561.0" mnemonicParsing="false" text="CheckBox" />
-            <ImageView fitHeight="103.0" fitWidth="118.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="14.0" layoutY="557.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="91.0" styleClass="exit_btn" text="%gnr_btn_Close" />
+            <ImageView fx:id="newPrc_img" fitHeight="111.0" fitWidth="130.0" layoutX="5.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="155.0" layoutY="14.0" text="%bnt_newPurchase">
                <font>
                   <Font size="30.0" />
@@ -33,7 +32,7 @@
                </font>
             </Label>
             <Label layoutX="21.0" layoutY="137.0" text="%lbl_supplier_cmb" />
-            <ComboBox fx:id="cmb_Supplier" layoutX="105.0" layoutY="133.0" prefHeight="25.0" prefWidth="359.0" promptText="%gnr_cmb_select" />
+            <ComboBox fx:id="cmb_Supplier" layoutX="105.0" layoutY="133.0" prefHeight="25.0" prefWidth="359.0" promptText="%gnr_cmb_select" styleClass="simple_btn" />
             <CheckBox fx:id="chk_companyToggle" layoutX="409.0" layoutY="100.0" mnemonicParsing="false" onAction="#chk_Company_Toggle" text="%company_cat" />
             <Line endX="355.0" layoutX="115.0" layoutY="172.0" startX="-100.0" />
             <Label layoutX="151.0" layoutY="177.0" text="%lbl_productSubTitle">
@@ -46,8 +45,8 @@
             <Label layoutX="32.0" layoutY="329.0" text="%lbl_quantity" />
             <Label layoutX="225.0" layoutY="329.0" text="%lbl_productCategory" />
             <TextField fx:id="txt_Quantity" layoutX="99.0" layoutY="325.0" onKeyReleased="#txt_Quantity_KeyRelease" prefHeight="25.0" prefWidth="107.0" />
-            <ComboBox fx:id="cmb_category" layoutX="295.0" layoutY="325.0" prefHeight="25.0" prefWidth="176.0" promptText="%gnr_cmb_select" />
-            <Button layoutX="365.0" layoutY="356.0" mnemonicParsing="false" onAction="#btn_NewCategory_Action" prefHeight="25.0" prefWidth="107.0" text="%btn_newCategory" />
+            <ComboBox fx:id="cmb_category" layoutX="295.0" layoutY="325.0" prefHeight="25.0" prefWidth="176.0" promptText="%gnr_cmb_select" styleClass="simple_btn" />
+            <Button layoutX="362.0" layoutY="365.0" mnemonicParsing="false" onAction="#btn_NewCategory_Action" prefHeight="25.0" prefWidth="107.0" styleClass="simple_btn" text="%btn_newCategory" />
             <Label layoutX="31.0" layoutY="416.0" text="%lbl_purchasePrice" />
             <TextField fx:id="txt_PurchasePrice" layoutX="115.0" layoutY="412.0" onKeyReleased="#txt_PurchasePrice_KeyRelease" prefHeight="25.0" prefWidth="107.0" />
             <Label layoutX="31.0" layoutY="451.0" text="%lbl_preferedProfit" />

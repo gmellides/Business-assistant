@@ -119,7 +119,7 @@ public class SearchView implements Initializable {
             tbl_companies.setRowFactory(tableview_evt ->{
                 TableRow<Map> row = new TableRow<>();
                 row.setOnMouseClicked(event -> {
-                    if (! row.isEmpty() && event.getButton()== MouseButton.PRIMARY 
+                    if (!row.isEmpty() && event.getButton()== MouseButton.PRIMARY 
                                         && event.getClickCount() == 2) {
                             Map clickedRow = row.getItem();
                             OpenViewCustomerWindow(new Dimension().ViewEntry_window_widht,

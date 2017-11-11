@@ -91,6 +91,7 @@ public class CustomerManager implements Initializable {
                         "dlg_customerTableSaved_header",
                         "dlg_customerTableSaved_message");
                 try{
+                    
                     File pdf_file = new File(new FileManager().getDocuments_root());
                     Desktop desktop = Desktop.getDesktop();
                     desktop.open(pdf_file);

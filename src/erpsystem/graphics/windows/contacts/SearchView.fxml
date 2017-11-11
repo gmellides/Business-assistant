@@ -23,7 +23,7 @@
    <children>
       <Pane prefHeight="570.0" prefWidth="850.0" styleClass="background_panel">
          <children>
-            <Button fx:id="btnClose" layoutX="719.0" layoutY="537.0" mnemonicParsing="false" onAction="#btnClose_Action" prefHeight="25.0" prefWidth="117.0" text="%gnr_btn_Close" />
+            <Button fx:id="btnClose" layoutX="719.0" layoutY="537.0" mnemonicParsing="false" onAction="#btnClose_Action" prefHeight="25.0" prefWidth="117.0" styleClass="exit_btn" text="%gnr_btn_Close" />
             <TableView fx:id="contacts_table" layoutX="5.0" layoutY="112.0" prefHeight="417.0" prefWidth="838.0">
               <columns>
                   <TableColumn fx:id="Col_id" prefWidth="75.0" text="Customer_id" visible="false" />
@@ -50,7 +50,6 @@
                   <Font size="43.0" />
                </font>
             </Label>
-            <TextField fx:id="txt_Instant_Search" layoutX="14.0" layoutY="537.0" onKeyPressed="#Instant_Search" prefHeight="25.0" prefWidth="193.0" promptText="Search Here..." />
             <ImageView fx:id="icon_img" fitHeight="100.0" fitWidth="208.0" layoutX="8.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>

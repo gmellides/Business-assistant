@@ -17,18 +17,18 @@
    <children>
       <Pane prefHeight="400.0" prefWidth="600.0" styleClass="background_panel">
          <children>
-            <Button layoutX="475.0" layoutY="350.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="102.0" text="%gnr_btn_Close" />
-            <Button layoutX="73.0" layoutY="262.0" mnemonicParsing="false" onAction="#btn_newPurchace_Action" prefHeight="25.0" prefWidth="213.0" text="%bnt_newPurchase" />
-            <Button layoutX="73.0" layoutY="298.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="213.0" text="%btn_showPurchases" />
-            <Button fx:id="btn_BackUp" disable="true" layoutX="293.0" layoutY="262.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="213.0" text="%gnr_btn_backUp" />
-            <Button fx:id="btn_ExportPDF" layoutX="293.0" layoutY="298.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnExportPDF" />
+            <Button layoutX="475.0" layoutY="350.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="102.0" styleClass="exit_btn" text="%gnr_btn_Close" />
+            <Button layoutX="73.0" layoutY="262.0" mnemonicParsing="false" onAction="#btn_newPurchace_Action" prefHeight="25.0" prefWidth="213.0" styleClass="simple_btn" text="%bnt_newPurchase" />
+            <Button layoutX="73.0" layoutY="298.0" mnemonicParsing="false" onAction="#btn_ShowPurchases_Action" prefHeight="25.0" prefWidth="213.0" styleClass="simple_btn" text="%btn_showPurchases" />
+            <Button fx:id="btn_BackUp" disable="true" layoutX="293.0" layoutY="262.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="213.0" styleClass="simple_btn" text="%gnr_btn_backUp" />
+            <Button fx:id="btn_ExportPDF" disable="true" layoutX="293.0" layoutY="298.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="213.0" styleClass="simple_btn" text="%cmgr_btnExportPDF" />
             <Label layoutX="180.0" layoutY="14.0" text="%window_purchase_manager">
                <font>
                   <Font size="26.0" />
                </font>
             </Label>
-            <ImageView fitHeight="127.0" fitWidth="135.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="279.0" layoutY="100.0" text="Label" />
+            <ImageView fx:id="prc_mgr_Imageview" fitHeight="127.0" fitWidth="135.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="255.0" layoutY="98.0" text="%cmgr_lblinfo" />
             <Line endX="320.0" layoutX="259.0" layoutY="60.0" startX="-100.0" />
          </children>
       </Pane>

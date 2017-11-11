@@ -33,7 +33,7 @@
                   <TableColumn fx:id="col_price" prefWidth="139.0" text="%col_sale_salePrice" />
               </columns>
             </TableView>
-            <Button layoutX="595.0" layoutY="428.0" mnemonicParsing="false" onAction="#btn_close_Action" prefHeight="25.0" prefWidth="107.0" text="%gnr_btn_Close" />
+            <Button layoutX="595.0" layoutY="428.0" mnemonicParsing="false" onAction="#btn_close_Action" prefHeight="25.0" prefWidth="107.0" styleClass="exit_btn" text="%gnr_btn_Close" />
             <Label layoutX="330.0" layoutY="78.0" text="%lbl_CustomerSubTitle">
                <font>
                   <Font name="System Bold" size="15.0" />

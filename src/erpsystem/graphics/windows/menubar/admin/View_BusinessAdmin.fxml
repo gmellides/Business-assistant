@@ -17,9 +17,9 @@
    <children>
       <Pane fx:id="background_pane" prefHeight="449.0" prefWidth="687.0" styleClass="background_panel">
          <children>
-            <Button fx:id="btn_ExportPDF" layoutX="159.0" layoutY="401.0" mnemonicParsing="false" onAction="#btnExportPDF_Action" text="%gnr_btn_ExportPDF" />
-            <Button fx:id="btn_ExportCard" layoutX="21.0" layoutY="401.0" mnemonicParsing="false" onAction="#btnExportCard_Action" text="%gnr_btn_ExportCard" />
-            <Button fx:id="btn_Close" layoutX="579.0" layoutY="401.0" mnemonicParsing="false" onAction="#btnClose_Action" prefHeight="25.0" prefWidth="99.0" text="%gnr_btn_Close" />
+            <Button fx:id="btn_ExportPDF" layoutX="159.0" layoutY="393.0" mnemonicParsing="false" onAction="#btnExportPDF_Action" prefHeight="33.0" prefWidth="127.0" styleClass="simple_btn" text="%gnr_btn_ExportPDF" />
+            <Button fx:id="btn_ExportCard" layoutX="21.0" layoutY="393.0" mnemonicParsing="false" onAction="#btnExportCard_Action" prefHeight="33.0" prefWidth="130.0" styleClass="simple_btn" text="%gnr_btn_ExportCard" />
+            <Button fx:id="btn_Close" layoutX="551.0" layoutY="393.0" mnemonicParsing="false" onAction="#btnClose_Action" prefHeight="33.0" prefWidth="127.0" styleClass="exit_btn" text="%gnr_btn_Close" />
             <ImageView fx:id="icon_imageview" fitHeight="90.0" fitWidth="102.0" layoutX="33.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="142.0" layoutY="28.0" prefHeight="84.0" prefWidth="444.0" text="%view_admin_data">
                <font>

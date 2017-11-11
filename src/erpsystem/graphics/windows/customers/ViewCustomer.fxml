@@ -133,8 +133,8 @@
                   <ComboBox fx:id="cmb_state" layoutX="414.0" layoutY="96.0" prefHeight="25.0" prefWidth="243.0" />
                </children>
             </Pane>
-            <Button fx:id="btnClose" layoutX="593.0" layoutY="424.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="111.0" text="%gnr_btn_Close" />
-            <ToggleButton fx:id="btn_editToggle" layoutX="28.0" layoutY="424.0" mnemonicParsing="false" onAction="#btn_Edit_Action" prefHeight="25.0" prefWidth="111.0" text="Επεξεργασία" />
+            <Button fx:id="btnClose" layoutX="593.0" layoutY="424.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="111.0" styleClass="exit_btn" text="%gnr_btn_Close" />
+            <ToggleButton fx:id="btn_editToggle" layoutX="28.0" layoutY="424.0" mnemonicParsing="false" onAction="#btn_Edit_Action" prefHeight="25.0" prefWidth="111.0" styleClass="simple_btn" text="Επεξεργασία" />
             <Button fx:id="btn_Delete" layoutX="153.0" layoutY="424.0" mnemonicParsing="false" onAction="#btn_Delete_Action" prefHeight="25.0" prefWidth="111.0" styleClass="delete_button" text="%gnr_btn_delete" />
             <Button fx:id="btn_SaveEdited" layoutX="593.0" layoutY="424.0" mnemonicParsing="false" onAction="#btn_SaveEdited_Action" prefHeight="25.0" prefWidth="111.0" styleClass="save_button" text="%gnr_btn_Save" visible="false" />
             <Button fx:id="btn_ExportPDF" layoutX="153.0" layoutY="424.0" mnemonicParsing="false" onAction="#btn_ExportPDF_Action" prefHeight="25.0" prefWidth="111.0" styleClass="export_button" text="%gnr_btn_ExportPDF" />

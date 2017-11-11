@@ -11,12 +11,16 @@ import erpsystem.database.customers.CST_Individual;
 import erpsystem.util.system.FileManager;
 import erpsystem.database.suppliers.SPL_Companies;
 import erpsystem.database.suppliers.SPL_Individual;
+import erpsystem.entities.corpotations.Business;
 import erpsystem.util.export.pdf.admin_data.AdminCard;
+import erpsystem.util.export.pdf.business_data.BusinessCard;
 import erpsystem.util.export.pdf.contacts.ContactsTablePDF;
 import erpsystem.util.export.pdf.customers.CustomersTablePDF;
 import erpsystem.util.export.pdf.suppliers.SuppliersTablePDF;
 import erpsystem.util.system.FileManager;
 import erpsystem.util.xml.read.AdminDataParser;
+import erpsystem.util.xml.read.BusinessDataParser;
+import erpsystem.util.xml.write.BusinessData;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
@@ -122,12 +126,33 @@ public class PDFManager implements Initializable {
                          "dlg_businessData_exportpdf_title",
                          "dlg_businessData_exportpdf_header",
                          "dlg_businessData_exportpdf_message");
+            try{
+                File pdf_file = new File(new FileManager().getDocuments_business_data());
+                Desktop desktop = Desktop.getDesktop();
+                desktop.open(pdf_file);
+            }catch(IOException e){
+                e.printStackTrace();
+            }
            
         }
     }
 
     @FXML
     private void btn_BCard_Action(ActionEvent event) {
+        Business business = new BusinessDataParser(new BusinessData().get_File()).getData();
+        if(new BusinessCard().save_card(default_strings, business)){
+                Alert_dialog(Alert.AlertType.CONFIRMATION,
+                            "dlg_businessData_exportpdf_title",
+                            "dlg_businessData_exportpdf_header",
+                            "dlg_businessData_exportpdf_message");
+            try{
+                File pdf_file = new File(new FileManager().getDocuments_business_data());
+                Desktop desktop = Desktop.getDesktop();
+                desktop.open(pdf_file);
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+            }
     }
 
     @FXML

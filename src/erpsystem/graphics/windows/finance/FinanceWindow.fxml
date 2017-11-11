@@ -18,7 +18,7 @@
    <children>
       <Pane prefHeight="521.0" prefWidth="743.0" styleClass="background_panel">
          <children>
-            <Button layoutX="621.0" layoutY="482.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="108.0" text="%gnr_btn_Close" />
+            <Button layoutX="621.0" layoutY="482.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="108.0" styleClass="exit_btn" text="%gnr_btn_Close" />
             <ImageView fx:id="img_money" fitHeight="135.0" fitWidth="142.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="197.0" layoutY="14.0" prefHeight="47.0" prefWidth="507.0" text="%lbl_windowTitle">
                <font>
@@ -26,9 +26,9 @@
                </font>
             </Label>
             <Line endX="450.0" layoutX="273.0" layoutY="71.0" startX="-100.0" />
-            <ToggleButton fx:id="btn_basicInfo" layoutX="197.0" layoutY="97.0" mnemonicParsing="false" onAction="#btn_BasicInfo_Action" prefHeight="25.0" prefWidth="142.0" text="%btn_mainPage" />
-            <ToggleButton fx:id="btn_IncomePanel" layoutX="380.0" layoutY="97.0" mnemonicParsing="false" onAction="#btn_Income_Panel" prefHeight="25.0" prefWidth="142.0" text="%btn_Incomes" />
-            <ToggleButton fx:id="btn_Outcomes" layoutX="562.0" layoutY="97.0" mnemonicParsing="false" onAction="#btn_Outcomes_Action" prefHeight="25.0" prefWidth="142.0" text="%btn_Outcomes" />
+            <ToggleButton fx:id="btn_basicInfo" layoutX="197.0" layoutY="97.0" mnemonicParsing="false" onAction="#btn_BasicInfo_Action" prefHeight="25.0" prefWidth="142.0" styleClass="simple_btn" text="%btn_mainPage" />
+            <ToggleButton fx:id="btn_IncomePanel" layoutX="380.0" layoutY="97.0" mnemonicParsing="false" onAction="#btn_Income_Panel" prefHeight="25.0" prefWidth="142.0" styleClass="simple_btn" text="%btn_Incomes" />
+            <ToggleButton fx:id="btn_Outcomes" layoutX="562.0" layoutY="97.0" mnemonicParsing="false" onAction="#btn_Outcomes_Action" prefHeight="25.0" prefWidth="142.0" styleClass="simple_btn" text="%btn_Outcomes" />
             <Pane fx:id="MainPanel" layoutX="6.0" layoutY="136.0" prefHeight="335.0" prefWidth="730.0">
                <children>
                   <Label layoutX="282.0" layoutY="-1.0" text="%btn_mainPage">

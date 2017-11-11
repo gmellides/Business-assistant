@@ -126,11 +126,9 @@ public class Launcher implements Initializable {
                     }catch(IOException e){
                         e.printStackTrace();
                     }
-            }        
+        }        
         @FXML
         private void btn_Finance_Action(ActionEvent event) {
-            if (!window_check.FinanceWindow_isOpen()){
-                window_check.FinanceWindow_toggle(true);
                 try{
                     OpenWindow("finance/FinanceWindow.fxml",
                                new Dimension().Finance_window_width,
@@ -139,9 +137,6 @@ public class Launcher implements Initializable {
                 }catch(IOException e){
                     e.printStackTrace();
                 }
-            }else{
-                  
-            }
         }
         @FXML
         private void btn_mail_Action(ActionEvent event) {
@@ -238,10 +233,17 @@ public class Launcher implements Initializable {
             private void btn_pdf_Exited(MouseEvent event) {
                 img_logo.setImage(new Image(new File("resources/logo/icon.png").toURI().toString()));
             }
-
             @FXML
             private void btn_pdf_Entered(MouseEvent event) {
                 img_logo.setImage(new Image(new File("resources/images/pdf/pdf_manager.png").toURI().toString()));
+            }
+            @FXML
+            private void btn_purchase_exited(MouseEvent event) {
+                img_logo.setImage(new Image(new File("resources/logo/icon.png").toURI().toString()));
+            }
+            @FXML
+            private void btn_purchase_entered(MouseEvent event) {
+                 img_logo.setImage(new Image(new File("resources/images/purchases/purchase_manager.png").toURI().toString()));
             }
         // ====== Menu Items Action ======
             // File > View Business data
@@ -299,6 +301,17 @@ public class Launcher implements Initializable {
                     e.printStackTrace();
                }
             }
+            @FXML
+            private void mnu_About_Action(ActionEvent event) {
+                try{
+                    OpenWindow("About.fxml",
+                               549,
+                               552,
+                               default_strings.getString("lnc_MenuHelpAbout"));
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
+            }
             // File > Exit
             @FXML
             private void mnuExit_Action(ActionEvent event) {
@@ -347,5 +360,5 @@ public class Launcher implements Initializable {
             stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
             stage.show();
         }
-    // ==== END OF METHODS ===
+    // ==== END OF METHODS ===   
 }

@@ -17,11 +17,11 @@
    <children>
       <Pane prefHeight="400.0" prefWidth="600.0" styleClass="background_panel">
          <children>
-            <Button layoutX="475.0" layoutY="350.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="102.0" text="%gnr_btn_Close" />
-            <Button layoutX="73.0" layoutY="262.0" mnemonicParsing="false" onAction="#btn_NewSupplier_Action" prefHeight="25.0" prefWidth="213.0" text="%newSupplier_windowname" />
-            <Button layoutX="73.0" layoutY="298.0" mnemonicParsing="false" onAction="#btn_ShowRecords_Action" prefHeight="25.0" prefWidth="213.0" text="%searchViewSupplier_windowname" />
-            <Button layoutX="293.0" layoutY="262.0" mnemonicParsing="false" onAction="#btn_BackUp_Action" prefHeight="25.0" prefWidth="213.0" text="%gnr_btn_backUp" />
-            <Button fx:id="btn_ExportPDF" layoutX="293.0" layoutY="298.0" mnemonicParsing="false" onAction="#btn_ExportPDF_Action" prefHeight="25.0" prefWidth="213.0" text="%cmgr_btnExportPDF" />
+            <Button layoutX="475.0" layoutY="350.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="102.0" styleClass="exit_btn" text="%gnr_btn_Close" />
+            <Button layoutX="73.0" layoutY="262.0" mnemonicParsing="false" onAction="#btn_NewSupplier_Action" prefHeight="25.0" prefWidth="213.0" styleClass="simple_btn" text="%newSupplier_windowname" />
+            <Button layoutX="73.0" layoutY="298.0" mnemonicParsing="false" onAction="#btn_ShowRecords_Action" prefHeight="25.0" prefWidth="213.0" styleClass="simple_btn" text="%searchViewSupplier_windowname" />
+            <Button layoutX="293.0" layoutY="262.0" mnemonicParsing="false" onAction="#btn_BackUp_Action" prefHeight="25.0" prefWidth="213.0" styleClass="simple_btn" text="%gnr_btn_backUp" />
+            <Button fx:id="btn_ExportPDF" layoutX="293.0" layoutY="298.0" mnemonicParsing="false" onAction="#btn_ExportPDF_Action" prefHeight="25.0" prefWidth="213.0" styleClass="simple_btn" text="%cmgr_btnExportPDF" />
             <ImageView fx:id="img_supplierManager" fitHeight="131.0" fitWidth="169.0" layoutX="7.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="187.0" layoutY="20.0" text="%window_supplier_manager">
                <font>

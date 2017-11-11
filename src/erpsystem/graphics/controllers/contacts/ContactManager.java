@@ -22,6 +22,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -85,6 +86,10 @@ public class ContactManager implements Initializable {
         private void btn_ExportContacts_Action(ActionEvent event) {
            if(new ContactsTablePDF().save_file(default_strings, 
               new CNT_Database().select_contacts())){
+               Alert_dialog(Alert.AlertType.INFORMATION,
+                        "dlg_contactPDF_title",
+                        "dlg_contactPDF_header",
+                        "dlg_contactPDF_messsage");
                try{
                     File pdf_file = new File(new FileManager().getDocuments_root());
                     Desktop desktop = Desktop.getDesktop();
@@ -148,4 +153,14 @@ public class ContactManager implements Initializable {
             Stage this_window = (Stage) btnNewContact.getScene().getWindow();
             this_window.close();
         }
+        private void Alert_dialog(Alert.AlertType type,
+                                  String Title,
+                                  String Header,
+                                  String Message){
+        Alert succed_dialog = new Alert(type);
+        succed_dialog.setTitle(default_strings.getString(Title));
+        succed_dialog.setHeaderText(default_strings.getString(Header));
+        succed_dialog.setContentText(default_strings.getString(Message));
+        succed_dialog.showAndWait();   
+    }
 }

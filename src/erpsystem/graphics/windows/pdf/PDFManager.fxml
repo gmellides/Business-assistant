@@ -24,13 +24,13 @@
                </font>
             </Label>
             <Line endX="400.0" layoutX="305.0" layoutY="67.0" startX="-100.0" />
-            <Button fx:id="btn_close" layoutX="611.0" layoutY="427.0" mnemonicParsing="false" onAction="#btn_close_Action" prefHeight="25.0" prefWidth="99.0" text="Close" />
-            <Button layoutX="48.0" layoutY="197.0" mnemonicParsing="false" onAction="#btn_Customer_Action" prefHeight="43.0" prefWidth="147.0" text="%filename_customerTable_pdf" />
-            <Button layoutX="268.0" layoutY="197.0" mnemonicParsing="false" onAction="#btn_suppliers_Action" prefHeight="43.0" prefWidth="147.0" text="%filename_supplierTable_pdf" />
-            <Button layoutX="502.0" layoutY="197.0" mnemonicParsing="false" onAction="#btn_Contacts_Action" prefHeight="43.0" prefWidth="147.0" text="%lnc_btnContactManager" />
-            <Button layoutX="48.0" layoutY="283.0" mnemonicParsing="false" onAction="#btn_AdminCard_Action" prefHeight="43.0" prefWidth="147.0" text="%filename_adminCard_pdf" />
-            <Button layoutX="268.0" layoutY="282.0" mnemonicParsing="false" onAction="#btn_BCard_Action" prefHeight="43.0" prefWidth="147.0" text="%filename_businessCard_pdf" />
-            <Button layoutX="502.0" layoutY="279.0" mnemonicParsing="false" onAction="#btn_storage_Action" prefHeight="43.0" prefWidth="147.0" text="%lnc_btnStorageManager" />
+            <Button fx:id="btn_close" layoutX="586.0" layoutY="410.0" mnemonicParsing="false" onAction="#btn_close_Action" prefHeight="33.0" prefWidth="113.0" styleClass="exit_btn" text="%gnr_btn_Close" />
+            <Button layoutX="48.0" layoutY="197.0" mnemonicParsing="false" onAction="#btn_Customer_Action" prefHeight="66.0" prefWidth="161.0" styleClass="simple_btn" text="%filename_customerTable_pdf" />
+            <Button layoutX="282.0" layoutY="197.0" mnemonicParsing="false" onAction="#btn_suppliers_Action" prefHeight="66.0" prefWidth="161.0" styleClass="simple_btn" text="%filename_supplierTable_pdf" />
+            <Button layoutX="506.0" layoutY="197.0" mnemonicParsing="false" onAction="#btn_Contacts_Action" prefHeight="66.0" prefWidth="161.0" styleClass="simple_btn" text="%lnc_btnContactManager" />
+            <Button layoutX="48.0" layoutY="283.0" mnemonicParsing="false" onAction="#btn_AdminCard_Action" prefHeight="66.0" prefWidth="161.0" styleClass="simple_btn" text="%filename_adminCard_pdf" />
+            <Button layoutX="282.0" layoutY="283.0" mnemonicParsing="false" onAction="#btn_BCard_Action" prefHeight="66.0" prefWidth="161.0" styleClass="simple_btn" text="%filename_businessCard_pdf" />
+            <Button layoutX="506.0" layoutY="283.0" mnemonicParsing="false" onAction="#btn_storage_Action" prefHeight="66.0" prefWidth="161.0" styleClass="simple_btn" text="%lnc_btnStorageManager" />
          </children>
       </Pane>
    </children>

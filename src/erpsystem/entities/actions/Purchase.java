@@ -13,6 +13,9 @@ public class Purchase {
     public void setProductID(int ProductID) {
         this.ProductID = ProductID;
     }
+    public void setPrc_quantity(int prc_quantity) {
+        this.prc_quantity = prc_quantity;
+    }
     public void setPurchasePrice(float PurchasePrice) {
         this.PurchasePrice = PurchasePrice;
     }
@@ -26,6 +29,9 @@ public class Purchase {
     public int getProductID() {
         return ProductID;
     }
+    public int getPrc_quantity() {
+        return prc_quantity;
+    }
     public float getPurchasePrice() {
         return PurchasePrice;
     }
@@ -35,6 +41,7 @@ public class Purchase {
    
     private int SupplierID;
     private int ProductID;
+    private int prc_quantity;
     private float PurchasePrice;
     private String PaymentMethod;
 }
