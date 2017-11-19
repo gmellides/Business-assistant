@@ -30,7 +30,7 @@
                <font>
                   <Font size="19.0" />
                </font></Label>
-            <Button layoutX="435.0" layoutY="584.0" mnemonicParsing="false" onAction="#btn_ConfirmSale_Action" prefHeight="25.0" prefWidth="104.0" text="%btn_Confirm" />
+            <Button layoutX="435.0" layoutY="584.0" mnemonicParsing="false" onAction="#btn_ConfirmSale_Action" prefHeight="25.0" prefWidth="104.0" styleClass="save_button" text="%btn_Confirm" />
             <ComboBox fx:id="cmb_product_select" layoutX="143.0" layoutY="235.0" onAction="#cmb_selectedProduct_Action" prefHeight="25.0" prefWidth="381.0" promptText="%gnr_cmb_select" styleClass="simple_btn" />
             <Line endX="420.0" layoutX="115.0" layoutY="197.0" startX="-100.0" />
             <Label layoutX="238.0" layoutY="207.0" text="%lbl_ProductSubTitle">
@@ -62,7 +62,7 @@
             <Label fx:id="lbl_sellPrice" layoutX="143.0" layoutY="272.0" onMouseReleased="#cmb_selectedProduct_Action" prefHeight="17.0" prefWidth="62.0" text="-----" />
             <Label layoutX="350.0" layoutY="272.0" prefHeight="17.0" prefWidth="140.0" text="%lbl_paymentMethod" />
             <Label layoutX="319.0" layoutY="559.0" styleClass="background_panel" text="%lbl_Summary" />
-            <Label fx:id="lbl_finalPrice" layoutX="432.0" layoutY="559.0" prefHeight="17.0" prefWidth="94.0" text="0.00 " />
+            <Label fx:id="lbl_finalPrice" layoutX="432.0" layoutY="559.0" prefHeight="17.0" prefWidth="94.0" text="0.00€" textAlignment="CENTER" />
             <RadioButton fx:id="rdb_credit" layoutX="432.0" layoutY="303.0" mnemonicParsing="false" onAction="#rbtn_Credit_Action" text="%rbtn_credit">
                <toggleGroup>
                   <ToggleGroup fx:id="payment_method" />

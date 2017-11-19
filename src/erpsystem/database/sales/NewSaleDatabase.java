@@ -51,9 +51,9 @@ public class NewSaleDatabase extends SalesDatabase{
             return sales;
         }
         /**
-      * products to sal_prd table.
-      * @param obj 
-      */        
+        * products to sal_prd table.
+        * @param obj 
+        */        
         private void add_products(Sale obj){
         String QUERY = "INSERT INTO sal_prd(sale_id,prd_id,sal_quantity,sal_price) VALUES (?,?,?,?)";
         try{

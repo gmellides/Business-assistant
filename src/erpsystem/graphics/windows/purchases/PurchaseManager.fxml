@@ -28,8 +28,10 @@
                </font>
             </Label>
             <ImageView fx:id="prc_mgr_Imageview" fitHeight="127.0" fitWidth="135.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="255.0" layoutY="98.0" text="%cmgr_lblinfo" />
+            <Label layoutX="255.0" layoutY="113.0" text="%cmgr_lblinfo" />
             <Line endX="320.0" layoutX="259.0" layoutY="60.0" startX="-100.0" />
+            <Label layoutX="167.0" layoutY="169.0" text="%lbl_countPurchases" />
+            <Label fx:id="lbl_purchases" layoutX="316.0" layoutY="169.0" text="Label" />
          </children>
       </Pane>
    </children>

@@ -29,7 +29,7 @@
                   <Label fx:id="lbl_state" layoutX="18.0" layoutY="189.0" prefHeight="17.0" prefWidth="129.0" text="Label" />
                   <Label fx:id="lbl_city" layoutX="270.0" layoutY="103.0" prefHeight="17.0" prefWidth="189.0" text="Label" />
                   <Label fx:id="lbl_phone" layoutX="480.0" layoutY="103.0" prefHeight="17.0" prefWidth="142.0" text="Label" />
-                  <Label fx:id="lbl_IBAN" layoutX="353.0" layoutY="189.0" prefHeight="17.0" prefWidth="153.0" text="Label" />
+                  <Label fx:id="lbl_IBAN" layoutX="353.0" layoutY="189.0" prefHeight="17.0" prefWidth="300.0" text="Label" />
                   <Label fx:id="lbl_ImportDate" layoutX="18.0" layoutY="238.0" prefHeight="17.0" prefWidth="316.0" text="Label" />
                   <Label fx:id="lbl_fax" layoutX="353.0" layoutY="147.0" prefHeight="17.0" prefWidth="153.0" text="Label" />
                   <Label fx:id="lbl_name" layoutX="166.0" layoutY="14.0" prefHeight="17.0" prefWidth="437.0" text="Label" />
@@ -68,7 +68,7 @@
                   <Label layoutX="390.0" layoutY="144.0" text="%gnr_lbl_country" />
                </children>
             </Pane>
-            <Label layoutX="331.0" layoutY="14.0" text="Label">
+            <Label layoutX="174.0" layoutY="20.0" text="%window_viewSupplier">
                <font>
                   <Font size="29.0" />
                </font>
@@ -76,10 +76,10 @@
             <ImageView fx:id="view_spl_img" fitHeight="153.0" fitWidth="142.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <Line endX="450.0" layoutX="264.0" layoutY="76.0" startX="-100.0" />
             <Button fx:id="btn_close" layoutX="588.0" layoutY="420.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="122.0" styleClass="exit_btn" text="%gnr_btn_Close" />
-            <Button fx:id="btn_Save" layoutX="587.0" layoutY="417.0" mnemonicParsing="false" onAction="#btn_SaveEdited_Action" prefHeight="31.0" prefWidth="122.0" text="%gnr_btn_Save" visible="false" />
-            <Button fx:id="btn_Delete" layoutX="142.0" layoutY="420.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="129.0" text="%gnr_btn_delete" visible="false" />
-            <Button fx:id="btn_Export" layoutX="142.0" layoutY="420.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="129.0" text="%gnr_btn_ExportPDF" />
-            <ToggleButton fx:id="btn_toggle" layoutX="22.0" layoutY="420.0" mnemonicParsing="false" onAction="#btn_EditView_Toogle" prefHeight="25.0" prefWidth="100.0" text="%gnr_btn_edit" />
+            <Button fx:id="btn_Save" layoutX="587.0" layoutY="417.0" mnemonicParsing="false" onAction="#btn_SaveEdited_Action" prefHeight="31.0" prefWidth="122.0" styleClass="save_button" text="%gnr_btn_Save" visible="false" />
+            <Button fx:id="btn_Delete" layoutX="142.0" layoutY="420.0" mnemonicParsing="false" onAction="#btn_Delete_Action" prefHeight="25.0" prefWidth="129.0" styleClass="delete_button" text="%gnr_btn_delete" visible="false" />
+            <Button fx:id="btn_Export" layoutX="142.0" layoutY="420.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="129.0" styleClass="export_button" text="%gnr_btn_ExportPDF" />
+            <ToggleButton fx:id="btn_toggle" layoutX="22.0" layoutY="420.0" mnemonicParsing="false" onAction="#btn_EditView_Toogle" prefHeight="25.0" prefWidth="100.0" styleClass="simple_btn" text="%gnr_btn_edit" />
          </children>
       </Pane>
    </children>

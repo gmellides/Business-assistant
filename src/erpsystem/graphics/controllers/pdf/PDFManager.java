@@ -8,7 +8,7 @@ package erpsystem.graphics.controllers.pdf;
 import erpsystem.database.contacts.CNT_Database;
 import erpsystem.database.customers.CST_Companies;
 import erpsystem.database.customers.CST_Individual;
-import erpsystem.util.system.FileManager;
+import erpsystem.database.storage.StorageView;
 import erpsystem.database.suppliers.SPL_Companies;
 import erpsystem.database.suppliers.SPL_Individual;
 import erpsystem.entities.corpotations.Business;
@@ -16,6 +16,7 @@ import erpsystem.util.export.pdf.admin_data.AdminCard;
 import erpsystem.util.export.pdf.business_data.BusinessCard;
 import erpsystem.util.export.pdf.contacts.ContactsTablePDF;
 import erpsystem.util.export.pdf.customers.CustomersTablePDF;
+import erpsystem.util.export.pdf.storage.StorageTablePDF;
 import erpsystem.util.export.pdf.suppliers.SuppliersTablePDF;
 import erpsystem.util.system.FileManager;
 import erpsystem.util.xml.read.AdminDataParser;
@@ -90,6 +91,24 @@ public class PDFManager implements Initializable {
                }
         }
         @FXML
+        private void btn_storage_Action(ActionEvent event) {
+            if(new StorageTablePDF().save_file(default_strings,
+                                                new StorageView().select_products())){
+                Alert_dialog(Alert.AlertType.INFORMATION,
+                        "dlg_customerTableSaved_title",
+                        "dlg_customerTableSaved_header",
+                        "dlg_customerTableSaved_message");
+                try{
+                    File pdf_file = new File(new FileManager().getDocuments_root());
+                    Desktop desktop = Desktop.getDesktop();
+                    desktop.open(pdf_file);
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
+            }
+
+        }
+        @FXML
         private void btn_suppliers_Action(ActionEvent event) {
             if (new SuppliersTablePDF().save_file(default_strings, 
                                                       new SPL_Individual().select_suppliers(),
@@ -155,7 +174,5 @@ public class PDFManager implements Initializable {
             }
     }
 
-    @FXML
-    private void btn_storage_Action(ActionEvent event) {
-    }
+    
 }

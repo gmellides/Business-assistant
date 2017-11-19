@@ -35,9 +35,11 @@ public class AdminData {
                 AdminXML = new File(workspace.getApp_data_admin()+"/admin_data.xml");
                 if (!AdminXML.exists()){
                     create_xml(input);
+                    flag = true;
                 }else{
                     AdminXML.delete();
                     create_xml(input);
+                    flag = true;
                 }
             return flag;
         }

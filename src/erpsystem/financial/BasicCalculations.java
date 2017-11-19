@@ -11,12 +11,12 @@ public class BasicCalculations {
         return sell_price - purc_price;
     }
 
-    public float calc_sell_price(int VAT,float purc_price,float prefered_profit){
-        float vat_number = (VAT/100)+1;
-        return (purc_price+prefered_profit)*vat_number;
+    public double calc_sell_price(int VAT,double purc_price,double prefered_profit){
+        double vat = (VAT/100.0)+1.0;
+        return (purc_price+prefered_profit)*vat;
     }
     
-    public float calc_purchase_cost(int Quantity,float PurchasePrice){
+    public double calc_purchase_cost(int Quantity,double PurchasePrice){
         return Quantity*PurchasePrice;
     }
 }

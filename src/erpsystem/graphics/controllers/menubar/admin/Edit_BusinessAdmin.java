@@ -16,6 +16,8 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
@@ -42,12 +44,15 @@ public class Edit_BusinessAdmin implements Initializable {
     @FXML
     private TextArea txt_Description;
 
+    private ResourceBundle default_strings;
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         workspace = new FileManager();
+        default_strings = rb;
         if(init_window()){
             if(new File(workspace.getApp_data_admin()+"/admin_data.xml").exists()){
                 admin_xml = new AdminDataParser(new File(workspace.getApp_data_admin()+"/admin_data.xml"));
@@ -59,29 +64,30 @@ public class Edit_BusinessAdmin implements Initializable {
     // ===== FXML Buttons Action =====
         @FXML
         private void btn_Save_Action(ActionEvent event) {
-            if (check_fields()){
-                BusinessAdmin obj = new BusinessAdmin(txt_FirstName.getText(),
-                                                      txt_LastName.getText(),
-                                                      dtp_Birthdate.getValue(),
-                                                      cmb_Sex.getSelectionModel().getSelectedItem(),
-                                                      txt_Address.getText(),
-                                                      Integer.parseInt(txt_ZipCode.getText()),
-                                                      cmb_City.getSelectionModel().getSelectedItem(),
-                                                      txt_Phone1.getText(),
-                                                      txt_Phone2.getText(),
-                                                      txt_Description.getText(),
-                                                      txt_TaxReg.getText(),
-                                                      txtMail.getText());
-                admin_xml_creator = new AdminData();
-                if(admin_xml_creator.save_data(obj)){
-                    // Success Dialog
-                }
-            }
+            BusinessAdmin obj = new BusinessAdmin(txt_FirstName.getText(),
+                                                  txt_LastName.getText(),
+                                                  dtp_Birthdate.getValue(),
+                                                  cmb_Sex.getSelectionModel().getSelectedItem(),
+                                                  txt_Address.getText(),
+                                                  Integer.parseInt(txt_ZipCode.getText()),
+                                                  cmb_City.getSelectionModel().getSelectedItem(),
+                                                  txt_Phone1.getText(),
+                                                  txt_Phone2.getText(),
+                                                  txt_Description.getText(),
+                                                  txt_TaxReg.getText(),
+                                                  txtMail.getText());
+            admin_xml_creator = new AdminData();
+            if(admin_xml_creator.save_data(obj)){
+                Alert_dialog(AlertType.INFORMATION,
+                             "",
+                             "",
+                             "");
+                close_window();
+            }  
         }
         @FXML
         private void btn_Close_Action(ActionEvent event) {
-            Stage this_stage = (Stage) background_pane.getScene().getWindow();
-            this_stage.close();
+            close_window();
         }
         @FXML
         private void ZipCode_Validation(KeyEvent event) {
@@ -93,7 +99,10 @@ public class Edit_BusinessAdmin implements Initializable {
              }
         }
     // ===============================
-    
+    public void close_window(){
+        Stage this_stage = (Stage) background_pane.getScene().getWindow();
+        this_stage.close();
+    }
     
     
     public boolean init_window(){
@@ -113,20 +122,6 @@ public class Edit_BusinessAdmin implements Initializable {
             } 
         return flag;
     } 
-    private boolean check_fields(){
-        boolean flag = false;
-            TextField[] fields = {txt_FirstName,txt_LastName,txt_Address,
-                                  txt_ZipCode,txt_TaxReg,txt_Phone1,
-                                  txt_Phone2,txtMail};
-            for (TextField item : fields){
-                if (item.getText() == null){
-                    flag = false;
-                    break;
-                }
-            }
-            
-        return flag;
-    }
     
     
     private boolean put_data(BusinessAdmin admin){
@@ -149,7 +144,16 @@ public class Edit_BusinessAdmin implements Initializable {
             
         return flag;
     }
-    
+    private void Alert_dialog(Alert.AlertType type,
+                                  String Title,
+                                  String Header,
+                                  String Message){
+        Alert succed_dialog = new Alert(type);
+        succed_dialog.setTitle(default_strings.getString(Title));
+        succed_dialog.setHeaderText(default_strings.getString(Header));
+        succed_dialog.setContentText(default_strings.getString(Message));
+        succed_dialog.showAndWait();   
+    }
     private FileManager workspace;
     private ComboBoxDataParser comboData;
     private AdminData admin_xml_creator;   

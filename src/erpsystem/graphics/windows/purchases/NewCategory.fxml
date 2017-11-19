@@ -15,7 +15,7 @@
    <children>
       <Pane prefHeight="190.0" prefWidth="368.0" styleClass="background_panel">
          <children>
-            <Button layoutX="240.0" layoutY="151.0" mnemonicParsing="false" onAction="#btn_saveCategory_Action" prefHeight="25.0" prefWidth="114.0" text="%gnr_btn_Save" />
+            <Button layoutX="240.0" layoutY="151.0" mnemonicParsing="false" onAction="#btn_saveCategory_Action" prefHeight="25.0" prefWidth="114.0" styleClass="save_button" text="%gnr_btn_Save" />
             <Label layoutX="76.0" layoutY="14.0" text="%lbl_newCategoryTitle">
                <font>
                   <Font size="25.0" />

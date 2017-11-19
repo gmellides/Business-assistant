@@ -18,6 +18,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -78,20 +79,29 @@ public class ViewCustomer implements Initializable {
      */
         @FXML
         private void btn_Delete_Action(ActionEvent event) {
-            if (new CST_View().delete_customer(isCompany,customerID)){
-                //Alert_dialog();
+            if (new CST_View().delete_customer(customerID)){
+                Alert_dialog(AlertType.INFORMATION,
+                        "dlg_customerDelete_title",
+                        "dlg_customerDelete_header",
+                        "dlg_customerDelete_message");
             }
         }
         @FXML
         private void btn_SaveEdited_Action(ActionEvent event) {
            if (!isCompany){
                if (new CST_View().update_customer_individual(customerID, get_cst_obj())){
-                   // alert
+                   Alert_dialog(AlertType.INFORMATION,
+                        "dlg_UpdateEntry_title",
+                        "dlg_UpdateEntry_header",
+                        "dlg_UpdateEntry_message");
                    close_window();
                }
            }else{
                if (new CST_View().update_customer_company(customerID, get_cmp_obj())){
-                   // alert
+                   Alert_dialog(AlertType.INFORMATION,
+                        "dlg_UpdateEntry_title",
+                        "dlg_UpdateEntry_header",
+                        "dlg_UpdateEntry_message");
                    close_window();
                }
            }
@@ -99,7 +109,10 @@ public class ViewCustomer implements Initializable {
         @FXML
         private void btn_ExportPDF_Action(ActionEvent event) {
             if (new CustomerPDF().save_pdf(default_strings, clicked_row)){
-                // alert needed
+                Alert_dialog(AlertType.INFORMATION,
+                        "dlg_customerPDF_title",
+                        "dlg_customerPDF_header",
+                        "dlg_customerPDF_message");
             }
         }
         @FXML
@@ -267,10 +280,10 @@ public class ViewCustomer implements Initializable {
                               String Title,
                               String Header,
                               String Message){
-        Alert succed_dialog = new Alert(type);
-        succed_dialog.setTitle(default_strings.getString(Title));
-        succed_dialog.setHeaderText(default_strings.getString(Header));
-        succed_dialog.setContentText(default_strings.getString(Message));
-        succed_dialog.showAndWait();   
-    }
+            Alert succed_dialog = new Alert(type);
+            succed_dialog.setTitle(default_strings.getString(Title));
+            succed_dialog.setHeaderText(default_strings.getString(Header));
+            succed_dialog.setContentText(default_strings.getString(Message));
+            succed_dialog.showAndWait();   
+        }
 }

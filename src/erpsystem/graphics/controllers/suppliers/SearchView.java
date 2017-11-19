@@ -151,8 +151,8 @@ public class SearchView implements Initializable {
             FXMLLoader fxml_loader = new FXMLLoader();
             fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
             Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/suppliers/ViewSupplier.fxml").openStream());
-            ViewSupplier d = fxml_loader.getController();
-            d.set_window(isCompany,input);                            
+            ViewSupplier controller = fxml_loader.getController();
+            controller.set_window(isCompany,input);                            
             Stage stage = new Stage();
             Scene scene = new Scene(root);
             stage.setHeight(Height);

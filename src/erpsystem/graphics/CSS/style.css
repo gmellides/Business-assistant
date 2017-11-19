@@ -15,44 +15,52 @@ and open the template in the editor.
 /* Button Style & Hover Effect*/
     .simple_btn{
         -fx-background-color: white;
-        /* -fx-border-color: #006699; */
         -fx-border-color: #2098A4;
         -fx-border-width: 2px;
         -fx-border-radius: 10px;
     }
     .simple_btn:hover{   
         -fx-background-color: white;
-        /* -fx-border-color: #ff9933; */
-        -fx-border-color: #006699; 
-        -fx-border-width: 2px;
+        -fx-border-color: #2098A4; 
+        -fx-border-width: 3px;
         -fx-border-radius: 10px;
     }
     .delete_button{
-        -fx-background-color: #ff6666;
-        -fx-text-fill: white;
+       -fx-background-color: white;
+       -fx-border-color: #ff3333; 
+        -fx-border-width: 2px;
+        -fx-border-radius: 10px;
         
     }
     .delete_button:hover{
-        -fx-background-color: #ff9999;
-        -fx-text-fill: white;
-        
+       -fx-background-color: white;
+        -fx-border-color: #ff3333; 
+        -fx-border-width: 3px;
+        -fx-border-radius: 10px;
     }
     .export_button{
-        -fx-background-color: #6699ff;
-        -fx-text-fill: white;
+        -fx-background-color: white;
+        -fx-border-color: #6699ff;
+        -fx-border-width: 2px;
+        -fx-border-radius: 10px;
     }
     .export_button:hover{
-        -fx-background-color: #9999ff;
-        -fx-text-fill: white;
+        -fx-background-color: white;
+        -fx-border-color: #6699ff;
+        -fx-border-width: 3px;
+        -fx-border-radius: 10px;
     }
     .save_button{
-        -fx-background-color:#669900;
-        -fx-text-fill: white;
-         
+      -fx-background-color: white;
+      -fx-border-color: #006600;
+        -fx-border-width: 1px;
+        -fx-border-radius: 10px;
     }
     .save_button:hover{
-        -fx-background-color: #99ff99;
-        -fx-text-fill: white;
+        -fx-background-color: white;
+        -fx-border-color: #006600;
+        -fx-border-width: 2px;
+        -fx-border-radius: 10px;
     }
 /* Exit Button Style & Hover Effect */
     .exit_btn{

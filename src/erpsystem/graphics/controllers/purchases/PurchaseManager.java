@@ -5,6 +5,7 @@
  */
 package erpsystem.graphics.controllers.purchases;
 
+import erpsystem.database.purchases.PRC_Database;
 import erpsystem.util.system.Dimension;
 import java.io.File;
 import java.io.IOException;
@@ -18,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -31,6 +33,8 @@ public class PurchaseManager implements Initializable {
     private ImageView prc_mgr_Imageview;
     
     private ResourceBundle default_strings;
+    @FXML
+    private Label lbl_purchases;
     /**
      * Initializes the controller class.
      */
@@ -38,6 +42,7 @@ public class PurchaseManager implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         default_strings = rb;
         prc_mgr_Imageview.setImage(new Image(new File("resources/images/purchases/purchase_manager.png").toURI().toString()));
+        lbl_purchases.setText(String.valueOf(new PRC_Database().count_purchases()));
     }
 
         @FXML

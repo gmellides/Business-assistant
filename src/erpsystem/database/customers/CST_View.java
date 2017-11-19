@@ -68,7 +68,7 @@ public class CST_View extends CST_Database{
         }
         return true;
     }
-    public boolean delete_customer(boolean isCompany,int id){
+    public boolean delete_customer(int id){
         try{
             Connect();
             prepared_statement = connection.prepareStatement("DELETE FROM customer WHERE cst_id = ?");

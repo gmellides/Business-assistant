@@ -9,6 +9,7 @@ import erpsystem.database.finance.FinanceSale;
 import erpsystem.database.sales.ReceiptDatabase;
 import erpsystem.database.sales.SAL_View;
 import erpsystem.util.export.pdf.sales.ReceiptPDF;
+import java.io.File;
 import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -20,6 +21,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.MapValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class SaleInfo implements Initializable {
@@ -37,6 +40,8 @@ public class SaleInfo implements Initializable {
     private int Id;
     @FXML
     private Button btn_Paid;
+    @FXML
+    private ImageView saleInfo_img;
 
     /**
      * Initializes the controller class.
@@ -44,6 +49,7 @@ public class SaleInfo implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         bundle = rb;
+        saleInfo_img.setImage(new Image(new File("resources/images/sales/show_sale.png").toURI().toString()));
     }    
     
     public void init_window(int saleID){

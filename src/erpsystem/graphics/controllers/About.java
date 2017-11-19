@@ -34,7 +34,7 @@ public class About implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       icon_img.setImage(new Image(new File("resources/logo/new_icon.png").toURI().toString()));
+       icon_img.setImage(new Image(new File("resources/logo/icon.png").toURI().toString()));
     }    
 
     @FXML

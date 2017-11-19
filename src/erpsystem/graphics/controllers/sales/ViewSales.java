@@ -54,7 +54,7 @@ public class ViewSales implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         default_strings = rb;
         table_fill();
-        show_sales_img.setImage(new Image(new File("resources/images/sales/show_sale.png").toURI().toString()));
+        show_sales_img.setImage(new Image(new File("resources/images/sales/sales.png").toURI().toString()));
     }    
         @FXML
     private void btn_Sales_ind_Action(ActionEvent event) {
@@ -132,8 +132,8 @@ public class ViewSales implements Initializable {
             FXMLLoader fxml_loader = new FXMLLoader();
             fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
             Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/sales/SaleInfo.fxml").openStream());
-            SaleInfo d = fxml_loader.getController();
-            d.init_window(input);                            
+            SaleInfo controller = fxml_loader.getController();
+            controller.init_window(input);                            
             Stage stage = new Stage();
             Scene scene = new Scene(root);
             stage.setHeight(Height);

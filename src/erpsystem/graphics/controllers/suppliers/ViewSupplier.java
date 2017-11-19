@@ -5,6 +5,9 @@
  */
 package erpsystem.graphics.controllers.suppliers;
 
+import erpsystem.database.suppliers.SPL_View;
+import erpsystem.entities.corpotations.SupplierCompany;
+import erpsystem.entities.people.Supplier;
 import erpsystem.util.xml.read.ComboBoxDataParser;
 import java.io.File;
 import java.net.URL;
@@ -13,6 +16,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -46,6 +50,8 @@ public class ViewSupplier implements Initializable {
     
     private ResourceBundle default_strings;
     private Map clicked_row;
+    private boolean isCompany;
+    private int ID;
     
     /**
      * Initializes the controller class.
@@ -57,6 +63,8 @@ public class ViewSupplier implements Initializable {
     }
     public void set_window(boolean isCompany,Map input){
         clicked_row = input;
+        ID = Integer.parseInt((String)clicked_row.get("spl_id"));
+        this.isCompany = isCompany;
         if (isCompany){
            set_splCompany_View();
            set_splCompany_Edit();
@@ -67,26 +75,77 @@ public class ViewSupplier implements Initializable {
     } 
     @FXML
     private void btn_SaveEdited_Action(ActionEvent event) {
+        if (isCompany){
+            if(new SPL_View().update_supplier_cmp(ID, get_UpdatedSPL_cmp())){
+            Alert_dialog(Alert.AlertType.INFORMATION,
+                        "dlg_UpdateEntry_title",
+                        "dlg_UpdateEntry_header",
+                        "dlg_UpdateEntry_message");
+            }
+            close_window();
+        }else{
+            if(new SPL_View().update_supplier_ind(ID, get_UpdatedSPL_ind())){
+                Alert_dialog(Alert.AlertType.INFORMATION,
+                        "dlg_UpdateEntry_title",
+                        "dlg_UpdateEntry_header",
+                        "dlg_UpdateEntry_message");
+            }
+            close_window();
+        }
     }
     @FXML
     private void btn_Close_Action(ActionEvent event) {
         close_window();
     }
+    private Supplier get_UpdatedSPL_ind(){
+        Supplier spl = new Supplier();
+            spl.setFirstName(txt_edt_name.getText());
+            spl.setLastName(txt_edt_lastname.getText());
+            spl.setAddress(txt_edt_address.getText());
+            spl.setZipcode(Integer.parseInt(txt_edt_zipcode.getText()));
+            spl.setCity(cmb_edt_city.getSelectionModel().getSelectedItem());
+            spl.setSex(cmb_edt_sex.getSelectionModel().getSelectedItem());
+            spl.setState(cmb_edt_state.getSelectionModel().getSelectedItem());
+            spl.setSupplier_Type(cmb_edt_splType.getSelectionModel().getSelectedItem());
+            spl.setCountry(cmb_edt_country.getSelectionModel().getSelectedItem());
+            spl.setPhone(txt_edt_phone.getText());
+            spl.setFax(txt_edt_fax.getText());
+            spl.setMail(txt_edt_mail.getText());
+            spl.setBank(txt_edt_bank.getText());
+            spl.setIBAN(txt_edt_IBAN.getText());
+        return spl;
+    }
+    public SupplierCompany get_UpdatedSPL_cmp(){
+        SupplierCompany spl = new SupplierCompany();
+            spl.setAddress(txt_edt_address.getText());
+            spl.setCompanyName(txt_edt_name.getText());
+            spl.setBank(txt_edt_bank.getText());
+            spl.setCity(cmb_edt_city.getSelectionModel().getSelectedItem());
+            spl.setCountry(cmb_edt_country.getSelectionModel().getSelectedItem());
+            spl.setFax(txt_edt_fax.getText());
+            spl.setIBAN(txt_edt_IBAN.getText());
+            spl.setMail(txt_edt_mail.getText());
+            spl.setPhone(txt_edt_phone.getText());
+            spl.setSupplierType(cmb_edt_splType.getSelectionModel().getSelectedItem());
+            spl.setState(cmb_edt_state.getSelectionModel().getSelectedItem());
+            spl.setZipCode(Integer.parseInt(txt_edt_zipcode.getText()));
+        return spl;
+    }
     @FXML
     private void btn_EditView_Toogle(ActionEvent event) {
-        if (btn_toggle.isSelected()){
-            btn_Delete.setVisible(true);
-                btn_Save.setVisible(true);
-                btn_close.setVisible(false);
-                btn_Export.setVisible(false);
-                ViewPanel.setVisible(false);
-                EditPanel.setVisible(true);
-            btn_toggle.setText(default_strings.getString("gnr_btn_view"));
-        }else{
+        if (!btn_toggle.isSelected()){
             btn_Delete.setVisible(false);
                 btn_Save.setVisible(false);
                 btn_close.setVisible(true);
                 btn_Export.setVisible(true);
+                ViewPanel.setVisible(false);
+                EditPanel.setVisible(true);
+            btn_toggle.setText(default_strings.getString("gnr_btn_view"));
+        }else{
+            btn_Delete.setVisible(true);
+                btn_Save.setVisible(true);
+                btn_close.setVisible(false);
+                btn_Export.setVisible(false);
                 ViewPanel.setVisible(true);
                 EditPanel.setVisible(false);
             btn_toggle.setText(default_strings.getString("gnr_btn_edit")); 
@@ -107,7 +166,7 @@ public class ViewSupplier implements Initializable {
                 item.setText(default_strings.getString(Lable_text[index])+" "+String.valueOf(clicked_row.get(Data[index])));
                 index++;
             }
-            System.out.println(Person_key);
+
         }
         private void set_splIndividual_Edit(){
             try{
@@ -181,5 +240,20 @@ public class ViewSupplier implements Initializable {
     private void close_window(){
         Stage window = (Stage) lbl_name.getScene().getWindow();
         window.close();
+    }
+    private void Alert_dialog(Alert.AlertType type,
+                              String Title,
+                              String Header,
+                              String Message){
+        Alert succed_dialog = new Alert(type);
+        succed_dialog.setTitle(default_strings.getString(Title));
+        succed_dialog.setHeaderText(default_strings.getString(Header));
+        succed_dialog.setContentText(default_strings.getString(Message));
+        succed_dialog.showAndWait();   
+    }
+
+    @FXML
+    private void btn_Delete_Action(ActionEvent event) {
+        new SPL_View().delete_supplier(ID);
     }
 }

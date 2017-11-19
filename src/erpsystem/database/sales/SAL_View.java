@@ -12,19 +12,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class SAL_View extends SalesDatabase{
-    /*
-     String Query = "SELECT sales.sale_id,customer.cst_name,customer.cst_lastname,"
-                     + "customer.cst_phone,sales.sal_paymentMethod,sales.sal_finalPrice,"
-                     + "sales.sal_date"
-                     + "FROM ((sales"
-                     + "INNER JOIN customer ON sales.cst_id=customer.cst_id)"
-                     + "WHERE customer.cst_isCompany=0;)";
-    
-    SELECT sales.sale_id,customer.cst_name,customer.cst_lastname,
-customer.cst_phone,sales.sal_paymentMethod,sales.sal_finalPrice,
-sales.sal_date
-FROM sales,customer WHERE customer.cst_isCompany = 0;
-    */
+
     public ObservableList<Map> select_sales(){
         ObservableList<Map> table_data = FXCollections.observableArrayList();
         String Query = "SELECT sales.[sale_id],customer.[cst_name],customer.[cst_lastname],"
@@ -92,7 +80,7 @@ FROM sales,customer WHERE customer.cst_isCompany = 0;
                      + "FROM sales "
                      + "INNER JOIN [customer] ON sales.cst_id = customer.cst_id "
                      + "WHERE sales.sale_id = "+id;
-        try{
+            try{
                 Connect();
                 statement = connection.createStatement();
                 rs = statement.executeQuery(Query);

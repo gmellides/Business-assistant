@@ -17,7 +17,7 @@
    <children>
       <Pane prefHeight="596.0" prefWidth="485.0" styleClass="background_panel">
          <children>
-            <Button layoutX="383.0" layoutY="557.0" mnemonicParsing="false" onAction="#btn_confirmSale_Action" prefHeight="25.0" prefWidth="91.0" text="%btn_Confirm" />
+            <Button layoutX="383.0" layoutY="557.0" mnemonicParsing="false" onAction="#btn_confirmSale_Action" prefHeight="25.0" prefWidth="91.0" styleClass="save_button" text="%btn_Confirm" />
             <Button layoutX="14.0" layoutY="557.0" mnemonicParsing="false" onAction="#btn_Close_Action" prefHeight="25.0" prefWidth="91.0" styleClass="exit_btn" text="%gnr_btn_Close" />
             <ImageView fx:id="newPrc_img" fitHeight="111.0" fitWidth="130.0" layoutX="5.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="155.0" layoutY="14.0" text="%bnt_newPurchase">
@@ -51,7 +51,7 @@
             <TextField fx:id="txt_PurchasePrice" layoutX="115.0" layoutY="412.0" onKeyReleased="#txt_PurchasePrice_KeyRelease" prefHeight="25.0" prefWidth="107.0" />
             <Label layoutX="31.0" layoutY="451.0" text="%lbl_preferedProfit" />
             <Label layoutX="258.0" layoutY="416.0" text="%lbl_VAT" />
-            <TextField fx:id="txt_VAT" layoutX="324.0" layoutY="412.0" onKeyReleased="#txt_VAT_KeyReleased" prefHeight="25.0" prefWidth="91.0" text="24" />
+            <TextField fx:id="txt_VAT" layoutX="324.0" layoutY="412.0" onKeyReleased="#txt_VAT_KeyReleased" prefHeight="25.0" prefWidth="72.0" />
             <Label layoutX="30.0" layoutY="242.0" text="%lbl_productDescription" />
             <TextArea fx:id="txt_ProductDesc" layoutX="144.0" layoutY="242.0" prefHeight="71.0" prefWidth="327.0" />
             <TextField fx:id="txt_PreferedProfit" layoutX="146.0" layoutY="447.0" onKeyReleased="#txt_PreferedProfit_KeyReleased" prefHeight="25.0" prefWidth="132.0" />
@@ -59,7 +59,7 @@
             <Label layoutX="34.0" layoutY="490.0" text="%lbl_sellPrice" />
             <TextField fx:id="txt_SellPrice" layoutX="129.0" layoutY="486.0" prefHeight="25.0" prefWidth="132.0" />
             <Label layoutX="258.0" layoutY="530.0" text="%lbl_purchaceCost" />
-            <Label fx:id="lbl_PurchaseCost" layoutX="399.0" layoutY="530.0" prefHeight="17.0" prefWidth="72.0" text="Label" />
+            <Label fx:id="lbl_PurchaseCost" layoutX="399.0" layoutY="530.0" prefHeight="17.0" prefWidth="72.0" text="0.00€" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="35.0" layoutX="22.0" layoutY="360.0" stroke="BLACK" strokeType="INSIDE" width="334.0" />
             <Label layoutX="29.0" layoutY="369.0" text="%lbl_paymentMethod" />
             <RadioButton fx:id="rbtn_debit" layoutX="162.0" layoutY="369.0" mnemonicParsing="false" text="%rbtn_Debit">
@@ -67,6 +67,7 @@
                   <ToggleGroup fx:id="payment_method" />
                </toggleGroup></RadioButton>
             <RadioButton fx:id="rbtn_credit" layoutX="256.0" layoutY="369.0" mnemonicParsing="false" text="%rbtn_credit" toggleGroup="$payment_method" />
+            <Label layoutX="405.0" layoutY="416.0" text="\%" />
          </children>
       </Pane>
    </children>

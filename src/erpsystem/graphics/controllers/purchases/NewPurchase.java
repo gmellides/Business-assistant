@@ -58,8 +58,8 @@ public class NewPurchase implements Initializable {
     
     private ResourceBundle default_strings;
     private int Quantity;
-    private float PurchasePrice;
-    private float PreferedProfit;
+    private double PurchasePrice;
+    private double PreferedProfit;
     private int VAT;
     @FXML
     private ImageView newPrc_img;
@@ -72,6 +72,8 @@ public class NewPurchase implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         default_strings = rb;
+        txt_VAT.setText("24");
+        VAT = Integer.parseInt(txt_VAT.getText());
         init_window();
     }    
 
@@ -106,8 +108,9 @@ public class NewPurchase implements Initializable {
 
     @FXML
     private void txt_PurchasePrice_KeyRelease(KeyEvent event) {
-        PurchasePrice = Float.parseFloat(txt_PurchasePrice.getText());
+        PurchasePrice = Double.parseDouble(txt_PurchasePrice.getText());
         lbl_PurchaseCost.setText(String.valueOf(new BasicCalculations().calc_purchase_cost(Quantity,PurchasePrice))+"€");
+        
     }
     @FXML
     private void txt_VAT_KeyReleased(KeyEvent event) {
@@ -118,7 +121,7 @@ public class NewPurchase implements Initializable {
     @FXML
     private void txt_PreferedProfit_KeyReleased(KeyEvent event) {
         VAT = Integer.parseInt(txt_VAT.getText());
-        PreferedProfit = Float.parseFloat(txt_PreferedProfit.getText());
+        PreferedProfit = Double.parseDouble(txt_PreferedProfit.getText());
         txt_SellPrice.setText(String.valueOf(new BasicCalculations().calc_sell_price(VAT, PurchasePrice, PreferedProfit)));
     }
 

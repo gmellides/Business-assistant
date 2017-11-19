@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="467.0" prefWidth="724.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erpsystem.graphics.controllers.purchases.PurchaseInfo">
+    <stylesheets>
+        <URL value="@/erpsystem/graphics/CSS/style.css" />
+    </stylesheets>
+   <children>
+      <Pane prefHeight="467.0" prefWidth="724.0" styleClass="background_panel">
+         <children>
+            <ImageView fx:id="prcInfo_img" fitHeight="148.0" fitWidth="157.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="226.0" layoutY="14.0" text="%lbl_PurchaseInfo_win">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Line endX="423.0" layoutX="285.0" layoutY="74.0" startX="-100.0" />
+            <Label layoutX="293.0" layoutY="88.0" text="%window_viewSupplier">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></Label>
+            <Label layoutX="266.0" layoutY="281.0" text="%lbl_productSubTitle">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></Label>
+            <Button layoutX="621.0" layoutY="428.0" mnemonicParsing="false" onAction="#btn_close_Action" prefHeight="25.0" prefWidth="88.0" styleClass="exit_btn" text="%gnr_btn_Close" />
+            <Label fx:id="lbl_name_txt" layoutX="226.0" layoutY="135.0" text="%gnr_lbl_firstname" />
+            <Label fx:id="lbl_name" layoutX="273.0" layoutY="135.0" text="Label" />
+            <Label fx:id="lbl_lastname_txt" layoutX="418.0" layoutY="135.0" text="%gnr_lbl_lastname" />
+            <Label fx:id="lbl_lastname" layoutX="498.0" layoutY="135.0" text="Label" />
+            <Label layoutX="27.0" layoutY="171.0" text="%gnr_lbl_phone" />
+            <Label fx:id="lbl_phone" layoutX="93.0" layoutY="171.0" text="Label" />
+            <Label layoutX="226.0" layoutY="171.0" text="%gnr_lbl_fax" />
+            <Label fx:id="lbl_fax" layoutX="273.0" layoutY="171.0" text="Label" />
+            <Label layoutX="418.0" layoutY="171.0" text="%gnr_lbl_mail" />
+            <Label fx:id="lbl_mail" layoutX="477.0" layoutY="171.0" text="Label" />
+            <Label layoutX="27.0" layoutY="209.0" text="%gnr_lbl_address" />
+            <Label fx:id="lbl_address" layoutX="93.0" layoutY="209.0" text="Label" />
+            <Label layoutX="226.0" layoutY="209.0" text="%gnr_lbl_city" />
+            <Label fx:id="lbl_city" layoutX="273.0" layoutY="209.0" text="Label" />
+            <Label fx:id="lbl_state" layoutX="471.0" layoutY="209.0" text="Label" />
+            <Label layoutX="416.0" layoutY="209.0" text="%gnr_lbl_state" />
+            <Label layoutX="590.0" layoutY="209.0" text="%gnr_lbl_zipcode" />
+            <Label fx:id="lbl_zipcode" layoutX="631.0" layoutY="209.0" text="Label" />
+            <Label layoutX="27.0" layoutY="248.0" text="%lbl_bankName" />
+            <Label fx:id="lbl_bank" layoutX="93.0" layoutY="248.0" text="Label" />
+            <Label layoutX="227.0" layoutY="248.0" text="%lbl_IBAN" />
+            <Label fx:id="lbl_IBAN" layoutX="266.0" layoutY="248.0" prefHeight="17.0" prefWidth="132.0" />
+            <Label fx:id="lbl_supplierType" layoutX="542.0" layoutY="248.0" text="Label" />
+            <Label layoutX="415.0" layoutY="248.0" prefHeight="17.0" prefWidth="111.0" text="%lbl_supplierType" />
+            <Label layoutX="33.0" layoutY="312.0" text="%lbl_productName" />
+            <Label layoutX="34.0" layoutY="339.0" text="%lbl_productDescription" />
+            <Label layoutX="319.0" layoutY="312.0" text="%lbl_quantity" />
+            <Label fx:id="lbl_quantity" layoutX="388.0" layoutY="312.0" text="Label" />
+            <Label fx:id="lbl_prdName" layoutX="139.0" layoutY="312.0" text="Label" />
+            <Label layoutX="511.0" layoutY="312.0" text="%lbl_productCategory" />
+            <Label fx:id="lbl_category" layoutX="586.0" layoutY="312.0" text="Label" />
+            <Label fx:id="lbl_prdDescription" alignment="TOP_LEFT" layoutX="104.0" layoutY="339.0" prefHeight="57.0" prefWidth="157.0" text="Label" wrapText="true" />
+            <Label layoutX="319.0" layoutY="339.0" text="%lbl_purchasePrice" />
+            <Label fx:id="lbl_prcPrice" layoutX="401.0" layoutY="339.0" text="Label" />
+            <Label layoutX="511.0" layoutY="339.0" text="%lbl_sellPrice" />
+            <Label fx:id="lbl_sellPrice" layoutX="600.0" layoutY="339.0" text="Label" />
+            <Label layoutX="319.0" layoutY="370.0" text="%lbl_paymentMethod" />
+            <Label fx:id="lbl_paymentMethod" layoutX="433.0" layoutY="370.0" text="Label" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

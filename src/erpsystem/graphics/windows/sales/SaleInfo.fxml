@@ -23,7 +23,7 @@
                </font>
             </Label>
             <Line endX="400.0" layoutX="301.0" layoutY="65.0" startX="-100.0" />
-            <ImageView fitHeight="128.0" fitWidth="167.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="saleInfo_img" fitHeight="128.0" fitWidth="167.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <TableView fx:id="tbl_products" layoutX="19.0" layoutY="255.0" prefHeight="137.0" prefWidth="686.0">
               <columns>
                 <TableColumn fx:id="col_id" prefWidth="31.0" text="%col_sale_id" />
@@ -42,7 +42,7 @@
                <font>
                   <Font name="System Bold" size="15.0" />
                </font></Label>
-            <Button layoutX="19.0" layoutY="428.0" mnemonicParsing="false" onAction="#btn_receipt_Action" prefHeight="25.0" prefWidth="131.0" text="%chk_Recipt" />
+            <Button layoutX="19.0" layoutY="428.0" mnemonicParsing="false" onAction="#btn_receipt_Action" prefHeight="25.0" prefWidth="131.0" styleClass="export_button" text="%chk_Recipt" />
             <Label layoutX="201.0" layoutY="112.0" text="%receipt_pdf_saleID" />
             <Label fx:id="lbl_saleID" layoutX="337.0" layoutY="112.0" text="Label" />
             <Label layoutX="30.0" layoutY="142.0" text="%gnr_lbl_firstname" />
@@ -75,7 +75,7 @@
             <Label fx:id="lbl_salDate" layoutX="609.0" layoutY="404.0" text="Label" />
             <Label layoutX="495.0" layoutY="404.0" text="%lbl_Summary" />
             <Label fx:id="lbl_finalPrice" layoutX="128.0" layoutY="404.0" text="Label" />
-            <Button fx:id="btn_Paid" layoutX="196.0" layoutY="428.0" mnemonicParsing="false" onAction="#btn_Paid_Action" prefHeight="25.0" prefWidth="107.0" text="%lbl_salePaid" visible="false" />
+            <Button fx:id="btn_Paid" layoutX="196.0" layoutY="428.0" mnemonicParsing="false" onAction="#btn_Paid_Action" prefHeight="25.0" prefWidth="107.0" styleClass="save_button" text="%lbl_salePaid" visible="false" />
          </children>
       </Pane>
    </children>
