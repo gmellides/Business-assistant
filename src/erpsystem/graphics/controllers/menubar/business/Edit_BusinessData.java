@@ -212,7 +212,7 @@ public class Edit_BusinessData implements Initializable {
          */
         private void close_window(){
             Stage this_Stage = (Stage) btnClose.getScene().getWindow();
-            this_Stage.hide();
+            this_Stage.close();
         }
     // ===============================
         

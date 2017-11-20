@@ -264,17 +264,14 @@ public class Launcher implements Initializable {
             // File > View Admin Data
             @FXML
             private void mnu_ViewAdminData_Action(ActionEvent event) throws IOException {
-                if (!window_check.ViewAdmin_isOpen()){
-                    window_check.ViewAdmin_toggle(true);
-                    try{
-                        OpenWindow("menubar/admin/View_BusinessAdmin.fxml",
-                                   694,
-                                   470,
-                                   default_strings.getString("view_admin_data"));
-                    }catch(IOException e){
-                        e.printStackTrace();
-                    } 
-                    
+                window_check.ViewAdmin_toggle(true);
+                try{
+                    OpenWindow("menubar/admin/View_BusinessAdmin.fxml",
+                               694,
+                               470,
+                               default_strings.getString("view_admin_data"));
+                }catch(IOException e){
+                    e.printStackTrace();
                 }    
             }
             // Edit > Edit Business Data

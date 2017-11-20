@@ -17,7 +17,7 @@
    <children>
       <Pane prefHeight="414.0" prefWidth="750.0" styleClass="background_panel">
          <children>
-            <Button layoutX="614.0" layoutY="369.0" mnemonicParsing="false" onAction="#btn_Save_Action" prefHeight="25.0" prefWidth="112.0" text="%gnr_btn_Save" />
+            <Button layoutX="614.0" layoutY="369.0" mnemonicParsing="false" onAction="#btn_Save_Action" prefHeight="25.0" prefWidth="112.0" styleClass="save_button" text="%gnr_btn_Save" />
             <Label layoutX="268.0" layoutY="21.0" text="%newSupplier_windowname">
                <font>
                   <Font size="26.0" />
@@ -32,7 +32,7 @@
             <Label layoutX="36.0" layoutY="287.0" text="%gnr_lbl_address" />
             <TextField fx:id="txtName" layoutX="108.0" layoutY="157.0" />
             <TextField fx:id="txtLastName" layoutX="108.0" layoutY="198.0" />
-            <ComboBox fx:id="cmbSex" layoutX="107.0" layoutY="242.0" prefWidth="150.0" promptText="%gnr_cmb_select" />
+            <ComboBox fx:id="cmbSex" layoutX="107.0" layoutY="242.0" prefWidth="150.0" promptText="%gnr_cmb_select" styleClass="simple_btn" />
             <Label layoutX="36.0" layoutY="332.0" text="%gnr_lbl_zipcode" />
             <TextField fx:id="txtAddress" layoutX="108.0" layoutY="283.0" />
             <TextField fx:id="txtZipCode" layoutX="108.0" layoutY="328.0" />
@@ -41,9 +41,9 @@
             <Label layoutX="280.0" layoutY="246.0" text="%gnr_lbl_city" />
             <Label layoutX="280.0" layoutY="287.0" text="%gnr_lbl_phone" />
             <Label layoutX="280.0" layoutY="332.0" text="%gnr_lbl_fax" />
-            <ComboBox fx:id="cmbCountry" layoutX="356.0" layoutY="157.0" prefWidth="150.0" promptText="%gnr_cmb_select" />
-            <ComboBox fx:id="cmbState" layoutX="356.0" layoutY="198.0" prefWidth="150.0" promptText="%gnr_cmb_select" />
-            <ComboBox fx:id="cmbCity" layoutX="356.0" layoutY="242.0" prefWidth="150.0" promptText="%gnr_cmb_select" />
+            <ComboBox fx:id="cmbCountry" layoutX="356.0" layoutY="157.0" prefWidth="150.0" promptText="%gnr_cmb_select" styleClass="simple_btn" />
+            <ComboBox fx:id="cmbState" layoutX="356.0" layoutY="198.0" prefWidth="150.0" promptText="%gnr_cmb_select" styleClass="simple_btn" />
+            <ComboBox fx:id="cmbCity" layoutX="356.0" layoutY="242.0" prefWidth="150.0" promptText="%gnr_cmb_select" styleClass="simple_btn" />
             <TextField fx:id="txtPhone" layoutX="357.0" layoutY="283.0" />
             <TextField fx:id="txtFax" layoutX="357.0" layoutY="328.0" />
             <Label layoutX="519.0" layoutY="161.0" text="%gnr_lbl_mail" />
@@ -54,7 +54,7 @@
             <TextField fx:id="txtIBAN" layoutX="578.0" layoutY="242.0" />
             <Label layoutX="519.0" layoutY="246.0" text="%lbl_IBAN" />
             <Label layoutX="519.0" layoutY="287.0" text="%lbl_supplierType" />
-            <ComboBox fx:id="cmbSupplierType" layoutX="523.0" layoutY="308.0" prefHeight="25.0" prefWidth="203.0" promptText="%gnr_cmb_select" />
+            <ComboBox fx:id="cmbSupplierType" layoutX="523.0" layoutY="308.0" prefHeight="25.0" prefWidth="203.0" promptText="%gnr_cmb_select" styleClass="simple_btn" />
          </children>
       </Pane>
    </children>

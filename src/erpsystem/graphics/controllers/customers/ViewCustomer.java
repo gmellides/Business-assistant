@@ -9,14 +9,21 @@ import erpsystem.database.customers.CST_View;
 import erpsystem.entities.corpotations.CustomerCompany;
 import erpsystem.entities.people.Customer;
 import erpsystem.util.export.pdf.customers.CustomerPDF;
+import erpsystem.util.system.Dimension;
+import erpsystem.util.system.WindowsManager;
 import erpsystem.util.xml.read.ComboBoxDataParser;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -28,6 +35,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class ViewCustomer implements Initializable {
 
@@ -84,6 +92,8 @@ public class ViewCustomer implements Initializable {
                         "dlg_customerDelete_title",
                         "dlg_customerDelete_header",
                         "dlg_customerDelete_message");
+                 close_window();
+                 OpenSearchView();
             }
         }
         @FXML
@@ -95,6 +105,7 @@ public class ViewCustomer implements Initializable {
                         "dlg_UpdateEntry_header",
                         "dlg_UpdateEntry_message");
                    close_window();
+                    OpenSearchView();
                }
            }else{
                if (new CST_View().update_customer_company(customerID, get_cmp_obj())){
@@ -103,6 +114,7 @@ public class ViewCustomer implements Initializable {
                         "dlg_UpdateEntry_header",
                         "dlg_UpdateEntry_message");
                    close_window();
+                   OpenSearchView();
                }
            }
         }
@@ -117,6 +129,7 @@ public class ViewCustomer implements Initializable {
         }
         @FXML
         private void btn_Close_Action(ActionEvent event) {
+            OpenSearchView();
             close_window();
         }
         /**
@@ -276,6 +289,31 @@ public class ViewCustomer implements Initializable {
             Stage this_window = (Stage) btnClose.getScene().getWindow();
             this_window.close();
         }
+        private void OpenSearchView(){
+        try{
+            FXMLLoader fxml_loader = new FXMLLoader();
+            fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
+            Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/customers/SearchView.fxml").openStream());
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            stage.setHeight(new Dimension().SearchView_window_height);
+            stage.setWidth(new Dimension().SearchView_window_width);
+               stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                   @Override
+                   public void handle(WindowEvent we) {
+                       new WindowsManager().toggle_window("customers/SearchView.fxml");
+                       stage.close();
+                   }
+               });
+            stage.setTitle(default_strings.getString("window_customer_manager"));
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
+            stage.show();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
         private void Alert_dialog(Alert.AlertType type,
                               String Title,
                               String Header,

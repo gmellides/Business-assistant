@@ -45,8 +45,11 @@ public class PurchaseInfo implements Initializable {
         Stage win = (Stage) prcInfo_img.getScene().getWindow();
         win.close();
     }
-    public void init_window(int purchaseID){
+    public void init_window(int purchaseID,boolean isCompany){
          Map<String,String> data = new PRC_View().select_spacific_purchase(purchaseID).get(0);
+         if (isCompany){
+             lbl_lastname_txt.setVisible(false);
+         }
          Label[] lbls = {lbl_name,lbl_lastname,lbl_mail,lbl_address,lbl_city,lbl_state,lbl_zipcode,
                          lbl_bank,lbl_IBAN,lbl_supplierType,lbl_fax,lbl_phone,
                          lbl_quantity,lbl_prdName,lbl_category,lbl_prdDescription,lbl_prcPrice,

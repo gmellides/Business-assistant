@@ -85,7 +85,7 @@ public class ViewPurchases implements Initializable {
                     Map clickedRow = row.getItem();
                         OpenPurchaseSaleWindow(new Dimension().ViewEntry_window_widht,
                                            new Dimension().ViewEntry_window_height,
-                                           Integer.parseInt((String)clickedRow.get("prc_id")));
+                                           Integer.parseInt((String)clickedRow.get("prc_id")),false);
                     }
                 });
             return row 
@@ -101,6 +101,19 @@ public class ViewPurchases implements Initializable {
                 column.setCellValueFactory(new MapValueFactory(prcMap_id_c[index]));
                 index++;
             }
+        tbl_purchases_cmp.setRowFactory(tableview_evt ->{
+            TableRow<Map> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (! row.isEmpty() && event.getButton()== MouseButton.PRIMARY 
+                                    && event.getClickCount() == 2) {
+                    Map clickedRow = row.getItem();
+                        OpenPurchaseSaleWindow(new Dimension().ViewEntry_window_widht,
+                                           new Dimension().ViewEntry_window_height,
+                                           Integer.parseInt((String)clickedRow.get("prc_id")),true);
+                    }
+                });
+            return row 
+        ;});
     }
 
     
@@ -110,13 +123,13 @@ public class ViewPurchases implements Initializable {
     }
     private void OpenPurchaseSaleWindow(int Width,
                                     int Height,
-                                    int input){
+                                    int input,boolean isCompany){
         try{
             FXMLLoader fxml_loader = new FXMLLoader();
             fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
             Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/purchases/PurchaseInfo.fxml").openStream());
             PurchaseInfo controller = fxml_loader.getController();
-            controller.init_window(input);                            
+            controller.init_window(input,isCompany);                            
             Stage stage = new Stage();
             Scene scene = new Scene(root);
             stage.setHeight(Height);

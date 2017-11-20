@@ -40,6 +40,8 @@ public class View_BusinessAdmin implements Initializable {
     private AdminDataParser admin_xml;
     private FileManager workspace;
     private ResourceBundle default_strings;
+    @FXML
+    private Label lbl_noData;
     /**
      * Initializes the controller class.
      */
@@ -52,6 +54,13 @@ public class View_BusinessAdmin implements Initializable {
             admin_xml = new AdminDataParser(new File(workspace.getApp_data_admin()+"/admin_data.xml"));
             adminData = admin_xml.getData();
             put_data(adminData);
+        }else{
+            lbl_noData.setVisible(true);
+            Label[] lbls = {lbl_fistname,lbl_lastname,lbl_sex,lbl_address,lbl_phone1,
+            lbl_phone2,lbl_birthdate,lbl_city,lbl_zipcode,lbl_mail,lbl_taxreg,lbl_description};
+           for (Label lbl :lbls){
+               lbl.setVisible(false);
+           } 
         }
     }    
 
@@ -76,6 +85,7 @@ public class View_BusinessAdmin implements Initializable {
 
     @FXML
     private void btnClose_Action(ActionEvent event) {
+        
         close_window();
     }
     

@@ -84,9 +84,9 @@ public class BackUp implements Initializable {
     private void btn_Import_Action(ActionEvent event) {
         if(new ImportSuppliers().import_csv(txt_Path.getText())){
             Alert_dialog(Alert.AlertType.INFORMATION,
-                            "dlg_CSV_title",
-                            "dlg_contactsCSV_header",
-                            "dlg_contactsCSV_message");
+                         "dlg_importCSV_title",
+                         "dlg_importCSV_header",
+                         "dlg_importCSV_message");
         }
     }
 

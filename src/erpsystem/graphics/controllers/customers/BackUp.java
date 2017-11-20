@@ -62,8 +62,8 @@ public class BackUp implements Initializable {
                        new CST_Database().select_customersBackUp())){
             Alert_dialog(AlertType.INFORMATION,
                         "dlg_CSV_title",
-                        "dlg_customersCSV_title",
-                        "dlg_customersCompaniesCSV_message");  
+                        "dlg_contactsCSV_header",
+                        "dlg_contactsCSV_message");  
         }else{
            Alert_dialog(AlertType.ERROR,
                         "dlg_selectionErrorCSV_title",

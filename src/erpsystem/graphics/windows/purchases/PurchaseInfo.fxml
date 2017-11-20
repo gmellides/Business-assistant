@@ -32,7 +32,7 @@
                <font>
                   <Font name="System Bold" size="15.0" />
                </font></Label>
-            <Button layoutX="621.0" layoutY="428.0" mnemonicParsing="false" onAction="#btn_close_Action" prefHeight="25.0" prefWidth="88.0" styleClass="exit_btn" text="%gnr_btn_Close" />
+            <Button layoutX="598.0" layoutY="428.0" mnemonicParsing="false" onAction="#btn_close_Action" prefHeight="25.0" prefWidth="111.0" styleClass="exit_btn" text="%gnr_btn_Close" />
             <Label fx:id="lbl_name_txt" layoutX="226.0" layoutY="135.0" text="%gnr_lbl_firstname" />
             <Label fx:id="lbl_name" layoutX="273.0" layoutY="135.0" text="Label" />
             <Label fx:id="lbl_lastname_txt" layoutX="418.0" layoutY="135.0" text="%gnr_lbl_lastname" />

@@ -100,7 +100,11 @@ public class SearchView implements Initializable {
                         if (! row.isEmpty() && event.getButton()== MouseButton.PRIMARY 
                                             && event.getClickCount() == 2) {
                                 Map clickedRow = row.getItem();
-                                OpenWindow(724,490,clickedRow);
+                                OpenWindow(new Dimension().ViewEntry_window_widht,
+                                           new Dimension().ViewEntry_window_height,
+                                           clickedRow);
+                                close_window();
+                                
                             }
                         });
                     return row 
@@ -114,6 +118,7 @@ public class SearchView implements Initializable {
                                 OpenWindow(new Dimension().ViewEntry_window_widht,
                                            new Dimension().ViewEntry_window_height,
                                            clickedRow);
+                                close_window();
                             }
                         });
                     return row 
@@ -159,8 +164,9 @@ public class SearchView implements Initializable {
             stage.setWidth(Width);
             stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                 @Override
-                public void handle(WindowEvent we) {                    
+                public void handle(WindowEvent we) {    
                     stage.close();
+                    OpenSearchView();
                 }
             });
             stage.setTitle(default_strings.getString("window_viewSupplier"));
@@ -185,6 +191,31 @@ public class SearchView implements Initializable {
                    @Override
                    public void handle(WindowEvent we) {
                        new WindowsManager().toggle_window("suppliers/SupplierManager.fxml");
+                       stage.close();
+                   }
+               });
+            stage.setTitle(default_strings.getString("window_supplier_manager"));
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
+            stage.show();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+    private void OpenSearchView(){
+        try{
+            FXMLLoader fxml_loader = new FXMLLoader();
+            fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
+            Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/suppliers/SearchView.fxml").openStream());
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            stage.setHeight(new Dimension().SearchView_window_height);
+            stage.setWidth(new Dimension().SearchView_window_width);
+               stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                   @Override
+                   public void handle(WindowEvent we) {
+                       new WindowsManager().toggle_window("suppliers/SearchView.fxml");
                        stage.close();
                    }
                });

@@ -30,7 +30,7 @@
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_lastname" layoutX="159.0" layoutY="163.0" text="lastname">
+            <Label fx:id="lbl_lastname" layoutX="172.0" layoutY="163.0" text="lastname">
                <font>
                   <Font size="14.0" />
                </font></Label>
@@ -39,7 +39,7 @@
                   <Font size="14.0" />
                </font></Label>
             <Line endX="523.0" layoutX="135.0" layoutY="127.0" startX="-100.0" />
-            <Label fx:id="lbl_address" layoutX="159.0" layoutY="199.0" text="address">
+            <Label fx:id="lbl_address" layoutX="172.0" layoutY="199.0" text="address">
                <font>
                   <Font size="14.0" />
                </font></Label>
@@ -59,7 +59,7 @@
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_zipcode" layoutX="319.0" layoutY="163.0" text="zipcode">
+            <Label fx:id="lbl_zipcode" layoutX="376.0" layoutY="163.0" text="zipcode">
                <font>
                   <Font size="14.0" />
                </font></Label>
@@ -67,7 +67,7 @@
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label fx:id="lbl_taxreg" layoutX="159.0" layoutY="234.0" text="Taxreg">
+            <Label fx:id="lbl_taxreg" layoutX="172.0" layoutY="234.0" text="Taxreg">
                <font>
                   <Font size="14.0" />
                </font></Label>
@@ -75,6 +75,11 @@
                <font>
                   <Font size="14.0" />
                </font></Label>
+            <Label fx:id="lbl_noData" layoutX="78.0" layoutY="220.0" prefHeight="57.0" prefWidth="538.0" text="%view_no_data" textAlignment="CENTER" visible="false">
+               <font>
+                  <Font size="47.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

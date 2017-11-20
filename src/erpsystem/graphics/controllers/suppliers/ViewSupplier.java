@@ -8,15 +8,23 @@ package erpsystem.graphics.controllers.suppliers;
 import erpsystem.database.suppliers.SPL_View;
 import erpsystem.entities.corpotations.SupplierCompany;
 import erpsystem.entities.people.Supplier;
+import erpsystem.util.system.Dimension;
+import erpsystem.util.system.WindowsManager;
 import erpsystem.util.xml.read.ComboBoxDataParser;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -26,6 +34,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class ViewSupplier implements Initializable {
 
@@ -83,6 +92,7 @@ public class ViewSupplier implements Initializable {
                         "dlg_UpdateEntry_message");
             }
             close_window();
+            OpenSearchView();
         }else{
             if(new SPL_View().update_supplier_ind(ID, get_UpdatedSPL_ind())){
                 Alert_dialog(Alert.AlertType.INFORMATION,
@@ -91,11 +101,13 @@ public class ViewSupplier implements Initializable {
                         "dlg_UpdateEntry_message");
             }
             close_window();
+            OpenSearchView();
         }
     }
     @FXML
     private void btn_Close_Action(ActionEvent event) {
         close_window();
+          OpenSearchView();
     }
     private Supplier get_UpdatedSPL_ind(){
         Supplier spl = new Supplier();
@@ -251,9 +263,40 @@ public class ViewSupplier implements Initializable {
         succed_dialog.setContentText(default_strings.getString(Message));
         succed_dialog.showAndWait();   
     }
-
+    private void OpenSearchView(){
+        try{
+            FXMLLoader fxml_loader = new FXMLLoader();
+            fxml_loader.setResources(ResourceBundle.getBundle("erpsystem.language.strings_gr"));
+            Parent root = fxml_loader.load(getClass().getResource("/erpsystem/graphics/windows/suppliers/SearchView.fxml").openStream());
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            stage.setHeight(new Dimension().SearchView_window_height);
+            stage.setWidth(new Dimension().SearchView_window_width);
+               stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                   @Override
+                   public void handle(WindowEvent we) {
+                       new WindowsManager().toggle_window("suppliers/SearchView.fxml");
+                       stage.close();
+                   }
+               });
+            stage.setTitle(default_strings.getString("window_supplier_manager"));
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
+            stage.show();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
     @FXML
     private void btn_Delete_Action(ActionEvent event) {
-        new SPL_View().delete_supplier(ID);
+        if(new SPL_View().delete_supplier(ID)){
+            Alert_dialog(AlertType.INFORMATION,
+                         "dlg_customerDelete_title",
+                         "dlg_customerDelete_header",
+                         "dlg_supplierDelete_message"); 
+            close_window();
+            OpenSearchView();
+        }
     }
 }

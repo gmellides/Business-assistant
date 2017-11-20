@@ -115,7 +115,6 @@ public class NewSupplier implements Initializable {
         // window manager toggle
         Stage window = (Stage) lbl_name.getScene().getWindow();
         window.close();
-        OpenManager();
     }
     private SupplierCompany get_cmp_obj(){
         SupplierCompany new_spl = new SupplierCompany();
@@ -180,7 +179,7 @@ public class NewSupplier implements Initializable {
             stage.setTitle(default_strings.getString("window_supplier_manager"));
             stage.setScene(scene);
             stage.setResizable(false);
-            // stage.getIcons().add(new Image(getClass().getResource("icon.png").toExternalForm()));
+            stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));
             stage.show();
         }catch(IOException e){
             e.printStackTrace();
