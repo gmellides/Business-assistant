@@ -61,7 +61,7 @@ public class NewCategory implements Initializable {
                 stage.close();
             }
         });
-        stage.setTitle(default_strings.getString("edit_admin_data"));
+        stage.setTitle(default_strings.getString("bnt_newPurchase"));
         stage.setScene(scene);
         stage.setResizable(false);
         stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));

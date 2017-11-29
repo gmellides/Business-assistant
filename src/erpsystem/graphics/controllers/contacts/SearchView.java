@@ -70,11 +70,7 @@ public class SearchView implements Initializable {
             Stage this_window = (Stage)  btnClose.getScene().getWindow();
             this_window.close();
         }
-        @FXML
-        private void Instant_Search(KeyEvent event) {
-           search_value = event.getText();
-           System.out.print(search_value);
-        }
+        
 
     private void init_window(){
         icon_img.setImage(new Image(new File("resources/images/contacts/contact_manager.png").toURI().toString()));

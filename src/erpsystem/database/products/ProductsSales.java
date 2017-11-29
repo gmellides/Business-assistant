@@ -3,12 +3,14 @@ package erpsystem.database.products;
 
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class ProductsSales extends PRD_Database{
     
-    public ObservableList<String> getproducts(){
+    public ObservableList<String> getproducts(ResourceBundle ds){
+        
         ObservableList<String> data = FXCollections.observableArrayList();
              try{
                 Connect();
@@ -18,7 +20,7 @@ public class ProductsSales extends PRD_Database{
                         data.add(String.valueOf(rs.getInt("prd_id"))+" "+
                                                 rs.getString("prd_name")+" ("+
                                                 rs.getString("prd_category")+","+
-                                                "Qunatity: "+
+                                                ds.getString("lbl_Quantity")+
                                                 rs.getString("prd_quantity")+")");  
                     }
                 Disconnect();    

@@ -242,7 +242,7 @@ public class NewSale implements Initializable {
         basket = FXCollections.observableArrayList();
         // Price and Quantity Lists for check.
         cmb_customer_select.setItems(new CST_Sales().select_cst_individual());
-        cmb_product_select.setItems(new ProductsSales().getproducts());
+        cmb_product_select.setItems(new ProductsSales().getproducts(default_strings));
         // Price list with ID and SellPrice from the database
         priceList = new ProductsSales().select_sellPrice();
         // Quantity List with ID and Quantity from the database 
