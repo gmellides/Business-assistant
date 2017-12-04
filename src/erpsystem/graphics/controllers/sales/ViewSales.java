@@ -144,7 +144,7 @@ public class ViewSales implements Initializable {
                     stage.close();
                 }
             });
-            stage.setTitle(default_strings.getString("window_customer_manager"));
+            stage.setTitle(default_strings.getString("lbl_saleInfo_winName"));
             stage.setScene(scene);
             stage.setResizable(false);
             stage.getIcons().add(new Image(getClass().getResource("/logo/icon.png").toExternalForm()));

@@ -72,7 +72,7 @@ public class SaleInfo implements Initializable {
         }else{
             lbl_paymentType.setText(bundle.getString("rbtn_Debit"));
         }
-        lbl_category.setText("");
+      
         // set product table
 
         tbl_products.setItems(new ReceiptDatabase().get_prdInfo(saleID));

@@ -95,7 +95,7 @@ public class SalesManager implements Initializable {
             stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                 @Override
                 public void handle(WindowEvent we) {
-             //     window_check.toggle_window(WindowPath);
+            
                     stage.close();
                 }
                 });
